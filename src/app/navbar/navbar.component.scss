@@ -1,0 +1,30 @@
+
+#nav {
+    padding: 10px 0px;
+    -webkit-transition: 0.2s padding;
+    transition: 0.2s padding;
+    z-index: 999;
+  }
+  
+  .navbar-nav li {
+    padding: 0px 15px;
+    font-size: 15px;
+  }
+  
+  .navbar-nav li a {
+    color: white ; 
+  }
+  
+  .navbar-nav>li>a:after {
+    content: "";
+    display: block;
+    background-color: royalblue;
+    height: 2px;
+    width: 0%;
+    -webkit-transition: 0.2s width;
+    transition: 0.2s width;
+  }
+  .navbar-nav>li>a:hover:after{
+    width: 100%;
+  }
+  
