@@ -11,11 +11,14 @@ import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.compo
 
 import { HomeComponent } from './home/home.component' ;
 import { SigninComponent } from './signin/signin.component' ;
+import { SignupComponent } from './signup/signup.component' ;
 
 const routes: Routes =[
    // { path: '', redirectTo: 'index', pathMatch: 'full' },
     { path: '',                     component: HomeComponent },
     { path: 'Signin',               component: SigninComponent },
+    { path: 'Signup',               component: SignupComponent },
+
     { path: 'index',                component: ComponentsComponent },
     { path: 'nucleoicons',          component: NucleoiconsComponent },
     { path: 'examples/landing',     component: LandingComponent },

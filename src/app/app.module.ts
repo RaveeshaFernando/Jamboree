@@ -11,13 +11,15 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { SigninComponent } from './signin/signin.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         NavbarComponent,
         HomeComponent,
-        SigninComponent
+        SigninComponent,
+        SignupComponent
     ],
     imports: [
         BrowserAnimationsModule,
