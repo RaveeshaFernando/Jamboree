@@ -1,4 +1,6 @@
-/* ----------------------------------------| HOME |-----------------------------------------*/
+
+
+//------------------------home------------------------//
 
 .bg-img {
     position: absolute;
@@ -21,63 +23,22 @@
     bottom: 0;
     opacity: .8;
     background: #1C1D21;
+    height: 70vh ;
 }
 
-@media only screen and (max-width:1200px) and (min-width:768px){
-    .box-outer h1{
-        font-size: 36px ;
-    }
-    .box-outer{
-        padding-top:150px;
-        padding-left:100px;
-        color:white;
-        height: 70vh ;
-    }
+.n-logo {
+    max-width: 200px;
+    margin-bottom: 40px;
 }
 
-@media only screen and (max-width: 767px) {
-    .box-outer h1{
-        font-size: 25px ;
-    }
-    .box-outer{
-        padding-top:130px;
-        padding-left:30px;
-        color:white;
-        height: 70vh ;
-    }
-    .box-outer p{
-        font-size: 14px ;
-    }
-}
-
-@media only screen and (min-width: 1200px) {
-    .box-outer h1{
-        font-size: 48px ;
-        line-height: 2;
-    }
-    .box-outer{
-        padding-top:200px;
-        padding-left:200px;
-        color:white;
-        height: 70vh ;
-    }
+.h1-seo {
+    font-size: 2.8em;
+    text-transform: uppercase;
+    font-weight: 300;
 }
 
 
-/* --------------------------------------| SEARCH BAR |---------------------------------------*/
-
-.search{color: white}
-
-
-/* --------------------------------------| PORTFOLIO |----------------------------------------*/
-
-
-.carousel_slider{
-    width:900px ;
-    border-radius: 20px;
-    padding-left: 10px ;
-    padding-right: 10px ;
-}
+//------------------------carpousal-----------------------//
 
 .feature {margin: 15px 0px;}
 
@@ -88,59 +49,6 @@
     color:#222;
     border: 1px solid #222;
     margin-right: 5px;
-}
-
-
-/* ---------------------------------------| SERVICES |----------------------------------------*/
-
-.what-we-offer {
-    padding: 85px 0;
-}
-
-.details{
-    padding-top: 100px ;
-    text-align: center;
-    padding-bottom: 60px;
-}
-
-.offer {
-    position: relative;
-    text-align: center;
-    background: #fCfCfC; 
-    z-index: 11;
-    margin: 15px 0px;
-    box-shadow:0 2px 4px 0 grey;
-    padding-left: 10px;
-    padding-right: 10px ;
-
-}
-
-.offer h6{
-    color: #555;
-    font-size: 18px;
-}
-
-.offer h2 { color:royalblue;}
-
-.offer:hover h2 {color: #fff;}
-
-.offer:hover h6 {color: #fff;}
-
-.offer::after {
-    content: "";
-    background: #1C1D21;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    height: 0%;
-    z-index: -1;
-    -webkit-transition: 0.8s height;
-    transition: 0.8s height;
-}
-
-.offer:hover:after {
-    height: 100%;
 }
 
 .offer_btn{
@@ -155,26 +63,8 @@
     color: white ;
 }
 
-@media only screen and (max-width: 767px){
-    .service-img{
-        border-radius: 50%;
-        max-width:100px;
-        border: 1px solid #6195FF;
-    }
-       
-}
 
-@media only screen and (min-width: 767px){
-    .service-img{
-        border-radius: 50%;
-        max-width:150px;
-        border: 1px solid #6195FF;
-    }
-       
-} 
-
-
-/* --------------------------------------| ANALYTICS |---------------------------------------*/
+//------------------------analytics------------------------//
 
 .analytics{
     padding-top: 60px; 
@@ -193,6 +83,7 @@
     font-size: 36px;
     margin-bottom: 20px;
 }
+
 .image {
     position: absolute;
     left: 0;
@@ -214,25 +105,6 @@
     background: #1C1D21;
 }
 
-
-
-/* -------------------------------------| TESTAMONIAL  |--------------------------------------*/
-
-.team-img{
-    max-width: 350px;
-}
-.des{
-    max-width: 350px;
-    background: #1C1D21;
-    border-top: solid white ;
-    color: white;
-    padding: 50px ;
-}
-.ico{
-    padding:3px;
-    max-width: 40px;
-}
-/* --------------------------------------| CONTACT US |---------------------------------------*/
 
 .contact{
     background:transparent;

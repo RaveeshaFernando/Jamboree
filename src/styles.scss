@@ -1,10 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i");
-@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700");
-@import url("https://fonts.googleapis.com/css?family=Arimo:400,400i,700,700i");
-
-.font-arimo {  font-family: "Arimo" }
-.font-poppins {  font-family: "Poppins" }
-.font-lato {  font-family: "Lato" }
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/scss/bootstrap.scss";
 
 html {
     scroll-behavior: smooth;
