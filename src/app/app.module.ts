@@ -12,6 +12,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
     declarations: [
@@ -19,7 +20,8 @@ import { SignupComponent } from './signup/signup.component';
         NavbarComponent,
         HomeComponent,
         SigninComponent,
-        SignupComponent
+        SignupComponent,
+        ProfileComponent
     ],
     imports: [
         BrowserAnimationsModule,
@@ -31,6 +33,7 @@ import { SignupComponent } from './signup/signup.component';
         ExamplesModule
     ],
     providers: [],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
 })
+
 export class AppModule { }
