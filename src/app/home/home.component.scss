@@ -12,7 +12,7 @@
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
-    height: 70vh ;
+    height: 75vh ;
 }
 
 .bg-img .overlay {
@@ -21,9 +21,13 @@
     top: 0;
     right: 0;
     bottom: 0;
-    opacity: .8;
+    opacity: .92;
     background: #1C1D21;
-    height: 70vh ;
+    height: 75vh ;
+}
+
+.vid {
+    width: 100vw;
 }
 
 .n-logo {

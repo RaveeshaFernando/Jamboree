@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
@@ -12,15 +12,22 @@ import { HomeComponent } from './home/home.component' ;
 import { SigninComponent } from './signin/signin.component' ;
 import { SignupComponent } from './signup/signup.component' ;
 import { ProfileComponent } from './profile/profile.component' ;
-import { DashboardComponent } from './Admin/dashboard/dashboard.component';
+import { AdminComponent } from './admin/admin/admin.component';
+
+
+//Those are loaded inside the Admin dashboard
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { UpdateprofileComponent } from './admin/updateprofile/updateprofile.component';
 
 const routes: Routes =[
     { path: '',                     component: HomeComponent },
     { path: 'Signin',               component: SigninComponent },
     { path: 'Signup',               component: SignupComponent },
     { path: 'Profile',              component: ProfileComponent },
-    { path: 'dashboard',            component: DashboardComponent},
- 
+    { path: 'Admin',                component: AdminComponent},
+    
+    { path: 'Dashboard',            component: DashboardComponent},
+    { path: 'UpdateProfile',        component: UpdateprofileComponent},
 
     { path: 'index',                component: ComponentsComponent },
     { path: 'nucleoicons',          component: NucleoiconsComponent },

@@ -10,6 +10,8 @@ import { ExamplesModule } from './examples/examples.module';
 import { AngularFireModule } from "@angular/fire" ;
 import { AngularFirestoreModule } from "@angular/fire/firestore" ;
 
+import { AdminModule } from './admin/admin.module';
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
@@ -17,7 +19,6 @@ import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { ProfileComponent } from './profile/profile.component';
 import { environment } from 'environments/environment';
-import { DashboardComponent } from './Admin/dashboard/dashboard.component';
 
 @NgModule({
     declarations: [
@@ -27,13 +28,14 @@ import { DashboardComponent } from './Admin/dashboard/dashboard.component';
         SigninComponent,
         SignupComponent,
         ProfileComponent,
-        DashboardComponent
     ],
     imports: [
         BrowserAnimationsModule,
 
         AngularFireModule.initializeApp(environment.firebaseConfig),
         AngularFirestoreModule,
+
+        AdminModule,
 
         NgbModule.forRoot(),
         FormsModule,
