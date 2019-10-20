@@ -12,13 +12,15 @@ import { HomeComponent } from './home/home.component' ;
 import { SigninComponent } from './signin/signin.component' ;
 import { SignupComponent } from './signup/signup.component' ;
 import { ProfileComponent } from './profile/profile.component' ;
+import { DashboardComponent } from './Admin/dashboard/dashboard.component';
 
 const routes: Routes =[
-   // { path: '', redirectTo: 'index', pathMatch: 'full' },
     { path: '',                     component: HomeComponent },
     { path: 'Signin',               component: SigninComponent },
     { path: 'Signup',               component: SignupComponent },
     { path: 'Profile',              component: ProfileComponent },
+    { path: 'dashboard',            component: DashboardComponent},
+ 
 
     { path: 'index',                component: ComponentsComponent },
     { path: 'nucleoicons',          component: NucleoiconsComponent },
