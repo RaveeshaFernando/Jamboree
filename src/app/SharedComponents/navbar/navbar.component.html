@@ -1,0 +1,41 @@
+<header>
+    <mdb-navbar class="navCss" SideClass="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar" [containerInside]="false">
+        <mdb-navbar-brand>
+            <a class="logo navbar-brand" href="#">
+                <img src="../../../assets/img/Gallery/logo2.png" width="100px">
+            </a>
+        </mdb-navbar-brand>
+      
+        <links>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active waves-light" mdbWavesEffect>
+                    <a href="#home"  class="nav-link"><strong> Home </strong> <span class="sr-only">(current)</span> </a>
+                </li>
+                <li class="nav-item waves-light" mdbWavesEffect >
+                    <a [routerLink]="['/Admin']" class="nav-link"> <strong>Feed</strong> </a>
+                </li>
+                <li class="nav-item waves-light" mdbWavesEffect >
+                    <a href="#contacts" class="nav-link"> <strong>Feed2</strong> </a>
+                </li>
+                    
+                <li class="nav-item waves-light" mdbWavesEffect>
+                    <form class="form-inline waves-light" mdbWavesEffect>
+                        <div class="md-form my-0">
+                            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                        </div>
+                    </form>    
+                </li>
+            </ul>
+            <ul class="navbar-nav nav-flex-icons">
+                <li class="nav-item dropdown" dropdown>
+                    <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect> <strong>Hello Guest! </strong> <span class="caret"></span></a>
+                    <div *dropdownMenu class="dropdown-menu dropdown drop" role="menu">
+                        <a [routerLink]="['/Signin']"  class="dropdown-item waves-light" mdbWavesEffect href="#"> <strong> Log In</strong></a>
+                        <div class="divider dropdown-divider"></div>
+                        <a [routerLink]="['/Signup']"  class="dropdown-item waves-light" mdbWavesEffect href="#"> <strong>Sign Up</strong></a>
+                    </div>
+                </li>
+            </ul>
+        </links>
+    </mdb-navbar>
+    </header>
