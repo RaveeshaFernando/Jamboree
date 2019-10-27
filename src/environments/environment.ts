@@ -3,8 +3,20 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase:{
+      apiKey: "AIzaSyB-eRxME7cVnmsOkD5fJ1NCC3wVV48Uzss",
+      authDomain: "jamboree-official.firebaseapp.com",
+      databaseURL: "https://jamboree-official.firebaseio.com",
+      projectId: "jamboree-official",
+      storageBucket: "jamboree-official.appspot.com",
+      messagingSenderId: "756586043290",
+      appId: "1:756586043290:web:3a2a1d1f934efeb0c58c23",
+      measurementId: "G-CP203NKPVT"
+  }
 };
+
+
 
 /*
  * For easier debugging in development mode, you can import the following file
