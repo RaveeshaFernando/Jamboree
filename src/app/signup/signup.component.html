@@ -2,33 +2,40 @@
   <div class="overlay"></div>
 </div>
 
-<div class="container text-center" style="padding-top:120px ">
+<div class="container text-center" style="padding-top:120px;">
     <div class="row justify-content-md-center">
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-6 col-lg-4 " style="padding-top:70px;">
             <br><br>
             <img src="assets/img/Gallery/logo2.png" alt="logo" style="max-width: 300px">
-            <br><br>
-            
-            <div class="input-group form-group-no-border input-lg">
-              <input type="text" class="form-control" placeholder="First Name..." />
-            </div>
-            <div class="input-group form-group-no-border input-lg">
-              <input type="text" class="form-control" placeholder="Last Name..." />
-            </div>
-            <div class="input-group form-group-no-border input-lg">
-              <input type="text" class="form-control" placeholder="Email Address..." />
-            </div>
-            <div class="input-group form-group-no-border input-lg">
-                <input type="password" placeholder="Password..." class="form-control" />
-            </div>
-            <div class="input-group form-group-no-border input-lg">
-              <input type="password" placeholder="Re-Enter Password..." class="form-control" />
-            </div>
-
-            <div class="footer text-center">
-                <a href="#" class="btn btn-info btn-round btn-lg btn-block">Get Started</a>
-            </div>
-                <a class="button-cus btn" [routerLink]="['/Signin']" href="#"> Already have an account ? Sign in Here </a>
+            <br><br><br>
+            <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)"> 
+                <div class="form-row">
+                    <div class="input-group form-group-no-border col-lg-6">
+                      <input type="text" name=FirstName #FirstName="ngModel" [(ngModel)]="service.formData.FirstName" class="form-control form-font" placeholder="First Name..." required />
+                      <div *ngIf="FirstName.invalid && FirstName.touched" class="validation-error"> *This field is required</div>
+                    </div>
+                    <div class="input-group form-group-no-border input-lg col-lg-6">
+                      <input type="text" name=LastName #LastName="ngModel" [(ngModel)]="service.formData.LastName" class="form-control form-font" placeholder="Last Name..." required />
+                      <div *ngIf="LastName.invalid && LastName.touched" class="validation-error"> *This field is required</div>
+                    </div>
+                </div>
+                  
+                <div class="input-group form-group-no-border input-lg">
+                  <input type="text" name=Email #Email="ngModel" [(ngModel)]="service.formData.Email" class="form-control form-font" placeholder="Email Address..." required />
+                  <div *ngIf="Email.invalid && Email.touched" class="validation-error"> *This field is required</div>
+                </div>
+                <div class="input-group form-group-no-border input-lg">
+                    <input type="password" name=Password #Password="ngModel" [(ngModel)]="service.formData.Password" placeholder="Password..." class="form-control form-font" required />
+                    <div *ngIf="Password.invalid && Password.touched" class="validation-error"> *This field is required</div>
+                </div>
+                <div class="input-group form-group-no-border input-lg">
+                  <input type="password" placeholder="Re-Enter Password..." class="form-control form-font" required />
+                </div>
+  
+                <div class="footer text-center">
+                    <button type="submit" [disabled]="form.invalid" class="btn btn-block btn-round btn-lg btn-cus"> Get Started</button>
+                </div>    
+            </form>
         </div>
     </div>
 </div>

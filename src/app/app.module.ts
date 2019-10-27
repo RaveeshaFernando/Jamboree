@@ -26,6 +26,9 @@ import { DashboardComponent } from './Admin/dashboard/dashboard.component';
 import { ProfileInsightsComponent } from './Admin/profile-insights/profile-insights.component';
 import { BookingInfoComponent } from './Admin/booking-info/booking-info.component';
 
+import { AuthenticationService } from './Shared/authentication.service';
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,13 +50,16 @@ import { BookingInfoComponent } from './Admin/booking-info/booking-info.componen
     FormsModule,
     AppRoutingModule,
     NgbModule,
+    ToastrModule.forRoot(),
 
     AngularFireModule.initializeApp(environment.firebase, 'my-app-name'), // imports firebase/app needed for everything
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule // imports firebase/storage only needed for storage features
   ],
-  providers: [],
+  providers: [
+    AuthenticationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
