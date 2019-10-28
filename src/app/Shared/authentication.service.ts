@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Authentication } from './authentication.model'; 
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -7,5 +8,6 @@ import { Authentication } from './authentication.model';
 export class AuthenticationService {
   formData :  Authentication = new Authentication();
 
-  constructor() { }
+  constructor(private firestore: AngularFirestore) { }
+
 }

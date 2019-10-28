@@ -3,4 +3,7 @@ export class Authentication {
     LastName : String ;
     Email : string ;
     Password : string ;
+    RePassword : string ;
+    UserType : string ;
+    Contact : string ;
 }

@@ -3,6 +3,7 @@ import { AuthenticationService } from '../Shared/authentication.service';
 import { NgForm } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ToastrService } from 'ngx-toastr';
+import { ɵangular_packages_platform_browser_platform_browser_d } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-signup',
@@ -27,14 +28,22 @@ export class SignupComponent implements OnInit {
       FirstName : '' ,
       LastName : '' ,
       Email : '' ,
-      Password : '' 
+      Password : '' ,
+      RePassword : '', 
+      Contact : '',
+      UserType : ''
     }
   }
 
   onSubmit(form:NgForm){
     let data=form.value ;
-    this.firestore.collection('Users').add(data);
+    if (form.value.Password == form.value.RePassword){
+        this.firestore.collection('Users').add(data);
+        this.toastr.success('User Added Sucessfully', 'Jamboree.NewUser');
+    }
+    else {
+      this.toastr.error('Passwords not matching', 'Jamboree.NewUser');
+    }
     this.resetForm(form);
-    this.toastr.success('User Added Sucessfully', 'Jamboree.NewUser');
   }
 }
