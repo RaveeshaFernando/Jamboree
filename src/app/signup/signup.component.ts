@@ -37,11 +37,16 @@ export class SignupComponent implements OnInit {
 
   onSubmit(form:NgForm){
     let data=form.value ;
+
+    console.log("Came Here");
     if (form.value.Password == form.value.RePassword){
+
+        console.log("sucess");
         this.firestore.collection('Users').add(data);
         this.toastr.success('User Added Sucessfully', 'Jamboree.NewUser');
     }
     else {
+      console.log("Failed");
       this.toastr.error('Passwords not matching', 'Jamboree.NewUser');
     }
     this.resetForm(form);

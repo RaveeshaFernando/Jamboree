@@ -1,4 +1,30 @@
 <app-sidebar></app-sidebar>
-<div class="depth" style="padding-top:100px">
+<div class="depth" style="padding-top:100px;">
+    <div class="col-lg-6 col-sm-6" >
+        <div style="background-color: white;">
 
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>User Name</th>
+                        <th>Email</th>
+                        <th>Mobile</th>
+                        <th>User Type</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor= "let user of list">
+                        <th scope="row"> 1</th>
+                        <td> {{user.FirstName}} {{user.LastName}}</td>
+                        <td> {{user.Email}} </td>
+                        <td> {{user.Contact}} </td>
+                        <td> {{user.UserType}} </td>
+                        <td> <a class="btn-sm text-danger"> <i class="fa fa-trash"></i></a> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>    
+    </div>
 </div>
