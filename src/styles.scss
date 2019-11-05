@@ -2,7 +2,8 @@ html {
     scroll-behavior: smooth;
   }
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; //font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: 'Nunito', sans-serif; }
 
 
 input.ng-touched.ng-invalid{

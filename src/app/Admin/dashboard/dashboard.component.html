@@ -1,10 +1,83 @@
 <app-sidebar></app-sidebar>
-<div class="depth" style="padding-top:100px;">
-    <div class="col-lg-6 col-sm-6" >
+<div class="depth" style="padding-top:100px;background-color:#EEE ">
+
+    <div class="row" style="padding-right: 30px;">
+        <div class="col-md-4 mb-4">
+            <div class="card gradient-card">
+                <div class="card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg)">
+                    <div class="text-white d-flex h-100 mask blue-gradient-rgba">
+                      <div class="first-content align-self-center p-3">
+                        <h3 class="card-title" style="padding-left: 20px;padding-top: 20px;">Total Users</h3>
+                        </div>
+                      <div class="second-content align-self-center mx-auto text-center">
+                        <i class="fas fa-users fa-3x"></i>
+                      </div>
+                    </div>
+                </div>
+                <div class="third-content ml-auto mr-4 mb-2">
+                  <h1 class="text-center " style="color: slateblue;font-size: 500%;padding-top: 40px;">543</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card gradient-card">
+                <div class="card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg)">
+                    <div class="text-white d-flex h-100 mask peach-gradient-rgba">
+                        <div class="first-content align-self-center p-3">
+                        <h3 class="card-title" style="padding-left: 20px;padding-top: 20px;">Total Bookings</h3>
+                        </div>
+                        <div class="second-content align-self-center mx-auto text-center">
+                        <i class="fas fa-briefcase fa-3x"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="third-content ml-auto mr-4 mb-2">
+                    <h1 class="text-center" style="color:#F55;font-size: 500%;padding-top: 40px;">37</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+                <div class="card gradient-card">
+                    <div class="card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg)">
+                        <div class="text-white d-flex h-100 mask aqua-gradient-rgba ">
+                            <div class="first-content align-self-center p-3">
+                            <h3 class="card-title" style="padding-left: 20px;padding-top: 20px;">Total Event Professionals</h3>
+                            </div>
+                            <div class="second-content align-self-center mx-auto text-center">
+                            <i class="fas fa-briefcase fa-3x"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="third-content ml-auto mr-4 mb-2">
+                        <h1 class="text-center" style="color: #38A;font-size: 500%;padding-top: 40px;">91</h1>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+
+    <div class="col-lg-6 col-sm-6 "  style="font-family: Verdana;">
+        <mdb-card class="mb-4 wow fadeIn" style="max-height:100px">
+                <mdb-card-body class="blue-gradient-rgba d-sm-flex justify-content-between" >
+                    <h3 class="mb-sm-0 pt-3 text-white"> Registered User Information </h3>
+            
+                    <form class="d-flex md-form justify-content-center my-0" style="max-height:50px">
+                        <input type="search" placeholder="Search For User" aria-label="Search" class="form-control text-white" mdbInput>
+                        <button mdbBtn color="primary" size="sm" class="my-0 p" type="submit">
+                            <mdb-icon fas icon="search"></mdb-icon>
+                        </button>
+                    </form>
+            
+                </mdb-card-body>
+            
+            </mdb-card>
+
         <div style="background-color: white;">
 
             <table class="table table-striped">
-                <thead>
+                <thead class="mdb-color blue-gradient-rgba" style="color: white;">
                     <tr>
                         <th>#</th>
                         <th>User Name</th>
@@ -14,7 +87,7 @@
                         <th></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody style="background-color:white;">
                     <tr *ngFor= "let user of list">
                         <th scope="row"> 1</th>
                         <td> {{user.FirstName}} {{user.LastName}}</td>
