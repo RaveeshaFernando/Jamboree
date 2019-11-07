@@ -3,7 +3,6 @@ import { AuthenticationService } from '../Shared/authentication.service';
 import { NgForm } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ToastrService } from 'ngx-toastr';
-import { ɵangular_packages_platform_browser_platform_browser_d } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-signup',

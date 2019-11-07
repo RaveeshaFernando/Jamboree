@@ -2,6 +2,49 @@
   <div class="overlay"></div>
 </div>
 
+<div class="container text-center" style="padding-top:180px;font-family: 'Roboto';">
+  <div class="row justify-content-md-center col-lg-10">
+      <div class="col-md-6 col-lg-6 " style="padding:50px;background-color: #223;border-radius: 30px;;">
+          <img src="assets/img/Gallery/logo2.png" alt="logo" style="max-width: 280px">
+          <br><br><br>
+
+          <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+              <div class="form-row">
+                  <div class="form-group col-lg-6">
+                      <label class="white-text" for="First Name"> </label>
+                      <input required ngModel name="FirstName" #FirstName="ngModel"  id="FirstName" type="text" class="form-control white-text" style="background-color: #223;"  placeholder="First Name..." >
+                        
+                  </div>
+                  <div class="form-group col-lg-6">
+                      <label class="white-text" for="Last Name"> </label>
+                      <input required ngModel name="LastName" #LastName="ngModel"  id="LastName" type="text" class="form-control  white-text" style="background-color: #223;"  placeholder="Last Name..." >
+                  </div>
+              </div>
+            
+            <div class="form-group">
+                <label for="Email"></label>
+                <input required ngModel name="Email" #Email="ngModel"  id="Email" type="text" class="form-control  white-text" style="background-color: #223;"  placeholder="Email..." >
+            </div>
+            <div class="form-group">
+                <label for="Password"></label>
+                <input required minlength="8" ngModel name="Password" #Password="ngModel"  id="Password" type="password" class="form-control  white-text" style="background-color: #223;"  placeholder="Password..." >
+                <div style="color: #F00;" *ngIf="Password.touched && !Password.valid"> <strong>*Password should have minimum of 8 charactors </strong> </div>
+            </div>
+            <div class="form-group">
+                <label for="RePassword"></label>
+                <input required ngModel name="RePassword" #RePassword="ngModel"  id="RePassword" type="password" class="form-control  white-text" style="background-color: #223;"  placeholder="Re-type Password..." >
+                <div style="color:#f00" *ngIf="Password.value!=RePassword.value && RePassword.touched" > *Passwords doesn't match </div>
+            </div>    
+            <br>
+            <div class="col-lg-9 container text-center">
+                <button class="btn btn-lg btn-round btn-block" style="font-size: 150%;background-color: royalblue;"> Sign up </button>
+            </div>
+            <div style="color:#f00" *ngIf="(FirstName.touched && !FirstName.valid) || (LastName.touched && !LastName.valid) || (Email.touched && !Email.valid) || (RePassword.touched && !RePassword.valid)">*All fields Required </div>
+          </form>
+      </div>
+  </div>
+</div>
+<!-- 
 <div class="container text-center" style="padding-top:180px;">
   <div class="row justify-content-md-center">
     <div class="col-md-6 col-lg-6 " style="padding:50px">
@@ -28,7 +71,7 @@
           <input type="password" name=RePassword #RePassword="ngModel" [(ngModel)]="service.formData.RePassword" placeholder="Re-Enter Password..." class="form-control form-font" required />
         </div>
 
-        <input type="text" value="user" hidden name=UserType #ReUserType="ngModel" [(ngModel)]="service.formData.UserType" />
+        <input type="text" value="user" hidden name=UserType #UserType="ngModel" [(ngModel)]="service.formData.UserType" />
         <input type="text" value=" " hidden name=Contact #Contact="ngModel" [(ngModel)]="service.formData.Contact" />
       
 
@@ -43,3 +86,4 @@
     </div>
   </div>
 </div>
+ -->

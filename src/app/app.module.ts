@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -51,6 +51,7 @@ import { ToastrModule } from 'ngx-toastr';
     AppRoutingModule,
     NgbModule,
     ToastrModule.forRoot(),
+    ReactiveFormsModule,
 
     AngularFireModule.initializeApp(environment.firebase, 'my-app-name'), // imports firebase/app needed for everything
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
