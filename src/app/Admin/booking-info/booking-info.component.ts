@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { AngularFirestore} from '@angular/fire/firestore' ;
+import { DataSource } from '@angular/cdk/collections' ;
+import { GetUserService } from './../../Shared/get-user.service' ;
 
 @Component({
   selector: 'app-booking-info',
@@ -7,9 +10,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookingInfoComponent implements OnInit {
 
-  constructor() { }
+  
+  UserDetails = { 
+    FirstName : '',
+    LastName : '' ,
+    Email : '' , 
+    Mobile :'',
+    UserType : ''
+  }
+
+  displayedColumns  = ['FirstName' , 'LastName' , 'Email' , 'Mobile' , 'UserType'];
+  dataSource = new UserDataSource(this.User); 
+
+  constructor(
+    private User : GetUserService ,
+    private Data : AngularFirestore 
+  ) { }
+
+  addUser(){
+    this.User.addUser(this.UserDetails);
+  }
 
   ngOnInit() {
   }
 
+}
+
+export class UserDataSource extends DataSource<any>{
+    constructor (private user : GetUserService){
+      super();
+    }
+
+    connect(){
+      return this.user.getUsers();
+    }
+    disconnect(){
+
+    }
 }
