@@ -28,6 +28,7 @@ import { BookingInfoComponent } from './Admin/booking-info/booking-info.componen
 
 import { AuthenticationService } from './Shared/authentication.service';
 import { ToastrModule } from 'ngx-toastr';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { ToastrModule } from 'ngx-toastr';
     DashboardComponent,
     ProfileInsightsComponent,
     BookingInfoComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,
