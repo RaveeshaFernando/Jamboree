@@ -88,11 +88,11 @@
                     </mat-form-field>
 
                     <div class="col-lg-12">
-                            <!-- <input matinput style="display: none; background-color: transparent;" type="file" (change)="onFileChanged($event)" [(ngModel)]="UserDetails.DisplayPic" #fileInput> -->
-                            <!-- <button style="background-color: transparent;" class="custom-select" (click)="fileInput.click()">Upload Photo</button> -->
-                        
                             <input matinput style="display: none; background-color: transparent;" type="file" (change)="upload($event)" accept=".png,.jpg"  [(ngModel)]="UserDetails.DisplayPic" #fileInput />
-                            <button style="background-color: transparent;" class="custom-select" (click)="fileInput.click()">Upload Photo</button>
+                            <button style="background-color: transparent;" class="custom-select" (click)="fileInput.click()">Upload Photo</button>    
+                            <div class="progress" style="background-color: transparent;">
+                                <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
 
                         <select class="mdb-select md-form col-lg-12 custom-select" style="background-color: transparent;"  [(ngModel)]="UserDetails.UserType" > 
                             <option value="" disabled selected>User Type</option>

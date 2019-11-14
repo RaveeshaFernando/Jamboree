@@ -7,6 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileInsightsComponent } from './profile-insights/profile-insights.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { BookingInfoComponent } from './booking-info/booking-info.component';
+import { DropzoneDirective } from './booking-info/dropzone.directive';
 
 
 
@@ -15,7 +16,8 @@ import { BookingInfoComponent } from './booking-info/booking-info.component';
     DashboardComponent,
     ProfileInsightsComponent,
     SidebarComponent,
-    BookingInfoComponent
+    BookingInfoComponent,
+    DropzoneDirective
   ],
   imports: [
     CommonModule,
