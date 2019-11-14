@@ -5,8 +5,9 @@ import { DataSource } from '@angular/cdk/collections' ;
 import { MatSort } from '@angular/material/sort';
 import { GetUserService } from './../../Shared/get-user.service' ;
 import { MatTableDataSource } from '@angular/material';
-import { Observable } from 'rxjs';
 
+import { Observable } from 'rxjs';
+import { finalize } from "rxjs/operators";
 
 @Component({
   selector: 'app-booking-info',
@@ -33,34 +34,48 @@ export class BookingInfoComponent implements OnInit {
   displayedColumns  = ['FirstName' , 'LastName' , 'Email' , 'Mobile' , 'UserType','Etype','District','DisplayPic'];
   dataSource = new UserDataSource(this.User); 
   
-  
-  ref: AngularFireStorageReference;
-  task: AngularFireUploadTask;
-  
+  defaultImage : string  = '/assets/img/default-avatar.png' ;
+  SelectedImage : any = null ;
+
   constructor(
     private User : GetUserService ,
     private Data : AngularFirestore ,
     private afStorage: AngularFireStorage
   ) { }
 
-  uploadProgress: Observable<number>;
-
-  upload(event) {
-    const id = Math.random().toString(36).substring(2);
-    this.ref = this.afStorage.ref(id);
-    this.task = this.ref.put(event.target.files[0]);
-    this.uploadProgress = this.task.percentageChanges();
+  showPreview(event : any){
+    if(event.target.files && event.target.files[0]){
+      const reader = new FileReader();
+      reader.onload = (e:any) => this.defaultImage = e.target.result ;
+      reader.readAsDataURL(event.target.files[0]);
+      this.SelectedImage = event.target.files[0];
+    }
+    else{
+      this.defaultImage = '/assets/img/default-avatar.png' ;
+      this.SelectedImage = null ;
+    }
   }
 
-  downloadURL: Observable<string>;
-
   addUser(){
-    this.User.addUser(this.UserDetails);
+    const imagePath = "DisplayPictures/"  + this.UserDetails.UserType + "/" + this.UserDetails.Email ;
+    const imageRef = this.afStorage.ref(imagePath);
+    const task = this.afStorage.upload(imagePath,this.SelectedImage);
+
+
+
+    task.snapshotChanges().pipe(
+        finalize(() => {
+          imageRef.getDownloadURL().subscribe((url) => {
+            this.UserDetails.DisplayPic = url ;
+            this.User.addUser(this.UserDetails);    
+          })
+        })
+     )
+    .subscribe()
   }
   
   ngOnInit() {
     //this.dataSource.sort = this.sort;
-    
   }
 
 }
@@ -76,5 +91,3 @@ export class UserDataSource extends DataSource<any>{
     }
     disconnect(){}
 }
-
-  

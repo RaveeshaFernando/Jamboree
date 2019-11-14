@@ -87,13 +87,26 @@
                         <input type="password" matInput placeholder="Password" [(ngModel)]="UserDetails.Password" > 
                     </mat-form-field>
 
-                    <div class="col-lg-12">
-                            <input matinput style="display: none; background-color: transparent;" type="file" (change)="upload($event)" accept=".png,.jpg"  [(ngModel)]="UserDetails.DisplayPic" #fileInput />
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <img [src]="defaultImage" width="120px" height="120px" style="border: solid royalblue;" (click)="fileInput.click()">
+                        </div>
+                        <div class="col-lg-8">
+                            <!-- <input matinput style="display: none; background-color: transparent;" type="file" (change)="upload($event)" accept=".png,.jpg"  [(ngModel)]="UserDetails.DisplayPic" #fileInput />
+                            <button style="background-color: transparent;" class="custom-select" (click)="fileInput.click()">Upload Photo</button>    
+                            <div class="progress" style="background-color: transparent;">
+                                <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div> -->
+                            <input matinput type="file" (change)="showPreview($event)" accept=".png,.jpg"  [(ngModel)]="UserDetails.DisplayPic" #fileInput style="display: none; background-color: transparent;" />
                             <button style="background-color: transparent;" class="custom-select" (click)="fileInput.click()">Upload Photo</button>    
                             <div class="progress" style="background-color: transparent;">
                                 <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
+    
 
+                        </div>    
+                    </div>
+                    <div class="col-lg-12">
                         <select class="mdb-select md-form col-lg-12 custom-select" style="background-color: transparent;"  [(ngModel)]="UserDetails.UserType" > 
                             <option value="" disabled selected>User Type</option>
                             <option value="User">User</option>
@@ -146,6 +159,7 @@
 
                     <button class="btn btn-block btn-primary col-lg-12" mat-raised-button (click)="addUser()"> Add </button>                            
                 </div>
+
             </div>
         </div>
     </div>
