@@ -206,7 +206,7 @@
   
     <!-----------------------------------------------------| CONTACT US |---------------------------------------------------->
 
-    <div id="contacts" class="jumbotron text-center contact">
+   <!-- <div id="contacts" class="jumbotron text-center contact">
         <div class="container contact-box" >
             <div class="row">
                 <div class="col-sm-8 con-input">
@@ -235,7 +235,142 @@
                 </div>
             </div>
         </div>
-    </div> 
-  -->
+    </div> -->
+    <div class="section section-signup" style="background-image: url('assets/img/bg12.jpg'); background-size: cover; background-position: top center; min-height: 700px;">
+
+      <div class="container login-page">
+        <div class="row">
+          <div class="col-md-4 content-center ml-auto mr-auto">
+              <div class="card card-login card-plain">
+                  <form class="form" method="" action="">
+                      <div class="header header-primary text-center">
+                          <div class="container">
+                            <h2 class="title">Have an issue?</h2>
+                            <h4 class="description">Contact us.</h4>
+                          </div>
+                      </div>
+                      <div class="content">
+                        <div class="input-group form-group-no-border input-lg" [ngClass]="{'input-group-focus':focus===true}">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text">  <i class="now-ui-icons users_circle-08"></i></span>
+                          </div>
+                            <input type="text" class="form-control" placeholder="Name..." (focus)="focus=true" (blur)="focus=false" >
+                        </div>
+                        <div class="input-group form-group-no-border input-lg" [ngClass]="{'input-group-focus':focus1===true}">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text">
+                                <i class="now-ui-icons ui-1_email-85"></i>
+                              </span>
+                          </div>
+                            <input type="email" placeholder="Email..." class="form-control" (focus)="focus1=true" (blur)="focus1=false"/>
+                        </div>
+                      </div>
+                      <div class="textarea-container">
+                          <textarea class="form-control" name="name" rows="4" cols="80" placeholder="Type a message..."></textarea>
+                      </div>
+                      <div class="send-button">
+                          <a href="" class="btn btn-primary btn-round btn-block btn-lg " style="background:royalblue;border:none;color:white">Send Message</a>
+                      </div>
+
+                   <!--   <div class="row justify-content-md-center sharing-area text-center">
+                          <br><br><br>
+                          <div class="text-center col-md-12 col-lg-8">
+                          <h3>Contact us and we'll get back to you within 24 hours.</h3>
+                          </div>
+                          <br>
+                          <h5><i class="fa fa-map-marker"></i>  Colombo, Sri Lanka</h5>
+                          <h5><i class="fa fa-phone"></i>  +94 71 0427779</h5>
+                          <h5><i class="fa fa-envelope"> </i> mail@jamboree.com</h5>
+                      </div> -->
+                     
+                  </form>
+              </div>
+          </div>
+        </div>
+          
+      </div>
+
+    </div>
+
+   
+    
+
+ 
+
+
+    <!-------------------------------------------------------------------------->
+    
+    <div class="section section-download" id="#download-section" data-background-color="black">
+      <div class="container">
+          <div class="row justify-content-md-center">
+              
+              
+          </div>
+        
+          <div class="row text-center mt-5">
+              <div class="col-md-8 ml-auto mr-auto">
+                
+                <img _ngcontent-wtc-c4 alt class="n-logo" src="assets/img/Gallery/logo.png"> 
+              </div>
+          </div>
+          
+          <div class="row justify-content-md-center sharing-area text-center">
+            <div class="text-center col-md-12 col-lg-8">
+              <h3>Thank you for supporting us!</h3>
+            </div>
+            <div class="text-center col-md-12 col-lg-8">
+              <a target="_blank" href="https://www.twitter.com" class="btn btn-neutral btn-icon btn-twitter btn-round btn-lg" rel="tooltip" title="Follow us">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a target="_blank" href="https://www.facebook.com" class="btn btn-neutral btn-icon btn-facebook btn-round btn-lg" rel="tooltip" title="Like us">
+                <i class="fab fa-facebook-square"></i>
+              </a>
+              <a target="_blank" href="https://www.linkedin.com" class="btn btn-neutral btn-icon btn-linkedin btn-lg btn-round" rel="tooltip" title="Follow us">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a target="_blank" href="https://instagram.com" class="btn btn-neutral btn-icon btn-instagram btn-round btn-lg" rel="tooltip" title="Follow us">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+      </div>
   </div>
+ <!---------------------------------------Footer------------------------------------------>
+
+    <footer class="footer" data-background-color="black">
+      <div class="container">
+          <nav>
+              <ul>
+                  <li>
+                      <a href="#" class="nav-link">
+                          Jamboree
+                      </a>
+                  </li>
+                  <li>
+                      <a href="">
+                          About Us
+                      </a>
+                  </li>
+                  <li>
+                    <a href="#contacts" class="nav-link">
+                        Contact Us
+                    </a>
+                </li>
+                 
+              </ul>
+          </nav>
+          <div class="copyright">
+              &copy;
+            {{data | date: 'yyyy'}}, Designed by Jamboree.
+              
+          </div>
+      </div>
+  </footer>
+    
+    
+  
+  </div>
+  
+ 
+
   
