@@ -243,11 +243,12 @@
           <div class="col-md-4 content-center ml-auto mr-auto">
               <div class="card card-login card-plain">
                   <form class="form" method="" action="">
-                      <div class="header header-primary text-center">
-                          <div class="container">
-                            <h2 class="title">Have an issue?</h2>
-                            <h4 class="description">Contact us.</h4>
-                          </div>
+                    <div class="jumbotron">  
+                    <div class="header header-primary text-center">
+                         
+                            <h2 class="font-italic">Have an issue?</h2>
+                            <h5 class="description">Contact us.</h5>
+                          
                       </div>
                       <div class="content">
                         <div class="input-group form-group-no-border input-lg" [ngClass]="{'input-group-focus':focus===true}">
@@ -256,6 +257,7 @@
                           </div>
                             <input type="text" class="form-control" placeholder="Name..." (focus)="focus=true" (blur)="focus=false" >
                         </div>
+                      <br>
                         <div class="input-group form-group-no-border input-lg" [ngClass]="{'input-group-focus':focus1===true}">
                           <div class="input-group-prepend">
                               <span class="input-group-text">
@@ -268,6 +270,7 @@
                       <div class="textarea-container">
                           <textarea class="form-control" name="name" rows="4" cols="80" placeholder="Type a message..."></textarea>
                       </div>
+                    </div>
                       <div class="send-button">
                           <a href="" class="btn btn-primary btn-round btn-block btn-lg " style="background:royalblue;border:none;color:white">Send Message</a>
                       </div>
@@ -300,24 +303,17 @@
 
     <!-------------------------------------------------------------------------->
     
-    <div class="section section-download" id="#download-section" data-background-color="black">
-      <div class="container">
-          <div class="row justify-content-md-center">
-              
-              
-          </div>
-        
-          <div class="row text-center mt-5">
-              <div class="col-md-8 ml-auto mr-auto">
-                
-                <img _ngcontent-wtc-c4 alt class="n-logo" src="assets/img/Gallery/logo.png"> 
-              </div>
-          </div>
+    
+ <!---------------------------------------Footer------------------------------------------>
+
+    <footer class="footer" data-background-color="black">
+
+      
+        <div class="row justify-content-md-center sharing-area text-center">
           
-          <div class="row justify-content-md-center sharing-area text-center">
-            <div class="text-center col-md-12 col-lg-8">
-              <h3>Thank you for supporting us!</h3>
-            </div>
+          <div class="text-center col-md-12 col-lg-8">
+            <h2 class="font-italic">Follow Us!</h2>
+          </div>
             <div class="text-center col-md-12 col-lg-8">
               <a target="_blank" href="https://www.twitter.com" class="btn btn-neutral btn-icon btn-twitter btn-round btn-lg" rel="tooltip" title="Follow us">
                 <i class="fab fa-twitter"></i>
@@ -333,11 +329,12 @@
               </a>
             </div>
           </div>
-      </div>
-  </div>
- <!---------------------------------------Footer------------------------------------------>
 
-    <footer class="footer" data-background-color="black">
+
+
+
+
+
       <div class="container">
           <nav>
               <ul>

@@ -33,12 +33,11 @@ import { AdminComponent } from './Admin/admin.component';
 import { SidebarComponent } from './Admin/sidebar/sidebar.component';
 import { DashboardComponent } from './Admin/dashboard/dashboard.component';
 import { ProfileInsightsComponent } from './Admin/profile-insights/profile-insights.component';
-import { BookingInfoComponent } from './Admin/booking-info/booking-info.component';
+import { UserDataComponent } from './Admin/userdata/userdata.component';
 
 //Services
 import { AuthenticationService } from './Shared/authentication.service';
 import { GetUserService } from "./Shared/get-user.service";
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +50,7 @@ import { GetUserService } from "./Shared/get-user.service";
     SidebarComponent,
     DashboardComponent,
     ProfileInsightsComponent,
-    BookingInfoComponent,
+    UserDataComponent,
   ],
   imports: [
     BrowserModule,

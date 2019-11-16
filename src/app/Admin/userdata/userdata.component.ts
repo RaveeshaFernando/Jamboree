@@ -3,18 +3,16 @@ import { AngularFirestore} from '@angular/fire/firestore' ;
 import { AngularFireStorage, AngularFireUploadTask, AngularFireStorageReference} from '@angular/fire/storage'
 import { DataSource } from '@angular/cdk/collections' ;
 import { MatSort } from '@angular/material/sort';
-import { GetUserService } from './../../Shared/get-user.service' ;
-import { MatTableDataSource } from '@angular/material';
+import { GetUserService } from '../../Shared/get-user.service' ;
 
-import { Observable } from 'rxjs';
 import { finalize } from "rxjs/operators";
 
 @Component({
-  selector: 'app-booking-info',
-  templateUrl: './booking-info.component.html',
-  styleUrls: ['./booking-info.component.scss']
+  selector: 'app-userdata',
+  templateUrl: './userdata.component.html',
+  styleUrls: ['./userdata.component.scss']
 })
-export class BookingInfoComponent implements OnInit {
+export class UserDataComponent implements OnInit {
 
   @ViewChild(MatSort, {static: false}) sort: MatSort;
   
@@ -31,7 +29,7 @@ export class BookingInfoComponent implements OnInit {
     DisplayPic : ''
   }
 
-  displayedColumns  = ['FirstName' , 'LastName' , 'Email' , 'Mobile' , 'UserType','Etype','District','DisplayPic'];
+  displayedColumns  = ['FirstName' , 'LastName' , 'Email' , 'Mobile' , 'UserType','Etype','District','Edit' ,'Delete'];
   dataSource = new UserDataSource(this.User); 
   
   defaultImage : string  = '/assets/img/default-avatar.png' ;
@@ -61,8 +59,6 @@ export class BookingInfoComponent implements OnInit {
     const imageRef = this.afStorage.ref(imagePath);
     const task = this.afStorage.upload(imagePath,this.SelectedImage);
 
-
-
     task.snapshotChanges().pipe(
         finalize(() => {
           imageRef.getDownloadURL().subscribe((url) => {
@@ -72,14 +68,21 @@ export class BookingInfoComponent implements OnInit {
         })
      )
     .subscribe()
+    
   }
-  
+
+  deleteUser(email : any){
+    console.log(email);
+    //this.Data.doc('Users/'+ email).delete();
+  }
+
   ngOnInit() {
     //this.dataSource.sort = this.sort;
+    this.User.getUsers().subscribe(userArray =>{
+      
+    })
   }
-
 }
-
 
 export class UserDataSource extends DataSource<any>{
     constructor (private user : GetUserService){
