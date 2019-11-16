@@ -8,13 +8,13 @@ export class GetUserService {
 
   constructor( private Data : AngularFirestore) { }
 
-  addUser(userData){
+  addUser(userData : any){
     this.Data.collection('Users').add(userData).then(() => {
       console.log('Done');
     })
   }
 
   getUsers(){
-    return this.Data.collection('Users', ref => ref.orderBy('FirstName')).valueChanges();
+    return this.Data.collection('Users').valueChanges();
   }
 }

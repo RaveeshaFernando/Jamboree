@@ -6,8 +6,7 @@ import { AdminRoutingModule } from './admin-routing.module' ;
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileInsightsComponent } from './profile-insights/profile-insights.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { BookingInfoComponent } from './booking-info/booking-info.component';
-import { DropzoneDirective } from './booking-info/dropzone.directive';
+import { UserDataComponent } from './userdata/userdata.component';
 
 
 
@@ -16,8 +15,7 @@ import { DropzoneDirective } from './booking-info/dropzone.directive';
     DashboardComponent,
     ProfileInsightsComponent,
     SidebarComponent,
-    BookingInfoComponent,
-    DropzoneDirective
+    UserDataComponent
   ],
   imports: [
     CommonModule,

@@ -1,5 +1,8 @@
 <app-sidebar></app-sidebar>
-<div class="depth" style="padding-top:100px;background-color: #112;"> 
+<div class="depth" style="padding-top:100px;"> 
+    <img src="../../../assets/img/Gallery/background1.jpg" class="bg-img" alt="placeholder">
+    <div class="overlay">
+    </div>
     <div class="col-sm-60"  style="font-family:Roboto;padding-right:30px;">
         <mdb-card class="mb-4 wow fadeIn" style="max-height:100px;border: solid #112;">
             <mdb-card-body class="d-sm-flex justify-content-between"  style="background-color: #223;" >
@@ -14,7 +17,7 @@
             </mdb-card-body>
         </mdb-card>
 
-        <div class="row">
+        <div class="row" style="padding-bottom: 30px;">
             <div class="col-lg-8">
                 <div>
                     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="background-color: #223;" mat-sort>
@@ -54,9 +57,17 @@
                         </ng-container>
 
 
-                        <ng-container matColumnDef="DisplayPic">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-white"> Display Picture </th>
-                            <td mat-cell *matCellDef="let element" class="text-white" > {{element.DisplayPic}} </td>
+                        <ng-container matColumnDef="Edit">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-white"></th>
+                            <td mat-cell *matCellDef="let element" class="text-white" > 
+                                <i class="fas fa-user-edit btn-info rounded" style="padding: 10px;padding-left: 7px;padding-right: 7px;"></i>    
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Delete">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-white"></th>
+                            <td mat-cell *matCellDef="let element" class="text-white" > 
+                                <i class="fas fa-trash-alt btn-danger rounded " style="padding: 10px;"  (click)="deleteUser(element.Email)"> </i>
+                            </td>
                         </ng-container>
 
                         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -92,18 +103,11 @@
                             <img [src]="defaultImage" width="120px" height="120px" style="border: solid royalblue;" (click)="fileInput.click()">
                         </div>
                         <div class="col-lg-8">
-                            <!-- <input matinput style="display: none; background-color: transparent;" type="file" (change)="upload($event)" accept=".png,.jpg"  [(ngModel)]="UserDetails.DisplayPic" #fileInput />
-                            <button style="background-color: transparent;" class="custom-select" (click)="fileInput.click()">Upload Photo</button>    
-                            <div class="progress" style="background-color: transparent;">
-                                <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div> -->
                             <input matinput type="file" (change)="showPreview($event)" accept=".png,.jpg"  [(ngModel)]="UserDetails.DisplayPic" #fileInput style="display: none; background-color: transparent;" />
                             <button style="background-color: transparent;" class="custom-select" (click)="fileInput.click()">Upload Photo</button>    
                             <div class="progress" style="background-color: transparent;">
                                 <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
-    
-
                         </div>    
                     </div>
                     <div class="col-lg-12">
@@ -157,7 +161,7 @@
                         <textarea rows="3" cols="60" matInput placeholder="Description"[(ngModel)]="UserDetails.Description" > </textarea>
                     </mat-form-field> 
 
-                    <button class="btn btn-block btn-primary col-lg-12" mat-raised-button (click)="addUser()"> Add </button>                            
+                    <button class="btn btn-block btn-primary col-lg-12" mat-raised-button (click)="addUser()"> <h5 style="padding-top:20px">Add User </h5> </button>                            
                 </div>
 
             </div>

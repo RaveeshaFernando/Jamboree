@@ -10,7 +10,7 @@ import { ProfileComponent } from './profile/profile.component' ;
 import { AdminComponent } from './Admin/admin.component';
 import { DashboardComponent } from './Admin/dashboard/dashboard.component'
 import { ProfileInsightsComponent } from './Admin/profile-insights/profile-insights.component';
-import { BookingInfoComponent } from './Admin/booking-info/booking-info.component';
+import { UserDataComponent } from './Admin/userdata/userdata.component';
 
 const routes: Routes =[
   { path: '',                     component: HomeComponent },
@@ -20,7 +20,7 @@ const routes: Routes =[
   { path: 'Admin',                component: AdminComponent },
   { path: 'dashboard',            component: DashboardComponent},
   { path: 'profile-insights',     component: ProfileInsightsComponent},
-  { path: 'booking-info',         component: BookingInfoComponent},
+  { path: 'user-data',            component: UserDataComponent},
 ];
 
 @NgModule({

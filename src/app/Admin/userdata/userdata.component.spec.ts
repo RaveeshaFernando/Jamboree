@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BookingInfoComponent } from './booking-info.component';
+import { BookingInfoComponent } from './userdata.component';
 
 describe('BookingInfoComponent', () => {
   let component: BookingInfoComponent;
