@@ -41,7 +41,7 @@
                     </div>    
                     <br>
                     <div class="col-lg-9 container text-center">
-                        <button [disabled]="form.invalid" class="btn btn-lg btn-round btn-block white-text" style="font-size: 150%;background-color: royalblue;"> Sign up </button>
+                        <button class="btn btn-lg btn-round btn-block white-text" style="font-size: 150%;background-color: royalblue;" routerLink="/user-profile"> Sign up </button>
                     </div>
                     <div style="color:#f00" *ngIf="(FirstName.touched && !FirstName.valid) || (LastName.touched && !LastName.valid) || (Email.touched && !Email.valid) || (RePassword.touched && !RePassword.valid)">*All fields Required </div>
                     <a class="button-cus btn" [routerLink]="['/Signin']"> Already an account ? Sign in Here </a>

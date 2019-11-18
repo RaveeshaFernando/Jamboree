@@ -1,0 +1,100 @@
+
+
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row" style="align-content: center;">
+      <div class="col-md-2">
+        <label class="hovarable" for="fileInput" style="padding-top: 90px;">
+          <img [src]="url ? url: 'https://www.w3schools.com/howto/img_avatar.png'">
+          <div class="background"></div>
+        </label>
+        <br/>
+            
+        <div class="list-group list-group-flush" style="padding-top:100px">
+            <a routerLink="../dashboard" class="list-group-item list-group-item-action waves-effect" mdbWavesEffect>
+              <mdb-icon fas icon="table" class="mr-3" style="color: #223;"></mdb-icon>Current Bookings
+            </a>
+            <a routerLink="../profile-insights" class="list-group-item list-group-item-action waves-effect" mdbWavesEffect>
+              <mdb-icon fas icon="table" class="mr-3" style="color: #223;"></mdb-icon>Booking History
+            </a>
+            <a class="list-group-item list-group-item-action waves-effect"  [routerLink]="['/edit-user']" mdbWavesEffect>
+              <mdb-icon fas icon="user" class="mr-3" style="color: #223;"></mdb-icon>Edit Profile
+            </a>
+            <a routerLink="../booking-info" class="list-group-item list-group-item-action waves-effect" mdbWavesEffect>
+              <mdb-icon fas icon="user" class="mr-3" style="color: #223;"></mdb-icon>Update Profile
+            </a>
+        </div>
+
+        <div class="button-container">
+          <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
+            <i class="fab fa-facebook-f" style="color: #223;"></i>
+          </button>
+          <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
+            <i class="fab fa-twitter" style="color: #223;"></i>
+          </button>
+          <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
+            <i class="fab fa-google-plus-g" style="color: #223;"></i>
+          </button>
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-lg-6" style="padding:60px;background-color: #223;border-radius: 30px;;">
+        <div class="card-body" >
+          <form>
+            <div class="row">
+              <div class="col-md-6 pl-1">
+                <div class="form-group">
+                  <label class="white-text">First Name</label>
+                  <input type="text" class="form-control" placeholder="Company" value="Mike">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 pl-1">
+                <div class="form-group">
+                  <label class=white-text>Last Name</label>
+                  <input type="text" class="form-control" placeholder="Last Name" value="Andrew">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 pl-1">
+                <div class="form-group">
+                  <label class="white-text">Contact Number</label>
+                  <input type="text" class="form-control" placeholder="Company" value="Mike">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 pl-1">
+                <div class="form-group">
+                  <label for="email" class="white-text">Email address</label>
+                  <input name="email" id="email" type="email" class="form-control" placeholder="Email">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 pl-1">
+                <div class="form-group">
+                  <label class="white-text">District</label>
+                  <input type="text" class="form-control" placeholder="Company" value="Mike">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 pl-1">
+                <div class="form-group">
+                  <label class="white-text">Region</label>
+                  <input type="text" class="form-control" placeholder="Company" value="Mike">
+                </div>
+              </div>
+            </div>
+
+            
+          </form>
+        </div>
+    </div>
+    
+  </div>
+</div>

@@ -37,6 +37,9 @@ import { UserDataComponent } from './Admin/userdata/userdata.component';
 
 //Services
 import { AuthenticationService } from './Shared/authentication.service';
+import { ToastrModule } from 'ngx-toastr';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 import { GetUserService } from "./Shared/get-user.service";
 import { UserService } from './BackendConfig/user.service';
 
@@ -52,6 +55,9 @@ import { UserService } from './BackendConfig/user.service';
     SidebarComponent,
     DashboardComponent,
     ProfileInsightsComponent,
+    BookingInfoComponent,
+    UserProfileComponent,
+    EditUserComponent,
     UserDataComponent,
   ],
   imports: [
