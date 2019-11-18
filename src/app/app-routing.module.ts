@@ -12,6 +12,7 @@ import { DashboardComponent } from './Admin/dashboard/dashboard.component'
 import { ProfileInsightsComponent } from './Admin/profile-insights/profile-insights.component';
 import { BookingInfoComponent } from './Admin/booking-info/booking-info.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 const routes: Routes =[
   { path: '',                     component: HomeComponent },
@@ -22,7 +23,8 @@ const routes: Routes =[
   { path: 'dashboard',            component: DashboardComponent},
   { path: 'profile-insights',     component: ProfileInsightsComponent},
   { path: 'booking-info',         component: BookingInfoComponent},
-  { path: 'user-profile',         component: UserProfileComponent}
+  { path: 'user-profile',         component: UserProfileComponent},
+  { path: 'edit-user',            component: EditUserComponent}
 
 
 ];
