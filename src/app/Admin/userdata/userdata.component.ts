@@ -69,6 +69,8 @@ export class UserDataComponent implements OnInit {
     }
     else{
       this.firestore.doc('Users/' + form.value.id).update(data);
+      this.toastr.success('User updated sucessfully', 'Jamboree.UserUpdata');
+
     }
 
     this.resetForm(form);
@@ -77,5 +79,14 @@ export class UserDataComponent implements OnInit {
   //Edit data
   onEdit(user : User){
     this.users.userData = Object.assign({},user);
+  }
+
+  //Delete Data
+  onDelete(id : string){
+    if(confirm("Are you sure, you want to delete this record?")){
+      this.firestore.doc('Users/' + id).delete();
+      this.toastr.success('User deleted sucessfully', 'Jamboree.UserDelete');
+
+    }
   }
 }
