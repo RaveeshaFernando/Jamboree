@@ -38,6 +38,8 @@ import { UserDataComponent } from './Admin/userdata/userdata.component';
 //Services
 import { AuthenticationService } from './Shared/authentication.service';
 import { GetUserService } from "./Shared/get-user.service";
+import { UserService } from './BackendConfig/user.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,7 +78,9 @@ import { GetUserService } from "./Shared/get-user.service";
   providers: [
     AuthenticationService,
     GetUserService,
-    MatSort
+    MatSort,
+
+    UserService
   ],
   bootstrap: [AppComponent],
   schemas:   [CUSTOM_ELEMENTS_SCHEMA]

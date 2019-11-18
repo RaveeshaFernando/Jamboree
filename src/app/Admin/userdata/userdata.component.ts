@@ -1,11 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { AngularFirestore} from '@angular/fire/firestore' ;
-import { AngularFireStorage, AngularFireUploadTask, AngularFireStorageReference} from '@angular/fire/storage'
-import { DataSource } from '@angular/cdk/collections' ;
-import { MatSort } from '@angular/material/sort';
-import { GetUserService } from '../../Shared/get-user.service' ;
-
-import { finalize } from "rxjs/operators";
+import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/BackendConfig/user.service';
+import { NgForm } from '@angular/forms';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { ToastrService } from 'ngx-toastr';
+import { User } from 'src/app/BackendConfig/user.model';
 
 @Component({
   selector: 'app-userdata',
@@ -14,83 +12,70 @@ import { finalize } from "rxjs/operators";
 })
 export class UserDataComponent implements OnInit {
 
-  @ViewChild(MatSort, {static: false}) sort: MatSort;
-  
-  UserDetails = { 
-    FirstName : '',
-    LastName : '' ,
-    Email : '' , 
-    Mobile :'',
-    UserType : '',
-    Password: '',
-    Etype : '',
-    District : '',
-    Description : '',
-    DisplayPic : ''
-  }
-
-  displayedColumns  = ['FirstName' , 'LastName' , 'Email' , 'Mobile' , 'UserType','Etype','District','Edit' ,'Delete'];
-  dataSource = new UserDataSource(this.User); 
-  
-  defaultImage : string  = '/assets/img/default-avatar.png' ;
-  SelectedImage : any = null ;
+  getUserList : User[] ; 
 
   constructor(
-    private User : GetUserService ,
-    private Data : AngularFirestore ,
-    private afStorage: AngularFireStorage
-  ) { }
-
-  showPreview(event : any){
-    if(event.target.files && event.target.files[0]){
-      const reader = new FileReader();
-      reader.onload = (e:any) => this.defaultImage = e.target.result ;
-      reader.readAsDataURL(event.target.files[0]);
-      this.SelectedImage = event.target.files[0];
-    }
-    else{
-      this.defaultImage = '/assets/img/default-avatar.png' ;
-      this.SelectedImage = null ;
-    }
-  }
-
-  addUser(){
-    const imagePath = "DisplayPictures/"  + this.UserDetails.UserType + "/" + this.UserDetails.Email ;
-    const imageRef = this.afStorage.ref(imagePath);
-    const task = this.afStorage.upload(imagePath,this.SelectedImage);
-
-    task.snapshotChanges().pipe(
-        finalize(() => {
-          imageRef.getDownloadURL().subscribe((url) => {
-            this.UserDetails.DisplayPic = url ;
-            this.User.addUser(this.UserDetails);    
-          })
-        })
-     )
-    .subscribe()
-    
-  }
-
-  deleteUser(email : any){
-    console.log(email);
-    //this.Data.doc('Users/'+ email).delete();
-  }
+    private users : UserService,
+    private firestore : AngularFirestore,
+    private toastr : ToastrService
+    ) { }
 
   ngOnInit() {
-    //this.dataSource.sort = this.sort;
-    this.User.getUsers().subscribe(userArray =>{
-      
+    this.resetForm();
+
+    //Data retrieving from firestore
+    this.users.getUsers().subscribe(dataArray => {
+      this.getUserList = dataArray.map(item =>{
+        return {id : item.payload.doc.id,
+        ...item.payload.doc.data()
+      } as User
+      })
     })
+
   }
-}
 
-export class UserDataSource extends DataSource<any>{
-    constructor (private user : GetUserService){
-      super();
+  resetForm(form ?: NgForm){
+    if(form!=null)
+      form.resetForm();
+      this.users.userData= {
+        id : null ,
+        firstName : '',
+        lastName : '' ,
+        email : '',
+        contact : '',
+        password : '',
+        userType : '',
+        eType : '' ,
+        description : '' ,
+        displayPic : '',
+        district : ''
+    }
+  }
+
+  //Data sending to firestore
+  onSubmit(form : NgForm){ 
+    let data = Object.assign({}, form.value) ;
+    delete data.id ;
+    if(form.value.id==null){
+      if (form.value.Password == form.value.RePassword){
+        console.log("sucess");
+        this.firestore.collection('Users').add(data);
+        this.toastr.success('User Added Sucessfully', 'Jamboree.NewUser');
+      }
+      else {
+        console.log("Failed");
+        this.toastr.error('Passwords not matching', 'Jamboree.NewUser');
+      }
+    }
+    else{
+      this.firestore.doc('Users/' + form.value.id).update(data);
     }
 
-    connect(){
-      return this.user.getUsers();
-    }
-    disconnect(){}
+    this.resetForm(form);
+  }
+
+  //Edit data
+  onEdit(user : User){
+    this.users.userData = Object.assign({},user);
+  }
 }
