@@ -31,6 +31,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 
+import { UserService } from './services/user.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,6 +65,7 @@ import { EditUserComponent } from './edit-user/edit-user.component';
     AngularFireStorageModule // imports firebase/storage only needed for storage features
   ],
   providers: [
+    UserService,
     AuthenticationService
   ],
   bootstrap: [AppComponent]
