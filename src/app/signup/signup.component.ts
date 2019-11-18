@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,} from '@angular/core';
 import { AuthenticationService } from '../Shared/authentication.service';
 import { NgForm } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -38,11 +38,13 @@ export class SignupComponent implements OnInit {
     let data=form.value ;
 
     if (form.value.Password == form.value.RePassword){
-        
+
         console.log("sucess");
         this.firestore.collection('Users').add(data);
+
         this.toastr.success('User Added Sucessfully', 'Jamboree.NewUser');
     }
+    
     else {
       console.log("Failed");
       this.toastr.error('Passwords not matching', 'Jamboree.NewUser');
