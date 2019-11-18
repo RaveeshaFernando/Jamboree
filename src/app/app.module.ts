@@ -67,4 +67,6 @@ import { EditUserComponent } from './edit-user/edit-user.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  
+ }
