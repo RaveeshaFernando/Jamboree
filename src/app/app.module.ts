@@ -33,6 +33,12 @@ import { BookingHistoryComponent } from './User/booking-history/booking-history.
 import { EditUserComponent } from './User/edit-user/edit-user.component';
 import { UserSidebarComponent } from "./User/Shared/user-sidebar/user-sidebar.component";
 
+//Website Components - Event Prof
+import { ProfMainComponent } from './eventProf/prof-main/prof-main.component';
+import { ProfSidebarComponent } from './eventProf/prof-sidebar/prof-sidebar.component';
+import { ProfEditProfileComponent } from './eventProf/prof-edit-profile/prof-edit-profile.component';
+import { ProfBookingComponent } from './eventProf/prof-booking/prof-booking.component';
+
 //Website Components - Admin
 import { AdminComponent } from './Admin/admin.component';
 import { SidebarComponent } from './Admin/sidebar/sidebar.component';
@@ -69,6 +75,12 @@ import { UserService } from './BackendConfig/user.service';
 
     //Extra
     ProfileComponent,
+
+    //Event Prof
+    ProfMainComponent,
+    ProfSidebarComponent,
+    ProfEditProfileComponent,
+    ProfBookingComponent,
     
   ],
   imports: [

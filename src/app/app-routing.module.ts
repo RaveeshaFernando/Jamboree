@@ -17,6 +17,9 @@ import { UserProfileComponent } from "./User/user-profile/user-profile.component
 import { EditUserComponent } from "./User/edit-user/edit-user.component";
 import { BookingHistoryComponent } from "./User/booking-history/booking-history.component";
 
+import { ProfBookingComponent } from "./eventProf/prof-booking/prof-booking.component";
+import { ProfEditProfileComponent } from "./eventProf/prof-edit-profile/prof-edit-profile.component";
+import { ProfMainComponent } from "./eventProf/prof-main/prof-main.component";
 
 const routes: Routes =[
   { path: '',                     component: HomeComponent },
@@ -32,6 +35,10 @@ const routes: Routes =[
   { path: 'User/userProfile',     component: UserProfileComponent},
   { path: 'User/editUser',         component: EditUserComponent},
   { path: 'User/bookingHistory',  component: BookingHistoryComponent},
+
+  { path: 'EventMain',           component:ProfMainComponent},
+  { path: 'EventEditProfile',    component:ProfEditProfileComponent},
+  { path: 'EventBooking',        component:ProfBookingComponent},
 ];
 
 @NgModule({
