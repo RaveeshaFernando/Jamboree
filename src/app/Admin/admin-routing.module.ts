@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileInsightsComponent } from './profile-insights/profile-insights.component';
-import { BookingInfoComponent } from './booking-info/booking-info.component';
+import { UserDataComponent } from './userdata/userdata.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
 const routes: Routes = [
@@ -14,7 +14,7 @@ const routes: Routes = [
     children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'profile-ingsights', component: ProfileInsightsComponent },
-      { path: 'booking-info', component: BookingInfoComponent },
+      { path: 'userdata', component: UserDataComponent },
       { path: 'sidebar', component: SidebarComponent }
     ]
 
