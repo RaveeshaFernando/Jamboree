@@ -1,175 +1,97 @@
 <app-sidebar></app-sidebar>
 
-<div class="depth" style="padding-top: 100px;background-color:#112;height: 100vh;">    
-    <div class=" content" style="padding-right: 30px;">
-        <div class=" row" >
-            <div class=" col-md-8">
-                <div class=" card white-text" style="background: #223;">
-                    <div class=" card-header"><h5 class=" title">Edit Admin Profile</h5></div>
-                        
-                        <div class=" card-body">
-                            <form>
-                                <div class=" row">
-                                <div class=" col-md-6 pr-md-1">
-                                    <div class=" form-group">
-                                    <label> Username </label>
-                                    <input class=" form-control white-text" style="background: #223;" placeholder="Username" type="text" value="Admin no1" />
-                                    </div>
-                                </div>
-                                <div class=" col-md-3 px-md-1">
-                                    <div class=" form-group">
-                                    <label> First Name [Fixed] </label>
-                                    <input class=" form-control white-text" id=FirstName style="background: #223;" placeholder="Username" type="text" value="Admin" disabled/>
-                                    </div>
-                                </div>
-                                <div class=" col-md-3 pl-md-1">
-                                    <div class=" form-group">
-                                    <label for="exampleInputEmail1"> Last Name </label>
-                                    <input class=" form-control" placeholder="Edit Last Name..." type="email"/>
-                                    </div>
-                                </div>
-                                </div>
-                                <div class=" row">
-                                <div class=" col-md-6 pr-md-1">
-                                    <div class=" form-group">
-                                    <label> First Name </label>
-                                    <input
-                                        class=" form-control"
-                                        placeholder="Company"
-                                        type="text"
-                                        value="Mike"
-                                    />
-                                    </div>
-                                </div>
-                                <div class=" col-md-6 pl-md-1">
-                                    <div class=" form-group">
-                                    <label> Last Name </label>
-                                    <input
-                                        class=" form-control"
-                                        placeholder="Last Name"
-                                        type="text"
-                                        value="Andrew"
-                                    />
-                                    </div>
-                                </div>
-                                </div>
-                                <div class=" row">
-                                <div class=" col-md-12">
-                                    <div class=" form-group">
-                                    <label> Address </label>
-                                    <input
-                                        class=" form-control"
-                                        placeholder="Home Address"
-                                        type="text"
-                                        value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
-                                    />
-                                    </div>
-                                </div>
-                                </div>
-                                <div class=" row">
-                                <div class=" col-md-4 pr-md-1">
-                                    <div class=" form-group">
-                                    <label> City </label>
-                                    <input
-                                        class=" form-control"
-                                        placeholder="City"
-                                        type="text"
-                                        value="Mike"
-                                    />
-                                    </div>
-                                </div>
-                                <div class=" col-md-4 px-md-1">
-                                    <div class=" form-group">
-                                    <label> Country </label>
-                                    <input
-                                        class=" form-control"
-                                        placeholder="Country"
-                                        type="text"
-                                        value="Andrew"
-                                    />
-                                    </div>
-                                </div>
-                                <div class=" col-md-4 pl-md-1">
-                                    <div class=" form-group">
-                                    <label> Postal Code </label>
-                                    <input
-                                        class=" form-control"
-                                        placeholder="ZIP Code"
-                                        type="number"
-                                    />
-                                    </div>
-                                </div>
-                                </div>
-                                <div class=" row">
-                                <div class=" col-md-8">
-                                    <div class=" form-group">
-                                    <label> About Me </label>
-                                    <textarea
-                                        class=" form-control"
-                                        cols="80"
-                                        placeholder="Here can be your description"
-                                        rows="4"
-                                        value="Mike"
-                                    >
-                    Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.
-                    </textarea
-                                    >
-                                    </div>
-                                </div>
-                                </div>
-                            </form>
-                </div>
-                <div class=" card-footer">
-                <button class=" btn btn-fill btn-danger" type="submit">Save</button>
-                </div>
-            </div>
-            </div>
-            <div class=" col-md-4">
-            <div class=" card card-user">
-                <div class=" card-body">
-                <p class=" card-text"></p>
-                <div class=" author">
-                    <div class=" block block-one"></div>
-                    <div class=" block block-two"></div>
-                    <div class=" block block-three"></div>
-                    <div class=" block block-four"></div>
-                    <a href="javascript:void(0)">
-                    <img alt="..." class=" avatar" src="assets/img/emilyz.jpg" />
+<div class="depth" style="padding-top: 100px;height: 100vh;">    
+    <img src="../../../assets/img/Gallery/background1.jpg" class="bg-img" alt="placeholder">
+    <div class="overlay">
+    </div>
+
+    <div class="col-sm-60"  style="font-family:Roboto;padding-right:30px;">
+        <mdb-card class="mb-4 wow fadeIn" style="max-height:100px;border: solid #112;">
+            <mdb-card-body class="d-sm-flex justify-content-between"  style="background-color: #223;" >
+                <h3 class="mb-sm-0 pt-3 text-white"> User Interactions </h3>
         
-                    <h5 class=" title">Mike Andrew</h5>
-                    </a>
-                    <p class=" description">Ceo/Co-Founder</p>
-                </div>
-                <div class=" card-description">
-                    Do not be scared of the truth because we need to restart the human
-                    foundation in truth And I love you like Kanye loves Kanye I love
-                    Rick Owens’ bed design but the back is...
-                </div>
-                </div>
-                <div class=" card-footer">
-                <div class=" button-container">
-                    <button
-                    class=" btn btn-icon btn-round btn-facebook"
-                    href="javascript:void(0)"
-                    >
-                    <i class=" fab fa-facebook"> </i>
+                <form class="d-flex md-form justify-content-center my-0" style="max-height:50px">
+                    <input type="search" placeholder="Search For User" aria-label="Search" class="form-control text-white" mdbInput>
+                    <button mdbBtn color="primary" size="sm" class="my-0 p" type="submit">
+                        <mdb-icon fas icon="search"></mdb-icon>
                     </button>
-                    <button
-                    class=" btn btn-icon btn-round btn-twitter"
-                    href="javascript:void(0)"
-                    >
-                    <i class=" fab fa-twitter"> </i>
-                    </button>
-                    <button
-                    class=" btn btn-icon btn-round btn-google"
-                    href="javascript:void(0)"
-                    >
-                    <i class=" fab fa-google-plus"> </i>
-                    </button>
-                </div>
-                </div>
+                </form>
+            </mdb-card-body>
+        </mdb-card>
+    </div>
+    <div class="d-flex justify-content-center" style="padding-bottom: 30px;">
+        <div class="col-lg-5 aqua-gradient-rgba rounded" >
+            <div class="text-center">
+                <h4 class="mb-sm-0 pt-3" style="padding-top: 15px;color: #223;"> <strong>Send Global Message </strong>  </h4>
+                <hr style="background-color: #112;">
             </div>
+            <div style="padding: 10px;">
+            <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <label> <strong style="padding-left:20px"> Sender Name :</strong> </label>
+                        <input style="background-color: transparent;" class="form-control mb-4" name="name" #name="ngModel" [(ngModel)]="Msg.sendMessage.name">
+                    </div>
+                    <div class=col-lg-6>
+                        <label> <strong style="padding-left:20px">Sendar Mail :</strong> </label>
+                        <input style="background-color: transparent;" class="form-control mb-4" name="email" #email="ngModel" [(ngModel)]="Msg.sendMessage.email">                
+                    </div>
+                </div>
+                <select class="mdb-select md-form col-lg-12 custom-select" style="background-color: transparent;" name="receiverType" #receiverType="ngModel" [(ngModel)]="Msg.sendMessage.receiverType" > 
+                    <option value="" disabled selected> Receiver Type</option>
+                    <option value="Global">Global</option>
+                    <option value="User">User</option>
+                    <option value="Professional">Professional</option>
+                    <option value="Private">Private</option>                    
+                </select>
+                <div *ngIf="receiverType.touched">
+                    <label> <strong style="padding-left:20px"> Receiver's Email :</strong> </label>
+                    <input style="background-color: transparent;" class="form-control mb-4" name="receiver" #receiver="ngModel" [(ngModel)]="Msg.sendMessage.receiver">
+                </div>
+                <textarea class="form-control mb-4" style="background-color: transparent;" rows="5" placeholder="Type Message" name="message" #message="ngModel" [(ngModel)]="Msg.sendMessage.message" required ></textarea>        
+                <div class="">
+                    <button type="submit" class="btn btn-lg btn-primary"> Send Message </button>
+                </div>
+            </form>
             </div>
+        </div>
+    </div>
+
+    <div class="col-lg-11" style="font-family:Roboto;padding-right:30px;background-color: #223;">
+        <div class="text-center">
+            <h3 class="mb-sm-0 pt-3 text-white" style="padding-top: 15px;padding-bottom: 15px;"> Sent Messages </h3>
+        </div>
+        <div class= "d-flex ">
+            <table class="table table-striped ">
+                <thead class="" style="background-color: #223;color: white;">
+                    <tr>
+                        <th>#</th>
+                        <th> Name</th>
+                        <th> Email </th>
+                        <th> Date</th>
+                        <th> Time</th>
+                        <th> Receiver Type</th>
+                        <th> Receiver </th>
+                        <th> Message</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody class="white-text" style="background-color:#223;">
+                    <tr *ngFor= "let msg of getMessageList">
+                        <th> 1 </th>
+                        <td> {{msg.name}} </td>
+                        <td> {{msg.email}}</td>
+                        <td> {{msg.date}} </td>
+                        <td> {{msg.time}} </td>
+                        <td> {{msg.receiver}} </td>
+                        <td> {{msg.receiverType}} </td>
+                        <td> {{msg.message}} </td>
+                        <td> <a class="btn-sm text-danger"> 
+                            <i class="fas fa-trash-alt btn-danger rounded " (click)="onDelete(msg.id)" style="padding: 10px;"> </i>
+                        </a> </td>
+                    </tr>
+                </tbody>
+            </table>        
         </div>
     </div>
 </div>

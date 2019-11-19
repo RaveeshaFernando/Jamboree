@@ -1,4 +1,3 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -28,6 +27,12 @@ import { ProfileComponent } from './profile/profile.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 
+//Website Components - User
+import { UserProfileComponent } from "./User/user-profile/user-profile.component";
+import { BookingHistoryComponent } from './User/booking-history/booking-history.component';
+import { EditUserComponent } from './User/edit-user/edit-user.component';
+import { UserSidebarComponent } from "./User/Shared/user-sidebar/user-sidebar.component";
+
 //Website Components - Admin
 import { AdminComponent } from './Admin/admin.component';
 import { SidebarComponent } from './Admin/sidebar/sidebar.component';
@@ -37,27 +42,34 @@ import { UserDataComponent } from './Admin/userdata/userdata.component';
 
 //Services
 import { AuthenticationService } from './Shared/authentication.service';
-import { UserProfileComponent } from './user-profile/user-profile.component';
-import { EditUserComponent } from './edit-user/edit-user.component';
 import { GetUserService } from "./Shared/get-user.service";
 import { UserService } from './BackendConfig/user.service';
-
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     NavbarComponent,
-    ProfileComponent,
+    HomeComponent,
+    
     SigninComponent,
     SignupComponent,
+    
+    //Admin
     AdminComponent,
     SidebarComponent,
     DashboardComponent,
     ProfileInsightsComponent,
+    UserDataComponent,
+    
+    //User 
     UserProfileComponent,
     EditUserComponent,
-    UserDataComponent,
+    BookingHistoryComponent,
+    UserSidebarComponent,
+
+    //Extra
+    ProfileComponent,
+    
   ],
   imports: [
     BrowserModule,
