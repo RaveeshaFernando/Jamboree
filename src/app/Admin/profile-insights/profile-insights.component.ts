@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ContactService } from 'src/app/BackendConfig/contact.service';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
+
+
 import { Contact } from 'src/app/BackendConfig/contact.model';
+import { ContactService } from 'src/app/BackendConfig/contact.service';
+import { RecMsgs } from "src/app/BackendConfig/rec-msgs.model";
+import { RecMsgsService } from "src/app/BackendConfig/rec-msgs.service";
 
 @Component({
   selector: 'app-profile-insights',
@@ -13,11 +17,13 @@ import { Contact } from 'src/app/BackendConfig/contact.model';
 export class ProfileInsightsComponent implements OnInit {
     constructor(
       private Msg : ContactService,
+      private Rmsg : RecMsgsService,
       private toastr : ToastrService,
       private firestore : AngularFirestore
     ) { }
 
   getMessageList : Contact[];
+  getUserMessages : RecMsgs[];
 
   ngOnInit() {
   this.resetForm();
@@ -28,6 +34,14 @@ export class ProfileInsightsComponent implements OnInit {
     return {id : item.payload.doc.id,
           ...item.payload.doc.data()
           } as Contact
+      })
+  })
+
+  this.Rmsg.getRecMessage().subscribe(MsgArray => {
+    this.getUserMessages = MsgArray.map(item =>{
+    return {id : item.payload.doc.id,
+          ...item.payload.doc.data()
+          } as RecMsgs
       })
   })
       
@@ -60,6 +74,13 @@ export class ProfileInsightsComponent implements OnInit {
   onDelete(id : string){
     if(confirm("Are you sure, you want to delete this message?")){
       this.firestore.doc('Contact/' + id).delete();
+      this.toastr.success('Message deleted sucessfully', 'Jamboree.MessageDelete');
+
+    }
+  }
+  RecOnDelete(id : string){
+    if(confirm("Are you sure, you want to delete this message?")){
+      this.firestore.doc('ResMessages/' + id).delete();
       this.toastr.success('Message deleted sucessfully', 'Jamboree.MessageDelete');
 
     }

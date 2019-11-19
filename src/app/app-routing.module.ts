@@ -32,9 +32,9 @@ const routes: Routes =[
   { path: 'profile-insights',     component: ProfileInsightsComponent},
   { path: 'user-data',            component: UserDataComponent},
 
-  { path: 'User/userProfile',     component: UserProfileComponent},
-  { path: 'User/editUser',         component: EditUserComponent},
-  { path: 'User/bookingHistory',  component: BookingHistoryComponent},
+  { path: 'UserProfile',          component: UserProfileComponent},
+  { path: 'UserEditUser',         component: EditUserComponent},
+  { path: 'UserBooking',          component: BookingHistoryComponent},
 
   { path: 'EventMain',           component:ProfMainComponent},
   { path: 'EventEditProfile',    component:ProfEditProfileComponent},

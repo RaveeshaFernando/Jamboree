@@ -50,6 +50,8 @@ import { UserDataComponent } from './Admin/userdata/userdata.component';
 import { AuthenticationService } from './Shared/authentication.service';
 import { GetUserService } from "./Shared/get-user.service";
 import { UserService } from './BackendConfig/user.service';
+import { ContactService } from "./BackendConfig/contact.service";
+import { RecMsgsService } from "./BackendConfig/rec-msgs.service";
 
 @NgModule({
   declarations: [
@@ -108,6 +110,8 @@ import { UserService } from './BackendConfig/user.service';
     UserService,
     AuthenticationService,
     GetUserService,
+    ContactService,
+    RecMsgsService,
     MatSort,
   ],
   bootstrap: [AppComponent],

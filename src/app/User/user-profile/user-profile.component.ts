@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from "src/app/BackendConfig/user.service";
+import { User } from "src/app/BackendConfig/user.model";
 
 @Component({
   selector: 'app-user-profile',
@@ -6,18 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent implements OnInit {
-  //Users: User[];
+  Users: User[];
 
-  // constructor(private userService: UserService) { }
+   constructor(private userService: UserService) { }
 
   ngOnInit() {
-  //   this.userService.getUsers().subscribe(Users => {
-  //     console.log(Users);
-  //   //  this.Users = Users;
-  
-  //     console.log('test test test');
-  
-  //   })
+    this.userService.getUsers().subscribe(dataArray => {
+    this.Users = dataArray.map(item =>{
+      return {id : item.payload.doc.id,
+      ...item.payload.doc.data()
+    } as User
+    })
+  })
+
+
    }
 
 }
