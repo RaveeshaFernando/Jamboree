@@ -36,6 +36,7 @@ export class SignupComponent implements OnInit {
 
   onSubmit(form:NgForm){
     let data=form.value ;
+    console.log("print :)))");
 
     if (form.value.Password == form.value.RePassword){
 
