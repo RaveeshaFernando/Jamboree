@@ -76,12 +76,12 @@ export class UserDataComponent implements OnInit {
     this.resetForm(form);
   }
 
-  //Edit data
+  //Edit data from User
   onEdit(user : User){
     this.users.userData = Object.assign({},user);
   }
 
-  //Delete Data
+  //Delete Data from Users
   onDelete(id : string){
     if(confirm("Are you sure, you want to delete this record?")){
       this.firestore.doc('Users/' + id).delete();

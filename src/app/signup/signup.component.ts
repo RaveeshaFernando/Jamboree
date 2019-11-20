@@ -1,5 +1,5 @@
 import { Component, OnInit,} from '@angular/core';
-import { AuthenticationService } from '../Shared/authentication.service';
+import { UserService } from "../BackendConfig/user.service";
 import { NgForm } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ToastrService } from 'ngx-toastr';
@@ -12,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class SignupComponent implements OnInit {
 
   constructor(
-    private service : AuthenticationService,
+    private users : UserService,
     private firestore : AngularFirestore,
     private toastr : ToastrService
     ) { }
@@ -20,36 +20,76 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
 
-  resetForm(form? : NgForm){
-    if(form!= null)
+resetForm(form ?: NgForm){
+  if(form!=null)
     form.resetForm();
-    this.service.formData = {
-      FirstName : '' ,
-      LastName : '' ,
-      Email : '' ,
-      Password : '' ,
-      RePassword : '', 
-      Contact : '',
-      UserType : ''
-    }
-  }
-
-  onSubmit(form:NgForm){
-    let data=form.value ;
-    console.log("print :)))");
-
-    if (form.value.Password == form.value.RePassword){
-
-        console.log("sucess");
-        this.firestore.collection('Users').add(data);
-
-        this.toastr.success('User Added Sucessfully', 'Jamboree.NewUser');
-    }
-    
-    else {
-      console.log("Failed");
-      this.toastr.error('Passwords not matching', 'Jamboree.NewUser');
-    }
-    this.resetForm(form);
+    this.users.userData= {
+      id : null ,
+      firstName : '',
+      lastName : '' ,
+      email : '',
+      contact : '',
+      password : '',
+      userType : '',
+      eType : '' ,
+      description : '' ,
+      displayPic : '',
+      district : ''
   }
 }
+
+//Data sending to firestore
+onSubmit(form : NgForm){ 
+  let data=form.value ;
+
+  
+  if (form.value.password == form.value.rePassword){
+    console.log("sucess");
+    this.firestore.collection('Users').add(data);
+    this.toastr.success('User Added Sucessfully', 'Jamboree.NewUser');
+  }
+  else {
+    console.log("Failed");
+    this.toastr.error('Passwords not matching', 'Jamboree.NewUser');
+  }
+
+  this.resetForm(form);
+}
+
+
+  // resetForm(form? : NgForm){
+  //   if(form!= null)
+  //   form.resetForm();
+  //   this.service.formData = {
+  //     FirstName : '' ,
+  //     LastName : '' ,
+  //     Email : '' ,
+  //     Password : '' ,
+  //     RePassword : '', 
+  //     Contact : '',
+  //     UserType : ''
+  //   }
+  // }
+
+  // onSubmit(form:NgForm){
+  //   let data=form.value ;
+  //   console.log("print :)))");
+
+  //   if (form.value.Password == form.value.RePassword){
+
+  //       console.log("sucess");
+  //       this.firestore.collection('Users').add(data);
+
+  //       this.toastr.success('User Added Sucessfully', 'Jamboree.NewUser');
+  //   }
+    
+  //   else {
+  //     console.log("Failed");
+  //     this.toastr.error('Passwords not matching', 'Jamboree.NewUser');
+  //   }
+  //   this.resetForm(form);
+  // }
+}
+
+
+
