@@ -12,7 +12,9 @@ import { User } from 'src/app/BackendConfig/user.model';
 })
 export class UserDataComponent implements OnInit {
 
-  getUserList : User[] ; 
+  getUserList : User[] ;
+
+  
 
   constructor(
     private users : UserService,
