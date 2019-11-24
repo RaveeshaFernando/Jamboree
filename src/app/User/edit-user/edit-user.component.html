@@ -1,34 +1,63 @@
-
-<!--div class="col-md-2" style="padding-top: 100px;">
-  <img [src]="imgURL" height="200"  *ngIf="imgURL" >
-  <span style="color:red;" *ngIf="message">{{message}}</span>
-  <input #file type="file" accept='image/*' (change)="preview(file.files)" /-->
-  
-  <div class="panel-header panel-header-sm">
+<app-user-sidebar></app-user-sidebar>
+<div class="depth" style="padding-top: 70px;height: 100vh;">
+    <img src="../../../assets/img/Gallery/background1.jpg" class="bg-img" alt="placeholder">
+    <div class="overlay"></div>
+    <div class="d-flex justify-content-center" style="padding-bottom: 30px;padding-right: 30px;">
+      <div class="col-lg-5 aqua-gradient-rgba rounded">
+        <div class="text-center">
+          <h4 class="mb-sm-0 pt-3" style="padding-top: 15px;color: #223;"> <strong>Edit User Profile </strong>  </h4>
+          <hr style="background-color: #112;">
+        </div>
+        
+        <div style="padding: 10px;">
+            <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+                
+                    <div class="col-lg-6">
+                        <label> <strong style="padding-left:20px"> First Name :</strong> </label>
+                        <input style="background-color: transparent;" class="form-control mb-4">
+                    </div>
+                    <div class=col-lg-6>
+                        <label> <strong style="padding-left:20px"> Last Name :</strong> </label>
+                        <input style="background-color: transparent;" class="form-control mb-4">                
+                    </div>
+                    <div class=col-lg-6>
+                        <label> <strong style="padding-left:20px"> Contact Number :</strong> </label>
+                        <input style="background-color: transparent;" class="form-control mb-4">                
+                    </div>
+                    <div class=col-lg-6>
+                        <label> <strong style="padding-left:20px"> Email Address :</strong> </label>
+                        <input style="background-color: transparent;" class="form-control mb-4">                
+                    </div>
+                    <div class=col-lg-6>
+                        <label> <strong style="padding-left:20px"> District :</strong> </label>
+                        <input style="background-color: transparent;" class="form-control mb-4">                
+                    </div>
+                    <div class=col-lg-6>
+                        <label> <strong style="padding-left:20px"> Region :</strong> </label>
+                        <input style="background-color: transparent;" class="form-control mb-4">                
+                    </div>
+                
+                
+                <div class="">
+                    <button type="submit" class="btn btn-lg btn-primary"> Save </button>
+                </div>
+            </form>
+            </div>
+        
+      </div>
     </div>
-    <div class="main-content">
+  </div>   
+
+
+
+    <!--div class="main-content">
       <div class="row" style="align-content: center;padding-top:100px">
           <div class="col-md-2" style="padding-top: 100px;">
               
             <img [src]="imgURL" height="200"  *ngIf="imgURL" >
             <span style="color:red;" *ngIf="message">{{message}}</span>
-            <input #file type="file" accept='image/*' (change)="preview(file.files)" >
+            <input #file type="file" accept='image/*' (change)="preview(file.files)">
             <br/>
-                
-            <div class="list-group list-group-flush" style="padding-top:100px">
-                <a routerLink="../dashboard" class="list-group-item list-group-item-action waves-effect" mdbWavesEffect>
-                  <mdb-icon fas icon="table" class="mr-3" style="color: #223;"></mdb-icon>Current Bookings
-                </a>
-                <a routerLink="../profile-insights" class="list-group-item list-group-item-action waves-effect" mdbWavesEffect>
-                  <mdb-icon fas icon="table" class="mr-3" style="color: #223;"></mdb-icon>Booking History
-                </a>
-                <a class="list-group-item list-group-item-action waves-effect"  [routerLink]="['/edit-user']" mdbWavesEffect>
-                  <mdb-icon fas icon="user" class="mr-3" style="color: #223;"></mdb-icon>Edit Profile
-                </a>
-                <a routerLink="../booking-info" class="list-group-item list-group-item-action waves-effect" mdbWavesEffect>
-                  <mdb-icon fas icon="user" class="mr-3" style="color: #223;"></mdb-icon>Update Profile
-                </a>
-            </div>
             <div class="button-container">
               <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
                 <i class="fab fa-facebook-f" style="color: #223;"></i>
@@ -101,7 +130,7 @@
               </div>
           </div> 
       </div>
-    </div>
+    </div-->
 
 <!--div class="col-md-6">
     <div class="panel-footer">
