@@ -14,8 +14,6 @@ export class UserDataComponent implements OnInit {
 
   getUserList : User[] ;
 
-  
-
   constructor(
     private users : UserService,
     private firestore : AngularFirestore,
@@ -25,13 +23,18 @@ export class UserDataComponent implements OnInit {
   ngOnInit() {
     this.resetForm();
 
+    var count : number = 0 ;
+
     //Data retrieving from firestore
     this.users.getUsers().subscribe(dataArray => {
       this.getUserList = dataArray.map(item =>{
+        count ++ ;
+        console.log(count);
         return {id : item.payload.doc.id,
-        ...item.payload.doc.data()
-      } as User
+        ...item.payload.doc.data() 
+        } as User  
       })
+      
     })
 
   }
