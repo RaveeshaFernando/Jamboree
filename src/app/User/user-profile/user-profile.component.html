@@ -4,18 +4,15 @@
   <img src="../../../assets/img/Gallery/background1.jpg" class="bg-img" alt="placeholder">
   <div class="overlay"></div>
   <div class="d-flex justify-content-center" style="padding-bottom: 30px;padding-right: 30px;">
-    <div class="col-lg-5 aqua-gradient-rgba rounded">
+    <div class="col-lg-5 rounded "  style=" color:#223; background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);">
       <div class="text-center">
         <h4 class="mb-sm-0 pt-3" style="padding-top: 15px;color: #223;"> <strong>My Profile </strong>  </h4>
         <hr style="background-color: #112;">
       </div>
 
       <div style="padding: 10px">
-          
-              
-                
                   <div *ngIf="Users?.length >0; else noItems">
-                    <label class=white-text>First Name</label>
+                    <label>First Name</label>
                     <ul *ngFor="let User of Users" class="collection">
                       <li class="collection-firstName" >{{User.firstName}}</li>
                     </ul>
@@ -23,7 +20,7 @@
                   <ng-template #noItems class="class=white-text"><h5>No Items</h5></ng-template>
 
                   <div *ngIf="Users?.length >0; else noItems">
-                    <label class="white-text">Last Name</label>
+                    <label>Last Name</label>
                     <ul *ngFor="let User of Users" class="collection">
                       <li class="collection-lastName">{{User.lastName}}</li>
                     </ul>
@@ -31,30 +28,28 @@
                   <ng-template #noItems class="class=white-text"><h5>No Items</h5></ng-template>
 
                   <div *ngIf="Users?.length >0; else noItems">
-                    <label class="white-text">Contact Number</label>
+                    <label>Contact Number</label>
                       <ul *ngFor="let User of Users" class="collection">
                         <li class="collection-contact">{{User.contact}}</li>
                       </ul>
                   </div>
                   <ng-template #noItems class="class=white-text"><h5>No Items</h5></ng-template>
 
-                      <div *ngIf="Users?.length >0; else noItems">
-                          <label class="white-text">Email</label>
-                            <ul *ngFor="let User of Users" class="collection">
-                              <li class="collection-email">{{User.email}}</li>
-                            </ul>
-                        </div>
-                        <ng-template #noItems class="class=white-text"><h5>No Items</h5></ng-template>
+                  <div *ngIf="Users?.length >0; else noItems">
+                    <label>Email</label>
+                    <ul *ngFor="let User of Users" class="collection">
+                      <li class="collection-email">{{User.email}}</li>
+                    </ul>
+                  </div>
+                  <ng-template #noItems class="class=white-text"><h5>No Items</h5></ng-template>
 
-                        <div *ngIf="Users?.length >0; else noItems">
-                            <label class="white-text">District</label>
-                              <ul *ngFor="let User of Users" class="collection">
-                                <li class="collection-district">{{User.district}}</li>
-                              </ul>
-                          </div>
-                          <ng-template #noItems class="class=white-text"><h5>No Items</h5></ng-template>
-                
-            
+                  <div *ngIf="Users?.length >0; else noItems">
+                    <label>District</label>
+                      <ul *ngFor="let User of Users" class="collection">
+                        <li class="collection-district">{{User.district}}</li>
+                      </ul>
+                  </div>
+                  <ng-template #noItems class="class=white-text"><h5>No Items</h5></ng-template>
       </div>
     </div>
   </div>
