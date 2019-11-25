@@ -5,9 +5,9 @@ export class User {
     email : string ;
     password : string ;
     userType : string ;
+    displayPic : any ;
+    contact : string ;
     eType : string ;
     description : string ;
-    contact : string ;
-    displayPic : any ;
     district : string ;
 }
