@@ -1,13 +1,15 @@
 export class User {
-    id : string ;
-    firstName : string ;
-    lastName : String ;
+    uid : string ;
+    // firstName : string ;
+    // lastName : String ;
     email : string ;
-    password : string ;
-    userType : string ;
-    displayPic : any ;
-    contact : string ;
-    eType : string ;
-    description : string ;
-    district : string ;
+    emailVerified: boolean;
+    // password : string ;
+    // userType : string ;
+    photoURL : string ;
+    displayName : string ;
+    // contact : string ;
+    // eType : string ;
+    // description : string ;
+    // district : string ;
 }

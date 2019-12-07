@@ -1,0 +1,89 @@
+<div class="bg-img" style="background-image: url('../../assets/img/Gallery/Slides/party.jfif');">                                
+    <div class="overlay"></div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+        <div class="container text-center" style="padding-top:180px;font-family: 'Roboto';">
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="container text-center" style="padding-top:200px;font-family: 'Roboto';">
+            <div class="row justify-content-md-center col-lg-10">
+                <div class="col-md-8 col-lg-8" style="padding:50px;background-color: #223;border-radius: 30px;border: solid royalblue;">
+                    
+                    <div class="authBlock white-text">
+                        <h3>Thank You for Registering</h3>
+                  
+                        <div class="formGroup" *ngIf="authService.userData as user">
+                          <p class="text-center">We have sent a confirmation email to <strong>{{user.email}}</strong>.</p>
+                          <p class="text-center">Please check your email and click on the link to verfiy your email address.</p>
+                        </div>
+                        
+                        <!-- Calling SendVerificationMail() method using authService Api -->
+                        <div class="formGroup">
+                          <button type="button" class="btn btn-secondary" (click)="authService.SendVerificationMail()">
+                            <i class="fas fa-redo-alt"></i>
+                            Resend Verification Email
+                          </button>
+                        </div>
+                  
+                      </div>
+                    <br>
+                    <p class="white-text"> Once you verify your email address please fill out the following to Sign up with Jamboree!</p>
+                    <form #form="ngForm" autocomplete="off">
+                        <div class="form-row">
+                            <div class="form-group col-lg-6">
+                                <label class="white-text" for="First Name"> </label>
+                                <input required ngModel name="firstName" #firstName="ngModel"  id="firstName" type="text" class="form-control white-text" style="background-color: #223;"  placeholder="First Name..." >
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label class="white-text" for="Last Name"> </label>
+                                <input required ngModel name="lastName" #lastName="ngModel"  id="lastName" type="text" class="form-control  white-text" style="background-color: #223;"  placeholder="Last Name..." >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="white-text" for="First Name"> </label>
+                            <input ngModel name="contact" #contact="ngModel"  id="contact" type="text" class="form-control white-text" style="background-color: #223;"  placeholder="Contact Number..." >
+                        </div>
+                        <div class="form-group">
+                            <select class="mdb-select md-form col-lg-12 custom-select" style="background-color: transparent;" name="district" #district="ngModel" [(ngModel)]="users.userData.district" > 
+                                <option value="" disabled selected> Select District </option>
+                                <option value="Ampara"> Ampara </option>
+                                <option value="Anuradhapura"> Anuradhapura </option>
+                                <option value="Badulla">Badulla</option>
+                                <option value="Batticaloa"> Batticaloa </option>
+                                <option value="Colombo"> Colombo </option>
+                                <option value="Galle">Galle</option>
+                                <option value="Gampaha"> Gampaha</option>
+                                <option value="Hambantota"> Hambantota </option>
+                                <option value="Jaffna"> Jaffna </option>
+                                <option value="Kalutara"> Kalutara</option>
+                                <option value="Kandy">Kandy</option>
+                                <option value="Kegalle">Kegalle</option>
+                                <option value="Kilinochchi"> Kilinochchi </option>
+                                <option value="Kurunegala"> Kurunegala</option>
+                                <option value="Mannar"> Mannar</option>
+                                <option value="Matale"> Matale </option>
+                                <option value="Matara">Matara</option>
+                                <option value="Monaragala">Monaragala</option>
+                                <option value="Mulathiv"> Mulathiv </option>
+                                <option value="NuwaraEliya">Nuwara Eliya</option>
+                                <option value="Polonnaruwa"> Polonnaruwa </option>
+                                <option value="Puttalam"> Puttalam</option>
+                                <option value="Ratnapura"> Ratnapura</option>
+                                <option value="Trincomalee"> Trincomalee</option>
+                                <option value="Vavniya"> Vavniya </option>
+                            </select>
+                        </div>        
+                        <br>
+                        <div class="col-lg-9 container text-center">
+                            <button class="btn btn-lg btn-round btn-block white-text" style="font-size: 150%;background-color: royalblue;" (click)="authService.SignUp(email.value, password.value )"> Sign up </button>
+                        </div>
+                        <div style="color:#f00" *ngIf="(firstName.touched && !firstName.valid) || (lastName.touched && !lastName.valid) || (contact.touched && !contact.valid)">*All fields Required </div>
+                        <a class="button-cus btn white-text" routerLink="/user-profile"> Already an account ? Sign in Here </a>
+                    </form>
+                </div>
+            </div>
+          </div>        
+    </div>
+  </div>

@@ -21,10 +21,17 @@ import { ProfBookingComponent } from "./eventProf/prof-booking/prof-booking.comp
 import { ProfEditProfileComponent } from "./eventProf/prof-edit-profile/prof-edit-profile.component";
 import { ProfMainComponent } from "./eventProf/prof-main/prof-main.component";
 
+import { SignInComponent } from "./Testing/sign-in/sign-in.component";
+import { SignUpComponent } from "./Testing/sign-up/sign-up.component" ;
+import { DashComponent } from "./Testing/dash/dash.component";
+import { ForgotPasswordComponent } from "./Testing/forgot-password/forgot-password.component";
+import { Signup2Component } from './signup2/signup2.component';
+
 const routes: Routes =[
   { path: '',                     component: HomeComponent },
   { path: 'Signin',               component: SigninComponent },
   { path: 'Signup',               component: SignupComponent },
+  { path: 'Sign2',                component : Signup2Component},
   { path: 'Profile',              component: ProfileComponent },
 
   { path: 'Admin',                component: AdminComponent },
@@ -39,6 +46,11 @@ const routes: Routes =[
   { path: 'EventMain',           component:ProfMainComponent},
   { path: 'EventEditProfile',    component:ProfEditProfileComponent},
   { path: 'EventBooking',        component:ProfBookingComponent},
+
+  { path: 'Sin', component: SignInComponent },
+  { path: 'Sup', component: SignUpComponent },
+  { path: 'dash', component: DashComponent },
+  { path: 'forgot', component : ForgotPasswordComponent},
 ];
 
 @NgModule({

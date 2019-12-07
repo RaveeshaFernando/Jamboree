@@ -52,6 +52,15 @@ import { GetUserService } from "./Shared/get-user.service";
 import { UserService } from './BackendConfig/user.service';
 import { ContactService } from "./BackendConfig/contact.service";
 import { RecMsgsService } from "./BackendConfig/rec-msgs.service";
+import { AuthService } from "./BackendConfig/auth.service";
+
+// import { AuthService } from "./Testing/auth.service";
+import { SignInComponent } from './Testing/sign-in/sign-in.component';
+import { SignUpComponent } from './Testing/sign-up/sign-up.component';
+import { DashComponent } from './Testing/dash/dash.component';
+import { ForgotPasswordComponent } from './Testing/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './Testing/verify-email/verify-email.component';
+import { Signup2Component } from './signup2/signup2.component';
 
 @NgModule({
   declarations: [
@@ -83,6 +92,14 @@ import { RecMsgsService } from "./BackendConfig/rec-msgs.service";
     ProfSidebarComponent,
     ProfEditProfileComponent,
     ProfBookingComponent,
+
+    
+    SignInComponent,
+    SignUpComponent,
+    DashComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent,
+    Signup2Component,
     
   ],
   imports: [
@@ -114,6 +131,8 @@ import { RecMsgsService } from "./BackendConfig/rec-msgs.service";
     ContactService,
     RecMsgsService,
     MatSort,
+
+    AuthService
   ],
   bootstrap: [AppComponent],
   schemas:   [CUSTOM_ELEMENTS_SCHEMA]
