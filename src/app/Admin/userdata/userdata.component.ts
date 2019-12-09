@@ -47,17 +47,19 @@ export class UserDataComponent implements OnInit {
     if(form!=null)
       form.resetForm();
       this.users.userData= {
-        id : null ,
+        uid : null ,
         firstName : '',
         lastName : '' ,
         email : '',
         contact : '',
-        password : '',
+        // password : '',
         userType : '',
         eType : '' ,
         description : '' ,
-        displayPic : '',
-        district : ''
+        district : '' ,
+        emailVerified : null ,
+        photoURL: '',
+        displayName: ''
     }
   }
 

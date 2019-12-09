@@ -28,11 +28,23 @@
             </ul>
             <ul class="navbar-nav nav-flex-icons">
                 <li class="nav-item dropdown" dropdown>
-                    <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect> <strong>Hello Guest! </strong> <span class="caret"></span></a>
+                    <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                        <div *ngIf="flag==1;then content else other_content"></div>    
+                            <ng-template #content> Hello Guest!</ng-template>
+                            <ng-template #other_content> Logged in </ng-template>
+                    </a>
                     <div *dropdownMenu class="dropdown-menu dropdown drop" role="menu">
-                        <a [routerLink]="['/Signin']"  class="dropdown-item waves-light" mdbWavesEffect href="#"> <strong> Log In</strong></a>
-                        <div class="divider dropdown-divider"></div>
-                        <a [routerLink]="['/Signup']"  class="dropdown-item waves-light" mdbWavesEffect href="#"> <strong>Sign Up</strong></a>
+                        <div *ngIf="flag==2;then content else other_content"></div>
+                            <ng-template #content>
+                                <a [routerLink]="['/Signin']"  class="dropdown-item waves-light" mdbWavesEffect href="#"> <strong> Log In</strong></a>
+                                <div class="divider dropdown-divider"></div>
+                                <a [routerLink]="['/Signup']"  class="dropdown-item waves-light" mdbWavesEffect href="#"> <strong>Sign Up</strong></a> 
+                            </ng-template>
+                            <ng-template #other_content>
+                                <a [routerLink]="['/Signin']" class="dropdown-item waves-light" mdbWavesEffect href="#" (click)="authService.SignOut()"> <strong>Log out</strong></a>    
+                            </ng-template>
+                                   
+                
                     </div>
                 </li>
             </ul>

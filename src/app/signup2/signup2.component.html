@@ -26,11 +26,14 @@
                             Resend Verification Email
                           </button>
                         </div>
+
+                        <div class="formGroup" *ngIf="authService.userData as user">
+                            <p> user is {{user.userType}}</p>
+                            <button class="btn btn-lg btn-round btn-block white-text" style="font-size: 150%;background-color: royalblue;"> Verify and Sign up </button>
+                        </div>  
                   
                       </div>
-                    <br>
-                    <p class="white-text"> Once you verify your email address please fill out the following to Sign up with Jamboree!</p>
-                    <form #form="ngForm" autocomplete="off">
+                    <br><!-- <form #form="ngForm" autocomplete="off">
                         <div class="form-row">
                             <div class="form-group col-lg-6">
                                 <label class="white-text" for="First Name"> </label>
@@ -81,7 +84,7 @@
                         </div>
                         <div style="color:#f00" *ngIf="(firstName.touched && !firstName.valid) || (lastName.touched && !lastName.valid) || (contact.touched && !contact.valid)">*All fields Required </div>
                         <a class="button-cus btn white-text" routerLink="/user-profile"> Already an account ? Sign in Here </a>
-                    </form>
+                    </form> -->
                 </div>
             </div>
           </div>        
