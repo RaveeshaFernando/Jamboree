@@ -5,6 +5,8 @@ import { auth } from 'firebase/app';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from "@angular/router";
+import { Observable, BehaviorSubject } from 'rxjs';
+import { map } from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,12 @@ import { Router } from "@angular/router";
 
 export class AuthService {
   userData: any;                      // Save logged in user data
-  flag : number = 0 ;
+  Log : any ;
+  userSubject = new BehaviorSubject<Boolean>(false);
+  
+  public get authenticated() : Observable<Boolean> {
+    return this.userSubject.asObservable();
+  }
 
   constructor(
     public afs: AngularFirestore,     // Inject Firestore service
@@ -26,14 +33,14 @@ export class AuthService {
       if (user) {
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
-        JSON.parse(localStorage.getItem('user'));
-        this.flag = 1 ;
+        this.Log = JSON.parse(localStorage.getItem('user'));
+        console.log(this.Log.email)
+        this.userSubject.next(true);
       } else {
         localStorage.setItem('user', null);
-        JSON.parse(localStorage.getItem('user'));
-        this.flag = 2 ;
+        this.Log = JSON.parse(localStorage.getItem('user'));
+        this.userSubject.next(false);
       }
-      console.log(this.flag);
     })
   }
 
@@ -42,7 +49,7 @@ export class AuthService {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
-          this.router.navigate(['UserProfile']);
+          this.router.navigate(['dashboard']);
         });
         this.SetUserData(result.user,'sample','name2');
       }).catch((error) => {

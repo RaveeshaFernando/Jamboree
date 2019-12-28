@@ -6,7 +6,7 @@ import { AuthService } from "../BackendConfig/auth.service";
   styleUrls: ['./signin.component.scss']
 })
 export class SigninComponent implements OnInit {
-
+flag = 2;
   constructor(public authService: AuthService) { }
 
   ngOnInit() {
