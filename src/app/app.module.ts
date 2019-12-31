@@ -50,6 +50,7 @@ import { UserDataComponent } from './Admin/userdata/userdata.component';
 import { AuthenticationService } from './Shared/authentication.service';
 import { GetUserService } from "./Shared/get-user.service";
 import { UserService } from './BackendConfig/user.service';
+import { SampleUserService } from './BackendConfig/sample-user.service';
 import { ContactService } from "./BackendConfig/contact.service";
 import { RecMsgsService } from "./BackendConfig/rec-msgs.service";
 
@@ -109,6 +110,7 @@ import { RecMsgsService } from "./BackendConfig/rec-msgs.service";
   ],
   providers: [
     UserService,
+    SampleUserService,
     AuthenticationService,
     GetUserService,
     ContactService,

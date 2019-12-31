@@ -74,7 +74,7 @@ export class UserDataComponent implements OnInit {
     }
     else{
       this.firestore.doc('Users/' + form.value.id).update(data);
-      this.toastr.success('User updated sucessfully', 'Jamboree.UserUpdata');
+      this.toastr.success('User updated sucessfully', 'Jamboree.UserUpdate');
 
     }
 

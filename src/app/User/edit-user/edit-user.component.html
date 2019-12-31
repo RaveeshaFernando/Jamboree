@@ -10,11 +10,72 @@
         </div>
         
         <div style="padding: 10px;">
-            <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
-                
+          <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+
+              <div class="text-center">
+                  <!--upload image by clicking on the image-->
+                  <img [src]="imgSrc" width="350px" height="250px" (click) = "fileUploader.click()">
+              </div>
+
+            <input type="hidden" name="id" #id="ngModel" [(ngModel)]="users.userData.id" *ngFor="let user of getUserList" class="collection">
+            <mat-form-field class="col-lg-6">
+              <input matInput placeholder="First Name" name="firstName" #firstName="ngModel" [(ngModel)]="users.userData.firstName" required >
+            </mat-form-field>
+
+            <mat-form-field class="col-lg-6 ">
+              <input matInput placeholder="Last Name"  name="lastName" #lastName="ngModel" [(ngModel)]="users.userData.lastName" required > 
+            </mat-form-field>
+          
+            <mat-form-field class="col-lg-6 ">
+              <input matInput placeholder="Email"  name="email" #email="ngModel" [(ngModel)]="users.userData.email" required > 
+            </mat-form-field>
+          
+            <mat-form-field class="col-lg-6 ">
+              <input matInput placeholder="Mobile"  name="contact" #contact="ngModel" [(ngModel)]="users.userData.contact"> 
+            </mat-form-field>
+          
+            <mat-form-field class="col-lg-6 ">
+              <input type="password" matInput placeholder="Password" name="password" #password="ngModel" [(ngModel)]="users.userData.password" required > 
+            </mat-form-field>
+
+            <mat-form-field class="col-lg-6 ">
+              <input type="password" matInput placeholder="Re Enter Password" > 
+            </mat-form-field>
+
+            <div class="row">
+              <div class="col-lg-2">
+                  <ul *ngFor= "let user of getUserList">
+                    <a class="btn-sm text-danger" (click)="onEdit(user)"> 
+                      <i class="fas fa-user-edit btn-info rounded" style="padding: 10px;padding-left: 7px;padding-right: 7px;"></i>
+                    </a>
+                  </ul>
+              </div>
+              
+              <div class="col-lg-2">
+                  <input type="submit" value="Submit" class="btn">
+              </div>
+            </div>
+          </form>
+            <!--form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
                     <div class="col-lg-6">
                         <label> <strong style="padding-left:20px"> First Name :</strong> </label>
-                        <input style="background-color: transparent;" class="form-control mb-4">
+                        <ul *ngFor="let User of Users" class="collection">
+                          <li class="collection-firstName" >{{User.firstName}}
+                            <a class="btn-sm text-danger" (click)="editUser($event, User)"> 
+                              <i class="fas fa-user-edit btn-info rounded" style="padding: 10px;padding-left: 7px;padding-right: 7px;"></i>
+                            </a>
+                            <div *ngIf="editState && userToEdit.id == User.id">
+                              <form (ngSubmit)="updateUser(user)">
+                                <div class="row">
+                                  <div class="input-field col-lg-s6">
+                                    <input type="text" placeholder="Add first name" [(ngModel)]="User.firstName" name="firstName">
+                                  </div>
+                                  <input type="submit" value="Submit" class="btn">
+                                </div>
+                              </form>
+                            </div>
+                          </li>
+                        </ul>
                     </div>
                     <div class=col-lg-6>
                         <label> <strong style="padding-left:20px"> Last Name :</strong> </label>
@@ -36,14 +97,9 @@
                         <label> <strong style="padding-left:20px"> Region :</strong> </label>
                         <input style="background-color: transparent;" class="form-control mb-4">                
                     </div>
-                
-                
-                <div class="">
-                    <button type="submit" class="btn btn-lg btn-primary"> Save </button>
-                </div>
-            </form>
-            </div>
-        
+                    <input type="submit" value="Submit" class="btn">
+            </form-->
+        </div>
       </div>
     </div>
   </div>   
