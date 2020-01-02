@@ -14,9 +14,6 @@ export class UserDataComponent implements OnInit {
 
   getUserList : User[] ;
 
-  totalCount: number;
-  total : number = 0 ;
-
   constructor(
     private users : UserService,
     private firestore : AngularFirestore,
@@ -26,14 +23,13 @@ export class UserDataComponent implements OnInit {
   ngOnInit() {
     this.resetForm();
 
+    var count : number = 0 ;
+
     //Data retrieving from firestore
     this.users.getUsers().subscribe(dataArray => {
-      this.totalCount = dataArray.length;
-      
       this.getUserList = dataArray.map(item =>{
-        this.total ++ ;
-        console.log(this.total);
-          
+        count ++ ;
+        console.log(count);
         return {id : item.payload.doc.id,
         ...item.payload.doc.data() 
         } as User  
@@ -47,19 +43,17 @@ export class UserDataComponent implements OnInit {
     if(form!=null)
       form.resetForm();
       this.users.userData= {
-        uid : null ,
+        id : null ,
         firstName : '',
         lastName : '' ,
         email : '',
         contact : '',
-        // password : '',
+        password : '',
         userType : '',
         eType : '' ,
         description : '' ,
-        district : '' ,
-        emailVerified : null ,
-        photoURL: '',
-        displayName: ''
+        displayPic : '',
+        district : ''
     }
   }
 
@@ -80,7 +74,7 @@ export class UserDataComponent implements OnInit {
     }
     else{
       this.firestore.doc('Users/' + form.value.id).update(data);
-      this.toastr.success('User updated sucessfully', 'Jamboree.UserUpdate');
+      this.toastr.success('User updated sucessfully', 'Jamboree.UserUpdata');
 
     }
 

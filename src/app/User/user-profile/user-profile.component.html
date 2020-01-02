@@ -14,7 +14,7 @@
                   <div *ngIf="Users?.length >0; else noItems">
                     <label>First Name</label>
                     <ul *ngFor="let User of Users" class="collection">
-                      <a class="collection-firstName" >{{User.firstName}}</a>
+                      <li class="collection-firstName" >{{User.firstName}}</li>
                     </ul>
                   </div>
                   <ng-template #noItems class="class=white-text"><h5>No Items</h5></ng-template>
@@ -22,7 +22,7 @@
                   <div *ngIf="Users?.length >0; else noItems">
                     <label>Last Name</label>
                     <ul *ngFor="let User of Users" class="collection">
-                      <a class="collection-lastName">{{User.lastName}}</a>
+                      <li class="collection-lastName">{{User.lastName}}</li>
                     </ul>
                   </div>
                   <ng-template #noItems class="class=white-text"><h5>No Items</h5></ng-template>
@@ -30,7 +30,7 @@
                   <div *ngIf="Users?.length >0; else noItems">
                     <label>Contact Number</label>
                       <ul *ngFor="let User of Users" class="collection">
-                        <a class="collection-contact">{{User.contact}}</a>
+                        <li class="collection-contact">{{User.contact}}</li>
                       </ul>
                   </div>
                   <ng-template #noItems class="class=white-text"><h5>No Items</h5></ng-template>
@@ -38,18 +38,18 @@
                   <div *ngIf="Users?.length >0; else noItems">
                     <label>Email</label>
                     <ul *ngFor="let User of Users" class="collection">
-                      <a class="collection-email">{{User.email}}</a>
+                      <li class="collection-email">{{User.email}}</li>
                     </ul>
                   </div>
                   <ng-template #noItems class="class=white-text"><h5>No Items</h5></ng-template>
 
-                  <!--div *ngIf="Users?.length >0; else noItems">
+                  <div *ngIf="Users?.length >0; else noItems">
                     <label>District</label>
                       <ul *ngFor="let User of Users" class="collection">
                         <li class="collection-district">{{User.district}}</li>
                       </ul>
                   </div>
-                  <ng-template #noItems class="class=white-text"><h5>No Items</h5></ng-template-->
+                  <ng-template #noItems class="class=white-text"><h5>No Items</h5></ng-template>
       </div>
     </div>
   </div>

@@ -36,12 +36,8 @@
     <div class="text-center" style="padding-top: 100px;" >
         <img [src]="url ? url: 'https://www.w3schools.com/howto/img_avatar.png'" class="rounded-circle" >
         <br>
-        <h4 *ngFor="let User of Users" class="collection">
-            {{User.firstName}} {{User.lastName}}
-        </h4>
-        <h3 *ngFor="let User of Users" class="collection">
-            {{User.email}}
-        </h3>        
+        <h3> User Profile </h3>
+        <h6> shanikawaidyrathne@gmail.com </h6>        
     </div>
 
     <div class="list-group list-group-flush" style="padding-top:50px;">
@@ -49,7 +45,7 @@
                 <mdb-icon fas icon="chart-pie" class="mr-3"></mdb-icon> Profile
         </a>
         <a routerLink="../UserEditUser" class="list-group-item list-group-item-action waves-effect" style="background-color:transparent;" mdbWavesEffect>
-                <mdb-icon fas icon="user" class="mr-3"></mdb-icon> Edit Profile
+                <mdb-icon fas icon="user" class="mr-3"></mdb-icon> Edit User
         </a>
         <a routerLink="../UserBooking" class="list-group-item list-group-item-action waves-effect" style="background-color:transparent;" mdbWavesEffect>
                 <mdb-icon fas icon="table" class="mr-3"></mdb-icon> Booking History

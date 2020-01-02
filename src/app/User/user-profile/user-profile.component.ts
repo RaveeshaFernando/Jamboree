@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SampleUserService } from "src/app/BackendConfig/sample-user.service";
+import { UserService } from "src/app/BackendConfig/user.service";
 import { User } from "src/app/BackendConfig/user.model";
 
 @Component({
@@ -10,17 +10,18 @@ import { User } from "src/app/BackendConfig/user.model";
 export class UserProfileComponent implements OnInit {
   Users: User[];
 
-  constructor(private userService: SampleUserService) { }
+   constructor(private userService: UserService) { }
 
-  ngOnInit(){ 
+  ngOnInit() {
     this.userService.getUsers().subscribe(dataArray => {
     this.Users = dataArray.map(item =>{
       return {id : item.payload.doc.id,
       ...item.payload.doc.data()
     } as User
     })
-    })
-  }
+  })
+
+
+   }
+
 }
-
-
