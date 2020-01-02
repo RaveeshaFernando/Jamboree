@@ -50,36 +50,28 @@ import { UserDataComponent } from './Admin/userdata/userdata.component';
 import { AuthenticationService } from './Shared/authentication.service';
 import { GetUserService } from "./Shared/get-user.service";
 import { UserService } from './BackendConfig/user.service';
-import { SampleUserService } from './BackendConfig/sample-user.service';
 import { ContactService } from "./BackendConfig/contact.service";
 import { RecMsgsService } from "./BackendConfig/rec-msgs.service";
-import { AuthService } from "./BackendConfig/auth.service";
 
-// import { AuthService } from "./Testing/auth.service";
-import { SignInComponent } from './Testing/sign-in/sign-in.component';
-import { SignUpComponent } from './Testing/sign-up/sign-up.component';
-import { DashComponent } from './Testing/dash/dash.component';
-import { ForgotPasswordComponent } from './Testing/forgot-password/forgot-password.component';
-import { VerifyEmailComponent } from './Testing/verify-email/verify-email.component';
-import { Signup2Component } from './signup2/signup2.component';
 
+import {HttpClientModule} from "@angular/common/http";
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    
+
     SigninComponent,
     SignupComponent,
-    
+
     //Admin
     AdminComponent,
     SidebarComponent,
     DashboardComponent,
     ProfileInsightsComponent,
     UserDataComponent,
-    
-    //User 
+
+    //User
     UserProfileComponent,
     EditUserComponent,
     BookingHistoryComponent,
@@ -94,14 +86,7 @@ import { Signup2Component } from './signup2/signup2.component';
     ProfEditProfileComponent,
     ProfBookingComponent,
 
-    
-    SignInComponent,
-    SignUpComponent,
-    DashComponent,
-    ForgotPasswordComponent,
-    VerifyEmailComponent,
-    Signup2Component,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -123,22 +108,20 @@ import { Signup2Component } from './signup2/signup2.component';
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
     AngularFireDatabaseModule,
+    HttpClientModule,
 
   ],
   providers: [
     UserService,
-    SampleUserService,
     AuthenticationService,
     GetUserService,
     ContactService,
     RecMsgsService,
     MatSort,
-
-    AuthService
   ],
   bootstrap: [AppComponent],
   schemas:   [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {
-  
+
  }
