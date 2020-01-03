@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 export class NavbarComponent implements OnInit {
 
   flag: Boolean
+  Log: any
 
   constructor(
     public authService : AuthService
@@ -18,6 +19,9 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     this.authService.authenticated.subscribe(isAuthed => {
       this.flag = isAuthed;
+      this.Log = this.authService.GetUserData().subscribe(user => {
+        this.Log = user
+      });
     });
   }
 

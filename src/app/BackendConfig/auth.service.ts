@@ -1,4 +1,3 @@
-
 import { Injectable, NgZone } from '@angular/core';
 import { User } from "./user.model";
 import { auth } from 'firebase/app';
@@ -6,14 +5,15 @@ import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from "@angular/router";
 import { Observable, BehaviorSubject } from 'rxjs';
-import { map } from "rxjs/operators";
+import { map, first } from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class AuthService {
-  userData: any;                      // Save logged in user data
+  type : string = 'eventProf' ;
+  userData: any;                      
   Log : any ;
   userSubject = new BehaviorSubject<Boolean>(false);
   
@@ -22,23 +22,21 @@ export class AuthService {
   }
 
   constructor(
-    public afs: AngularFirestore,     // Inject Firestore service
-    public afAuth: AngularFireAuth,   // Inject Firebase auth service
+    public afs: AngularFirestore,     
+    public afAuth: AngularFireAuth,   
     public router: Router,  
     public ngZone: NgZone             // NgZone service to remove outside scope warning
   ) {
 
-    /* Saving user data in localstorage when logged in and setting up null when logged out */
     this.afAuth.authState.subscribe(user => {
       if (user) {
         this.userData = user;
-        localStorage.setItem('user', JSON.stringify(this.userData));
-        this.Log = JSON.parse(localStorage.getItem('user'));
-        console.log(this.Log.email)
+        localStorage.setItem('user', this.userData.uid);
+        this.Log = localStorage.getItem('user');
         this.userSubject.next(true);
       } else {
         localStorage.setItem('user', null);
-        this.Log = JSON.parse(localStorage.getItem('user'));
+        this.Log = localStorage.getItem('user');
         this.userSubject.next(false);
       }
     })
@@ -49,9 +47,16 @@ export class AuthService {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
+          if(this.type=='admin'){
+            this.router.navigate(['dashboard']);
+          }
+          else if(this.type == 'eventProf'){
+            this.router.navigate(['EventMain']);            
+          }
+          else{
+            this.router.navigate(['UserProfile']);
+          }
         });
-        this.SetUserData(result.user,'sample','name2');
       }).catch((error) => {
         window.alert(error.message)
       })
@@ -76,7 +81,7 @@ export class AuthService {
     })
   }
 
-  // Reset Forggot password
+  // Reset Forgot password
   ForgotPassword(passwordResetEmail) {
     return this.afAuth.auth.sendPasswordResetEmail(passwordResetEmail)
     .then(() => {
@@ -86,33 +91,6 @@ export class AuthService {
     })
   }
 
-  // Returns true when user is logged in and email is verified
-  get isLoggedIn(): boolean {
-    const user = JSON.parse(localStorage.getItem('user'));
-    return (user !== null && user.emailVerified !== false) ? true : false;
-  }
-
-  // Sign in with Google
-  GoogleAuth() {
-    return this.AuthLogin(new auth.GoogleAuthProvider());
-  }
-
-  // Auth logic to run auth providers
-  AuthLogin(provider) {
-    return this.afAuth.auth.signInWithPopup(provider)
-    .then((result) => {
-       this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
-        })
-      this.SetUserData(result.user,null,null);
-    }).catch((error) => {
-      window.alert(error)
-    })
-  }
-
-  /* Setting up user data when sign in with username/password, 
-  sign up with username/password and sign in with social auth  
-  provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
   SetUserData(user,fName, lName) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
     const userData: User = {
@@ -134,6 +112,11 @@ export class AuthService {
     })
   }
 
+  GetUserData(): Observable<any> {
+    return this.afs.collection("users").doc(localStorage.getItem("user") as string).valueChanges().pipe(first());
+    ;
+  }
+
   // Sign out 
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
@@ -141,5 +124,4 @@ export class AuthService {
       this.router.navigate(['/Signin']);
     })
   }
-
 }
