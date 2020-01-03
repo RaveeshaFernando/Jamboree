@@ -9,13 +9,22 @@
         <links>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item waves-light" mdbWavesEffect>
-                    <a href="#home"  class="nav-link"><strong> Home </strong> <span class="sr-only">(current)</span> </a>
+                    <a href="#home"  class="nav-link"><strong> Home </strong> </a>
                 </li>
                 <li class="nav-item waves-light" mdbWavesEffect >
                     <a [routerLink]="['/dashboard']" class="nav-link"> <strong>Feed</strong> </a>
                 </li>
                 <li class="nav-item waves-light" mdbWavesEffect >
                     <a href="#contacts" class="nav-link"> <strong>Contact</strong> </a>
+                </li>
+                <li class="nav-item waves-light" mdbWavesEffect >
+                    <div *ngIf="this.Log.userType=='admin' ;then admin else prof"></div>    
+                            <ng-template #prof> 
+                                    <a [routerLink]="['/EventMain']" class="nav-link"> <strong>{{Log.userType}}</strong> </a>    
+                            </ng-template>
+                            <ng-template #admin> 
+                                <a [routerLink]="['/dashboard']" class="nav-link"> <strong>Profile</strong> </a>    
+                            </ng-template>
                 </li>
                     
                 <li class="nav-item waves-light" mdbWavesEffect>
@@ -28,7 +37,11 @@
             </ul>
             <ul class="navbar-nav nav-flex-icons">
                 <li class="nav-item dropdown" dropdown>
-                    <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect> <strong>Hello Guest! </strong> <span class="caret"></span></a>
+                    <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                        <div *ngIf="this.flag;then logged else guest"></div>    
+                            <ng-template #guest> Hello Guest!</ng-template>
+                            <ng-template #logged> {{Log.displayName}} </ng-template>
+                    </a>
                     <div *dropdownMenu class="dropdown-menu dropdown drop" role="menu">
                         <a [routerLink]="['/Signin']"  class="dropdown-item waves-light" mdbWavesEffect href="#"> <strong> Log In</strong></a>
                         <div class="divider dropdown-divider"></div>

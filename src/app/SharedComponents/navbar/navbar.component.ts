@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  flag: Boolean
+  Log: any
 
   ngOnInit() {
+    this.authService.authenticated.subscribe(isAuthed => {
+      this.flag = isAuthed;
+      this.Log = this.authService.GetUserData().subscribe(user => {
+        this.Log = user
+      });
+    });
   }
 
 }
