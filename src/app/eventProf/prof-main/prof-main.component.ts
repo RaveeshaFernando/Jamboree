@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, AngularFirestoreModule } from '@angular/fire/firestore'
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, AngularFirestoreModule } from '@angular/fire/firestore' ;
+import { AuthService } from '../../BackendConfig/auth.service' ;
 
 @Component({
   selector: 'app-prof-main',
@@ -10,6 +11,8 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument,
   styleUrls: ['./prof-main.component.scss']
 })
 export class ProfMainComponent implements OnInit {
+  flag: Boolean
+  Log: any
 
   message: string = 'dcdcdcdc';
 
@@ -17,10 +20,11 @@ export class ProfMainComponent implements OnInit {
   downloadURL: Observable<string>;
   image: string = null;
   list:photo[];
+  
   constructor(
+    public authService : AuthService ,
     private store: AngularFireStorage, private firestore: AngularFirestore) {
-
-     }
+    }
 
   uploadImage(event) {
     let file = event.target.files[0];
@@ -64,6 +68,13 @@ export class ProfMainComponent implements OnInit {
          this.list = imageList;
        }
      );
+
+    this.authService.authenticated.subscribe(isAuthed => {
+      this.flag = isAuthed;
+      this.Log = this.authService.GetUserData().subscribe(user => {
+        this.Log = user ;
+      });
+    });
   }
 
 

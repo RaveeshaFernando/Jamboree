@@ -9,77 +9,76 @@
                     <div class="photo-container" style="padding-top:120px;">
                         <img src="../../../assets/img/Gallery/Profile.jpg" alt="" class="rounded-circle" style="max-width: 150px;">
                     </div>
-                    <h4 class="title">Raveesha Fernando</h4>
-                    <h6 class="category">Photographer & Videographer</h6>
+                    <h4 class="title">{{this.Log.displayName}}</h4>
+                    <h6 class="category">{{this.Log.eventType}}</h6>
                     <br><br>
-                    <h6 class="category"> 0710427779</h6>
-                    <h6 class="category"> rdilshanf@gmail.com</h6>
+                    <h6 class="category"> {{this.Log.contact}}</h6>
+                    <h6 class="category"> {{this.Log.email}}</h6>
                 </div>
             </div>
         </div>
-        
-        <div class="section">
-          <div class="container" style="background-color:#EEE">
-            <h3 class="title" style="padding-top:50px;padding-left:50px" >Description</h3>
-            <p style="padding-left: 50px;padding-bottom: 50px">
-              Wedding
-              <br> <br>
-              Elite class 180,000/- <br>
-              Golden class 150,000/- <br>
-              Silver class 120,000/- <br>
-              <br>
-              Home Coming  <br> <br>
-              
-              Elite class 80,000/-  <br>
-              Golden class 70,000/- <br>
-              Silver class 60,000/- <br>
-              <br>
-              Video Packages  <br> <br>
-              
-              *Package A Platinum Class- 70,000/- <br>
-              *Package B Gold Class - 50,000/- <br>
-              *Package C Silver Class - 40,000/- <br>
-              <br>
-              If you are doing both the wedding & home coming with us the pre-shoot videos will be totally free.
-            </p>
-          </div>
-        
 
-<div class="container">
-  <div class="card">
-    <div class="card-header">
-      Upload your captures
-    </div>
-    <div class="card-body">
-      <h5 class="card-title">Select and upload your :</h5>
-      <input type="file" (change)="uploadImage($event)" accept=".png,.jpg" />
-      <button type="button" (click)="uploadImages($event)">Upload</button>
-      <br><br>
-      <br>
-      <div class="btn-group" role="group" *ngIf="uploadState | async; let state">
-        <button type="button" class="btn btn-primary" (click)="task.pause()"
-          [disabled]="state === 'paused'">Pause</button>
-        <button type="button" class="btn btn-primary" (click)="task.cancel()"
-          [disabled]="!(state === 'paused' || state ==='running')">Cancel</button>
-        <button type="button" class="btn btn-primary" (click)="task.resume()"
-          [disabled]="state === 'running'">Resume</button>
-      </div>
-      <br><br>
-      <div *ngIf="downloadURL | async; let downloadSrc" class="alert alert-info" role="alert">
-        File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
-      </div>
-    </div>
-  </div>
-  <div class="Gallery">
-    <div *ngFor="let item of list" class="Gallery">
-      <div class="mb-3 pics animation all 1">
-        <img class="img-fluid" src="{{item.data}}">
-      </div>
-    </div>
-  </div>
-  <div>
-  </div>
-</div>
-</div>
-</div>
-</div>
+        <div class="row" style="padding:30px ">
+
+          <div class="col-lg-7">
+            <div class="container">
+              <div class="card">
+                <div class="card-header">
+                  Upload your captures
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Select and upload your :</h5>
+                  <input type="file" (change)="uploadImage($event)" accept=".png,.jpg" />
+                  <button type="button" (click)="uploadImages($event)">Upload</button>
+                  <br><br>
+                  <br>
+                  <div class="btn-group" role="group" *ngIf="uploadState | async; let state">
+                    <button type="button" class="btn btn-primary" (click)="task.pause()"
+                      [disabled]="state === 'paused'">Pause</button>
+                    <button type="button" class="btn btn-primary" (click)="task.cancel()"
+                      [disabled]="!(state === 'paused' || state ==='running')">Cancel</button>
+                    <button type="button" class="btn btn-primary" (click)="task.resume()"
+                      [disabled]="state === 'running'">Resume</button>
+                  </div>
+                  <br><br>
+                  <div *ngIf="downloadURL | async; let downloadSrc" class="alert alert-info" role="alert">
+                    File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
+                  </div>
+                </div>
+              </div>
+              <div class="Gallery">
+                <div *ngFor="let item of list" class="Gallery">
+                  <div class="mb-3 pics animation all 1">
+                    <img class="img-fluid" src="{{item.data}}">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+              <div class="container" style="background-color:#FFF">
+                <h3 class="title" style="padding-top:50px;padding-left:50px" >Description</h3>
+                <p style="padding-left: 50px;padding-bottom: 50px">
+                  Wedding
+                  <br> <br>
+                  Elite class 180,000/- <br>
+                  Golden class 150,000/- <br>
+                  Silver class 120,000/- <br>
+                  <br>
+                  Home Coming  <br> <br>
+                  
+                  Elite class 80,000/-  <br>
+                  Golden class 70,000/- <br>
+                  Silver class 60,000/- <br>
+                  <br>
+                  Video Packages  <br> <br>
+                  
+                  *Package A Platinum Class- 70,000/- <br>
+                  *Package B Gold Class - 50,000/- <br>
+                  *Package C Silver Class - 40,000/- <br>
+                  <br>
+                  If you are doing both the wedding & home coming with us the pre-shoot videos will be totally free.
+                </p>
+              </div>
+        </div>
