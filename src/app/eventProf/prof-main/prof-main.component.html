@@ -46,15 +46,21 @@
                   </div>
                 </div>
               </div>
-              <div class="Gallery">
-                <div *ngFor="let item of list" class="Gallery">
-                  <div class="mb-3 pics animation all 1">
-                    <img class="img-fluid" src="{{item.data}}">
+                <div class="Gallery">
+                  <div *ngFor="let item of list" class="Gallery">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-am-12">
+                          <div class="mb-3 pics animation all 1">
+                            <img class="img-fluid" src="{{item.data}}">
+                          </div>
+                        </div>
+                    </div>
                   </div>
-                </div>
               </div>
             </div>
           </div>
+
+
 
           <div class="col-lg-5">
               <div class="container" style="background-color:#FFF">
