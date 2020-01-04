@@ -1,110 +1,67 @@
+<app-user-sidebar></app-user-sidebar>
+<div class="depth" style="padding-top: 70px;height: 100vh;">
+    <img src="../../../assets/img/Gallery/background1.jpg" class="bg-img" alt="placeholder">
+    <div class="overlay"></div>
+    <div class="d-flex justify-content-center" style="padding-bottom: 30px;padding-right: 30px;">
+      <div class="col-lg-5 rounded" style=" color:#223; background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);">
+        <div class="text-center">
+          <h4 class="mb-sm-0 pt-3" style="padding-top: 15px;color: #223;"> <strong>Edit User Profile </strong>  </h4>
+          <hr style="background-color: #eee;">
+        </div>
+        
+        <div style="padding: 10px;">
+          <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
 
-<!--div class="col-md-2" style="padding-top: 100px;">
-  <img [src]="imgURL" height="200"  *ngIf="imgURL" >
-  <span style="color:red;" *ngIf="message">{{message}}</span>
-  <input #file type="file" accept='image/*' (change)="preview(file.files)" /-->
-  
-  <div class="panel-header panel-header-sm">
-    </div>
-    <div class="main-content">
-      <div class="row" style="align-content: center;padding-top:100px">
-          <div class="col-md-2" style="padding-top: 100px;">
-              
-            <img [src]="imgURL" height="200"  *ngIf="imgURL" >
-            <span style="color:red;" *ngIf="message">{{message}}</span>
-            <input #file type="file" accept='image/*' (change)="preview(file.files)" >
-            <br/>
-                
-            <div class="list-group list-group-flush" style="padding-top:100px">
-                <a routerLink="../dashboard" class="list-group-item list-group-item-action waves-effect" mdbWavesEffect>
-                  <mdb-icon fas icon="table" class="mr-3" style="color: #223;"></mdb-icon>Current Bookings
-                </a>
-                <a routerLink="../profile-insights" class="list-group-item list-group-item-action waves-effect" mdbWavesEffect>
-                  <mdb-icon fas icon="table" class="mr-3" style="color: #223;"></mdb-icon>Booking History
-                </a>
-                <a class="list-group-item list-group-item-action waves-effect"  [routerLink]="['/edit-user']" mdbWavesEffect>
-                  <mdb-icon fas icon="user" class="mr-3" style="color: #223;"></mdb-icon>Edit Profile
-                </a>
-                <a routerLink="../booking-info" class="list-group-item list-group-item-action waves-effect" mdbWavesEffect>
-                  <mdb-icon fas icon="user" class="mr-3" style="color: #223;"></mdb-icon>Update Profile
-                </a>
-            </div>
-            <div class="button-container">
-              <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
-                <i class="fab fa-facebook-f" style="color: #223;"></i>
-              </button>
-              <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
-                <i class="fab fa-twitter" style="color: #223;"></i>
-              </button>
-              <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
-                <i class="fab fa-google-plus-g" style="color: #223;"></i>
-              </button>
-            </div>
-          </div>
-          <div class="col-md-10">
-              <div class="col-md-6 col-lg-6" style="padding:60px;background-color: #223;border-radius: 30px;;">
-                  <div class="card-body" >
-                    <form>
-                      <div class="row">
-                        <div class="col-md-6 pl-1">
-                          <div class="form-group" id="edit" contenteditable="true">
-                            <label class="white-text"  >First Name</label>
-                            <input type="text" class="form-control" placeholder="First Name">
-                            <input id="update" type="button" style="border-radius: 20%;" value="save" onclick="saveEdits()"/>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6 pl-1">
-                          <div class="form-group">
-                            <label class=white-text>Last Name</label>
-                            <input type="text" class="form-control" placeholder="Last Name">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6 pl-1">
-                          <div class="form-group">
-                            <label class="white-text">Contact Number</label>
-                            <input type="text" class="form-control" placeholder="Contact">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-4 pl-1">
-                          <div class="form-group">
-                            <label for="email" class="white-text">Email address</label>
-                            <input name="email" id="email" type="email" class="form-control" placeholder="Email">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6 pl-1">
-                          <div class="form-group">
-                            <label class="white-text">District</label>
-                            <input type="text" class="form-control" placeholder="District">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6 pl-1">
-                          <div class="form-group">
-                            <label class="white-text">Region</label>
-                            <input type="text" class="form-control" placeholder="Region">
-                          </div>
-                        </div>
-                      </div>
-          
-                      
-                    </form>
-                  </div>
+              <div class="text-center">
+                  <!--upload image by clicking on the image-->
+                  <img [src]="imgSrc" width="350px" height="250px" (click) = "fileUploader.click()">
               </div>
-          </div> 
+
+            <input type="hidden" name="id" #id="ngModel" [(ngModel)]="users.userData.id" *ngFor="let user of getUserList" class="collection">
+            <mat-form-field class="col-lg-6">
+              <input matInput placeholder="First Name" name="firstName" #firstName="ngModel" [(ngModel)]="users.userData.firstName" required >
+            </mat-form-field>
+
+            <mat-form-field class="col-lg-6 ">
+              <input matInput placeholder="Last Name"  name="lastName" #lastName="ngModel" [(ngModel)]="users.userData.lastName" required > 
+            </mat-form-field>
+          
+            <mat-form-field class="col-lg-6 ">
+              <input matInput placeholder="Email"  name="email" #email="ngModel" [(ngModel)]="users.userData.email" required > 
+            </mat-form-field>
+          
+            <mat-form-field class="col-lg-6 ">
+              <input matInput placeholder="Mobile"  name="contact" #contact="ngModel" [(ngModel)]="users.userData.contact"> 
+            </mat-form-field>
+          
+            <!--mat-form-field class="col-lg-6 ">
+              <input type="password" matInput placeholder="Password" name="password" #password="ngModel" [(ngModel)]="users.userData.password" required > 
+            </!--mat-form-field>
+
+            <mat-form-field class="col-lg-6 ">
+              <input type="password" matInput placeholder="Re Enter Password" > 
+            </mat-form-field-->
+            
+
+            <!--div class="row">
+              <div class="col-lg-2">
+                  <ul *ngFor= "let user of getUserList">
+                    <a class="btn-sm text-danger" (click)="onEdit(user)"> 
+                      <button mat-button color="primary">Primary</button>
+                    </a>
+                  </ul>
+              </div>
+              
+              <div class="col-lg-2">
+                  <input type="submit" value="Submit" class="btn">
+              </div>
+            </div-->
+          </form>
+            
+        </div>
       </div>
     </div>
+  </div>   
 
-<!--div class="col-md-6">
-    <div class="panel-footer">
-        <button class="btn btn-primary" (click)="editProfile()">Edit</button>
-    </div>
-</div -->
+
+          
