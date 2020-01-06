@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, AngularFirestoreModule } from '@angular/fire/firestore'
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, AngularFirestoreModule } from '@angular/fire/firestore' ;
+import { AuthService } from '../../BackendConfig/auth.service' ;
 
 
 @Component({
@@ -11,17 +12,20 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument,
   styleUrls: ['./prof-main.component.scss']
 })
 export class ProfMainComponent implements OnInit {
+  flag: Boolean
+  Log: any
 
   message: string = 'dcdcdcdc';
 
   uploadPercent: Observable<number>;
   downloadURL: Observable<string>;
   image: string = null;
-  list:sandun[];
+  list:photo[];
+  
   constructor(
+    public authService : AuthService ,
     private store: AngularFireStorage, private firestore: AngularFirestore) {
-
-     }
+    }
 
   uploadImage(event) {
     let file = event.target.files[0];
@@ -61,15 +65,22 @@ export class ProfMainComponent implements OnInit {
 
   ngOnInit() {
      this.firestore.collection("CustomerPosts").valueChanges().subscribe(
-       fuck=>{
-         this.list = fuck;
+       imageList=>{
+         this.list = imageList;
        }
      );
+
+    this.authService.authenticated.subscribe(isAuthed => {
+      this.flag = isAuthed;
+      this.Log = this.authService.GetUserData().subscribe(user => {
+        this.Log = user ;
+      });
+    });
   }
 
 
 }
-interface sandun {
+interface photo {
   id?:string;
   data?:string;
 }

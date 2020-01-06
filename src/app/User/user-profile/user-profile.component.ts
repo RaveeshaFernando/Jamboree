@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from "src/app/BackendConfig/user.service";
+import { SampleUserService } from "src/app/BackendConfig/sample-user.service";
 import { User } from "src/app/BackendConfig/user.model";
+import { AuthService } from "./../../BackendConfig/auth.service";
 
 @Component({
   selector: 'app-user-profile',
@@ -9,19 +10,25 @@ import { User } from "src/app/BackendConfig/user.model";
 })
 export class UserProfileComponent implements OnInit {
   Users: User[];
+  flag: Boolean
+  Log: any
 
-   constructor(private userService: UserService) { }
 
-  ngOnInit() {
+  constructor(private userService: SampleUserService, public authService : AuthService) { }
+
+  ngOnInit(){ 
     this.userService.getUsers().subscribe(dataArray => {
     this.Users = dataArray.map(item =>{
       return {id : item.payload.doc.id,
       ...item.payload.doc.data()
     } as User
     })
-  })
-
-
-   }
-
+    })
+    this.authService.authenticated.subscribe(isAuthed => {
+      this.flag = isAuthed;
+      this.Log = this.authService.GetUserData().subscribe(user => {
+        this.Log = user
+      });
+    });
+  }
 }

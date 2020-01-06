@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { SampleUserService } from "src/app/BackendConfig/sample-user.service";
+import { User } from "src/app/BackendConfig/user.model";
+import { NgForm } from '@angular/forms';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-edit-user',
@@ -6,6 +12,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-user.component.scss']
 })
 export class EditUserComponent implements OnInit {
+  getUserList: User[];
+  editState: boolean = false;
+  userToEdit: User;
+  imgSrc : string;
   // public imagePath;
   // imgURL: any;
   // public message: string;
@@ -40,9 +50,82 @@ export class EditUserComponent implements OnInit {
   // }
 
 
-  constructor() { }
+  constructor(private users : SampleUserService,
+    private firestore : AngularFirestore,
+    private toastr : ToastrService) { }
 
   ngOnInit() {
+    this.resetForm();
+
+    var count : number = 0 ;
+
+    //Data retrieving from firestore
+    this.users.getUsers().subscribe(dataArray => {
+      this.getUserList = dataArray.map(item =>{
+        count ++ ;
+        console.log(count);
+        return {id : item.payload.doc.id,
+        ...item.payload.doc.data()
+        } as User  
+      })
+      
+    })
   }
 
-}
+  resetForm(form ?: NgForm){
+    if(form!=null)
+      form.resetForm();
+      this.users.userData= {
+        uid : null ,
+        firstName : '',
+        lastName : '' ,
+        email : '',
+        contact : '',
+        userType : '',
+        eType : '' ,
+        description : '' ,
+        //displayPic : '',
+        district : '',
+        emailVerified : false,
+        photoURL : '',
+        displayName : '',
+    }
+  }
+
+  //data sending to firestore
+  onSubmit(form : NgForm){ 
+    let data = Object.assign({}, form.value) ;
+    delete data.id ;
+    if(form.value.id==null){
+      if (form.value.Password == form.value.RePassword){
+        console.log("sucess");
+        this.firestore.collection('Sample').add(data);
+        this.toastr.success('Saving...', 'Jamboree.NewUser');
+      }
+      else {
+        console.log("Failed");
+        this.toastr.error('Passwords not matching', 'Jamboree.NewUser');
+      }
+    }
+    else{
+      this.firestore.doc('Sample/' + form.value.id).update(data);
+      this.toastr.success('User updated sucessfully', 'Jamboree.UserUpdata');
+
+    }
+
+    this.resetForm(form);
+  }
+
+  //Edit data from User
+  onEdit(user : User){
+    this.users.userData = Object.assign({},user);
+  }
+
+  /*clearState() {
+    this.editState = false;
+    this.userToEdit = null;
+  }*/
+
+  }
+
+

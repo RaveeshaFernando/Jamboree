@@ -48,7 +48,6 @@ export class UserDataComponent implements OnInit {
         lastName : '' ,
         email : '',
         contact : '',
-        password : '',
         userType : '',
         eType : '' ,
         description : '' ,
@@ -64,7 +63,7 @@ export class UserDataComponent implements OnInit {
     if(form.value.id==null){
       if (form.value.Password == form.value.RePassword){
         console.log("sucess");
-        this.firestore.collection('Users').add(data);
+        this.firestore.collection('users').add(data);
         this.toastr.success('User Added Sucessfully', 'Jamboree.NewUser');
       }
       else {
@@ -73,7 +72,7 @@ export class UserDataComponent implements OnInit {
       }
     }
     else{
-      this.firestore.doc('Users/' + form.value.id).update(data);
+      this.firestore.doc('users/' + form.value.id).update(data);
       this.toastr.success('User updated sucessfully', 'Jamboree.UserUpdata');
 
     }
@@ -89,7 +88,7 @@ export class UserDataComponent implements OnInit {
   //Delete Data from Users
   onDelete(id : string){
     if(confirm("Are you sure, you want to delete this record?")){
-      this.firestore.doc('Users/' + id).delete();
+      this.firestore.doc('users/' + id).delete();
       this.toastr.success('User deleted sucessfully', 'Jamboree.UserDelete');
 
     }
