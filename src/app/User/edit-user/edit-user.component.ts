@@ -8,7 +8,8 @@ import { ToastrService } from 'ngx-toastr';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map, first } from "rxjs/operators";
 import { AngularFireAuth } from "@angular/fire/auth";
-import {Router}  from '@angular/router'
+import { Router }  from '@angular/router';
+import { FormGroup , FormControl , Validators } from '@angular/forms'
 
 
 @Component({
@@ -27,9 +28,17 @@ export class EditUserComponent implements OnInit {
   Log: any
   userSubject = new BehaviorSubject<Boolean>(false);
 
+  imgSrc : string = "/assets/img/avatar.jpg";
+  selectedImg : any = null;
+  isSubmitted : boolean = false;
+
   public get authenticated() : Observable<Boolean> {
     return this.userSubject.asObservable();
   }
+
+  formTemplate = new FormGroup( {
+    imageUrl : new FormControl('',Validators.required),
+  })
 
   // public imagePath;
   // imgURL: any;
@@ -93,30 +102,6 @@ export class EditUserComponent implements OnInit {
   ngOnInit() {
     this.resetForm();
     var count : number = 0 ;
-    
-
-    //Data retrieving from firestore
-    /*this.users.getUsers().subscribe(dataArray => {
-      this.getUserList = dataArray.map(item =>{
-        count ++ ;
-        console.log(count);
-        return {id : item.payload.doc.id,
-        ...item.payload.doc.data()
-        } as User  
-      })
-      
-    })*/
-
-    //*********** */
-    /*var docRef = this.firestore.collection("users").doc("ymocxIkpb0Rm91Sg6zbuj9PsidA3");
-
-    docRef.get().subscribe(function(doc)  {
-      if(doc.exists) {
-        console.log("Document data:", doc.data());
-      } else {
-        console.log("No such document!!!!");
-      }
-    })*/
 
     this.authService.authenticated.subscribe(isAuthed => {
       this.flag = isAuthed;
@@ -125,6 +110,24 @@ export class EditUserComponent implements OnInit {
       });
     });
   }
+  //select image image
+  showPreview(event : any) {
+    if (event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+      reader.onload = (e:any) => this.imgSrc = e.target.result;
+      reader.readAsDataURL(event.target.files[0]);
+      this.selectedImg = event.target.files[0];
+    }
+    else {
+      this.imgSrc = "/assets/img/edit3.png";
+      this.selectedImg = null;
+    }
+  }
+  //upload image
+  imgSubmit(formValue) {
+    this.isSubmitted = true;
+  }
+
 
   resetForm(form ?: NgForm){
     if(form!=null)
@@ -147,7 +150,6 @@ export class EditUserComponent implements OnInit {
   }
 
   //data sending to firestore
-  //************************************* */
   onSubmit(form : NgForm){ 
     let data = Object.assign({}, form.value) ;
     delete data.uid ;
