@@ -24,6 +24,7 @@ export class UserProfileComponent implements OnInit {
     } as User
     })
     })
+    
     this.authService.authenticated.subscribe(isAuthed => {
       this.flag = isAuthed;
       this.Log = this.authService.GetUserData().subscribe(user => {
