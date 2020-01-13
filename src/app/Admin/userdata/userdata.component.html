@@ -28,34 +28,58 @@
                     <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
                         <input type="hidden" name="id" #id="ngModel" [(ngModel)]="users.userData.id">
                         <mat-form-field class="col-lg-6 col-md-6 col-sm-6">
-                            <input matInput placeholder="First Name" name="firstName" #firstName="ngModel" [(ngModel)]="users.userData.firstName" required > 
+                            <input disabled matInput placeholder="First Name" name="firstName" #firstName="ngModel" [(ngModel)]="users.userData.firstName" required > 
                         </mat-form-field> 
 
                         <mat-form-field class="col-lg-6 col-md-6 col-sm-6">
-                            <input matInput placeholder="Last Name"  name="lastName" #lastName="ngModel" [(ngModel)]="users.userData.lastName" required > 
+                            <input disabled matInput placeholder="Last Name"  name="lastName" #lastName="ngModel" [(ngModel)]="users.userData.lastName" required > 
                         </mat-form-field>
                         
                         <mat-form-field class="col-lg-6 col-md-6 col-sm-6">
-                            <input matInput placeholder="Email"  name="email" #email="ngModel" [(ngModel)]="users.userData.email" required > 
+                            <input disabled matInput placeholder="Email"  name="email" #email="ngModel" [(ngModel)]="users.userData.email" required > 
                         </mat-form-field>
                         
                         <mat-form-field class="col-lg-6 col-md-6 col-sm-6">
                             <input matInput placeholder="Mobile"  name="contact" #contact="ngModel" [(ngModel)]="users.userData.contact"> 
                         </mat-form-field>
-                        
-                        <mat-form-field class="col-lg-6 col-md-6 col-sm-6">
-                            <input type="password" matInput placeholder="Password" name="password" #password="ngModel" [(ngModel)]="users.userData.password" required > 
-                        </mat-form-field>
-                        <mat-form-field class="col-lg-6 col-md-6 col-sm-6">
-                            <input type="password" matInput placeholder="Re Enter Password" > 
-                        </mat-form-field>
+
+
+                        <!-- <div class="appDragDrop" appDragDrop (hovered)="toggleHover($event)" (dropped)="onDrop($event)" [class.hovering]="isHovering">
+                            <p>Drag and Drop a File</p>
+                            <div class="file">
+                                <label class="file-label">
+                                <input class="file-input" type="file" (change)="onDrop($event.target.files)">
+                                <span class="file-cta">
+                                    <span class="file-icon">
+                                    <i class="fa fa-upload"></i>
+                                    </span>
+                                    <span class="file-label"> or choose a file… </span>
+                                </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <p>Uploads</p>
+                        <div *ngFor="let file of files">
+                            <app-file-drop-upload [file]="file"></app-file-drop-upload>
+                        </div>
+
+
+                        <input type="file" (change)="uploadImage($event)" accept=".png,.jpg" />
+                        <button type="button" (click)="uploadImages($event)">Upload</button>
+                        <div class="btn-group" role="group" *ngIf="uploadState | async; let state">
+                            <button type="button" class="btn btn-primary" (click)="task.pause()" [disabled]="state === 'paused'">Pause</button>
+                            <button type="button" class="btn btn-primary" (click)="task.cancel()" [disabled]="!(state === 'paused' || state ==='running')">Cancel</button>
+                            <button type="button" class="btn btn-primary" (click)="task.resume()" [disabled]="state === 'running'">Resume</button>
+                        </div> -->
+
 
                         <!-- <div class="row">
                             <div class="col-lg-4">
                                 <img [src]="defaultImage" width="120px" height="120px" style="border: solid royalblue;" (click)="fileInput.click()">
                             </div>
                             <div class="col-lg-8">
-                                <input matinput type="file" (change)="showPreview($event)" accept=".png,.jpg"  [(ngModel)]="users.userData.displayPic" #fileInput style="display: none; background-color: transparent;" />
+                                <input matinput type="file" (change)="showPreview($event)" accept=".png,.jpg"  [(ngModel)]="users.userData.photoURL" #fileInput style="display: none; background-color: transparent;" />
                                 <button style="background-color: transparent;" class="custom-select" (click)="fileInput.click()">Upload Photo</button>    
                                 <div class="progress" style="background-color: transparent;">
                                     <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div>
@@ -121,7 +145,7 @@
                         </mat-form-field>             
                         <button type="submit" class="btn btn-lg btn-block btn-info"> Add User </button>
                 
-                        <div *ngIf="(firstName.invalid && firstName.touched) || (lastName.invalid && lastName.touched) || (email.invalid && email.touched) || (password.invalid && password.touched)" class="text-center"> 
+                        <div *ngIf="(firstName.invalid && firstName.touched) || (lastName.invalid && lastName.touched) || (email.invalid && email.touched) " class="text-center"> 
                             <h6 style="color: red;padding-top:10px">The highlighted fields are required* </h6> 
                         </div>
                     </form>

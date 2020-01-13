@@ -17,15 +17,18 @@
     top: 0;
     right: 0;
     bottom: 0;
-    opacity: .9;
-    background: #1C1D21;
+    opacity: .8;
+    // background: #1C1D21;
+    background : #eee ;
     height: 100% ;
 }
 
 .button-cus{
-    background:transparent;
+    // background:transparent;
     border:none; 
     font-size : 90% ;
+    color: white;
+    font-family: roboto ;
 } 
 
 .btn-cus{
