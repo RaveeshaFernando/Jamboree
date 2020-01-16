@@ -5,7 +5,6 @@ import { finalize } from 'rxjs/operators';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, AngularFirestoreModule } from '@angular/fire/firestore' ;
 import { AuthService } from '../../BackendConfig/auth.service' ;
 
-
 @Component({
   selector: 'app-prof-main',
   templateUrl: './prof-main.component.html',
