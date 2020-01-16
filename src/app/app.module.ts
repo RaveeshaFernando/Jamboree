@@ -55,6 +55,9 @@ import { RecMsgsService } from "./BackendConfig/rec-msgs.service";
 
 
 import {HttpClientModule} from "@angular/common/http";
+import { SearchComponentComponent } from './SharedComponents/search-component/search-component.component';
+import { NgAisModule } from "angular-instantsearch";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,6 +88,8 @@ import {HttpClientModule} from "@angular/common/http";
     ProfSidebarComponent,
     ProfEditProfileComponent,
     ProfBookingComponent,
+    SearchComponentComponent,
+
 
 
   ],
@@ -109,6 +114,8 @@ import {HttpClientModule} from "@angular/common/http";
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
     AngularFireDatabaseModule,
     HttpClientModule,
+
+    NgAisModule
 
   ],
   providers: [

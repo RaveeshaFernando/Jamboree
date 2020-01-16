@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component' ;
 import { SigninComponent } from './signin/signin.component' ;
 import { SignupComponent } from './signup/signup.component' ;
+// import { SearchComponentComponent } from "../SharedComponents/SearchComponentComponent";
 
 import { ProfileComponent } from './profile/profile.component' ;
 
@@ -26,6 +27,7 @@ const routes: Routes =[
   { path: 'Signin',               component: SigninComponent },
   { path: 'Signup',               component: SignupComponent },
   { path: 'Profile',              component: ProfileComponent },
+  // { path: 'search',               component: SearchComponentComponent},
 
   { path: 'Admin',                component: AdminComponent },
   { path: 'dashboard',            component: DashboardComponent},
@@ -54,4 +56,3 @@ const routes: Routes =[
 })
 
 export class AppRoutingModule { }
-
