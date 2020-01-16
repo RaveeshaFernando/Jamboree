@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/BackendConfig/user.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-userdata',
@@ -32,8 +33,7 @@ export class UserDataComponent implements OnInit {
       
       this.getUserList = dataArray.map(item =>{
         this.total ++ ;
-        console.log(this.total);
-          
+        console.log(this.total);          
         return {id : item.payload.doc.id,
         ...item.payload.doc.data() 
         } as User  

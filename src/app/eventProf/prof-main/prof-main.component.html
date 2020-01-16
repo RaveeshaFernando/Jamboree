@@ -67,7 +67,7 @@
             <div class="container">
                 <div class="content-center">
                     <div class="photo-container" style="padding-top:120px;">
-                        <img src="../../../assets/img/Gallery/Profile.jpg" alt="" class="rounded-circle" style="max-width: 150px;">
+                        <img src="{{this.Log.photoURL}}" alt="" class="rounded-circle" style="max-width: 150px;">
                     </div>
                     <h4 class="title">{{this.Log.displayName}}</h4>
                     <h6 class="category">{{this.Log.eventType}}</h6>
@@ -126,26 +126,6 @@
           <div class="col-lg-5">
               <div class="container" style="background-color:#FFF">
                 <h3 class="title" style="padding-top:50px;padding-left:50px" >Description</h3>
-                <p style="padding-left: 50px;padding-bottom: 50px">
-                  Wedding
-                  <br> <br>
-                  Elite class 180,000/- <br>
-                  Golden class 150,000/- <br>
-                  Silver class 120,000/- <br>
-                  <br>
-                  Home Coming  <br> <br>
-                  
-                  Elite class 80,000/-  <br>
-                  Golden class 70,000/- <br>
-                  Silver class 60,000/- <br>
-                  <br>
-                  Video Packages  <br> <br>
-                  
-                  *Package A Platinum Class- 70,000/- <br>
-                  *Package B Gold Class - 50,000/- <br>
-                  *Package C Silver Class - 40,000/- <br>
-                  <br>
-                  If you are doing both the wedding & home coming with us the pre-shoot videos will be totally free.
-                </p>
+                <p style="padding-left: 50px;padding-bottom: 50px"> {{this.Log.description}} </p>
               </div>
         </div>

@@ -11,6 +11,7 @@ export class UserService {
 
   constructor(private firestore : AngularFirestore) { }
 
+  //list documents from Firestore collection
   getUsers(){
     return this.firestore.collection('users').snapshotChanges();
   }

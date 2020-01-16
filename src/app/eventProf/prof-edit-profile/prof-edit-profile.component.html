@@ -3,7 +3,7 @@
         <div class="container">
                 <h1>Edit Profile</h1>
                   <hr>
-    
+
                   <!-- <div class="text-center white-text" style="padding-top: 100px;" > -->
                     <img align=right src="../../../assets/img/admin.png" class="rounded-circle" >
                     <br>
@@ -13,43 +13,43 @@
                     <div class="text-center">
                       <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
                       <h6>Upload a different photo...</h6>
-                      
-                      <input type="file" class="form-control">
+
+                      <input type="file" (change)="uploadImage($event)" accept=".png,.jpg" />
+                      <button type="button" (click)="uploadImages($event)">Upload</button>
                     </div>
                   </div>
-                  
                   <!-- edit form column -->
                   <div class="col-md-9 personal-info">
                     <!-- <div class="alert alert-info alert-dismissable">
-                      <a class="panel-close close" data-dismiss="alert">×</a> 
+                      <a class="panel-close close" data-dismiss="alert">×</a>
                       <i class="fa fa-coffee"></i>
                       This is an <strong>.alert</strong>. Use this to show important messages to the user.
                     </div> -->
                     <h3>Personal info</h3>
-                    
+
                     <form class="form-horizontal" role="form">
                       <div class="form-group">
                         <label class="col-lg-3 control-label">First name:</label>
                         <div class="col-lg-8">
-                          <input class="form-control" type="text" value="Raveesha">
+                          <input class="form-control" type="text" value={{this.Log.firstName}}>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-3 control-label">Last name:</label>
                         <div class="col-lg-8">
-                          <input class="form-control" type="text" value="Fernando">
+                          <input class="form-control" type="text" value={{this.Log.lastName}}>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-3 control-label">Profession:</label>
                         <div class="col-lg-8">
-                          <input class="form-control" type="text" value="photographer">
+                          <input class="form-control" type="text" value={{this.Log.eType}}>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-3 control-label">Email:</label>
                         <div class="col-lg-8">
-                          <input class="form-control" type="text" value="rdilshanf@gmail.com">
+                          <input class="form-control" type="text" value="{{this.Log.email}}">
                         </div>
                       </div>
                       <div class="form-group">
@@ -57,22 +57,22 @@
                       <div class="form-group">
                         <label class="col-md-3 control-label">Username:</label>
                         <div class="col-md-8">
-                          <input class="form-control" type="text" value="ravee">
+                          <input class="form-control" type="text" value={{this.Log.displayName}}>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-md-3 control-label">Password:</label>
                         <div class="col-md-8">
-                          <input class="form-control" type="password" value="11111122333">
+                          <input class="form-control" type="password" value={{this.Log.password}}}>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-md-3 control-label">Confirm password:</label>
                         <div class="col-md-8">
-                          <input class="form-control" type="password" value="11111122333">
+                          <input class="form-control" type="password" value={{this.Log.password}}>
                         </div>
                       </div>
-                      <div class="form-group">
+                      <!-- <div class="form-group">
                         <label class="col-lg-3 control-label">Upload timeline photos</label>
                       </div>
                       <div class="col-md-3">
@@ -81,11 +81,12 @@
                           <h6>Upload timeline photos</h6>
                            <input type="file" class="form-control">
                         </div>
-                      </div>
+                      </div> -->
                       <div class="form-group">
                         <label class="col-md-3 control-label"></label>
                         <div class="col-md-8">
-                          <input type="button" class="btn btn-primary" value="Save Changes">
+                          <!-- <input type="button" class="btn btn-primary" value="Save Changes"> -->
+                          <button type="button" class="btn btn-primary" (click)="UpdateData(value)">Save changes</button>
                           <span></span>
                           <input type="reset" class="btn btn-default" value="Cancel">
                         </div>

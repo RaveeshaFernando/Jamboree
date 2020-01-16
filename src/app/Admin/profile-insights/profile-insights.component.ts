@@ -8,6 +8,7 @@ import { Contact } from 'src/app/BackendConfig/contact.model';
 import { ContactService } from 'src/app/BackendConfig/contact.service';
 import { RecMsgs } from "src/app/BackendConfig/rec-msgs.model";
 import { RecMsgsService } from "src/app/BackendConfig/rec-msgs.service";
+import {MatTabsModule} from '@angular/material/tabs';
 
 @Component({
   selector: 'app-profile-insights',
@@ -19,8 +20,8 @@ export class ProfileInsightsComponent implements OnInit {
       private Msg : ContactService,
       private Rmsg : RecMsgsService,
       private toastr : ToastrService,
-      private firestore : AngularFirestore
-    ) { }
+      private firestore : AngularFirestore,
+      ) { }
 
   getMessageList : Contact[];
   getUserMessages : RecMsgs[];

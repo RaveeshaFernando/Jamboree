@@ -1,9 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { SampleUserService } from "src/app/BackendConfig/sample-user.service";
+import { UserService } from "src/app/BackendConfig/user.service";
+import { AuthService } from "./../../BackendConfig/auth.service";
 import { User } from "src/app/BackendConfig/user.model";
 import { NgForm } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ToastrService } from 'ngx-toastr';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { map, first } from "rxjs/operators";
+import { AngularFireAuth } from "@angular/fire/auth";
+import { Router }  from '@angular/router';
+import { FormGroup , FormControl , Validators } from '@angular/forms'
 
 
 @Component({
@@ -11,11 +17,29 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './edit-user.component.html',
   styleUrls: ['./edit-user.component.scss']
 })
+
 export class EditUserComponent implements OnInit {
   getUserList: User[];
   editState: boolean = false;
   userToEdit: User;
-  imgSrc : string;
+  userData: any;  
+
+  flag: Boolean
+  Log: any
+  userSubject = new BehaviorSubject<Boolean>(false);
+
+  imgSrc : string = "/assets/img/avatar.jpg";
+  selectedImg : any = null;
+  isSubmitted : boolean = false;
+
+  public get authenticated() : Observable<Boolean> {
+    return this.userSubject.asObservable();
+  }
+
+  formTemplate = new FormGroup( {
+    imageUrl : new FormControl('',Validators.required),
+  })
+
   // public imagePath;
   // imgURL: any;
   // public message: string;
@@ -50,27 +74,60 @@ export class EditUserComponent implements OnInit {
   // }
 
 
-  constructor(private users : SampleUserService,
+  constructor(private users : UserService,
     private firestore : AngularFirestore,
-    private toastr : ToastrService) { }
+    private toastr : ToastrService,
+    public afAuth: AngularFireAuth,
+    public authService : AuthService,
+    public route:Router)
+     {
+
+      this.afAuth.authState.subscribe(user => {
+        if (user) {
+          this.userData = user;
+          localStorage.setItem('user', this.userData.uid);
+          this.userData.uid;
+          console.log(this.userData.uid);
+          this.Log = localStorage.getItem('user');
+          this.userSubject.next(true);
+        } else {
+          localStorage.setItem('user', null);
+          this.Log = localStorage.getItem('user');
+          this.userSubject.next(false);
+        }
+      })
+
+     }
 
   ngOnInit() {
     this.resetForm();
-
     var count : number = 0 ;
 
-    //Data retrieving from firestore
-    this.users.getUsers().subscribe(dataArray => {
-      this.getUserList = dataArray.map(item =>{
-        count ++ ;
-        console.log(count);
-        return {id : item.payload.doc.id,
-        ...item.payload.doc.data()
-        } as User  
-      })
-      
-    })
+    this.authService.authenticated.subscribe(isAuthed => {
+      this.flag = isAuthed;
+      this.Log = this.authService.GetUserData().subscribe(user => {
+        this.Log = user
+      });
+    });
   }
+  //select image image
+  showPreview(event : any) {
+    if (event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+      reader.onload = (e:any) => this.imgSrc = e.target.result;
+      reader.readAsDataURL(event.target.files[0]);
+      this.selectedImg = event.target.files[0];
+    }
+    else {
+      this.imgSrc = "/assets/img/edit3.png";
+      this.selectedImg = null;
+    }
+  }
+  //upload image
+  imgSubmit(formValue) {
+    this.isSubmitted = true;
+  }
+
 
   resetForm(form ?: NgForm){
     if(form!=null)
@@ -95,37 +152,37 @@ export class EditUserComponent implements OnInit {
   //data sending to firestore
   onSubmit(form : NgForm){ 
     let data = Object.assign({}, form.value) ;
-    delete data.id ;
-    if(form.value.id==null){
-      if (form.value.Password == form.value.RePassword){
-        console.log("sucess");
-        this.firestore.collection('Sample').add(data);
-        this.toastr.success('Saving...', 'Jamboree.NewUser');
-      }
-      else {
-        console.log("Failed");
-        this.toastr.error('Passwords not matching', 'Jamboree.NewUser');
-      }
+    delete data.uid ;
+    
+    if(data.email!=""){
+      this.firestore.collection('users').doc(this.userData.uid).update({email:data.email})
+      this.toastr.success('Saving...', 'email updated');
     }
-    else{
-      this.firestore.doc('Sample/' + form.value.id).update(data);
-      this.toastr.success('User updated sucessfully', 'Jamboree.UserUpdata');
-
+    if(data.firstName!=""){
+      this.firestore.collection('users').doc(this.userData.uid).update({firstName:data.firstName});
+      this.toastr.success('Saving...', 'Firstname updated');
+    }
+    if(data.lastName!=""){
+      this.firestore.collection('users').doc(this.userData.uid).update({lastName:data.lastName});
+      this.toastr.success('Saving...', 'lastname updated');
+    }
+    if(data.contact!=""){
+      this.firestore.collection('users').doc(this.userData.uid).update({contact:data.contact});
+      this.toastr.success('Saving...', 'contact updated');
     }
 
-    this.resetForm(form);
+    
+    // else{
+    //   this.firestore.doc('users/' + form.value.uid).update(data);
+    //   this.toastr.success('User updated sucessfully', 'Jamboree.UserUpdate');
+      
+    // }
+    this.route.navigate(['../UserProfile'])
   }
-
   //Edit data from User
   onEdit(user : User){
     this.users.userData = Object.assign({},user);
   }
-
-  /*clearState() {
-    this.editState = false;
-    this.userToEdit = null;
-  }*/
-
   }
 
 

@@ -21,7 +21,7 @@ export class ProfMainComponent implements OnInit {
   downloadURL: Observable<string>;
   image: string = null;
   list:photo[];
-  
+
   constructor(
     public authService : AuthService ,
     private store: AngularFireStorage, private firestore: AngularFirestore) {
@@ -64,11 +64,11 @@ export class ProfMainComponent implements OnInit {
 
 
   ngOnInit() {
-     this.firestore.collection("CustomerPosts").valueChanges().subscribe(
+    this.firestore.collection("CustomerPosts").valueChanges().subscribe(
        imageList=>{
          this.list = imageList;
        }
-     );
+    );
 
     this.authService.authenticated.subscribe(isAuthed => {
       this.flag = isAuthed;
@@ -77,7 +77,6 @@ export class ProfMainComponent implements OnInit {
       });
     });
   }
-
 
 }
 interface photo {

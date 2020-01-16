@@ -1,38 +1,49 @@
 <app-user-sidebar></app-user-sidebar>
 <div class="depth" style="padding-top: 70px;height: 100vh;">
-    <img src="../../../assets/img/Gallery/background1.jpg" class="bg-img" alt="placeholder">
-    <div class="overlay"></div>
-    <div class="d-flex justify-content-center" style="padding-bottom: 30px;padding-right: 30px;">
-      <div class="col-lg-5 rounded" style=" color:#223; background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);">
-        <div class="text-center">
-          <h4 class="mb-sm-0 pt-3" style="padding-top: 15px;color: #223;"> <strong>Edit User Profile </strong>  </h4>
-          <hr style="background-color: #eee;">
-        </div>
+  <img src="../../../assets/img/Gallery/background1.jpg" class="bg-img" alt="placeholder">
+  <div class="overlay"></div>
+
+  <div class="d-flex justify-content-center" style="padding-bottom: 30px;padding-right: 30px;">
+
+    <div class="col-lg-7 rounded" style=" color:#223; background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);">
+
+      <div class="text-center">
+        <h4 class="mb-sm-0 pt-3" style="padding-top: 15px;color: #223;"> <strong>Edit User Profile </strong>  </h4>
+        <hr style="background-color: #eee;">
+      </div>
         
-        <div style="padding: 10px;">
-          <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
-
-              <div class="text-center">
-                  <!--upload image by clicking on the image-->
-                  <img [src]="imgSrc" width="350px" height="250px" (click) = "fileUploader.click()">
-              </div>
-
-            <input type="hidden" name="id" #id="ngModel" [(ngModel)]="users.userData.id" *ngFor="let user of getUserList" class="collection">
-            <mat-form-field class="col-lg-6">
-              <input matInput placeholder="First Name" name="firstName" #firstName="ngModel" [(ngModel)]="users.userData.firstName" required >
-            </mat-form-field>
-
-            <mat-form-field class="col-lg-6 ">
-              <input matInput placeholder="Last Name"  name="lastName" #lastName="ngModel" [(ngModel)]="users.userData.lastName" required > 
-            </mat-form-field>
+      <div style="padding: 10px;">
+        
+        <form #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+        <form [formGroup] = "formTemplate" (ngSubmit)="imgSubmit(formTemplate.value)">
+          <div class="text-center">
+            <img [src]="imgSrc" width="350px" height="250px" (click) = "fileUploader.click()">
+          </div>
+          <div class="form-group">
+            <input type="file" accept="image/*" class="form-control" #fileUploader formControlName = "imageUrl" (change)="showPreview($event)">
+            
+          </div>
+          <!--upload image by clicking on the image-->
+          <!-- <img [src]="imgSrc" width="350px" height="250px" (click) = "fileUploader.click()"> -->
+        </form>
+      
+          <input type="hidden" name="uid" #id="ngModel" [(ngModel)]="users.userData.id" *ngFor="let user of getUserList" class="collection">
           
-            <mat-form-field class="col-lg-6 ">
-              <input matInput placeholder="Email"  name="email" #email="ngModel" [(ngModel)]="users.userData.email" required > 
-            </mat-form-field>
+          <mat-form-field class="col-lg-6 ">
+          <input matInput placeholder="First Name" name="firstName " #firstName="ngModel" value="{{this.Log.firstName}}" [(ngModel)]="users.userData.firstName"  >
+          </mat-form-field>
+
+          <mat-form-field class="col-lg-6 ">
+            <input matInput placeholder="Last Name"  name="lastName" #lastName="ngModel" value="{{this.Log.lastName}}" [(ngModel)]="users.userData.lastName"  > 
+          </mat-form-field>
           
-            <mat-form-field class="col-lg-6 ">
-              <input matInput placeholder="Mobile"  name="contact" #contact="ngModel" [(ngModel)]="users.userData.contact"> 
-            </mat-form-field>
+          <mat-form-field class="col-lg-6 ">
+            <input matInput placeholder="Email"  name="email" #email="ngModel" value="{{this.Log.email}}" [(ngModel)]="users.userData.email"  > 
+          </mat-form-field>
+          
+          <mat-form-field class="col-lg-6 ">
+            <input matInput placeholder="Mobile"  name="contact" #contact="ngModel" value="{{this.Log.contact}}" [(ngModel)]="users.userData.contact"> 
+          </mat-form-field>
           
             <!--mat-form-field class="col-lg-6 ">
               <input type="password" matInput placeholder="Password" name="password" #password="ngModel" [(ngModel)]="users.userData.password" required > 
@@ -46,22 +57,20 @@
             <!--div class="row">
               <div class="col-lg-2">
                   <ul *ngFor= "let user of getUserList">
-                    <a class="btn-sm text-danger" (click)="onEdit(user)"> 
+                    <a (click)="onEdit(user)"> 
                       <button mat-button color="primary">Primary</button>
                     </a>
                   </ul>
               </div>
-              
-              <div class="col-lg-2">
-                  <input type="submit" value="Submit" class="btn">
-              </div>
             </div-->
-          </form>
+              
+            <input type="submit" value="Update" class="btn btn-rounded aqua-gradient">
+        </form>
             
-        </div>
       </div>
     </div>
-  </div>   
+  </div>
+</div>   
 
 
           

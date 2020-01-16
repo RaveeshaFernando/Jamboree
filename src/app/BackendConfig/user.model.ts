@@ -4,7 +4,6 @@ export class User {
     lastName : String ;
     email : string ;
     emailVerified: boolean;
-    // password : string ;
     userType : string ;
     photoURL : string ;
     displayName : string ;

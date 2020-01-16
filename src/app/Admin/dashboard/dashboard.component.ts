@@ -1,19 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/Shared/authentication.service';
 import { Authentication } from 'src/app/Shared/authentication.model';
+import { UserService } from "src/app/BackendConfig/user.service";
+import { User } from 'src/app/BackendConfig/user.model';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
+
 export class DashboardComponent implements OnInit {
 
-    displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-    dataSource = ELEMENT_DATA;
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  dataSource = ELEMENT_DATA;
   
   list : Authentication[];
-  constructor(private service : AuthenticationService) { }
+  
+  getUserList : User[] ;
+  totalCount: number;
+  total : number = 0 ;
+
+  constructor(
+    private users : UserService,
+    private service : AuthenticationService) { }
 
   ngOnInit() {
     this.service.getUsers().subscribe(actionArray =>{
@@ -24,6 +34,21 @@ export class DashboardComponent implements OnInit {
       } as Authentication
     })
     });
+
+  //Data retrieving from firestore
+  this.users.getUsers().subscribe(dataArray => {
+    this.totalCount = dataArray.length;
+    
+    this.getUserList = dataArray.map(item =>{
+      this.total ++ ;
+      console.log(this.total);          
+      return {id : item.payload.doc.id,
+      ...item.payload.doc.data() 
+      } as User  
+    })
+    
+  })
+  
   }
 
 }
