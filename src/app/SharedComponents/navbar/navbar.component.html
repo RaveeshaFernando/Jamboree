@@ -5,7 +5,7 @@
                 <img src="../../../assets/img/Gallery/logo2.png" width="100px">
             </a>
         </mdb-navbar-brand>
-      
+
         <links>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item waves-light" mdbWavesEffect>
@@ -18,27 +18,27 @@
                     <a href="#contacts" class="nav-link"> <strong>Contact</strong> </a>
                 </li>
                 <li class="nav-item waves-light" mdbWavesEffect >
-                    <div *ngIf="this.Log.userType=='admin' ;then admin else prof"></div>    
-                            <ng-template #prof> 
-                                    <a [routerLink]="['/EventMain']" class="nav-link"> <strong>Profile</strong> </a>    
+                    <div *ngIf="this.Log.userType=='admin' ;then admin else prof"></div>
+                            <ng-template #prof>
+                                    <a [routerLink]="['/EventMain']" class="nav-link"> <strong>Profile</strong> </a>
                             </ng-template>
-                            <ng-template #admin> 
-                                <a [routerLink]="['/dashboard']" class="nav-link"> <strong>Dashboard</strong> </a>    
+                            <ng-template #admin>
+                                <a [routerLink]="['/dashboard']" class="nav-link"> <strong>Dashboard</strong> </a>
                             </ng-template>
                 </li>
-            
+
                 <li class="nav-item waves-light" mdbWavesEffect>
                     <form class="form-inline waves-light" mdbWavesEffect>
                         <div class="md-form my-0">
                             <input class="form-control mr-sm-2"  type="text" placeholder="Search">
                         </div>
-                    </form>    
+                    </form>
                 </li>
             </ul>
             <ul class="navbar-nav nav-flex-icons">
                 <li class="nav-item dropdown" dropdown>
                     <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
-                        <div *ngIf="this.flag;then logged else guest"></div>    
+                        <div *ngIf="this.flag;then logged else guest"></div>
                             <ng-template #guest> Hello Guest!</ng-template>
                             <ng-template #logged> {{Log.displayName}} </ng-template>
                     </a>
@@ -47,11 +47,11 @@
                             <ng-template #guest>
                                 <a [routerLink]="['/Signin']"  class="dropdown-item waves-light" mdbWavesEffect> <strong> Log In</strong></a>
                                 <div class="divider dropdown-divider"></div>
-                                <a [routerLink]="['/Signup']"  class="dropdown-item waves-light" mdbWavesEffect> <strong>Sign Up</strong></a> 
-                               
+                                <a [routerLink]="['/Signup']"  class="dropdown-item waves-light" mdbWavesEffect> <strong>Sign Up</strong></a>
+
                             </ng-template>
                             <ng-template #logged>
-                                <a [routerLink]="['/Signin']" class="dropdown-item waves-light" mdbWavesEffect (click)="authService.SignOut()"> <strong>Log out</strong></a>    
+                                <a [routerLink]="['/Signin']" class="dropdown-item waves-light" mdbWavesEffect (click)="authService.SignOut()"> <strong>Log out</strong></a>
                             </ng-template>
                     </div>
                 </li>

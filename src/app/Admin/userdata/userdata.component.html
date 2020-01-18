@@ -23,7 +23,6 @@
                 <div class="aqua-gradient-rgba" style="padding:30px" >
                     <div class="text-center">
                         <h3> <strong> Add New User </strong></h3>
-                        <!-- <h1>{{totalCount}}</h1> -->
                     </div>
                     <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
                         <input type="hidden" name="id" #id="ngModel" [(ngModel)]="users.userData.id">
@@ -211,6 +210,7 @@
             <table class="table table-striped">
                 <thead class="" style="background-color: #223;color: white;">
                     <tr>
+                        <th>#</th>
                         <th>First Name</th>
                         <th> Last Name </th>
                         <th>Email</th>
@@ -224,6 +224,7 @@
                 </thead>
                 <tbody class="white-text" style="background-color:#223;">
                     <tr *ngFor= "let user of getUserList">
+                        <th> {{count}}</th>
                         <td> {{user.firstName}} </td>
                         <td> {{user.lastName}}</td>
                         <td> {{user.email}} </td>

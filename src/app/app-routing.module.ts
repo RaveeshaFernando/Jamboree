@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component' ;
 import { SigninComponent } from './signin/signin.component' ;
 import { SignupComponent } from './signup/signup.component' ;
+// import { SearchComponentComponent } from "../SharedComponents/SearchComponentComponent";
 
 import { ProfileComponent } from './profile/profile.component' ;
 
@@ -21,18 +22,12 @@ import { ProfBookingComponent } from "./eventProf/prof-booking/prof-booking.comp
 import { ProfEditProfileComponent } from "./eventProf/prof-edit-profile/prof-edit-profile.component";
 import { ProfMainComponent } from "./eventProf/prof-main/prof-main.component";
 
-import { SignInComponent } from "./Testing/sign-in/sign-in.component";
-import { SignUpComponent } from "./Testing/sign-up/sign-up.component" ;
-import { DashComponent } from "./Testing/dash/dash.component";
-import { ForgotPasswordComponent } from "./Testing/forgot-password/forgot-password.component";
-import { Signup2Component } from './signup2/signup2.component';
-
 const routes: Routes =[
   { path: '',                     component: HomeComponent },
   { path: 'Signin',               component: SigninComponent },
   { path: 'Signup',               component: SignupComponent },
-  { path: 'Sign2',                component : Signup2Component},
   { path: 'Profile',              component: ProfileComponent },
+  // { path: 'search',               component: SearchComponentComponent},
 
   { path: 'Admin',                component: AdminComponent },
   { path: 'dashboard',            component: DashboardComponent},
@@ -43,14 +38,10 @@ const routes: Routes =[
   { path: 'UserEditUser',         component: EditUserComponent},
   { path: 'UserBooking',          component: BookingHistoryComponent},
 
-  { path: 'EventMain',           component:ProfMainComponent},
-  { path: 'EventEditProfile',    component:ProfEditProfileComponent},
-  { path: 'EventBooking',        component:ProfBookingComponent},
+  { path: 'EventMain',            component:ProfMainComponent},
+  { path: 'EventEditProfile',     component:ProfEditProfileComponent},
+  { path: 'EventBooking',         component:ProfBookingComponent},
 
-  { path: 'Sin', component: SignInComponent },
-  { path: 'Sup', component: SignUpComponent },
-  { path: 'dash', component: DashComponent },
-  { path: 'forgot', component : ForgotPasswordComponent},
 ];
 
 @NgModule({
@@ -65,4 +56,3 @@ const routes: Routes =[
 })
 
 export class AppRoutingModule { }
-

@@ -1,24 +1,15 @@
-//-------------------- Align Conetent with Sidebar -------------------//
-
 @media (max-width: 1199.98px) {
     .depth{
         padding-left: 30px;
         padding-right: 30px ;
-        padding-top : 100px ;
-        padding-bottom: 30px ;
     }
 }
 
 @media (min-width: 1199.98px) {
     .depth{
         padding-left:300px;
-        padding-top : 100px ;
-        padding-right: 30px;
-        padding-bottom: 30px ;
     }
 }
-
-//-------------------- Background Overlay -------------------//
 
 .bg-img {
     position: fixed;
@@ -43,16 +34,4 @@
     opacity: .95;
     background: #112;
     height: 100vh ;
-}
-
-
-//-------------------- Genaral -------------------//
-
-.topic{
-    border: solid #112;
-    max-height: 100px;
-}
-
-.topic-body{
-    background-color: #223; 
 }

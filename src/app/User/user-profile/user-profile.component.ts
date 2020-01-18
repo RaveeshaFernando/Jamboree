@@ -16,7 +16,7 @@ export class UserProfileComponent implements OnInit {
 
   constructor(private userService: SampleUserService, public authService : AuthService) { }
 
-  ngOnInit(){ 
+  ngOnInit(){
     this.userService.getUsers().subscribe(dataArray => {
     this.Users = dataArray.map(item =>{
       return {id : item.payload.doc.id,
@@ -24,7 +24,6 @@ export class UserProfileComponent implements OnInit {
     } as User
     })
     })
-    
     this.authService.authenticated.subscribe(isAuthed => {
       this.flag = isAuthed;
       this.Log = this.authService.GetUserData().subscribe(user => {
