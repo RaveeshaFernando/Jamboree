@@ -1,99 +1,70 @@
 <app-prof-sidebar></app-prof-sidebar>
 <div class="depth" style="padding-top:75px">
-        <div class="container">
-                <h1>Edit Profile</h1>
-                  <hr>
+  <div class="container">
+    <h1>Edit Profile</h1>
+    <hr>
 
-                  <!-- <div class="text-center white-text" style="padding-top: 100px;" > -->
-                    <img align=right src="../../../assets/img/admin.png" class="rounded-circle" >
-                    <br>
-                <div class="row">
-                  <!-- left column -->
-                  <div class="col-md-3">
-                    <div class="text-center">
-                      <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
-                      <h6>Upload a different photo...</h6>
+    <!-- <div class="text-center white-text" style="padding-top: 100px;" > -->
+    <img align=right src="../../../assets/img/admin.png" class="rounded-circle">
+    <br>
+    <div class="row">
+      <!-- left column -->
+      <div class="col-md-3">
+        <div class="text-center">
+          <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
+          <h6>Upload a different photo...</h6>
 
-                      <input type="file" (change)="uploadImage($event)" accept=".png,.jpg" />
-                      <button type="button" (click)="uploadImages($event)">Upload</button>
-                    </div>
-                  </div>
-                  <!-- edit form column -->
-                  <div class="col-md-9 personal-info">
-                    <!-- <div class="alert alert-info alert-dismissable">
+          <input type="file" (change)="uploadImage($event)" accept=".png,.jpg" />
+          <button type="button" (click)="uploadImages($event)">Upload</button>
+        </div>
+      </div>
+      <!-- edit form column -->
+      <div class="col-md-9 personal-info">
+        <!-- <div class="alert alert-info alert-dismissable">
                       <a class="panel-close close" data-dismiss="alert">×</a>
                       <i class="fa fa-coffee"></i>
                       This is an <strong>.alert</strong>. Use this to show important messages to the user.
                     </div> -->
-                    <h3>Personal info</h3>
+        <h3>Personal info</h3>
 
-                    <form class="form-horizontal" role="form">
-                      <div class="form-group">
-                        <label class="col-lg-3 control-label">First name:</label>
-                        <div class="col-lg-8">
-                          <input class="form-control" type="text" value={{this.Log.firstName}}>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-lg-3 control-label">Last name:</label>
-                        <div class="col-lg-8">
-                          <input class="form-control" type="text" value={{this.Log.lastName}}>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-lg-3 control-label">Profession:</label>
-                        <div class="col-lg-8">
-                          <input class="form-control" type="text" value={{this.Log.eType}}>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-lg-3 control-label">Email:</label>
-                        <div class="col-lg-8">
-                          <input class="form-control" type="text" value="{{this.Log.email}}">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                    </div>
-                      <div class="form-group">
-                        <label class="col-md-3 control-label">Username:</label>
-                        <div class="col-md-8">
-                          <input class="form-control" type="text" value={{this.Log.displayName}}>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-md-3 control-label">Password:</label>
-                        <div class="col-md-8">
-                          <input class="form-control" type="password" value={{this.Log.password}}}>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-md-3 control-label">Confirm password:</label>
-                        <div class="col-md-8">
-                          <input class="form-control" type="password" value={{this.Log.password}}>
-                        </div>
-                      </div>
-                      <!-- <div class="form-group">
-                        <label class="col-lg-3 control-label">Upload timeline photos</label>
-                      </div>
-                      <div class="col-md-3">
-                        <div class="text-center">
-                          <img src="//placehold.it/200" class="avatar img-circle" alt="avatar">
-                          <h6>Upload timeline photos</h6>
-                           <input type="file" class="form-control">
-                        </div>
-                      </div> -->
-                      <div class="form-group">
-                        <label class="col-md-3 control-label"></label>
-                        <div class="col-md-8">
-                          <!-- <input type="button" class="btn btn-primary" value="Save Changes"> -->
-                          <button type="button" class="btn btn-primary" (click)="UpdateData(value)">Save changes</button>
-                          <span></span>
-                          <input type="reset" class="btn btn-default" value="Cancel">
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-              </div>
+        <form [formGroup]="profileForm">
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Profession:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" formControlName="eType" [(ngModel)]="this.Log.eType">
             </div>
-            <hr>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Email:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" [(ngModel)]="this.Log.email" formControlName="email">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">Contact:</label>
+            <div class="col-md-8">
+              <input class="form-control" type="text" formControlName="contact" [(ngModel)]="this.Log.contact">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">Description:</label>
+            <div class="col-md-8">
+              <input class="form-control" type="text" formControlName="description" [(ngModel)]="this.Log.description">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label"></label>
+            <div class="col-md-8">
+              <!-- <input type="button" class="btn btn-primary" value="Save Changes"> -->
+              <button type="submit" class="btn btn-primary" (click)="updateData(profileForm.value)">Save
+                changes</button>
+              <span></span>
+              <input type="reset" class="btn btn-default" value="Cancel">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <hr>
 </div>

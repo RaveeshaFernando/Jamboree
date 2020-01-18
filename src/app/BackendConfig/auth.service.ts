@@ -13,18 +13,18 @@ import { map, first } from "rxjs/operators";
 
 export class AuthService {
   type : string = 'eventProf' ;
-  userData: any;                      
+  userData: any;
   Log : any ;
   userSubject = new BehaviorSubject<Boolean>(false);
-  
+
   public get authenticated() : Observable<Boolean> {
     return this.userSubject.asObservable();
   }
 
   constructor(
-    public afs: AngularFirestore,     
-    public afAuth: AngularFireAuth,   
-    public router: Router,  
+    public afs: AngularFirestore,
+    public afAuth: AngularFireAuth,
+    public router: Router,
     public ngZone: NgZone             // NgZone service to remove outside scope warning
   ) {
 
@@ -51,7 +51,7 @@ export class AuthService {
             this.router.navigate(['dashboard']);
           }
           else if(this.type == 'eventProf'){
-            this.router.navigate(['EventMain']);            
+            this.router.navigate(['EventMain']);
           }
           else{
             this.router.navigate(['UserProfile']);
@@ -72,7 +72,7 @@ export class AuthService {
         window.alert(error.message)
       })
   }
-  
+
   // Send email verfificaiton when new user sign up
   SendVerificationMail() {
     return this.afAuth.auth.currentUser.sendEmailVerification()
@@ -114,10 +114,9 @@ export class AuthService {
 
   GetUserData(): Observable<any> {
     return this.afs.collection("users").doc(localStorage.getItem("user") as string).valueChanges().pipe(first());
-    ;
   }
 
-  // Sign out 
+  // Sign out
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('user');
