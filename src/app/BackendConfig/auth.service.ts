@@ -47,15 +47,16 @@ export class AuthService {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
-          if(this.type=='admin'){
-            this.router.navigate(['dashboard']);
-          }
-          else if(this.type == 'eventProf'){
-            this.router.navigate(['EventMain']);
-          }
-          else{
-            this.router.navigate(['UserProfile']);
-          }
+          // if(this.type==='Admin'){
+          //   this.router.navigate(['dashboard']);
+          // }
+          // else if(this.type === 'Professional'){
+          //   this.router.navigate(['EventMain']);
+          // }
+          // else{
+          //   this.router.navigate(['UserProfile']);
+          // }
+          this.router.navigate(['']);
         });
       }).catch((error) => {
         window.alert(error.message)
