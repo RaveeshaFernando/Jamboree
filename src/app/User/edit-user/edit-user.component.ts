@@ -8,8 +8,15 @@ import { ToastrService } from 'ngx-toastr';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map, first } from "rxjs/operators";
 import { AngularFireAuth } from "@angular/fire/auth";
+<<<<<<< Updated upstream
 import {Router}  from '@angular/router'
 
+=======
+import { Router }  from '@angular/router';
+import { FormGroup , FormControl , Validators } from '@angular/forms';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { finalize } from 'rxjs/operators';
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-edit-user',
@@ -27,10 +34,24 @@ export class EditUserComponent implements OnInit {
   Log: any
   userSubject = new BehaviorSubject<Boolean>(false);
 
+<<<<<<< Updated upstream
+=======
+  imgSrc : string;
+  selectedImg : any = null;
+  isSubmitted : boolean = false;
+
+  uploadPercent: Observable<number>;
+  downloadURL: Observable<string>;
+  image: string = null;
+  list: photo[];
+  message: string = '';
+
+>>>>>>> Stashed changes
   public get authenticated() : Observable<Boolean> {
     return this.userSubject.asObservable();
   }
 
+<<<<<<< Updated upstream
   // public imagePath;
   // imgURL: any;
   // public message: string;
@@ -63,6 +84,11 @@ export class EditUserComponent implements OnInit {
   //   //write a confirmation to the user
   //   document.getElementById("update").innerHTML="Edits saved!";
   // }
+=======
+  formTemplate = new FormGroup( {
+    imageUrl : new FormControl('',Validators.required),
+  })
+>>>>>>> Stashed changes
 
 
   constructor(private users : UserService,
@@ -70,7 +96,8 @@ export class EditUserComponent implements OnInit {
     private toastr : ToastrService,
     public afAuth: AngularFireAuth,
     public authService : AuthService,
-    public route:Router)
+    public route:Router,
+    private storage : AngularFireStorage)
      {
 
       this.afAuth.authState.subscribe(user => {
@@ -89,7 +116,33 @@ export class EditUserComponent implements OnInit {
       })
 
      }
+     //upload image in firestore storage (user)
+     uploadImage(event) {
+      let file = event.target.files[0];
+      let path = `user/${file.name}`;
+      if (file.type.split('/')[0] !== 'image') {
+        return alert('Error in upload image');
+      } else {
+        let ref = this.storage.ref(path);
+        let task = this.storage.upload(path, file);
+        this.uploadPercent = task.percentageChanges();
+        console.log('Image upload success');
+        task.snapshotChanges().pipe(
+          finalize(() => {
+            this.downloadURL = ref.getDownloadURL();
+            this.downloadURL.subscribe(url => {
+              this.message = url;
+              this.UploadURL();
+              this.message = url;
+              console.log('.......image uploading........\n'+url);
+            });
+          }
+          )
+        ).subscribe();
+      }
+    }
 
+<<<<<<< Updated upstream
   ngOnInit() {
     this.resetForm();
     var count : number = 0 ;
@@ -124,6 +177,53 @@ export class EditUserComponent implements OnInit {
       });
     });
   }
+=======
+    //store image url into firestore database
+    UploadURL() {
+      return new Promise<any>((resolve, reject) => {
+        // this.firestore
+        //   .collection("userImage")
+        //   .add({ data: this.message })
+        //   .then(res => { }, err => { reject(err) });
+        // console.log("Upload function")
+        this.firestore.collection('users').doc(this.userData.uid).update({photoURL:this.message});
+        //this.toastr.success('Saving...', 'Photo updated');
+      });
+    }
+
+    ngOnInit() {
+      this.resetForm();
+      var count : number = 0 ;
+
+      this.authService.authenticated.subscribe(isAuthed => {
+        this.flag = isAuthed;
+        this.Log = this.authService.GetUserData().subscribe(user => {
+          this.Log = user;
+          this.message = user.photoURL;
+          console.log(user.photoURL + "*********************");
+          console.log(this.Log);
+        });
+      });
+    }
+  // select image
+  // showPreview(event : any) {
+  //   if (event.target.files && event.target.files[0]) {
+  //     const reader = new FileReader();
+  //     reader.onload = (e:any) => this.imgSrc = e.target.result;
+  //     reader.readAsDataURL(event.target.files[0]);
+  //     this.selectedImg = event.target.files[0];
+  //   }
+  //   else {
+  //     this.imgSrc = "/assets/img/edit3.png";
+  //     this.selectedImg = null;
+  //   }
+  // }
+  //upload image
+  // imgSubmit(formValue) {
+  //   this.isSubmitted = true;
+  // }
+
+>>>>>>> Stashed changes
 
   resetForm(form ?: NgForm){
     if(form!=null)
@@ -150,7 +250,12 @@ export class EditUserComponent implements OnInit {
   onSubmit(form : NgForm){
     let data = Object.assign({}, form.value) ;
     delete data.uid ;
+<<<<<<< Updated upstream
 
+=======
+    console.log(data);
+    console.log(this.userData.uid);
+>>>>>>> Stashed changes
     if(data.email!=""){
       this.firestore.collection('users').doc(this.userData.uid).update({email:data.email})
       this.toastr.success('Saving...', 'email updated');
@@ -167,6 +272,33 @@ export class EditUserComponent implements OnInit {
       this.firestore.collection('users').doc(this.userData.uid).update({contact:data.contact});
       this.toastr.success('Saving...', 'contact updated');
     }
+    if(data.district!=""){
+      this.firestore.collection('users').doc(this.userData.uid).update({district:data.district});
+      this.toastr.success('Saving...', 'district updated');
+    }
+    
+    // if(data.photoURL!=""){
+    //   this.firestore.collection('users').doc(this.userData.uid).update({photoURL:data.photoURL});
+    //   this.toastr.success('Saving...', 'photo updated');
+    // }
+
+
+
+    // this.isSubmitted = true;
+    // if (this.formTemplate.valid) {
+    //   var filePath = 'user/${this.selectedImage.name}';
+    //   const fileRef = this.storage.ref(filePath);
+      
+    //   this.storage.upload(filePath,this.selectedImg).snapshotChanges().pipe(
+    //     finalize(() => {
+    //       fileRef.getDownloadURL().subscribe((url) => {
+    //         form['imageUrl']=url;
+    //       })
+    //     })
+    //   ).subscribe();
+    // }
+
+    
 
 
     // else{
@@ -176,8 +308,30 @@ export class EditUserComponent implements OnInit {
     // }
     this.route.navigate(['../UserProfile'])
   }
+ 
+
+  // resetImg() {
+  //   this.formTemplate.reset();
+  //   this.formTemplate.setValue({
+  //     imageUrl : '',
+  //   });
+  //   this.imgSrc= "/assets/img/avatar.jpg";
+  //   this.selectedImg = null;
+  //   this.isSubmitted = false;
+  // }
+
   //Edit data from User
   onEdit(user : User){
     this.users.userData = Object.assign({},user);
   }
   }
+<<<<<<< Updated upstream
+=======
+
+  interface photo {
+    id?: string;
+    data?: string;
+  }
+
+
+>>>>>>> Stashed changes

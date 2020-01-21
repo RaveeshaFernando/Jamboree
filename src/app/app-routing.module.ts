@@ -20,10 +20,12 @@ import { UserDataComponent } from './Admin/userdata/userdata.component';
 import { UserProfileComponent } from "./User/user-profile/user-profile.component";
 import { EditUserComponent } from "./User/edit-user/edit-user.component";
 import { BookingHistoryComponent } from "./User/booking-history/booking-history.component";
+import { UserDeleteComponent } from './User/user-delete/user-delete.component';
 
 import { ProfBookingComponent } from "./eventProf/prof-booking/prof-booking.component";
 import { ProfEditProfileComponent } from "./eventProf/prof-edit-profile/prof-edit-profile.component";
 import { ProfMainComponent } from "./eventProf/prof-main/prof-main.component";
+
 
 
 const routes: Routes =[
@@ -44,6 +46,7 @@ const routes: Routes =[
   { path: 'UserProfile',          component: UserProfileComponent},
   { path: 'UserEditUser',         component: EditUserComponent},
   { path: 'UserBooking',          component: BookingHistoryComponent},
+  { path: 'UserDelete' ,          component: UserDeleteComponent},
 
   { path: 'EventMain',            component:ProfMainComponent},
   { path: 'EventEditProfile',     component:ProfEditProfileComponent},

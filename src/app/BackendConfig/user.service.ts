@@ -15,5 +15,7 @@ export class UserService {
   getUsers(){
     return this.firestore.collection('users').snapshotChanges();
   }
+  //delete users
+  
 
 }

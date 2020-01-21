@@ -32,7 +32,8 @@ import { UserProfileComponent } from "./User/user-profile/user-profile.component
 import { BookingHistoryComponent } from './User/booking-history/booking-history.component';
 import { EditUserComponent } from './User/edit-user/edit-user.component';
 import { UserSidebarComponent } from "./User/Shared/user-sidebar/user-sidebar.component";
-
+import { UserDeleteComponent } from './User/user-delete/user-delete.component';
+ 
 //Website Components - Event Prof
 import { ProfMainComponent } from './eventProf/prof-main/prof-main.component';
 import { ProfSidebarComponent } from './eventProf/prof-sidebar/prof-sidebar.component';
@@ -60,6 +61,7 @@ import { NgAisModule } from "angular-instantsearch";
 import { DisplayPageComponent } from './Dynamic/display-page/display-page.component';
 import { DisplayPageBarComponent } from './Dynamic/display-page-bar/display-page-bar.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,6 +83,7 @@ import { DisplayPageBarComponent } from './Dynamic/display-page-bar/display-page
     EditUserComponent,
     BookingHistoryComponent,
     UserSidebarComponent,
+    UserDeleteComponent,
 
     //Extra
     ProfileComponent,
@@ -96,6 +99,18 @@ import { DisplayPageBarComponent } from './Dynamic/display-page-bar/display-page
 
 
 
+<<<<<<< Updated upstream
+=======
+    
+    SignInComponent,
+    SignUpComponent,
+    DashComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent,
+    Signup2Component,
+    UserDeleteComponent,
+    
+>>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,

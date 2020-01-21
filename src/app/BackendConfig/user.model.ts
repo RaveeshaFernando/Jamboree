@@ -1,7 +1,7 @@
 export class User {
     uid : string ;
     firstName : string ;
-    lastName : String ;
+    lastName : string ;
     email : string ;
     emailVerified: boolean;
     userType : string ;

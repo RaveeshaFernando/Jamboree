@@ -3,7 +3,7 @@
   <img src="../../../assets/img/Gallery/background1.jpg" class="bg-img" alt="placeholder">
   <div class="overlay"></div>
 
-  <div class="d-flex justify-content-center" style="padding-bottom: 30px;padding-right: 30px;">
+  <div class="d-flex justify-content-center" style="padding-bottom: 30px;padding-right: 30px;padding-top: 30px;">
 
     <div class="col-lg-5 rounded" style=" color:#223; background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);">
 
@@ -13,6 +13,7 @@
       </div>
 
       <div style="padding: 10px;">
+<<<<<<< Updated upstream
 
         <form #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
 
@@ -31,38 +32,138 @@
 
           <mat-form-field class="col-lg-6 ">
             <input matInput placeholder="Last Name"  name="lastName" #lastName="ngModel" value="{{this.Log.lastName}}" [(ngModel)]="users.userData.lastName" required >
+=======
+        
+        <form  #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+
+          <!-- <div class="text-center">
+            <img [src]="imgSrc" class="rounded-circle" width="250px" height="250px" (click) = "fileUploader.click()">
+          </div>
+          <div class="form-group">
+            <input type="file" class="form-control" accept="image/*" #fileUploader formControlName="imageUrl" (change)="showPreview($event)">
+          </div> -->
+          <!-- <div class="col-md-3"> -->
+            <!-- <div class="text-center"> -->
+              <!-- <input type="file" (change)="uploadImage($event)" accept=".png,.jpg"> -->
+              <!-- <button type="button" (click)="uploadImages($event)">Upload</button> -->
+            <!-- </div> -->
+          <!-- </div> -->
+
+          
+
+          <input type="hidden" name="uid" #id="ngModel" [(ngModel)]="users.userData.id" *ngFor="let user of getUserList" class="collection">
+
+          <input type="file" (change)="uploadImage($event)" accept=".png,.jpg">
+          <br><br>
+        
+          <!-- <mat-form-field >
+            <input matInput placeholder="photo" name="photo" #photo="ngModel" value="{{this.Log.photoURL}}" [(ngModel)]="users.userData.photoURL" required >
+          </mat-form-field> -->
+  
+          <mat-form-field class="col-lg-6">
+          <input matInput disabled placeholder="First Name" name="firstName" #firstName="ngModel" value="{{this.Log.firstName}}" [(ngModel)]="users.userData.firstName" required >
           </mat-form-field>
 
           <mat-form-field class="col-lg-6 ">
+            <input matInput disabled placeholder="Last Name"  name="lastName" #lastName="ngModel" value="{{this.Log.lastName}}" [(ngModel)]="users.userData.lastName" required > 
+>>>>>>> Stashed changes
+          </mat-form-field>
+
+          <mat-form-field class="col-lg-6 ">
+<<<<<<< Updated upstream
             <input matInput placeholder="Email"  name="email" #email="ngModel" value="{{this.Log.email}}" [(ngModel)]="users.userData.email" required >
+=======
+            <input matInput disabled placeholder="Email"  name="email" #email="ngModel" value="{{this.Log.email}}" [(ngModel)]="users.userData.email" required > 
+>>>>>>> Stashed changes
           </mat-form-field>
 
           <mat-form-field class="col-lg-6 ">
             <input matInput placeholder="Mobile"  name="contact" #contact="ngModel" value="{{this.Log.contact}}" [(ngModel)]="users.userData.contact">
           </mat-form-field>
 
+<<<<<<< Updated upstream
             <!--mat-form-field class="col-lg-6 ">
               <input type="password" matInput placeholder="Password" name="password" #password="ngModel" [(ngModel)]="users.userData.password" required >
             </!--mat-form-field>
+=======
+          <!-- <mat-form-field class="col-lg-6 ">
+            <input matInput placeholder="District"  name="district" #contact="ngModel" value="{{this.Log.district}}" [(ngModel)]="users.userData.district">  -->
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                  <select class="mdb-select md-form col-lg-12 custom-select" style="background-color: transparent;" name="district" #district="ngModel" value="{{this.Log.district}}" [(ngModel)]="users.userData.district" > 
+                      <option value="" disabled selected> Select District </option>
+                      <option value="Ampara"> Ampara </option>
+                      <option value="Anuradhapura"> Anuradhapura </option>
+                      <option value="Badulla">Badulla</option>
+                      <option value="Batticaloa"> Batticaloa </option>
+                      <option value="Colombo"> Colombo </option>
+                      <option value="Galle">Galle</option>
+                      <option value="Gampaha"> Gampaha</option>
+                      <option value="Hambantota"> Hambantota </option>
+                      <option value="Jaffna"> Jaffna </option>
+                      <option value="Kalutara"> Kalutara</option>
+                      <option value="Kandy">Kandy</option>
+                      <option value="Kegalle">Kegalle</option>
+                      <option value="Kilinochchi"> Kilinochchi </option>
+                      <option value="Kurunegala"> Kurunegala</option>
+                      <option value="Mannar"> Mannar</option>
+                      <option value="Matale"> Matale </option>
+                      <option value="Matara">Matara</option>
+                      <option value="Monaragala">Monaragala</option>
+                      <option value="Mulathiv"> Mulathiv </option>
+                      <option value="NuwaraEliya">Nuwara Eliya</option>
+                      <option value="Polonnaruwa"> Polonnaruwa </option>
+                      <option value="Puttalam"> Puttalam</option>
+                      <option value="Ratnapura"> Ratnapura</option>
+                      <option value="Trincomalee"> Trincomalee</option>
+                      <option value="Vavniya"> Vavniya </option>
+                  </select>
+              </div>
+          </div>
+          <!-- </mat-form-field>
+           -->
+          
+            <!-- mat-form-field class="col-lg-6 ">
+              <input type="password" matInput placeholder="Password" name="password" #password="ngModel" [(ngModel)]="users.userData.password" required > 
+            </mat-form-field>
+>>>>>>> Stashed changes
             <mat-form-field class="col-lg-6 ">
               <input type="password" matInput placeholder="Re Enter Password" >
             </mat-form-field-->
 
+<<<<<<< Updated upstream
 
             <div class="row">
               <div class="col-lg-2">
                   <ul *ngFor= "let user of getUserList">
                     <a (click)="onEdit(user)">
+=======
+            <div class="row">
+              <div class="col-lg-2">
+                  <ul *ngFor= "let user of getUserList">
+                    <a (click)="onEdit(user)"> 
+>>>>>>> Stashed changes
                       <button mat-button color="primary">Primary</button>
                     </a>
                   </ul>
               </div>
             </div>
+<<<<<<< Updated upstream
 
             <input type="submit" value="Update" class="btn orange">
+=======
+              
+            <input type="submit" value="Update" class="btn orange">
+            <!-- <button type="submit" class="btn btn-primary" (click)="updateData(profileForm.value)">Save changes</button> -->
+>>>>>>> Stashed changes
         </form>
 
       </div>
     </div>
   </div>
 </div>   
+<<<<<<< Updated upstream
+=======
+
+          
+>>>>>>> Stashed changes
