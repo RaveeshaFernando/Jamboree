@@ -8,15 +8,11 @@ import { ToastrService } from 'ngx-toastr';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map, first } from "rxjs/operators";
 import { AngularFireAuth } from "@angular/fire/auth";
-<<<<<<< Updated upstream
 import {Router}  from '@angular/router'
 
-=======
-import { Router }  from '@angular/router';
 import { FormGroup , FormControl , Validators } from '@angular/forms';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
->>>>>>> Stashed changes
 
 @Component({
   selector: 'app-edit-user',
@@ -34,8 +30,6 @@ export class EditUserComponent implements OnInit {
   Log: any
   userSubject = new BehaviorSubject<Boolean>(false);
 
-<<<<<<< Updated upstream
-=======
   imgSrc : string;
   selectedImg : any = null;
   isSubmitted : boolean = false;
@@ -46,12 +40,10 @@ export class EditUserComponent implements OnInit {
   list: photo[];
   message: string = '';
 
->>>>>>> Stashed changes
   public get authenticated() : Observable<Boolean> {
     return this.userSubject.asObservable();
   }
 
-<<<<<<< Updated upstream
   // public imagePath;
   // imgURL: any;
   // public message: string;
@@ -84,11 +76,9 @@ export class EditUserComponent implements OnInit {
   //   //write a confirmation to the user
   //   document.getElementById("update").innerHTML="Edits saved!";
   // }
-=======
   formTemplate = new FormGroup( {
     imageUrl : new FormControl('',Validators.required),
   })
->>>>>>> Stashed changes
 
 
   constructor(private users : UserService,
@@ -142,42 +132,6 @@ export class EditUserComponent implements OnInit {
       }
     }
 
-<<<<<<< Updated upstream
-  ngOnInit() {
-    this.resetForm();
-    var count : number = 0 ;
-
-
-    //Data retrieving from firestore
-    /*this.users.getUsers().subscribe(dataArray => {
-      this.getUserList = dataArray.map(item =>{
-        count ++ ;
-        console.log(count);
-        return {id : item.payload.doc.id,
-        ...item.payload.doc.data()
-        } as User
-      })
-
-    })*/
-
-    //*********** */
-    /*var docRef = this.firestore.collection("users").doc("ymocxIkpb0Rm91Sg6zbuj9PsidA3");
-    docRef.get().subscribe(function(doc)  {
-      if(doc.exists) {
-        console.log("Document data:", doc.data());
-      } else {
-        console.log("No such document!!!!");
-      }
-    })*/
-
-    this.authService.authenticated.subscribe(isAuthed => {
-      this.flag = isAuthed;
-      this.Log = this.authService.GetUserData().subscribe(user => {
-        this.Log = user
-      });
-    });
-  }
-=======
     //store image url into firestore database
     UploadURL() {
       return new Promise<any>((resolve, reject) => {
@@ -223,7 +177,6 @@ export class EditUserComponent implements OnInit {
   //   this.isSubmitted = true;
   // }
 
->>>>>>> Stashed changes
 
   resetForm(form ?: NgForm){
     if(form!=null)
@@ -250,24 +203,20 @@ export class EditUserComponent implements OnInit {
   onSubmit(form : NgForm){
     let data = Object.assign({}, form.value) ;
     delete data.uid ;
-<<<<<<< Updated upstream
-
-=======
     console.log(data);
     console.log(this.userData.uid);
->>>>>>> Stashed changes
-    if(data.email!=""){
-      this.firestore.collection('users').doc(this.userData.uid).update({email:data.email})
-      this.toastr.success('Saving...', 'email updated');
-    }
-    if(data.firstName!=""){
-      this.firestore.collection('users').doc(this.userData.uid).update({firstName:data.firstName});
-      this.toastr.success('Saving...', 'Firstname updated');
-    }
-    if(data.lastName!=""){
-      this.firestore.collection('users').doc(this.userData.uid).update({lastName:data.lastName});
-      this.toastr.success('Saving...', 'lastname updated');
-    }
+    // if(data.email!=""){
+    //   this.firestore.collection('users').doc(this.userData.uid).update({email:data.email})
+    //   this.toastr.success('Saving...', 'email updated');
+    // }
+    // if(data.firstName!=""){
+    //   this.firestore.collection('users').doc(this.userData.uid).update({firstName:data.firstName});
+    //   this.toastr.success('Saving...', 'Firstname updated');
+    // }
+    // if(data.lastName!=""){
+    //   this.firestore.collection('users').doc(this.userData.uid).update({lastName:data.lastName});
+    //   this.toastr.success('Saving...', 'lastname updated');
+    // }
     if(data.contact!=""){
       this.firestore.collection('users').doc(this.userData.uid).update({contact:data.contact});
       this.toastr.success('Saving...', 'contact updated');
@@ -325,8 +274,6 @@ export class EditUserComponent implements OnInit {
     this.users.userData = Object.assign({},user);
   }
   }
-<<<<<<< Updated upstream
-=======
 
   interface photo {
     id?: string;
@@ -334,4 +281,3 @@ export class EditUserComponent implements OnInit {
   }
 
 
->>>>>>> Stashed changes

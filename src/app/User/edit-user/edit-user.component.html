@@ -13,26 +13,6 @@
       </div>
 
       <div style="padding: 10px;">
-<<<<<<< Updated upstream
-
-        <form #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
-
-          <div class="text-center">
-            <!--upload image by clicking on the image-->
-            <img [src]="imgSrc" width="350px" height="250px" (click) = "fileUploader.click()">
-          </div>
-
-
-          <input type="hidden" name="uid" #id="ngModel" [(ngModel)]="users.userData.id" *ngFor="let user of getUserList" class="collection">
-
-
-          <mat-form-field class="col-lg-6">
-          <input matInput placeholder="First Name" name="firstName" #firstName="ngModel" value="{{this.Log.firstName}}" [(ngModel)]="users.userData.firstName" required >
-          </mat-form-field>
-
-          <mat-form-field class="col-lg-6 ">
-            <input matInput placeholder="Last Name"  name="lastName" #lastName="ngModel" value="{{this.Log.lastName}}" [(ngModel)]="users.userData.lastName" required >
-=======
         
         <form  #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
 
@@ -66,26 +46,16 @@
 
           <mat-form-field class="col-lg-6 ">
             <input matInput disabled placeholder="Last Name"  name="lastName" #lastName="ngModel" value="{{this.Log.lastName}}" [(ngModel)]="users.userData.lastName" required > 
->>>>>>> Stashed changes
           </mat-form-field>
 
           <mat-form-field class="col-lg-6 ">
-<<<<<<< Updated upstream
-            <input matInput placeholder="Email"  name="email" #email="ngModel" value="{{this.Log.email}}" [(ngModel)]="users.userData.email" required >
-=======
             <input matInput disabled placeholder="Email"  name="email" #email="ngModel" value="{{this.Log.email}}" [(ngModel)]="users.userData.email" required > 
->>>>>>> Stashed changes
           </mat-form-field>
 
           <mat-form-field class="col-lg-6 ">
             <input matInput placeholder="Mobile"  name="contact" #contact="ngModel" value="{{this.Log.contact}}" [(ngModel)]="users.userData.contact">
           </mat-form-field>
 
-<<<<<<< Updated upstream
-            <!--mat-form-field class="col-lg-6 ">
-              <input type="password" matInput placeholder="Password" name="password" #password="ngModel" [(ngModel)]="users.userData.password" required >
-            </!--mat-form-field>
-=======
           <!-- <mat-form-field class="col-lg-6 ">
             <input matInput placeholder="District"  name="district" #contact="ngModel" value="{{this.Log.district}}" [(ngModel)]="users.userData.district">  -->
             <div class="row">
@@ -126,44 +96,27 @@
             <!-- mat-form-field class="col-lg-6 ">
               <input type="password" matInput placeholder="Password" name="password" #password="ngModel" [(ngModel)]="users.userData.password" required > 
             </mat-form-field>
->>>>>>> Stashed changes
             <mat-form-field class="col-lg-6 ">
               <input type="password" matInput placeholder="Re Enter Password" >
             </mat-form-field-->
 
-<<<<<<< Updated upstream
-
-            <div class="row">
-              <div class="col-lg-2">
-                  <ul *ngFor= "let user of getUserList">
-                    <a (click)="onEdit(user)">
-=======
             <div class="row">
               <div class="col-lg-2">
                   <ul *ngFor= "let user of getUserList">
                     <a (click)="onEdit(user)"> 
->>>>>>> Stashed changes
                       <button mat-button color="primary">Primary</button>
                     </a>
                   </ul>
               </div>
             </div>
-<<<<<<< Updated upstream
-
-            <input type="submit" value="Update" class="btn orange">
-=======
               
             <input type="submit" value="Update" class="btn orange">
             <!-- <button type="submit" class="btn btn-primary" (click)="updateData(profileForm.value)">Save changes</button> -->
->>>>>>> Stashed changes
         </form>
 
       </div>
     </div>
   </div>
 </div>   
-<<<<<<< Updated upstream
-=======
 
           
->>>>>>> Stashed changes

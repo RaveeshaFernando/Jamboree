@@ -57,7 +57,7 @@ import { RecMsgsService } from "./BackendConfig/rec-msgs.service";
 
 import {HttpClientModule} from "@angular/common/http";
 import { SearchComponentComponent } from './SharedComponents/search-component/search-component.component';
-import { NgAisModule } from "angular-instantsearch";
+// import { NgAisModule } from "angular-instantsearch";
 import { DisplayPageComponent } from './Dynamic/display-page/display-page.component';
 import { DisplayPageBarComponent } from './Dynamic/display-page-bar/display-page-bar.component';
 
@@ -97,20 +97,14 @@ import { DisplayPageBarComponent } from './Dynamic/display-page-bar/display-page
     DisplayPageComponent,
     DisplayPageBarComponent,
 
-
-
-<<<<<<< Updated upstream
-=======
+    // SignInComponent,
+    // SignUpComponent,
+    // DashComponent,
+    // ForgotPasswordComponent,
+    // VerifyEmailComponent,
+    // Signup2Component,
+    // UserDeleteComponent,
     
-    SignInComponent,
-    SignUpComponent,
-    DashComponent,
-    ForgotPasswordComponent,
-    VerifyEmailComponent,
-    Signup2Component,
-    UserDeleteComponent,
-    
->>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,
@@ -134,7 +128,7 @@ import { DisplayPageBarComponent } from './Dynamic/display-page-bar/display-page
     AngularFireDatabaseModule,
     HttpClientModule,
 
-    NgAisModule
+    // NgAisModule
 
   ],
   providers: [
