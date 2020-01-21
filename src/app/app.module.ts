@@ -57,6 +57,8 @@ import { RecMsgsService } from "./BackendConfig/rec-msgs.service";
 import {HttpClientModule} from "@angular/common/http";
 import { SearchComponentComponent } from './SharedComponents/search-component/search-component.component';
 import { NgAisModule } from "angular-instantsearch";
+import { DisplayPageComponent } from './Dynamic/display-page/display-page.component';
+import { DisplayPageBarComponent } from './Dynamic/display-page-bar/display-page-bar.component';
 
 @NgModule({
   declarations: [
@@ -89,6 +91,8 @@ import { NgAisModule } from "angular-instantsearch";
     ProfEditProfileComponent,
     ProfBookingComponent,
     SearchComponentComponent,
+    DisplayPageComponent,
+    DisplayPageBarComponent,
 
 
 

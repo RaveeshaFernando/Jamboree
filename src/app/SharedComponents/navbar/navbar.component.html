@@ -18,13 +18,15 @@
                     <a href="#contacts" class="nav-link"> <strong>Contact</strong> </a>
                 </li>
                 <li class="nav-item waves-light" mdbWavesEffect >
-                    <div *ngIf="this.Log.userType=='admin' ;then admin else prof"></div>
-                            <ng-template #prof>
-                                    <a [routerLink]="['/EventMain']" class="nav-link"> <strong>Profile</strong> </a>
-                            </ng-template>
-                            <ng-template #admin>
-                                <a [routerLink]="['/dashboard']" class="nav-link"> <strong>Dashboard</strong> </a>
-                            </ng-template>
+                    <div *ngIf="this.Log.userType==='Admin'" >
+                        <a [routerLink]="['/dashboard']" class="nav-link"> <strong>Dashboard</strong> </a>
+                    </div>
+                    <div *ngIf="this.Log.userType==='Professional'" >
+                        <a [routerLink]="['/EventMain']" class="nav-link"> <strong>Profile</strong> </a>
+                    </div>
+                    <div *ngIf="this.Log.userType==='User'" >
+                        <a [routerLink]="['/UserProfile']" class="nav-link"> <strong>Profile</strong> </a>
+                    </div>   
                 </li>
 
                 <li class="nav-item waves-light" mdbWavesEffect>

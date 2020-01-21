@@ -7,6 +7,9 @@ import { SigninComponent } from './signin/signin.component' ;
 import { SignupComponent } from './signup/signup.component' ;
 // import { SearchComponentComponent } from "../SharedComponents/SearchComponentComponent";
 
+import { DisplayPageComponent } from "./Dynamic/display-page/display-page.component";
+import { DisplayPageBarComponent } from "./Dynamic/display-page-bar/display-page-bar.component";
+
 import { ProfileComponent } from './profile/profile.component' ;
 
 import { AdminComponent } from './Admin/admin.component';
@@ -22,12 +25,16 @@ import { ProfBookingComponent } from "./eventProf/prof-booking/prof-booking.comp
 import { ProfEditProfileComponent } from "./eventProf/prof-edit-profile/prof-edit-profile.component";
 import { ProfMainComponent } from "./eventProf/prof-main/prof-main.component";
 
+
 const routes: Routes =[
   { path: '',                     component: HomeComponent },
   { path: 'Signin',               component: SigninComponent },
   { path: 'Signup',               component: SignupComponent },
   { path: 'Profile',              component: ProfileComponent },
   // { path: 'search',               component: SearchComponentComponent},
+
+  {path: 'DynamicUser',           component: DisplayPageComponent},
+  {path: 'dBar',                  component: DisplayPageBarComponent},
 
   { path: 'Admin',                component: AdminComponent },
   { path: 'dashboard',            component: DashboardComponent},
