@@ -6,14 +6,14 @@
 
 
     <!-- <div class="text-center white-text" style="padding-top: 100px;" > -->
-    <img align=right src="../../../assets/img/admin.png" class="rounded-circle">
+    
     <br>
     <div class="row">
       <!-- left column -->
       <div class="col-md-3">
         <div class="text-center">
           <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
-          <h6>Upload a different photo...</h6>
+          <h6>Change profile picture</h6>
 
           <input type="file" (change)="uploadImage($event)" accept=".png,.jpg" />
           <button type="button" (click)="uploadImages($event)">Upload</button>
@@ -50,7 +50,8 @@
           <div class="form-group">
             <label class="col-md-3 control-label">Description:</label>
             <div class="col-md-8">
-              <input class="form-control" type="text" formControlName="description" [(ngModel)]="this.Log.description">
+              <!--<textarea class="form-control mb-4" style="background-color: transparent;" rows="5" placeholder="Type Message" name="message" #message="ngModel" [(ngModel)]="Msg.sendMessage.message" required ></textarea>-->        
+              <textarea class="form-control" type="text" formControlName="description" style="background-color: #ebebe0;" rows="5" placeholder="Type Description" [(ngModel)]="this.Log.description"></textarea>  
             </div>
           </div>
           <div class="form-group">
