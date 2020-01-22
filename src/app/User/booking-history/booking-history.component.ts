@@ -8,6 +8,7 @@ import { FormControl } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from '@angular/forms';
 import { Router }  from '@angular/router';
+import { RecMsgsService } from "src/app/BackendConfig/rec-msgs.service";
 //import {TooltipPosition} from '@angular/material/tooltip';
 
 
@@ -39,6 +40,7 @@ export class BookingHistoryComponent implements OnInit {
     private firestore : AngularFirestore,
     private toastr : ToastrService,
     public route:Router,
+    private Rmsg : RecMsgsService
   ) {
     this.afAuth.authState.subscribe(user => {
       if (user) {
@@ -83,6 +85,8 @@ export class BookingHistoryComponent implements OnInit {
   //************************************* */
   onSubmit(form : NgForm){
     let data = Object.assign({}, form.value) ;
+    
+    this.toastr.success('Message Sent Sucessfully', 'Jamboree.NewMessage');
     delete data.uid ;
     console.log(data);
     console.log(this.userData.uid);
@@ -100,14 +104,17 @@ export class BookingHistoryComponent implements OnInit {
     // }
     if(data.eType!=""){
       this.firestore.collection('users').doc(this.userData.uid).update({eType:data.eType});
-      this.toastr.success('Saving...', 'Event Type updated');
+      //this.toastr.success('Saving...', 'Event Type updated');
     }
     if(data.district!=""){
       this.firestore.collection('users').doc(this.userData.uid).update({district:data.district});
-      this.toastr.success('Saving...', 'district updated');
+      //this.toastr.success('Saving...', 'district updated');
     }
-    
-    
+    if(data.description!=""){
+      this.firestore.collection('users').doc(this.userData.uid).update({description:data.description});
+      //this.toastr.success('Saving...', 'district updated');
+    }
+    this.toastr.success('User updated'); 
     this.route.navigate(['../UserProfile'])
   }
 

@@ -44,38 +44,7 @@ export class EditUserComponent implements OnInit {
     return this.userSubject.asObservable();
   }
 
-  // public imagePath;
-  // imgURL: any;
-  // public message: string;
-
-  // preview(files) {
-  //   if (files.length === 0)
-  //     return;
-
-  //   var mimeType = files[0].type;
-  //   if (mimeType.match(/image\/*/) == null) {
-  //     this.message = "Only images are supported.";
-  //     return;
-  //   }
-
-  //   var reader = new FileReader();
-  //   this.imagePath = files;
-  //   reader.readAsDataURL(files[0]);
-  //   reader.onload = (_event) => {
-  //     this.imgURL = reader.result;
-  //   }
-  // }
-
-  // saveEdits() {
-  //   //get the editable element
-  //   var editElem = document.getElementById("edit");
-  //   //get the edited element content
-  //   var userVersion = editElem.innerHTML;
-  //   //save the content to local storage
-  //   localStorage.userEdits = userVersion;
-  //   //write a confirmation to the user
-  //   document.getElementById("update").innerHTML="Edits saved!";
-  // }
+  
   formTemplate = new FormGroup( {
     imageUrl : new FormControl('',Validators.required),
   })
@@ -189,18 +158,7 @@ export class EditUserComponent implements OnInit {
     delete data.uid ;
     console.log(data);
     console.log(this.userData.uid);
-    // if(data.email!=""){
-    //   this.firestore.collection('users').doc(this.userData.uid).update({email:data.email})
-    //   this.toastr.success('Saving...', 'email updated');
-    // }
-    // if(data.firstName!=""){
-    //   this.firestore.collection('users').doc(this.userData.uid).update({firstName:data.firstName});
-    //   this.toastr.success('Saving...', 'Firstname updated');
-    // }
-    // if(data.lastName!=""){
-    //   this.firestore.collection('users').doc(this.userData.uid).update({lastName:data.lastName});
-    //   this.toastr.success('Saving...', 'lastname updated');
-    // }
+    
     if(data.contact!=""){
       this.firestore.collection('users').doc(this.userData.uid).update({contact:data.contact});
       this.toastr.success('Saving...', 'contact updated');
