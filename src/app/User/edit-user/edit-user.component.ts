@@ -8,7 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map, first } from "rxjs/operators";
 import { AngularFireAuth } from "@angular/fire/auth";
-import {Router}  from '@angular/router'
+import { Router }  from '@angular/router'
 
 import { FormGroup , FormControl , Validators } from '@angular/forms';
 import { AngularFireStorage } from '@angular/fire/storage';
@@ -159,23 +159,7 @@ export class EditUserComponent implements OnInit {
         });
       });
     }
-  // select image
-  // showPreview(event : any) {
-  //   if (event.target.files && event.target.files[0]) {
-  //     const reader = new FileReader();
-  //     reader.onload = (e:any) => this.imgSrc = e.target.result;
-  //     reader.readAsDataURL(event.target.files[0]);
-  //     this.selectedImg = event.target.files[0];
-  //   }
-  //   else {
-  //     this.imgSrc = "/assets/img/edit3.png";
-  //     this.selectedImg = null;
-  //   }
-  // }
-  //upload image
-  // imgSubmit(formValue) {
-  //   this.isSubmitted = true;
-  // }
+  
 
 
   resetForm(form ?: NgForm){
@@ -226,35 +210,7 @@ export class EditUserComponent implements OnInit {
       this.toastr.success('Saving...', 'district updated');
     }
     
-    // if(data.photoURL!=""){
-    //   this.firestore.collection('users').doc(this.userData.uid).update({photoURL:data.photoURL});
-    //   this.toastr.success('Saving...', 'photo updated');
-    // }
-
-
-
-    // this.isSubmitted = true;
-    // if (this.formTemplate.valid) {
-    //   var filePath = 'user/${this.selectedImage.name}';
-    //   const fileRef = this.storage.ref(filePath);
-      
-    //   this.storage.upload(filePath,this.selectedImg).snapshotChanges().pipe(
-    //     finalize(() => {
-    //       fileRef.getDownloadURL().subscribe((url) => {
-    //         form['imageUrl']=url;
-    //       })
-    //     })
-    //   ).subscribe();
-    // }
-
     
-
-
-    // else{
-    //   this.firestore.doc('users/' + form.value.uid).update(data);
-    //   this.toastr.success('User updated sucessfully', 'Jamboree.UserUpdate');
-
-    // }
     this.route.navigate(['../UserProfile'])
   }
  

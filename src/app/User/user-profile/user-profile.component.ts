@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { SampleUserService } from "src/app/BackendConfig/sample-user.service";
 import { User } from "src/app/BackendConfig/user.model";
 import { AuthService } from "./../../BackendConfig/auth.service";
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+
+
 
 @Component({
   selector: 'app-user-profile',
@@ -14,7 +17,18 @@ export class UserProfileComponent implements OnInit {
   Log: any
 
 
-  constructor(private userService: SampleUserService, public authService : AuthService) { }
+  constructor(
+    private userService: SampleUserService,
+    public authService : AuthService,
+    ) { }
+
+  // openDialog() {
+  //   this.dialog.open(UserProfileComponent, {
+  //     data: {
+  //       animal: 'panda'
+  //     }
+  //   })
+  // }
 
   ngOnInit(){
     this.userService.getUsers().subscribe(dataArray => {
