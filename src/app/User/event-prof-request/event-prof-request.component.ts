@@ -130,6 +130,7 @@ export class EventProfRequestComponent implements OnInit {
       this.firestore.collection('users').doc(this.userData.uid).update({description:data.description});
     }
     this.toastr.success('Request sent '); 
+    this.route.navigate(['../UserProfile'])
   }
   onEdit(user : User){
     this.users.userData = Object.assign({},user);

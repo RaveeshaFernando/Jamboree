@@ -60,6 +60,7 @@ export class EditUserComponent implements OnInit {
      {
 
       this.afAuth.authState.subscribe(user => {
+        //user is signed in
         if (user) {
           this.userData = user;
           localStorage.setItem('user', this.userData.uid);
@@ -67,7 +68,9 @@ export class EditUserComponent implements OnInit {
           console.log(this.userData.uid);
           this.Log = localStorage.getItem('user');
           this.userSubject.next(true);
-        } else {
+        } 
+        //no user is signed in
+        else {
           localStorage.setItem('user', null);
           this.Log = localStorage.getItem('user');
           this.userSubject.next(false);
