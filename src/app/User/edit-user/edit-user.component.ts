@@ -8,7 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map, first } from "rxjs/operators";
 import { AngularFireAuth } from "@angular/fire/auth";
-import {Router}  from '@angular/router'
+import { Router }  from '@angular/router'
 
 import { FormGroup , FormControl , Validators } from '@angular/forms';
 import { AngularFireStorage } from '@angular/fire/storage';
@@ -44,38 +44,7 @@ export class EditUserComponent implements OnInit {
     return this.userSubject.asObservable();
   }
 
-  // public imagePath;
-  // imgURL: any;
-  // public message: string;
-
-  // preview(files) {
-  //   if (files.length === 0)
-  //     return;
-
-  //   var mimeType = files[0].type;
-  //   if (mimeType.match(/image\/*/) == null) {
-  //     this.message = "Only images are supported.";
-  //     return;
-  //   }
-
-  //   var reader = new FileReader();
-  //   this.imagePath = files;
-  //   reader.readAsDataURL(files[0]);
-  //   reader.onload = (_event) => {
-  //     this.imgURL = reader.result;
-  //   }
-  // }
-
-  // saveEdits() {
-  //   //get the editable element
-  //   var editElem = document.getElementById("edit");
-  //   //get the edited element content
-  //   var userVersion = editElem.innerHTML;
-  //   //save the content to local storage
-  //   localStorage.userEdits = userVersion;
-  //   //write a confirmation to the user
-  //   document.getElementById("update").innerHTML="Edits saved!";
-  // }
+  
   formTemplate = new FormGroup( {
     imageUrl : new FormControl('',Validators.required),
   })
@@ -159,23 +128,7 @@ export class EditUserComponent implements OnInit {
         });
       });
     }
-  // select image
-  // showPreview(event : any) {
-  //   if (event.target.files && event.target.files[0]) {
-  //     const reader = new FileReader();
-  //     reader.onload = (e:any) => this.imgSrc = e.target.result;
-  //     reader.readAsDataURL(event.target.files[0]);
-  //     this.selectedImg = event.target.files[0];
-  //   }
-  //   else {
-  //     this.imgSrc = "/assets/img/edit3.png";
-  //     this.selectedImg = null;
-  //   }
-  // }
-  //upload image
-  // imgSubmit(formValue) {
-  //   this.isSubmitted = true;
-  // }
+  
 
 
   resetForm(form ?: NgForm){
@@ -205,18 +158,7 @@ export class EditUserComponent implements OnInit {
     delete data.uid ;
     console.log(data);
     console.log(this.userData.uid);
-    // if(data.email!=""){
-    //   this.firestore.collection('users').doc(this.userData.uid).update({email:data.email})
-    //   this.toastr.success('Saving...', 'email updated');
-    // }
-    // if(data.firstName!=""){
-    //   this.firestore.collection('users').doc(this.userData.uid).update({firstName:data.firstName});
-    //   this.toastr.success('Saving...', 'Firstname updated');
-    // }
-    // if(data.lastName!=""){
-    //   this.firestore.collection('users').doc(this.userData.uid).update({lastName:data.lastName});
-    //   this.toastr.success('Saving...', 'lastname updated');
-    // }
+    
     if(data.contact!=""){
       this.firestore.collection('users').doc(this.userData.uid).update({contact:data.contact});
       this.toastr.success('Saving...', 'contact updated');
@@ -226,35 +168,7 @@ export class EditUserComponent implements OnInit {
       this.toastr.success('Saving...', 'district updated');
     }
     
-    // if(data.photoURL!=""){
-    //   this.firestore.collection('users').doc(this.userData.uid).update({photoURL:data.photoURL});
-    //   this.toastr.success('Saving...', 'photo updated');
-    // }
-
-
-
-    // this.isSubmitted = true;
-    // if (this.formTemplate.valid) {
-    //   var filePath = 'user/${this.selectedImage.name}';
-    //   const fileRef = this.storage.ref(filePath);
-      
-    //   this.storage.upload(filePath,this.selectedImg).snapshotChanges().pipe(
-    //     finalize(() => {
-    //       fileRef.getDownloadURL().subscribe((url) => {
-    //         form['imageUrl']=url;
-    //       })
-    //     })
-    //   ).subscribe();
-    // }
-
     
-
-
-    // else{
-    //   this.firestore.doc('users/' + form.value.uid).update(data);
-    //   this.toastr.success('User updated sucessfully', 'Jamboree.UserUpdate');
-
-    // }
     this.route.navigate(['../UserProfile'])
   }
  

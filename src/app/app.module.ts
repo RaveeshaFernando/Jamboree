@@ -33,6 +33,7 @@ import { BookingHistoryComponent } from './User/booking-history/booking-history.
 import { EditUserComponent } from './User/edit-user/edit-user.component';
 import { UserSidebarComponent } from "./User/Shared/user-sidebar/user-sidebar.component";
 import { UserDeleteComponent } from './User/user-delete/user-delete.component';
+import { EventProfRequestComponent } from './User/event-prof-request/event-prof-request.component';
  
 //Website Components - Event Prof
 import { ProfMainComponent } from './eventProf/prof-main/prof-main.component';
@@ -62,6 +63,7 @@ import { DisplayPageComponent } from './Dynamic/display-page/display-page.compon
 import { DisplayPageBarComponent } from './Dynamic/display-page-bar/display-page-bar.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,6 +86,7 @@ import { DisplayPageBarComponent } from './Dynamic/display-page-bar/display-page
     BookingHistoryComponent,
     UserSidebarComponent,
     UserDeleteComponent,
+    EventProfRequestComponent,
 
     //Extra
     ProfileComponent,
@@ -96,6 +99,7 @@ import { DisplayPageBarComponent } from './Dynamic/display-page-bar/display-page
     SearchComponentComponent,
     DisplayPageComponent,
     DisplayPageBarComponent,
+    //EventProfRequestComponent,
 
     // SignInComponent,
     // SignUpComponent,

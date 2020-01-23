@@ -25,6 +25,7 @@ import { UserDeleteComponent } from './User/user-delete/user-delete.component';
 import { ProfBookingComponent } from "./eventProf/prof-booking/prof-booking.component";
 import { ProfEditProfileComponent } from "./eventProf/prof-edit-profile/prof-edit-profile.component";
 import { ProfMainComponent } from "./eventProf/prof-main/prof-main.component";
+import { EventProfRequestComponent } from './User/event-prof-request/event-prof-request.component';
 
 
 
@@ -47,6 +48,7 @@ const routes: Routes =[
   { path: 'UserEditUser',         component: EditUserComponent},
   { path: 'UserBooking',          component: BookingHistoryComponent},
   { path: 'UserDelete' ,          component: UserDeleteComponent},
+  { path: 'EventProfRequest' ,    component: EventProfRequestComponent},
 
   { path: 'EventMain',            component:ProfMainComponent},
   { path: 'EventEditProfile',     component:ProfEditProfileComponent},
