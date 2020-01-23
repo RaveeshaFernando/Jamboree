@@ -16,21 +16,6 @@
         
         <form  #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
 
-          <!-- <div class="text-center">
-            <img [src]="imgSrc" class="rounded-circle" width="250px" height="250px" (click) = "fileUploader.click()">
-          </div>
-          <div class="form-group">
-            <input type="file" class="form-control" accept="image/*" #fileUploader formControlName="imageUrl" (change)="showPreview($event)">
-          </div> -->
-          <!-- <div class="col-md-3"> -->
-            <!-- <div class="text-center"> -->
-              <!-- <input type="file" (change)="uploadImage($event)" accept=".png,.jpg"> -->
-              <!-- <button type="button" (click)="uploadImages($event)">Upload</button> -->
-            <!-- </div> -->
-          <!-- </div> -->
-
-          
-
           <input type="hidden" name="uid" #id="ngModel" [(ngModel)]="users.userData.id" *ngFor="let user of getUserList" class="collection">
 
           <input type="file" (change)="uploadImage($event)" accept=".png,.jpg">
