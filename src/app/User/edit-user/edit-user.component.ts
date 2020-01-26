@@ -146,7 +146,6 @@ export class EditUserComponent implements OnInit {
         userType : '',
         eType : '' ,
         description : '' ,
-        //displayPic : '',
         district : '',
         emailVerified : null,
         photoURL : '',
@@ -177,13 +176,15 @@ export class EditUserComponent implements OnInit {
     }
     if(data.age!=""){
       this.firestore.collection('users').doc(this.userData.uid).update({age:data.age});
-      //console.log(this.userData.age);
       this.toastr.success('Saving...', 'age updated');
     }
     if(data.gender!=""){
       this.firestore.collection('users').doc(this.userData.uid).update({gender:data.gender});
-      //console.log(this.userData.age);
       this.toastr.success('Saving...', 'gender updated');
+    }
+    if(data.city!=""){
+      this.firestore.collection('users').doc(this.userData.uid).update({city:data.city});
+      this.toastr.success('Saving...', 'city updated');
     }
     
     
