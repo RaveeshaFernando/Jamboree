@@ -148,6 +148,10 @@ export class EditUserComponent implements OnInit {
         emailVerified : false,
         photoURL : '',
         displayName : '',
+        city : '',
+        age : '' , 
+        gender: ''  
+
     }
   }
 

@@ -92,6 +92,9 @@ export class EventProfRequestComponent implements OnInit {
         emailVerified : null ,
         photoURL: '',
         displayName: '',
+        age : '',
+        city : '', 
+        gender: '' 
         
     }
   }

@@ -97,7 +97,10 @@ export class AuthService {
       contact: null,
       eType: null,
       description: null,
-      district: null
+      district: null ,
+      age : null ,
+      city : null , 
+      gender: null
     }
     return userRef.set(userData, {
       merge: true
