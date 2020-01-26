@@ -25,6 +25,9 @@ import { UserDeleteComponent } from './User/user-delete/user-delete.component';
 import { ProfBookingComponent } from "./eventProf/prof-booking/prof-booking.component";
 import { ProfEditProfileComponent } from "./eventProf/prof-edit-profile/prof-edit-profile.component";
 import { ProfMainComponent } from "./eventProf/prof-main/prof-main.component";
+import { EventProfRequestComponent } from './User/event-prof-request/event-prof-request.component';
+import { MessagingComponent } from './eventProf/messaging/messaging.component';
+import { BookingComponent    } from "./eventProf/booking/booking.component";
 import { SearchComponentComponent } from './SharedComponents/search-component/search-component.component';
 
 
@@ -44,11 +47,21 @@ const routes: Routes = [
   { path: 'profile-insights', component: ProfileInsightsComponent },
   { path: 'user-data', component: UserDataComponent },
 
+  { path: 'UserProfile',          component: UserProfileComponent},
+  { path: 'UserEditUser',         component: EditUserComponent},
+  { path: 'UserBooking',          component: BookingHistoryComponent},
+  { path: 'UserDelete' ,          component: UserDeleteComponent},
+  { path: 'EventProfRequest' ,    component: EventProfRequestComponent},
   { path: 'UserProfile', component: UserProfileComponent },
   { path: 'UserEditUser', component: EditUserComponent },
   { path: 'UserBooking', component: BookingHistoryComponent },
   { path: 'UserDelete', component: UserDeleteComponent },
 
+  { path: 'EventMain',            component:ProfMainComponent},
+  { path: 'EventEditProfile',     component:ProfEditProfileComponent},
+  { path: 'EventBooking',         component:ProfBookingComponent},
+  { path: 'Messaging',            component:MessagingComponent},
+  { path:  'Booking',             component:BookingComponent},
   { path: 'EventMain', component: ProfMainComponent },
   { path: 'EventEditProfile', component: ProfEditProfileComponent },
   { path: 'EventBooking', component: ProfBookingComponent },

@@ -40,9 +40,7 @@
                 
                 {{this.Log.firstName}} {{this.Log.lastName}}
             </h4>
-            <h6 class="collection" >
-                {{this.Log.email}}
-            </h6>        
+            <p class="collection" >{{this.Log.email}}</p>        
         </div>
     
         <div class="list-group list-group-flush" style="padding-top:50px;">
@@ -55,8 +53,12 @@
             <a routerLink="../UserBooking" class="list-group-item list-group-item-action waves-effect" style="background-color:transparent;" mdbWavesEffect>
               <mdb-icon fas icon="table" class="mr-3"></mdb-icon> Booking History
             </a>
+            <a routerLink="../EventProfRequest" class="list-group-item list-group-item-action waves-effect" style="background-color:transparent;" mdbWavesEffect>
+              <mdb-icon fas icon="table" class="mr-3"></mdb-icon> EventProf Request 
+            </a>
             <a routerLink="../UserDelete" class="list-group-item list-group-item-action waves-effect" style="background-color:transparent;" mdbWavesEffect>
               <mdb-icon fas icon="table" class="mr-3">delete</mdb-icon> Delete Account
             </a>
+            
         </div>
     </div>

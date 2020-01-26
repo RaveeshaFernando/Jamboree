@@ -33,6 +33,7 @@ import { BookingHistoryComponent } from './User/booking-history/booking-history.
 import { EditUserComponent } from './User/edit-user/edit-user.component';
 import { UserSidebarComponent } from "./User/Shared/user-sidebar/user-sidebar.component";
 import { UserDeleteComponent } from './User/user-delete/user-delete.component';
+import { EventProfRequestComponent } from './User/event-prof-request/event-prof-request.component';
  
 //Website Components - Event Prof
 import { ProfMainComponent } from './eventProf/prof-main/prof-main.component';
@@ -59,7 +60,11 @@ import {HttpClientModule} from "@angular/common/http";
 import { SearchComponentComponent } from './SharedComponents/search-component/search-component.component';
 import { DisplayPageComponent } from './Dynamic/display-page/display-page.component';
 import { DisplayPageBarComponent } from './Dynamic/display-page-bar/display-page-bar.component';
+import { MessagingComponent } from './eventProf/messaging/messaging.component';
+import { BookingComponent } from './eventProf/booking/booking.component';
 import { NgAisModule } from 'angular-instantsearch';
+
+
 
 @NgModule({
   declarations: [
@@ -83,6 +88,7 @@ import { NgAisModule } from 'angular-instantsearch';
     BookingHistoryComponent,
     UserSidebarComponent,
     UserDeleteComponent,
+    EventProfRequestComponent,
 
     //Extra
     ProfileComponent,
@@ -95,6 +101,9 @@ import { NgAisModule } from 'angular-instantsearch';
     SearchComponentComponent,
     DisplayPageComponent,
     DisplayPageBarComponent,
+    MessagingComponent,
+    BookingComponent,
+    //EventProfRequestComponent,
 
     // SignInComponent,
     // SignUpComponent,

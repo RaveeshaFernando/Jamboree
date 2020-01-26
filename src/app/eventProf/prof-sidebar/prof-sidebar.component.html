@@ -1,22 +1,29 @@
-<div class="sidebar-fixed position-fixed depth view" style="background-color: #EEE;" >
-    <div class="text-center " style="padding-top: 100px;" >
-        <img src="{{this.Log.photoURL}}" class="rounded-circle" width="200px" height="200px" >
-        <br>
-        <h3> {{this.Log.displayName}} </h3>
-        <h5> {{this.Log.contact}} </h5>
-        <h5> {{this.Log.email}} </h5>
-        <h5> {{this.Log.eType}} </h5>
-    </div>
+<div class="sidebar-fixed position-fixed depth view" style="background-color: #EEE;">
+  <div class="text-center " style="padding-top: 100px;">
+    <img src="{{this.Log.photoURL}}" class="rounded-circle" width="200px" height="200px">
+    <br>
+    <h3> {{this.Log.displayName}} </h3>
+    <h5> {{this.Log.contact}} </h5>
+    <h5> {{this.Log.email}} </h5>
+    <h5> {{this.Log.eType}} </h5>
+  </div>
 
-    <div class="list-group list-group-flush" style="padding-top:50px;">
-        <a routerLink="../EventMain" class="list-group-item list-group-item-action waves-effect" style="background-color:transparent;" mdbWavesEffect>
-                <mdb-icon fas icon="chart-pie" class="mr-3"></mdb-icon> Main
-        </a>
-        <a routerLink="../EventEditProfile" class="list-group-item list-group-item-action waves-effect" style="background-color:transparent;" mdbWavesEffect>
-                <mdb-icon fas icon="user" class="mr-3"></mdb-icon> Edit Profile
-        </a>
-        <a routerLink="../EditBooking" class="list-group-item list-group-item-action waves-effect" style="background-color:transparent;" mdbWavesEffect>
-                <mdb-icon fas icon="table" class="mr-3"></mdb-icon> Booking Insights
-        </a>
-    </div>
+  <div class="list-group list-group-flush" style="padding-top:50px;">
+    <a routerLink="../EventMain" class="list-group-item list-group-item-action waves-effect"
+      style="background-color:transparent;" mdbWavesEffect>
+      <mdb-icon fas icon="chart-pie" class="mr-3"></mdb-icon> Main
+    </a>
+    <a routerLink="../EventEditProfile" class="list-group-item list-group-item-action waves-effect"
+      style="background-color:transparent;" mdbWavesEffect>
+      <mdb-icon fas icon="user" class="mr-3"></mdb-icon> Edit Profile
+    </a>
+    <a routerLink="../Booking" class="list-group-item list-group-item-action waves-effect"
+      style="background-color:transparent;" mdbWavesEffect>
+      <mdb-icon fas icon="table" class="mr-3"></mdb-icon> Booking Insights
+    </a>
+    <a routerLink="../Messaging" class="list-group-item list-group-item-action waves-effect"
+      style="background-color:transparent;" mdbWavesEffect>
+      <mdb-icon fas icon="table" class="mr-3"></mdb-icon> Messaging
+    </a>
+  </div>
 </div>

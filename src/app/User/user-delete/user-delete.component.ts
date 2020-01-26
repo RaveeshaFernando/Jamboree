@@ -36,9 +36,9 @@ export class UserDeleteComponent implements OnInit {
   }
 
 
-  deleteUser(uid: number) {
+  // deleteUser(uid: number) {
     
-  }
+  // }
 }
 
 

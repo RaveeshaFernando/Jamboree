@@ -47,15 +47,6 @@ export class AuthService {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
-          // if(this.type==='Admin'){
-          //   this.router.navigate(['dashboard']);
-          // }
-          // else if(this.type === 'Professional'){
-          //   this.router.navigate(['EventMain']);
-          // }
-          // else{
-          //   this.router.navigate(['UserProfile']);
-          // }
           this.router.navigate(['']);
         });
       }).catch((error) => {
@@ -106,7 +97,10 @@ export class AuthService {
       contact: null,
       eType: null,
       description: null,
-      district: null
+      district: null ,
+      age : null ,
+      city : null , 
+      gender: null
     }
     return userRef.set(userData, {
       merge: true
