@@ -2,6 +2,7 @@ import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 
 admin.initializeApp();
+const env = functions.config();
 
 import * as algoliasearch from 'algoliasearch' ;
 
@@ -19,6 +20,16 @@ exports.indexEP_Name = functions.firestore
         const objectID = snap.id;
         return index1.addObject({
             objectID,data
+        });
+    });
+
+ exports.upindexEP_Name = functions.firestore
+    .document('users/{uid}')
+    .onUpdate((change,context)=>{
+        const newData = change.after.data();
+        // const objectID = change.id;
+        return index1.partialUpdateObject({
+           newData
         });
     });
 

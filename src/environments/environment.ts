@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  firebase:{
+  firebase: {
     apiKey: "AIzaSyB-eRxME7cVnmsOkD5fJ1NCC3wVV48Uzss",
     authDomain: "jamboree-official.firebaseapp.com",
     databaseURL: "https://jamboree-official.firebaseio.com",
@@ -13,10 +13,9 @@ export const environment = {
     messagingSenderId: "756586043290",
     appId: "1:756586043290:web:3a2a1d1f934efeb0c58c23",
     measurementId: "G-CP203NKPVT"
-  }
-
-  ,algolia: {
-    appId: "7417ZEQGC5" ,
+  },
+  algolia: {
+    appId: "7417ZEQGC5",
     apiKey: "bdfd22d8f11adc455b2b5869da134fd9"
   }
 };

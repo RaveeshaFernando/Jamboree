@@ -2,15 +2,15 @@ import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from './home/home.component' ;
-import { SigninComponent } from './signin/signin.component' ;
-import { SignupComponent } from './signup/signup.component' ;
+import { HomeComponent } from './home/home.component';
+import { SigninComponent } from './signin/signin.component';
+import { SignupComponent } from './signup/signup.component';
 // import { SearchComponentComponent } from "../SharedComponents/SearchComponentComponent";
 
 import { DisplayPageComponent } from "./Dynamic/display-page/display-page.component";
 import { DisplayPageBarComponent } from "./Dynamic/display-page-bar/display-page-bar.component";
 
-import { ProfileComponent } from './profile/profile.component' ;
+import { ProfileComponent } from './profile/profile.component';
 
 import { AdminComponent } from './Admin/admin.component';
 import { DashboardComponent } from './Admin/dashboard/dashboard.component'
@@ -25,32 +25,34 @@ import { UserDeleteComponent } from './User/user-delete/user-delete.component';
 import { ProfBookingComponent } from "./eventProf/prof-booking/prof-booking.component";
 import { ProfEditProfileComponent } from "./eventProf/prof-edit-profile/prof-edit-profile.component";
 import { ProfMainComponent } from "./eventProf/prof-main/prof-main.component";
+import { SearchComponentComponent } from './SharedComponents/search-component/search-component.component';
 
 
 
-const routes: Routes =[
-  { path: '',                     component: HomeComponent },
-  { path: 'Signin',               component: SigninComponent },
-  { path: 'Signup',               component: SignupComponent },
-  { path: 'Profile',              component: ProfileComponent },
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'Signin', component: SigninComponent },
+  { path: 'Signup', component: SignupComponent },
+  { path: 'Profile', component: ProfileComponent },
   // { path: 'search',               component: SearchComponentComponent},
 
-  {path: 'DynamicUser',           component: DisplayPageComponent},
-  {path: 'dBar',                  component: DisplayPageBarComponent},
+  { path: 'DynamicUser', component: DisplayPageComponent },
+  { path: 'dBar', component: DisplayPageBarComponent },
 
-  { path: 'Admin',                component: AdminComponent },
-  { path: 'dashboard',            component: DashboardComponent},
-  { path: 'profile-insights',     component: ProfileInsightsComponent},
-  { path: 'user-data',            component: UserDataComponent},
+  { path: 'Admin', component: AdminComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'profile-insights', component: ProfileInsightsComponent },
+  { path: 'user-data', component: UserDataComponent },
 
-  { path: 'UserProfile',          component: UserProfileComponent},
-  { path: 'UserEditUser',         component: EditUserComponent},
-  { path: 'UserBooking',          component: BookingHistoryComponent},
-  { path: 'UserDelete' ,          component: UserDeleteComponent},
+  { path: 'UserProfile', component: UserProfileComponent },
+  { path: 'UserEditUser', component: EditUserComponent },
+  { path: 'UserBooking', component: BookingHistoryComponent },
+  { path: 'UserDelete', component: UserDeleteComponent },
 
-  { path: 'EventMain',            component:ProfMainComponent},
-  { path: 'EventEditProfile',     component:ProfEditProfileComponent},
-  { path: 'EventBooking',         component:ProfBookingComponent},
+  { path: 'EventMain', component: ProfMainComponent },
+  { path: 'EventEditProfile', component: ProfEditProfileComponent },
+  { path: 'EventBooking', component: ProfBookingComponent },
+  {path: 'Search', component: SearchComponentComponent}
 
 ];
 

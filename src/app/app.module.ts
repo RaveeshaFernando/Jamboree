@@ -57,10 +57,9 @@ import { RecMsgsService } from "./BackendConfig/rec-msgs.service";
 
 import {HttpClientModule} from "@angular/common/http";
 import { SearchComponentComponent } from './SharedComponents/search-component/search-component.component';
-// import { NgAisModule } from "angular-instantsearch";
 import { DisplayPageComponent } from './Dynamic/display-page/display-page.component';
 import { DisplayPageBarComponent } from './Dynamic/display-page-bar/display-page-bar.component';
-
+import { NgAisModule } from 'angular-instantsearch';
 
 @NgModule({
   declarations: [
@@ -115,7 +114,7 @@ import { DisplayPageBarComponent } from './Dynamic/display-page-bar/display-page
     NgbModule,
     ToastrModule.forRoot(),
     ReactiveFormsModule,
-
+    
     MatTableModule,
     MatButtonModule,
     MatInputModule,
@@ -128,7 +127,7 @@ import { DisplayPageBarComponent } from './Dynamic/display-page-bar/display-page
     AngularFireDatabaseModule,
     HttpClientModule,
 
-    // NgAisModule
+    NgAisModule.forRoot()
 
   ],
   providers: [

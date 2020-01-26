@@ -1,4 +1,4 @@
-<p>search-component works!</p>
+<!-- <p>search-component works!</p>
 
 
 <li class="nav-item waves-light" mdbWavesEffect>
@@ -7,7 +7,7 @@
                         apiKey: 'bdfd22d8f11adc455b2b5869da134fd9',
                         appId: '7417ZEQGC5',
                         indexName: users ,
-                        routing: true }">
+                        routing: true }"> -->
 
       <!-- <div class="md-form my-0">
           <ais-search-box></ais-search-box>
@@ -20,6 +20,29 @@
           </div>
         </ng-template>
       </ais-hits> -->
-    </ng-ais-instantsearch>
+    <!-- </ng-ais-instantsearch>
   </form>
- </li>
+ </li> -->
+
+ <!-- <button (click)="onClick()">Add user</button> -->
+
+ <!-- <div> -->
+   
+
+      <ais-instantsearch [config]="searchConfig">
+        <ais-search-box submitTitle="Go" [autofocus]="true"></ais-search-box>
+          <ais-hits *ngIf="showResults">
+              <ng-template let-hits="hits">
+                  <div *ngFor="let hit of hits">
+                      <!-- <img [src]="hit.avatar" width="30px"> -->
+                      <ais-highlight attribute="displayName" [hit]="hit"></ais-highlight>
+                      <div class="bio">
+                          {{ hit.bio | slice:0:30 }}...
+                      </div>
+                  </div>
+              </ng-template>
+          </ais-hits>
+      
+        </ais-instantsearch>
+     
+ <!-- </div> -->

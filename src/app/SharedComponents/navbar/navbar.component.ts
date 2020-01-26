@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "./../../BackendConfig/auth.service";
 import { Observable } from 'rxjs';
+import {SearchComponentComponent} from "../search-component/search-component.component";
 
 @Component({
   selector: 'app-navbar',
