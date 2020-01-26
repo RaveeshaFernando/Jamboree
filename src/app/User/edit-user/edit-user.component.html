@@ -231,9 +231,11 @@
             <mat-form-field class="col-lg-6 ">
               <input matInput placeholder="Age"  name="age" #contact="ngModel" value="{{this.Log.age}}" [(ngModel)]="users.userData.age"> 
             </mat-form-field>
-          
-           
-          
+
+            <mat-form-field class="col-lg-6 ">
+              <input matInput placeholder="city"  name="city" #contact="ngModel" value="{{this.Log.city}}" [(ngModel)]="users.userData.city"> 
+            </mat-form-field>
+
             <!-- mat-form-field class="col-lg-6 ">
               <input type="password" matInput placeholder="Password" name="password" #password="ngModel" [(ngModel)]="users.userData.password" required > 
             </mat-form-field>
