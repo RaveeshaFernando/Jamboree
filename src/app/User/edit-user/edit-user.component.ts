@@ -126,8 +126,8 @@ export class EditUserComponent implements OnInit {
         this.Log = this.authService.GetUserData().subscribe(user => {
           this.Log = user;
           this.message = user.photoURL;
-          console.log(user.photoURL + "*********************");
-          console.log(this.Log);
+          //console.log(user.photoURL + "*********************");
+          //console.log(this.Log);
         });
       });
     }
@@ -148,7 +148,7 @@ export class EditUserComponent implements OnInit {
         description : '' ,
         //displayPic : '',
         district : '',
-        emailVerified : false,
+        emailVerified : null,
         photoURL : '',
         displayName : '',
         city : '',
@@ -165,6 +165,7 @@ export class EditUserComponent implements OnInit {
     delete data.uid ;
     console.log(data);
     console.log(this.userData.uid);
+    console.log(this.userData.age);
     
     if(data.contact!=""){
       this.firestore.collection('users').doc(this.userData.uid).update({contact:data.contact});
@@ -174,22 +175,21 @@ export class EditUserComponent implements OnInit {
       this.firestore.collection('users').doc(this.userData.uid).update({district:data.district});
       this.toastr.success('Saving...', 'district updated');
     }
+    if(data.age!=""){
+      this.firestore.collection('users').doc(this.userData.uid).update({age:data.age});
+      //console.log(this.userData.age);
+      this.toastr.success('Saving...', 'age updated');
+    }
+    if(data.gender!=""){
+      this.firestore.collection('users').doc(this.userData.uid).update({gender:data.gender});
+      //console.log(this.userData.age);
+      this.toastr.success('Saving...', 'gender updated');
+    }
     
     
     this.route.navigate(['../UserProfile'])
   }
  
-
-  // resetImg() {
-  //   this.formTemplate.reset();
-  //   this.formTemplate.setValue({
-  //     imageUrl : '',
-  //   });
-  //   this.imgSrc= "/assets/img/avatar.jpg";
-  //   this.selectedImg = null;
-  //   this.isSubmitted = false;
-  // }
-
   //Edit data from User
   onEdit(user : User){
     this.users.userData = Object.assign({},user);
