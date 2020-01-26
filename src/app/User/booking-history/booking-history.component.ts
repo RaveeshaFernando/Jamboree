@@ -77,7 +77,10 @@ export class BookingHistoryComponent implements OnInit {
         district : '' ,
         emailVerified : null ,
         photoURL: '',
-        displayName: ''
+        displayName: '',
+        age : '' ,
+        city : '', 
+        gender: '' 
     }
   }
 

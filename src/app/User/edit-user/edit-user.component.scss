@@ -1,13 +1,12 @@
 @media (max-width: 1199.98px) {
     .depth{
         padding-left: 30px;
-        padding-right: 30px ;
     }
 }
 
 @media (min-width: 1199.98px) {
     .depth{
-        padding-left:300px;
+        padding-left:290px;
     }
 }
 
@@ -34,6 +33,15 @@
     opacity: .95;
     background: #eee;
     height: 100vh ;
+}
+
+.image{
+    padding: 0px;
+}
+.image img{
+    width: 100%;
+    position: relative;
+    height: 450px;
 }
 
 .avatar-pic {

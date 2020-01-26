@@ -11,4 +11,7 @@ export class User {
     eType : string ;
     description : string ;
     district : string ;
+    age : string ;
+    city : string ; 
+    gender: string ;
 }

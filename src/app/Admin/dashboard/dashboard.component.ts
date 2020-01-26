@@ -3,6 +3,7 @@ import { AuthenticationService } from 'src/app/Shared/authentication.servic
 import { Authentication } from 'src/app/Shared/authentication.model';
 import { UserService } from "src/app/BackendConfig/user.service";
 import { User } from 'src/app/BackendConfig/user.model';
+import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
