@@ -12,7 +12,6 @@ import { DisplayPageBarComponent } from "./Dynamic/display-page-bar/display-page
 
 import { ProfileComponent } from './profile/profile.component';
 
-import { AdminComponent } from './Admin/admin.component';
 import { DashboardComponent } from './Admin/dashboard/dashboard.component'
 import { ProfileInsightsComponent } from './Admin/profile-insights/profile-insights.component'
 import { UserDataComponent } from './Admin/userdata/userdata.component';
@@ -29,6 +28,7 @@ import { EventProfRequestComponent } from './User/event-prof-request/event-prof-
 import { MessagingComponent } from './eventProf/messaging/messaging.component';
 import { BookingComponent    } from "./eventProf/booking/booking.component";
 import { SearchComponentComponent } from './SharedComponents/search-component/search-component.component';
+import { UserinfoComponent } from "./admin/user-info.component";
 
 
 
@@ -42,12 +42,11 @@ const routes: Routes = [
   { path: 'DynamicUser', component: DisplayPageComponent },
   { path: 'dBar', component: DisplayPageBarComponent },
 
-  { path: 'Admin', component: AdminComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'profile-insights', component: ProfileInsightsComponent },
   { path: 'user-data', component: UserDataComponent },
 
-  { path: 'UserProfile',          component: UserProfileComponent},
+  { path: 'Sample',          component: UserinfoComponent},
   { path: 'UserEditUser',         component: EditUserComponent},
   { path: 'UserBooking',          component: BookingHistoryComponent},
   { path: 'UserDelete' ,          component: UserDeleteComponent},

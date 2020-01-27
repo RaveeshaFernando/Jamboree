@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
+import {formatDate } from '@angular/common';
 
 
 import { Contact } from 'src/app/BackendConfig/contact.model';
@@ -16,6 +17,8 @@ import {MatTabsModule} from '@angular/material/tabs';
   styleUrls: ['./profile-insights.component.scss']
 })
 export class ProfileInsightsComponent implements OnInit {
+  today= new Date();
+
     constructor(
       private Msg : ContactService,
       private Rmsg : RecMsgsService,
@@ -51,6 +54,7 @@ export class ProfileInsightsComponent implements OnInit {
   onSubmit(form : NgForm){ 
     let data = form.value ;
     console.log("sucess");
+    console.log(this.today);
     this.firestore.collection('Contact').add(data);
     this.toastr.success('Message Sent Sucessfully', 'Jamboree.NewMessage');
     this.resetForm(form);
@@ -64,10 +68,10 @@ export class ProfileInsightsComponent implements OnInit {
         name : 'Jamboree Team',
         email : 'jamboree.inco@gmail.com' ,
         message : '' ,
-        date : '' ,
+        date : this.today ,
         time : '' ,
         receiverType : '',
-        receiver : ''
+        receiver : 'sample'
     }
   }
 
@@ -83,7 +87,6 @@ export class ProfileInsightsComponent implements OnInit {
     if(confirm("Are you sure, you want to delete this message?")){
       this.firestore.doc('ResMessages/' + id).delete();
       this.toastr.success('Message deleted sucessfully', 'Jamboree.MessageDelete');
-
     }
   }
 }

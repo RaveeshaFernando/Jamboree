@@ -42,11 +42,11 @@ import { ProfEditProfileComponent } from './eventProf/prof-edit-profile/prof-edi
 import { ProfBookingComponent } from './eventProf/prof-booking/prof-booking.component';
 
 //Website Components - Admin
-import { AdminComponent } from './Admin/admin.component';
 import { SidebarComponent } from './Admin/sidebar/sidebar.component';
 import { DashboardComponent } from './Admin/dashboard/dashboard.component';
 import { ProfileInsightsComponent } from './Admin/profile-insights/profile-insights.component';
 import { UserDataComponent } from './Admin/userdata/userdata.component';
+import { UserinfoComponent } from "./admin/user-info.component";
 
 //Services
 import { AuthenticationService } from './Shared/authentication.service';
@@ -73,14 +73,15 @@ import { NgAisModule } from 'angular-instantsearch';
     HomeComponent,
 
     SigninComponent,
-    SignupComponent,
+    SignupComponent, 
 
     //Admin
-    AdminComponent,
     SidebarComponent,
     DashboardComponent,
     ProfileInsightsComponent,
     UserDataComponent,
+    UserinfoComponent,
+
 
     //User
     UserProfileComponent,
