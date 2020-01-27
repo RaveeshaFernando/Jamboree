@@ -69,9 +69,8 @@ export class ProfileInsightsComponent implements OnInit {
         email : 'jamboree.inco@gmail.com' ,
         message : '' ,
         date : this.today ,
-        time : '' ,
         receiverType : '',
-        receiver : 'sample'
+        receiver : ' '
     }
   }
 

@@ -4,7 +4,6 @@ export class Contact {
     email : any ;
     message : any ;
     date : any ;
-    time : any ;
     receiverType : any ;
     receiver : any ;
 }
