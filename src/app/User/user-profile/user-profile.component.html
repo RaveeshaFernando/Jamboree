@@ -139,6 +139,10 @@
                                             <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
                                                 <input type="hidden" name="id" #id="ngModel" [(ngModel)]="users.userData.id">
 
+                                                <mat-form-field class="col-lg-12 col-md-12 col-sm-12">
+                                                    <input matInput placeholder=" displayName"  name="displayName" #displayName="ngModel" value="{{this.Log. displayName}}" [(ngModel)]="users.userData. displayName" required > 
+                                                </mat-form-field>
+
                                                 <mat-form-field class="col-lg-6 col-md-6 col-sm-6">
                                                     <input matInput disabled placeholder="First Name" name="firstName" #firstName="ngModel"  value="{{this.Log.firstName}}" [(ngModel)]="users.userData.firstName" required > 
                                                 </mat-form-field> 
@@ -147,7 +151,7 @@
                                                     <input disabled matInput placeholder="Last Name"  name="lastName" #lastName="ngModel" value="{{this.Log.lastName}}" [(ngModel)]="users.userData.lastName" required > 
                                                 </mat-form-field>
                                                 
-                                                <mat-form-field class="col-lg-6 col-md-6 col-sm-6">
+                                                <mat-form-field class="col-lg-12 col-md-12 col-sm-">
                                                     <input disabled matInput placeholder="Email"  name="email" #email="ngModel" value="{{this.Log.email}}" [(ngModel)]="users.userData.email" required > 
                                                 </mat-form-field>
                                                 
