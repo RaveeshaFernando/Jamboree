@@ -2,7 +2,7 @@ import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 
 admin.initializeApp();
-const env = functions.config();
+// const env = functions.config();
 
 import * as algoliasearch from 'algoliasearch' ;
 
@@ -26,13 +26,18 @@ exports.indexEP_Name = functions.firestore
  exports.upindexEP_Name = functions.firestore
     .document('users/{uid}')
     .onUpdate((change,context)=>{
-        const newData = change.after.data();
-        // const objectID = change.id;
-        return index1.partialUpdateObject({
-           newData
-        });
-    });
+        const objectID = change.after.id;
+        const data = change.after.data();
 
+        index1.partialUpdateObject({objectID, data}, (err,res)=> {
+            if (err) throw err;
+            console.log("Update event triggered", res);
+        });
+        
+        // return index1.partialUpdateObject({
+        //    newData
+        });
+  
 exports.unindexEP_Name = functions.firestore
     .document('users/{uid}')
     .onDelete((snap,context)=>{
