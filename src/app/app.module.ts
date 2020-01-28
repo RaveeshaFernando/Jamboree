@@ -63,6 +63,7 @@ import { DisplayPageBarComponent } from './Dynamic/display-page-bar/display-page
 import { MessagingComponent } from './eventProf/messaging/messaging.component';
 import { BookingComponent } from './eventProf/booking/booking.component';
 import { NgAisModule } from 'angular-instantsearch';
+import { SearchComponent } from './SharedComponents/search/search.component';
 
 
 
@@ -104,6 +105,7 @@ import { NgAisModule } from 'angular-instantsearch';
     DisplayPageBarComponent,
     MessagingComponent,
     BookingComponent,
+    SearchComponent,
     //EventProfRequestComponent,
 
     // SignInComponent,

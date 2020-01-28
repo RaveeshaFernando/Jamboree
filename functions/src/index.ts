@@ -29,7 +29,7 @@ exports.indexEP_Name = functions.firestore
         const objectID = change.after.id;
         const data = change.after.data();
 
-        index1.partialUpdateObject({objectID, data}, (err,res)=> {
+        return index1.partialUpdateObject({objectID, data}, (err,res)=> {
             if (err) throw err;
             console.log("Update event triggered", res);
         });
