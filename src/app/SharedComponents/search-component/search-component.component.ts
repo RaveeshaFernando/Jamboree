@@ -15,27 +15,32 @@ const searchClient = algoliasearch(
 })
 export class SearchComponentComponent implements OnInit  { //implements OnInit
 
+  // config = {
+  //    searchClient: algoliasearch('7417ZEQGC5', 'bdfd22d8f11adc455b2b5869da134fd9')
+  //   /* ... */
+  // };
+
   searchConfig = {
+    ...environment.algolia,
     indexName: 'users',
     searchClient
   }
 
-  showResult = true;
-
- 
+  showResult = false;
 
   constructor() { 
     // console.log('im born');
   }
   
-  searchChanged(query){
-    if (query.length){
-      this.showResult = true;
-    }else{
-      this.showResult = false;
-    }
+  searchChanged(query: string | any[]){
+    if(typeof query=='string'){
+      if (query.length){
+        this.showResult = true;
+      }else{
+        this.showResult = false;
+      }
   }
-
+  }
   ngOnInit() {
     // console.log('initialized');
 
