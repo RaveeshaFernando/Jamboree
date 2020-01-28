@@ -6,4 +6,5 @@ export class Contact {
     date : any ;
     receiverType : any ;
     receiver : any ;
+    time : any ;
 }
