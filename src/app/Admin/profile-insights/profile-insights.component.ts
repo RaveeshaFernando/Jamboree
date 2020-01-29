@@ -17,8 +17,14 @@ import {MatTabsModule} from '@angular/material/tabs';
   styleUrls: ['./profile-insights.component.scss']
 })
 export class ProfileInsightsComponent implements OnInit {
-  today= new Date();
-
+  year= new Date().getFullYear();
+  date = new Date().getDate();
+  month = new Date().getMonth();
+  hour = new Date().getHours();
+  minute = new Date().getMinutes();
+  min : string = "0" ;
+  mon : number = this.month + 1 ;
+  ms ;
     constructor(
       private Msg : ContactService,
       private Rmsg : RecMsgsService,
@@ -30,6 +36,12 @@ export class ProfileInsightsComponent implements OnInit {
   getUserMessages : RecMsgs[];
 
   ngOnInit() {
+  if(this.minute<10){
+      this.min = this.min + this.minute.toString(); 
+  }
+  else{
+    this.min = this.minute.toString(); 
+  }
   this.resetForm();
 
   //Data retrieving from firestore
@@ -54,7 +66,6 @@ export class ProfileInsightsComponent implements OnInit {
   onSubmit(form : NgForm){ 
     let data = form.value ;
     console.log("sucess");
-    console.log(this.today);
     this.firestore.collection('Contact').add(data);
     this.toastr.success('Message Sent Sucessfully', 'Jamboree.NewMessage');
     this.resetForm(form);
@@ -68,7 +79,8 @@ export class ProfileInsightsComponent implements OnInit {
         name : 'Jamboree Team',
         email : 'jamboree.inco@gmail.com' ,
         message : '' ,
-        date : this.today ,
+        date : this.year + '/' + this.mon  + '/' + this.date,
+        time : this.hour + ':' + this.min + 'Hrs',
         receiverType : '',
         receiver : ' '
     }
@@ -87,5 +99,10 @@ export class ProfileInsightsComponent implements OnInit {
       this.firestore.doc('ResMessages/' + id).delete();
       this.toastr.success('Message deleted sucessfully', 'Jamboree.MessageDelete');
     }
+  }
+
+  showFrame(ms , frame2){
+    this.ms = ms ;
+    frame2.show();
   }
 }
