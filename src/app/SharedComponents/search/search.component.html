@@ -1,0 +1,10 @@
+<div class="row">
+    <input [(ngModel)]="value" (keyup)="onType($event)">
+    <button (click)="onSearchClick()">Search</button>
+</div>
+
+<ul *ngIf="isVisible" class="users">
+    <li *ngFor="let user of filtered">
+        <span class="user" (click)="onItemClick(user.displayName)">{{user.displayName}}</span>
+    </li>
+</ul>
