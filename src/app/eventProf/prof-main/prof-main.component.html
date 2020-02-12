@@ -50,7 +50,7 @@
               <div class="card-body">
                 <h5 class="card-title">Select and upload your :</h5>
                 <input type="file" (change)="uploadImage($event)" accept=".png,.jpg" />
-                <button type="button" (click)="uploadImages($event)">Upload</button>
+                <!-- <button type="button" (click)="uploadImages($event)">Upload</button> -->
                 <br><br>
                 <br>
                 <div class="btn-group" role="group" *ngIf="uploadState | async; let state">
