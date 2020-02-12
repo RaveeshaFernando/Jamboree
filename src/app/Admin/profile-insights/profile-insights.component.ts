@@ -25,6 +25,7 @@ export class ProfileInsightsComponent implements OnInit {
   min : string = "0" ;
   mon : number = this.month + 1 ;
   ms ;
+  
     constructor(
       private Msg : ContactService,
       private Rmsg : RecMsgsService,
