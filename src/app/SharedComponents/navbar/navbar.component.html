@@ -29,18 +29,19 @@
                     </div>   
                 </li>
 
-                <!-- <li class="nav-item waves-light" mdbWavesEffect>
-                    <form class="form-inline waves-light" mdbWavesEffect>
-                        <div class="md-form my-0">
-                            <input class="form-control mr-sm-2"  type="text" placeholder="Search">
-                        </div>
-                    </form>
-                </li> -->\
-                <li>
-                    <app-search></app-search>
-                </li>
+               
+             
             </ul>
-            <ul class="navbar-nav nav-flex-icons">
+
+            <li class="nav-item dropdown" dropdown>
+                <div>  
+                    
+                    <app-search></app-search>
+            
+                </div>
+             </li>
+           
+             <ul class="navbar-nav nav-flex-icons">
                 <li class="nav-item dropdown" dropdown>
                     <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
                         <div *ngIf="this.flag;then logged else guest"></div>

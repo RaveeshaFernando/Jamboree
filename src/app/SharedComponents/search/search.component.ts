@@ -15,6 +15,7 @@ export class SearchComponent implements OnInit {
   isVisible: boolean = false;
   value: string = "";
   searchKey: String = "";
+  displayName: String = "";
 
   @HostListener('document:click', ['$event'])
   clickout(event) {
@@ -52,17 +53,17 @@ export class SearchComponent implements OnInit {
       return item.userType == "Professional" && item.displayName.toLowerCase().includes(this.searchKey.toLowerCase());
     })
 
-    console.log(this.filtered);
+    // console.log(this.filtered);
   }
 
   onFocusOut() {
-    console.log("Focus out");
+    // console.log("Focus out");
     
     this.isVisible = false;
   }
 
   onItemClick(displayName: string) {
-    console.log("Clicked", displayName);
+    // console.log("Clicked", displayName);
     
     this.value = displayName;
     this.isVisible = false;

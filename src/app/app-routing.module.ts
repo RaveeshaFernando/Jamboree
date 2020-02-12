@@ -29,6 +29,8 @@ import { MessagingComponent } from './eventProf/messaging/messaging.component';
 import { BookingComponent    } from "./eventProf/booking/booking.component";
 import { SearchComponentComponent } from './SharedComponents/search-component/search-component.component';
 import { UserinfoComponent } from "./admin/user-info.component";
+import { SearchResultComponent } from "./SharedComponents/search-result/search-result.component";
+
 
 
 
@@ -64,7 +66,8 @@ const routes: Routes = [
   { path: 'EventMain', component: ProfMainComponent },
   { path: 'EventEditProfile', component: ProfEditProfileComponent },
   { path: 'EventBooking', component: ProfBookingComponent },
-  {path: 'Search', component: SearchComponentComponent}
+  {path: 'Search', component: SearchComponentComponent},
+  {path: 'SearchResult', component: SearchResultComponent}
 
 ];
 
