@@ -7,61 +7,101 @@
 
 <!-- Row with Overview Details -->
 
-    <div class="row">
-        <div class="col-md-6 col-lg-4 col-sm-12 " >
-            <div class="card detail-card">
-                <div class="card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg)">
-                    <div class="text-white d-flex blue-gradient-rgba">
-                        <div class="p-3">
-                            <h3 class="card-title card-top">Total Users</h3>
-                        </div>
-                        <div class="align-self-center mx-auto">
-                            <i class="fas fa-users fa-3x"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="ml-auto mr-4 mb-2">
-                  <h1 class="text-center card-text" style="color: slateblue;">{{totalCount}}</h1>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4 col-sm-12 ">
-            <div class="card detail-card">
-                <div class="card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg)">
-                    <div class="text-white d-flex peach-gradient-rgba">
-                        <div class="p-3">
-                            <h3 class="card-title card-top">Total Bookings</h3>
-                        </div>
-                        <div class="align-self-center mx-auto">
-                            <i class="fas fa-briefcase fa-3x"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="ml-auto mr-4 mb-2">
-                    <h1 class="text-center card-text" style="color:#F55;">37</h1>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4 col-sm-12 "  >
+    <div class="col-sm-60"  style="font-family:Roboto;padding-right:30px;">
+        <div class="row">
+            <div class="col-md-6 col-lg-4 col-sm-12 " >
                 <div class="card detail-card">
                     <div class="card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg)">
-                        <div class="text-white d-flex aqua-gradient-rgba ">
+                        <div class="text-white d-flex blue-gradient-rgba">
                             <div class="p-3">
-                            <h3 class="card-title card-top">Total Event Professionals</h3>
+                                <h3 class="card-title card-top">Total Users</h3>
                             </div>
                             <div class="align-self-center mx-auto">
-                            <i class="fas fa-briefcase fa-3x"></i>
+                                <i class="fas fa-users fa-3x"></i>
                             </div>
                         </div>
                     </div>
                     <div class="ml-auto mr-4 mb-2">
-                        <h1 class="text-center card-text" style="color: #38A;">91</h1>
+                    <h1 class="text-center card-text" style="color: slateblue;">{{totalCount}}</h1>
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-6 col-lg-4 col-sm-12 ">
+                <div class="card detail-card">
+                    <div class="card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg)">
+                        <div class="text-white d-flex peach-gradient-rgba">
+                            <div class="p-3">
+                                <h3 class="card-title card-top">Total Bookings</h3>
+                            </div>
+                            <div class="align-self-center mx-auto">
+                                <i class="fas fa-briefcase fa-3x"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ml-auto mr-4 mb-2">
+                        <h1 class="text-center card-text" style="color:#F55;">37</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 col-sm-12 "  >
+                    <div class="card detail-card">
+                        <div class="card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg)">
+                            <div class="text-white d-flex aqua-gradient-rgba ">
+                                <div class="p-3">
+                                <h3 class="card-title card-top">On going Bookings</h3>
+                                </div>
+                                <div class="align-self-center mx-auto">
+                                <i class="fas fa-briefcase fa-3x"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ml-auto mr-4 mb-2">
+                            <h1 class="text-center card-text" style="color: #38A;">91</h1>
+                        </div>
+                    </div>
+                </div>
         </div>
 
+        <div>
+            <div class="col-md-12 col-lg-12 col-sm-12 " >
+                <div style="padding-bottom: 30px;background-color: #223;">   
+                    <mdb-card-body class="d-sm-flex justify-content-between"  style="background-color: #223;" >
+                        <h3 class="mb-sm-0 pt-3 text-white"> Event Professional Requests </h3>
+                    </mdb-card-body>
 
+                    <table class="table">
+                        <thead class="white-text">
+                            <tr>
+                            <th scope="col">User ID</th>
+                            <th scope="col">User Name</th>
+                            <th scope="col">Event Type</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Mobile</th>
+                            <th scope="col"> Response </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr  class="text-white" *ngFor= "let req of requests">
+                                <td> <strong> {{req.uid}} </strong> </td>
+                                <td> <strong> {{req.displayName}}</strong>  </td>
+                                <td> <strong> {{req.email}} </strong> </td>
+                                <td> <strong> {{req.mobile}}</strong>  </td>
+                                <td> <strong> {{req.eType}} </strong> </td>
+                                <td> 
+                                    <a class="btn-sm text-danger"> 
+                                        <i class="fas fa-user-check btn-info rounded " style="padding: 10px;" (click)="changeStatus1(req.uid)"> </i>
+                                    </a> 
+                                    <a class="btn-sm text-danger"> 
+                                        <i class="fas fa-user-times btn-danger rounded " style="padding: 10px;" (click)="changeStatus2(req.uid)"> </i>
+                                    </a> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

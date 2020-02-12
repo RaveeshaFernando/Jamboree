@@ -2,8 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/Shared/authentication.service';
 import { Authentication } from 'src/app/Shared/authentication.model';
 import { UserService } from "src/app/BackendConfig/user.service";
+import { UserReqService } from "src/app/BackendConfig/user-req.service";
+import { Requests } from "src/app/BackendConfig/user-req.model";
 import { User } from 'src/app/BackendConfig/user.model';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,18 +17,19 @@ import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from
 
 export class DashboardComponent implements OnInit {
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
-  
   list : Authentication[];
-  
   getUserList : User[] ;
+  requests : Requests[];
+
   totalCount: number;
   total : number = 0 ;
 
   constructor(
+    private firestore : AngularFirestore, 
+    private toastr : ToastrService,
     private users : UserService,
-    private service : AuthenticationService) { }
+    private service : AuthenticationService,
+    private req : UserReqService ) { }
 
   ngOnInit() {
     this.service.getUsers().subscribe(actionArray =>{
@@ -46,31 +51,31 @@ export class DashboardComponent implements OnInit {
       return {id : item.payload.doc.id,
       ...item.payload.doc.data() 
       } as User  
-    })
-    
+    })  
   })
-  
+
+  this.req.getRequests().subscribe(actionArray =>{
+    this.requests = actionArray.map(item =>{
+      return {
+        id : item.payload.doc.id,
+        ...item.payload.doc.data() 
+      } as Requests
+    })
+  })
   }
 
+  changeStatus1(uid : any){
+    if(confirm("Advance to event professional?")){
+      this.firestore.doc('users/' + uid).update({userType:"Professional"});
+      this.firestore.doc('userReq/' + uid).update({status :"approved"});
+      this.toastr.success('New Event Proffessional Added', 'Jamboree.EventProfAdded');
+    } 
+  }
+
+  changeStatus2(uid : any){
+    if(confirm("Reject the user application?")){
+      this.firestore.doc('userReq/' + uid).update({status :"declined"});
+      this.toastr.success('New Event Proffessional Added', 'Jamboree.EventProfAdded');
+    } 
+  }
 }
-
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-  { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-  { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-  { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-  { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
-];
