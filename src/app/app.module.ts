@@ -46,7 +46,7 @@ import { SidebarComponent } from './Admin/sidebar/sidebar.component';
 import { DashboardComponent } from './Admin/dashboard/dashboard.component';
 import { ProfileInsightsComponent } from './Admin/profile-insights/profile-insights.component';
 import { UserDataComponent } from './Admin/userdata/userdata.component';
-import { UserinfoComponent } from "./admin/user-info.component";
+
 
 //Services
 import { AuthenticationService } from './Shared/authentication.service';
@@ -65,6 +65,8 @@ import { BookingComponent } from './eventProf/booking/booking.component';
 import { NgAisModule } from 'angular-instantsearch';
 import { SearchComponent } from './SharedComponents/search/search.component';
 import { SearchResultComponent } from './SharedComponents/search-result/search-result.component';
+import { LogComponent } from './Admin/log/log.component';
+import { ExtrasComponent } from './Admin/extras/extras.component';
 
 
 
@@ -82,7 +84,6 @@ import { SearchResultComponent } from './SharedComponents/search-result/search-r
     DashboardComponent,
     ProfileInsightsComponent,
     UserDataComponent,
-    UserinfoComponent,
 
 
     //User
@@ -108,6 +109,8 @@ import { SearchResultComponent } from './SharedComponents/search-result/search-r
     BookingComponent,
     SearchComponent,
     SearchResultComponent,
+    LogComponent,
+    ExtrasComponent,
     //EventProfRequestComponent,
 
     // SignInComponent,

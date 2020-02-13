@@ -54,7 +54,8 @@ export class ProfMainComponent implements OnInit {
     return new Promise<any>((resolve, reject) => {
       this.firestore
         .collection("CustomerPosts")
-        .add({ data: this.message })
+        .add({ data: this.message,
+                id:this.Log.uid})
         .then(res => { }, err => { reject(err) });
       console.log("Upload function")
     });
@@ -63,16 +64,19 @@ export class ProfMainComponent implements OnInit {
 
 
   ngOnInit() {
-    this.firestore.collection("CustomerPosts").valueChanges().subscribe(
-       imageList=>{
-         this.list = imageList;
-       }
-    );
 
     this.authService.authenticated.subscribe(isAuthed => {
       this.flag = isAuthed;
       this.Log = this.authService.GetUserData().subscribe(user => {
         this.Log = user ;
+
+        this.firestore.collection("CustomerPosts",ref=>
+          ref.where('id','==',this.Log.uid )).valueChanges().subscribe(
+            imageList=>{
+              this.list = imageList as photo[];
+              console.log(this.list);
+            }
+          )
       });
     });
   }

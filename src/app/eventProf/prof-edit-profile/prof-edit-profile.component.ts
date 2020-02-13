@@ -93,22 +93,6 @@ export class ProfEditProfileComponent implements OnInit {
       this.user.photoURL = this.message;
       this.firestore.collection("users").doc(this.user.uid).update(this.user);
     });
-
-   //console.log(this.user);
-    // this.firestore.collection("users").doc(this.Log.uid).update({
-    //   firstName: formData.firstName,
-    //   lastName: formData.lastName,
-    //   eType: formData.eType,
-    //   email: formData.email,
-    //   username: formData.username,
-    //   profileImageURl:this.message
-    // }).then(res => {
-    //   console.log("success");
-    // }, err => {
-    //   console.log(err.message);
-    // }
-
-    // );
   }
 
   
