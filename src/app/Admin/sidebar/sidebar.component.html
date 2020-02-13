@@ -1,23 +1,28 @@
 <div class="sidebar-fixed position-fixed depth view" style="background-color: #223;" >
     <div class="text-center white-text" style="padding-top: 100px;" >
-        <img src="../../../assets/img/admin.png" class="rounded-circle" >
+        <div class="justify-content-center d-flex">
+            <img src="{{this.Log.photoURL}}" alt="admin profile photo" class="rounded-circle prof-image">
+        </div>
         <br>
-        <h3> Admin </h3>
-        <h5> rdilshanf@gmail.com </h5>        
+        <h5> {{this.Log.displayName}} </h5>
+        <p> {{this.Log.email}} </p>        
     </div>
 
     <div class="list-group list-group-flush" style="padding-top:50px;">
-        <a routerLink="../dashboard" class="list-group-item list-group-item-action waves-effect white-text" style="background-color:transparent;" mdbWavesEffect>
+        <a routerLink="../dashboard" class="list-group-item list-group-item-action waves-effect white-text" mdbWavesEffect>
                 <mdb-icon fas icon="chart-pie" class="mr-3"></mdb-icon>Dashboard
         </a>
-        <a routerLink="../profile-insights" class="list-group-item list-group-item-action waves-effect white-text" style="background-color:transparent;" mdbWavesEffect>
-                <mdb-icon fas icon="user" class="mr-3"></mdb-icon>Messaging
+        <a routerLink="../profile-insights" class="list-group-item list-group-item-action waves-effect white-text"  mdbWavesEffect>
+            <mdb-icon fas icon="user" class="mr-3"></mdb-icon> Messaging
         </a>
-        <a routerLink="../user-data" class="list-group-item list-group-item-action waves-effect white-text" style="background-color:transparent;" mdbWavesEffect>
-                <mdb-icon fas icon="table" class="mr-3"></mdb-icon> User Data
+        <a routerLink="../user-data" class="list-group-item list-group-item-action waves-effect white-text"  mdbWavesEffect>
+            <mdb-icon fas icon="table" class="mr-3"></mdb-icon> User Data
         </a>
-        <a routerLink="../user-data" class="list-group-item list-group-item-action waves-effect white-text" style="background-color:transparent;" mdbWavesEffect>
-                <mdb-icon fas icon="table" class="mr-3"></mdb-icon>User-data
+        <a routerLink="../Extra" class="list-group-item list-group-item-action waves-effect white-text"  mdbWavesEffect>
+            <mdb-icon fas icon="history" class="mr-3"></mdb-icon> Extras
+        </a>
+        <a routerLink="../Log" class="list-group-item list-group-item-action waves-effect white-text"  mdbWavesEffect>
+            <mdb-icon fas icon="save" class="mr-3"></mdb-icon> Activity Log
         </a>
     </div>
 </div>

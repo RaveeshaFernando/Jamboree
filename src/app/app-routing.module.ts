@@ -12,9 +12,12 @@ import { DisplayPageBarComponent } from "./Dynamic/display-page-bar/display-page
 
 import { ProfileComponent } from './profile/profile.component';
 
-import { DashboardComponent } from './Admin/dashboard/dashboard.component'
-import { ProfileInsightsComponent } from './Admin/profile-insights/profile-insights.component'
-import { UserDataComponent } from './Admin/userdata/userdata.component';
+//Admin panel - imports
+    import { DashboardComponent } from './Admin/dashboard/dashboard.component'
+    import { ProfileInsightsComponent } from './Admin/profile-insights/profile-insights.component'
+    import { UserDataComponent } from './Admin/userdata/userdata.component';
+    import { ExtrasComponent } from './Admin/extras/extras.component';
+    import { LogComponent } from './Admin/log/log.component';
 
 import { UserProfileComponent } from "./User/user-profile/user-profile.component";
 import { EditUserComponent } from "./User/edit-user/edit-user.component";
@@ -28,7 +31,7 @@ import { EventProfRequestComponent } from './User/event-prof-request/event-prof-
 import { MessagingComponent } from './eventProf/messaging/messaging.component';
 import { BookingComponent    } from "./eventProf/booking/booking.component";
 import { SearchComponentComponent } from './SharedComponents/search-component/search-component.component';
-import { UserinfoComponent } from "./admin/user-info.component";
+
 import { SearchResultComponent } from "./SharedComponents/search-result/search-result.component";
 
 
@@ -42,13 +45,17 @@ const routes: Routes = [
   // { path: 'search',               component: SearchComponentComponent},
 
   { path: 'DynamicUser', component: DisplayPageComponent },
-  { path: 'dBar', component: DisplayPageBarComponent },
 
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'profile-insights', component: ProfileInsightsComponent },
-  { path: 'user-data', component: UserDataComponent },
 
-  { path: 'Sample',          component: UserinfoComponent},
+  //Admin Panel
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'profile-insights', component: ProfileInsightsComponent },
+      { path: 'user-data', component: UserDataComponent },
+      { path: 'Extra', component: ExtrasComponent },
+      { path: 'Log', component: LogComponent },
+  
+
+
   { path: 'UserEditUser',         component: EditUserComponent},
   { path: 'UserBooking',          component: BookingHistoryComponent},
   { path: 'UserDelete' ,          component: UserDeleteComponent},

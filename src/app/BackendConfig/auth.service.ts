@@ -93,7 +93,7 @@ export class AuthService {
       emailVerified: user.emailVerified,
       photoURL: user.photoURL,
       displayName: fName + ' ' + lName,
-      userType: 'user',
+      userType: 'User',
       contact: null,
       eType: null,
       description: null,
