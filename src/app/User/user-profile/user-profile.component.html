@@ -109,6 +109,9 @@
                             </div>
                         </div>
                     </div>
+
+
+
                     <div class="col-lg-4">
                         <div style="padding-left: 60px;padding-right: 60px ; margin-top: -100px; ">
                             <h4> Want to Join with us as an <br> <strong>Event Professional ? </strong> </h4>
@@ -213,6 +216,45 @@
                                                 </div>
 
                                             </form>
+
+                                        </div>
+
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+
+                        </div>
+
+
+                        <div style="padding-left: 60px;padding-right: 60px ; margin-top: 100px; ">
+                            <h4><strong> Book Now </strong> </h4>
+                        
+
+                            <button type="button" mdbBtn color="primary" class="waves-light" data-toggle="modal" data-target="#basicExample"
+                            (click)="frame.show()" mdbWavesEffect>Book </button>
+
+                            <div mdbModal #frame="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+                            <div class="modal-dialog modal-full-height modal-right modal-notify modal-info" role="document">
+                                <div class="modal-content">
+                            
+                                    <div class="modal-header">
+                                        <p class="heading lead">Event Professional Request</p>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+                                            <span aria-hidden="true" class="white-text">×</span>
+                                        </button>
+                                    </div>  
+
+                                    <div class="modal-body">
+                                        <div class="text-center">
+                                            <mdb-icon far icon="file-alt" size="4x" class="mb-3 animated rotateIn"></mdb-icon>
+                                            <p> <strong> Apply here</strong></p>
+                                        </div>
+                                        <hr>
+
+                                        <div>
+                                            
 
                                         </div>
 
