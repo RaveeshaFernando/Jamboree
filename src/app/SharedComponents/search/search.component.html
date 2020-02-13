@@ -10,7 +10,7 @@
 <div class="dropdown" >
     <div class="form-inline ml-auto">
         <input [(ngModel)]="value" (keyup)="onType($event)" class="form-control mr-sm-2" outline="true"  placeholder="Search"  >
-        <a mdbBtn floating="true" size="sm" color="primary" rounded="true"  (click)="onSearchClick" >
+        <a mdbBtn floating="true" size="sm" color="primary" rounded="true"  (click)="onSearchClick()" >
             <mdb-icon fas icon="search" ></mdb-icon>
         </a>
     </div>

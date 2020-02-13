@@ -67,7 +67,7 @@ const routes: Routes = [
   { path: 'EventEditProfile', component: ProfEditProfileComponent },
   { path: 'EventBooking', component: ProfBookingComponent },
   {path: 'Search', component: SearchComponentComponent},
-  {path: 'SearchResult', component: SearchResultComponent}
+  {path: 'SearchResult/:id', component: SearchResultComponent}
 
 ];
 

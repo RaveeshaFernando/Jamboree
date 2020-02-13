@@ -52,7 +52,6 @@ export class SearchComponent implements OnInit {
     this.filtered = this.users.filter(item => {
       return item.userType == "Professional" && item.displayName.toLowerCase().includes(this.searchKey.toLowerCase());
     })
-
     // console.log(this.filtered);
   }
 
@@ -71,6 +70,12 @@ export class SearchComponent implements OnInit {
 
   onSearchClick(){
     // Update url and pass parameter USER ID as value
-    this.router.navigateByUrl(`/searchResults/${this.value}`);
+
+    // console.log(this.value);
+
+    const userID = this.users.filter(user => user.displayName.toLowerCase().includes(this.value.toLowerCase()));
+    console.log(userID)
+
+    this.router.navigate([`SearchResult/${userID[0].uid}`]);
   }
 }
