@@ -5,7 +5,7 @@ import { User } from "src/app/BackendConfig/user.model";
 import { AuthService } from "./../../BackendConfig/auth.service";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore } from '@angular/fire/firestore';
-import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Router }  from '@angular/router';

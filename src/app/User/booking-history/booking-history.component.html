@@ -5,16 +5,41 @@
     <div class="overlay"></div>
 
     <div class="d-flex justify-content-center" style="padding-bottom: 30px;padding-right: 30px;padding-top: 30px;">
-        <div class="col-lg-7 rounded" style="color: #223; background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);">
+        <div class="col-lg-5 rounded" style="color: #223; background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%); padding-right: 10px;">
             <div class="text-center">
-                <h3><strong>Booking Request</strong></h3>
+                <h3><strong>Pending</strong></h3>
             </div>
-            <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
-                <mat-form-field class="col-lg-12 col-md-12  col-sm-12">
-                    <textarea rows="1" cols="60" matInput placeholder="Description" name="description"  > </textarea>
-                </mat-form-field>    
-                
-            </form>
+            
+
+            <table class="table table-striped">
+                <thead class="text-white" style="background-color: #cfd9df;">
+                    <tr>
+                        <th> Event Date </th>
+                        <th> Event Proffesional </th>
+                        
+                        
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody class="white-text" style="background-color:#cfd9df;">
+                    <!-- <td>xxxxxxxxxxxxxxxxx</td> -->
+                    <tr *ngFor= "let booking of getBookingList">
+                        <td>{{booking.date}} </td>
+                        <td> {{booking.eventDisplayName}}  </td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-lg-5 rounded" style="color: #cfd9df; background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);">
+            <div class="text-center">
+                <h3><strong>Completed</strong></h3>
+            </div>
+
+            
+            
         </div>
     </div>
 </div>
