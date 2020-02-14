@@ -41,27 +41,27 @@ export class DashboardComponent implements OnInit {
     })
     });
 
-  //Data retrieving from firestore
-  this.users.getUsers().subscribe(dataArray => {
-    this.totalCount = dataArray.length;
-    
-    this.getUserList = dataArray.map(item =>{
-      this.total ++ ;
-      console.log(this.total);          
-      return {id : item.payload.doc.id,
-      ...item.payload.doc.data() 
-      } as User  
-    })  
-  })
-
-  this.req.getRequests().subscribe(actionArray =>{
-    this.requests = actionArray.map(item =>{
-      return {
-        id : item.payload.doc.id,
+    //Data retrieving from firestore
+    this.users.getUsers().subscribe(dataArray => {
+      this.totalCount = dataArray.length;
+      
+      this.getUserList = dataArray.map(item =>{
+        this.total ++ ;
+        console.log(this.total);          
+        return {id : item.payload.doc.id,
         ...item.payload.doc.data() 
-      } as Requests
+        } as User  
+      })  
     })
-  })
+
+    this.req.getRequests().subscribe(actionArray =>{
+      this.requests = actionArray.map(item =>{
+        return {
+          id : item.payload.doc.id,
+          ...item.payload.doc.data() 
+        } as Requests  
+      })
+    })
   }
 
   changeStatus1(uid : any){
@@ -78,4 +78,6 @@ export class DashboardComponent implements OnInit {
       this.toastr.success('New Event Proffessional Added', 'Jamboree.EventProfAdded');
     } 
   }
+
+
 }
