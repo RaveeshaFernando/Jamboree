@@ -75,7 +75,6 @@ import { ExtrasComponent } from './Admin/extras/extras.component';
     AppComponent,
     NavbarComponent,
     HomeComponent,
-
     SigninComponent,
     SignupComponent, 
 
@@ -84,7 +83,8 @@ import { ExtrasComponent } from './Admin/extras/extras.component';
     DashboardComponent,
     ProfileInsightsComponent,
     UserDataComponent,
-
+    LogComponent,
+    ExtrasComponent,
 
     //User
     UserProfileComponent,
@@ -109,8 +109,7 @@ import { ExtrasComponent } from './Admin/extras/extras.component';
     BookingComponent,
     SearchComponent,
     SearchResultComponent,
-    LogComponent,
-    ExtrasComponent,
+
     //EventProfRequestComponent,
 
     // SignInComponent,
@@ -160,4 +159,4 @@ import { ExtrasComponent } from './Admin/extras/extras.component';
 })
 export class AppModule {
 
- }
+}

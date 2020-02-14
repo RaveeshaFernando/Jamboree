@@ -52,7 +52,7 @@ const routes: Routes = [
       { path: 'profile-insights', component: ProfileInsightsComponent },
       { path: 'user-data', component: UserDataComponent },
       { path: 'Extra', component: ExtrasComponent },
-      { path: 'Log', component: LogComponent },
+      { path: 'ActivityLog', component: LogComponent },
   
 
 

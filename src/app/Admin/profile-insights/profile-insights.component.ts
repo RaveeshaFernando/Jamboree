@@ -2,14 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
-import {formatDate } from '@angular/common';
 
-
+import { AuthService } from "../../../app/BackendConfig/auth.service";
 import { Contact } from 'src/app/BackendConfig/contact.model';
 import { ContactService } from 'src/app/BackendConfig/contact.service';
 import { RecMsgs } from "src/app/BackendConfig/rec-msgs.model";
 import { RecMsgsService } from "src/app/BackendConfig/rec-msgs.service";
-import {MatTabsModule} from '@angular/material/tabs';
 
 @Component({
   selector: 'app-profile-insights',
@@ -17,33 +15,32 @@ import {MatTabsModule} from '@angular/material/tabs';
   styleUrls: ['./profile-insights.component.scss']
 })
 export class ProfileInsightsComponent implements OnInit {
-  year= new Date().getFullYear();
-  date = new Date().getDate();
-  month = new Date().getMonth();
-  hour = new Date().getHours();
-  minute = new Date().getMinutes();
-  min : string = "0" ;
-  mon : number = this.month + 1 ;
-  ms ;
+  date = (new Date()).toLocaleString();
+  ms : any  ;
+  Rms : any ;
+  flag: Boolean ;
+  Log: any ;
   
-    constructor(
-      private Msg : ContactService,
-      private Rmsg : RecMsgsService,
-      private toastr : ToastrService,
-      private firestore : AngularFirestore,
-      ) { }
+  constructor(
+    private Msg : ContactService,
+    private Rmsg : RecMsgsService,
+    private toastr : ToastrService,
+    private firestore : AngularFirestore,
+    private authService : AuthService
+    ) { }
 
   getMessageList : Contact[];
   getUserMessages : RecMsgs[];
 
   ngOnInit() {
-  if(this.minute<10){
-      this.min = this.min + this.minute.toString(); 
-  }
-  else{
-    this.min = this.minute.toString(); 
-  }
-  this.resetForm();
+    this.resetForm();
+
+    this.authService.authenticated.subscribe(isAuthed => {
+      this.flag = isAuthed;
+      this.Log = this.authService.GetUserData().subscribe(user => {
+        this.Log = user
+      });
+    })
 
   //Data retrieving from firestore
   this.Msg.getMessage().subscribe(dataArray => {
@@ -68,6 +65,18 @@ export class ProfileInsightsComponent implements OnInit {
     let data = form.value ;
     console.log("sucess");
     this.firestore.collection('Contact').add(data);
+    if(form.value.receiverType == "Private"){
+      this.firestore.collection('Log').add({adminId:this.Log.uid, adminName:this.Log.displayName,action :"Message Sent" , log:"New message has been sent to the user with the email address " + form.value.receiver, time : this.date });
+    }
+    else if(form.value.receiverType == "Global"){
+      this.firestore.collection('Log').add({adminId:this.Log.uid, adminName:this.Log.displayName,action :"Message Sent" , log:"Broadcast message has been sent Globally", time : this.date });
+    }
+    else if(form.value.receiverType == "Professional"){
+      this.firestore.collection('Log').add({adminId:this.Log.uid, adminName:this.Log.displayName,action :"Message Sent" , log:"Broadcast message has been sent to all Professionals", time : this.date });
+    }
+    else if(form.value.receiverType == "User"){
+      this.firestore.collection('Log').add({adminId:this.Log.uid, adminName:this.Log.displayName,action :"Message Sent" , log:"Broadcast message has been sent to all Users", time : this.date });
+    }
     this.toastr.success('Message Sent Sucessfully', 'Jamboree.NewMessage');
     this.resetForm(form);
   }
@@ -80,8 +89,7 @@ export class ProfileInsightsComponent implements OnInit {
         name : 'Jamboree Team',
         email : 'jamboree.inco@gmail.com' ,
         message : '' ,
-        date : this.year + '/' + this.mon  + '/' + this.date,
-        time : this.hour + ':' + this.min + 'Hrs',
+        date : this.date ,
         receiverType : '',
         receiver : ' '
     }
@@ -91,19 +99,28 @@ export class ProfileInsightsComponent implements OnInit {
   onDelete(id : string){
     if(confirm("Are you sure, you want to delete this message?")){
       this.firestore.doc('Contact/' + id).delete();
+      this.firestore.collection('Log').add({adminId:this.Log.uid, adminName:this.Log.displayName,action :"Message Deleted" , log:"A sent message has been deleted", time : this.date });
       this.toastr.success('Message deleted sucessfully', 'Jamboree.MessageDelete');
-
     }
   }
   RecOnDelete(id : string){
     if(confirm("Are you sure, you want to delete this message?")){
       this.firestore.doc('ResMessages/' + id).delete();
+      this.firestore.collection('Log').add({adminId:this.Log.uid, adminName:this.Log.displayName,action :"Message Deleted" , log:"A received message has been deleted", time : this.date });
       this.toastr.success('Message deleted sucessfully', 'Jamboree.MessageDelete');
     }
   }
 
-  showFrame(ms , frame2){
-    this.ms = ms ;
+  //load message on modal 
+  showFrame(ms , frame1){
+    this.ms = ms.message ;
+    console.log(ms.message);
+    frame1.show();
+  }
+
+  showFrame2(Rms , frame2){
+    this.Rms = Rms.message ;
+    console.log(Rms.message);
     frame2.show();
   }
 }

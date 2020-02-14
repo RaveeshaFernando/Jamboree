@@ -62,8 +62,7 @@ export class MessagingComponent implements OnInit {
         message : '' ,
         date : '' ,
         receiverType : '',
-        receiver : '',
-        time : ''
+        receiver : ''
     }
   }
 
