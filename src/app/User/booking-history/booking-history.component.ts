@@ -17,6 +17,8 @@ import { UserService } from 'src/app/BackendConfig/user.service';
 
 import { AuthService } from "./../../BackendConfig/auth.service";
 
+import { formatDate }  from "@angular/common";
+
 @Component({
   selector: 'app-booking-history',
   templateUrl: './booking-history.component.html',
@@ -32,9 +34,15 @@ export class BookingHistoryComponent implements OnInit {
   Log:  any
   userSubject = new BehaviorSubject<Boolean>(false);
 
+  currentDate = new Date();
+ 
+
   public get authenticated() : Observable<Boolean> {
     return this.userSubject.asObservable();
   }
+
+ 
+
 
   constructor(
     private users : UserService,
@@ -68,34 +76,10 @@ export class BookingHistoryComponent implements OnInit {
     this.shani=true;
     console.log("kd");
     
-    //this.resetForm();
-
-    // this.booking.getBooking().subscribe( booking => {
-    //   this.getBookingList = booking.map(item => {
-    //     return {id : item.payload.doc.id,
-    //     ...item.payload.doc.data()
-    //   } as Booking
-    //   })
-    //   console.log(this.userData.userId);
-    // })
-    //console.log(this.userData.userId);
-    //console.log(this.userData.uid);
-    // this.booking.getBooking().subscribe(data=>{
-    //   this.userBooking=data;
-    //   this.userBooking.forEach(user=>{
-    //       var newuser=user.payload.doc.data();
-    //       console.log(newuser);
-    //       if(newuser.userId==this.Log.uid){
-    //         this.getBookingList.push(newuser);
-    //       }
-    //   })
-    // })
-    
-      console.log("here");
+    console.log(this.currentDate);
       
       this.authService.authenticated.subscribe(isAuthed => {
         //this.shani = false;
-
       this.flag = isAuthed;
       this.Log = this.authService.GetUserData().subscribe(user => {
         this.Log = user;
@@ -112,20 +96,10 @@ export class BookingHistoryComponent implements OnInit {
                 this.getBookingList.push(newuser);
               //var result = angular.equals(newuser.userId, this.userData.uid);
               }
-
           });
           }
-        
         })
-        
-      });
-      
-      
+      }); 
     });
-    
-    
-
   }
-
- 
 }
