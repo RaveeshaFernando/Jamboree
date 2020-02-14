@@ -36,7 +36,7 @@ export class BookingHistoryComponent implements OnInit {
   userSubject = new BehaviorSubject<Boolean>(false);
 
   currentDate = new Date();
- 
+  
 
   public get authenticated() : Observable<Boolean> {
     return this.userSubject.asObservable();
@@ -53,6 +53,7 @@ export class BookingHistoryComponent implements OnInit {
     private firestore : AngularFirestore,
     private toastr : ToastrService,
     public route:Router,
+    
 
    
   ) {
@@ -64,6 +65,7 @@ export class BookingHistoryComponent implements OnInit {
         console.log(this.userData.uid);
         this.Log = localStorage.getItem('users');
         this.userSubject.next(true);
+        console.log(this.currentDate);
         
       } else {
         localStorage.setItem('users', null);
@@ -109,20 +111,30 @@ export class BookingHistoryComponent implements OnInit {
         this.shani2 = false;
         this.userBooking.forEach(user => {
           var newdate = user.payload.doc.data();
-          console.log(newdate.date);
+          console.log(this.currentDate);
+          var bookDate=new Date(newdate.date.toDate());
+          console.log(bookDate);
+          this.currentDate.setDate(this.currentDate.getDay());
+          bookDate.setDate(bookDate.getDay());
+          if(this.currentDate > bookDate){
+            console.log("here");
+            this.flag = true;
+            return;
 
-          if(this.currentDate > newdate.date){
-            
           }
+          this.currentDate.setDate(this.currentDate.getDay()+5);
+          if(this.currentDate<bookDate){
+            this.flag = false;
+            console.log("hereeeeeee");
+            this.currentDate.setDate(this.currentDate.getDay()-5);
+            return;
 
+          }
+          // else if(this.currentDate.getDate() < (newdate.date-5) )
         })
       }
-      
 
     })
-
-
-
   }
 
   onComplete() {
