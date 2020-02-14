@@ -11,6 +11,8 @@ export class SidebarComponent implements OnInit {
   flag: Boolean
   Log: any
   
+  // d = new Date();
+  // new = this.d.toLocaleString();
 
   constructor(
       public authService : AuthService,
