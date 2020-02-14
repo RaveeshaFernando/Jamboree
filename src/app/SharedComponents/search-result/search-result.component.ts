@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { User } from 'src/app/BackendConfig/user.model';
@@ -12,11 +12,10 @@ import { Router } from '@angular/router';
 export class SearchResultComponent implements OnInit {
   id: String;
   user: User;
-  router: any;
   value: string = "";
   dispalyName: string = "";
 
-  constructor(private route: ActivatedRoute, private firestore: AngularFirestore) { }
+  constructor(private route: ActivatedRoute, private firestore: AngularFirestore,private eRef: ElementRef, private router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -34,11 +33,11 @@ export class SearchResultComponent implements OnInit {
       });
     }
   }
-  onButtonclick(){
+  onClick(){
 
-    let userID = this.user;
-    this.router.navigate(['../Dynamic/DynamicUser/${userID[0].uid}']);
-    console.log("sex");
+    console.log('pakayaa');
+    this.router.navigate([`DynamicUser/${this.id}`]);
+    
   }
 
   }
