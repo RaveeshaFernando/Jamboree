@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { User } from 'src/app/BackendConfig/user.model';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-result',
@@ -12,6 +12,9 @@ import { User } from 'src/app/BackendConfig/user.model';
 export class SearchResultComponent implements OnInit {
   id: String;
   user: User;
+  router: any;
+  value: string = "";
+  dispalyName: string = "";
 
   constructor(private route: ActivatedRoute, private firestore: AngularFirestore) { }
 
@@ -30,7 +33,15 @@ export class SearchResultComponent implements OnInit {
         console.log(this.user);
       });
     }
+  }
+  onButtonclick(){
 
+    let userID = this.user;
+    this.router.navigate(['../Dynamic/DynamicUser/${userID[0].uid}']);
+    console.log("sex");
   }
 
-}
+  }
+  
+
+
