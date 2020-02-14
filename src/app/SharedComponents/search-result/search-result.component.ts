@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { User } from 'src/app/BackendConfig/user.model';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-result',
@@ -12,8 +12,10 @@ import { User } from 'src/app/BackendConfig/user.model';
 export class SearchResultComponent implements OnInit {
   id: String;
   user: User;
+  value: string = "";
+  dispalyName: string = "";
 
-  constructor(private route: ActivatedRoute, private firestore: AngularFirestore) { }
+  constructor(private route: ActivatedRoute, private firestore: AngularFirestore,private eRef: ElementRef, private router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -30,7 +32,15 @@ export class SearchResultComponent implements OnInit {
         console.log(this.user);
       });
     }
+  }
+  onClick(){
 
+    console.log('pakayaa');
+    this.router.navigate([`DynamicUser/${this.id}`]);
+    
   }
 
-}
+  }
+  
+
+

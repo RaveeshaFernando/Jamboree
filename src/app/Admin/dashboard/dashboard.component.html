@@ -136,9 +136,9 @@
                         <tr  class="text-white" *ngFor= "let req of requests">
                             <td> <strong> {{req.uid}} </strong> </td>
                             <td> <strong> {{req.displayName}}</strong>  </td>
+                            <td> <strong> {{req.eType}} </strong> </td>
                             <td> <strong> {{req.email}} </strong> </td>
                             <td> <strong> {{req.mobile}}</strong>  </td>
-                            <td> <strong> {{req.eType}} </strong> </td>
                             <td> 
                                 <a class="btn-sm text-danger"> 
                                     <i class="fas fa-user-check btn-info rounded " style="padding: 10px;" (click)="changeStatus1(req.uid)"> </i>

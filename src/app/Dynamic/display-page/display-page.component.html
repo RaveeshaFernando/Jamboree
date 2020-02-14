@@ -7,12 +7,12 @@
             <div class="container">
                 <div class="content-center">
                     <div class="photo-container" style="padding-top:50px;padding-bottom:20px;">
-                        <img src="{{this.Log.photoURL}}" alt="" class="rounded-circle" width="150px" height="150px">
+                        <img src="{{user?.photoURL}}" alt="" class="rounded-circle" width="150px" height="150px">
                     </div>
-                    <h3 class="title">{{this.Log.displayName}}</h3>
-                    <h6 class="category">{{this.Log.eType}}</h6>
-                    <h6 class="category"> {{this.Log.contact}}</h6>
-                    <h6 class="category"> {{this.Log.email}}</h6>
+                    <h3 class="title">{{user?.displayName}}</h3>
+                    <h6 class="category">{{user?.eType}}</h6>
+                    <h6 class="category"> {{user?.contact}}</h6>
+                    <h6 class="category"> {{user?.email}}</h6>
                 </div>
             </div>
         </div>
@@ -22,7 +22,7 @@
                 <div class="container">
                     <div class="container" style="background-color:#FFF">
                         <h3 class="title" style="padding-top:50px;padding-left:50px" >Description</h3>
-                        <p style="padding-left: 50px;padding-bottom: 50px"> {{this.Log.description}} </p>
+                        <p style="padding-left: 50px;padding-bottom: 50px"> {{user?.description}} </p>
                     </div>
 
                     <div class="Gallery">

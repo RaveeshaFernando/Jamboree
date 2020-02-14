@@ -44,7 +44,7 @@ const routes: Routes = [
   { path: 'Profile', component: ProfileComponent },
   // { path: 'search',               component: SearchComponentComponent},
 
-  { path: 'DynamicUser', component: DisplayPageComponent },
+  { path: 'DynamicUser/:id', component: DisplayPageComponent },
 
 
   //Admin Panel
