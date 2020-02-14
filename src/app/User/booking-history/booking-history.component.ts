@@ -29,6 +29,7 @@ export class BookingHistoryComponent implements OnInit {
   userBooking: any;
   userData: any;
   shani:boolean;
+  shani2 :boolean;
 
   flag: Boolean
   Log:  any
@@ -74,6 +75,7 @@ export class BookingHistoryComponent implements OnInit {
 
   ngOnInit() {
     this.shani=true;
+    this.shani2 = true;
     console.log("kd");
     
     console.log(this.currentDate);
@@ -90,9 +92,7 @@ export class BookingHistoryComponent implements OnInit {
             this.userBooking.forEach(user=>{
               var newuser=user.payload.doc.data();
               // console.log(newuser.userId);
-              
               if((this.userData.uid===newuser.userId)){
-                
                 this.getBookingList.push(newuser);
               //var result = angular.equals(newuser.userId, this.userData.uid);
               }
@@ -101,5 +101,31 @@ export class BookingHistoryComponent implements OnInit {
         })
       }); 
     });
+
+    this.booking.getBooking().subscribe(date => {
+      this.userBooking = date;
+
+      if(this.shani2) {
+        this.shani2 = false;
+        this.userBooking.forEach(user => {
+          var newdate = user.payload.doc.data();
+          console.log(newdate.date);
+
+          if(this.currentDate > newdate.date){
+            
+          }
+
+        })
+      }
+      
+
+    })
+
+
+
+  }
+
+  onComplete() {
+
   }
 }

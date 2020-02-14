@@ -128,7 +128,7 @@ export class UserProfileComponent implements OnInit {
     if(data.eType!=""){
       this.firestore.collection('users').doc(this.userData.uid).update({eType:data.eType});
       console.log(data.eType);
-      this.firestore.collection('userReq').doc(this.userData.uid).set({eType:data.eType,displayName:data.displayName,status:"pending",uid:this.userData.uid});
+      this.firestore.collection('userReq').doc(this.userData.uid).set({eType:data.eType,displayName:data.displayName,status:"pending",uid:this.userData.uid,contact:data.contact});
     }
     if(data.district!=""){
       this.firestore.collection('users').doc(this.userData.uid).update({district:data.district});
@@ -139,6 +139,10 @@ export class UserProfileComponent implements OnInit {
     if(data.displayName!=""){
       this.firestore.collection('users').doc(this.userData.uid).update({displayName:data.displayName});
     }
+    if(data.contact!=""){
+      this.firestore.collection('users').doc(this.userData.uid).update({contact:data.contact});
+    }
+    
 
 
     this.toastr.success('Request sent '); 

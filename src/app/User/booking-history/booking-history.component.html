@@ -19,9 +19,10 @@
                         <th> Event Proffessional Name </th>
                         <th> Requested Date </th>
                         <th> Event Complete </th>
+
                         
                         <th></th>
-                        <th></th>
+                        
                     </tr>
                 </thead>
                 <tbody class="white-text" style="background-color:#cfd9df;">
@@ -35,12 +36,34 @@
                         <td> 
                             <a class="btn-sm text-danger "  class="waves-light" data-toggle="modal" data-target="#basicExample"(click)="frame.show()" mdbWavesEffect (click)="onEdit(user)"> 
                                 <!-- <i class="fas fa-check-square" style="padding: 10px;padding-left: 7px;padding-right: 7px;"></i> -->
-                                <i class="material-icons" style="padding: 8px;background-color: green;" >done</i>
+                                <i class="material-icons" style="padding: 8px;background-color: green;" (click)="onComplete(user)">done</i>
                             </a> 
                             <a class="btn-sm text-danger"> 
                                 <!-- <i class="fas fa-trash-alt btn-danger rounded " (click)="onDelete(user.id)" style="padding: 12px;"> </i> -->
-                                <i class="material-icons" style="padding: 8px;background-color:darkred;">clear</i>
+                                <i class="material-icons" style="padding: 8px;background-color:darkred;" (click)="onCancel(user.id)" >clear</i>
                             </a >
+                            
+                        </td>
+
+                        <td>
+                            <div *ngIf="this.flag;then complete else cancel"></div>
+                                <ng-template #cancel>cancel</ng-template>
+                                <ng-template #complete>complete</ng-template>
+
+                                <div *ngIf="this.flag;then complete else cancel"></div>
+                                    <ng-template #complete>
+                                        <a class="btn-sm text-danger "  class="waves-light" data-toggle="modal" data-target="#basicExample"(click)="frame.show()" mdbWavesEffect (click)="onEdit(user)"> 
+                                            <!-- <i class="fas fa-check-square" style="padding: 10px;padding-left: 7px;padding-right: 7px;"></i> -->
+                                            <i class="material-icons" style="padding: 8px;background-color: green;" (click)="onComplete(user)">done</i>
+                                        </a> 
+                                    </ng-template>
+                                    <ng-template #cancel>
+                                        <a class="btn-sm text-danger"> 
+                                            <!-- <i class="fas fa-trash-alt btn-danger rounded " (click)="onDelete(user.id)" style="padding: 12px;"> </i> -->
+                                            <i class="material-icons" style="padding: 8px;background-color:darkred;" (click)="onCancel(user.id)" >clear</i>
+                                        </a >
+
+                                    </ng-template>
                         </td>
             
                         
