@@ -1,16 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from "src/app/BackendConfig/user.model";
-import { UserService } from "src/app/BackendConfig/user.service";
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, from } from 'rxjs';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore } from '@angular/fire/firestore';
-import { FormControl } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
-import { NgForm } from '@angular/forms';
-import { Router }  from '@angular/router';
-import { RecMsgsService } from "src/app/BackendConfig/rec-msgs.service";
-//import {TooltipPosition} from '@angular/material/tooltip';
 
+import { ToastrService } from 'ngx-toastr';
+
+import { Router }  from '@angular/router';
+
+import { analytics } from 'firebase';
+import { Booking } from 'src/app/BackendConfig/booking.model';
+import { BookingService } from 'src/app/BackendConfig/booking.service';
+
+import { User } from 'src/app/BackendConfig/user.model';
+import { UserService } from 'src/app/BackendConfig/user.service';
+
+
+import { AuthService } from "./../../BackendConfig/auth.service";
+
+import { formatDate }  from "@angular/common";
 
 @Component({
   selector: 'app-booking-history',
@@ -18,131 +25,81 @@ import { RecMsgsService } from "src/app/BackendConfig/rec-msgs.service";
   styleUrls: ['./booking-history.component.scss']
 })
 export class BookingHistoryComponent implements OnInit {
-  getUserList: User[];
-  editState: boolean = false;
-  userToEdit: User;
+  getBookingList=[];
+  userBooking: any;
   userData: any;
+  shani:boolean;
 
   flag: Boolean
-  Log: any
+  Log:  any
   userSubject = new BehaviorSubject<Boolean>(false);
+
+  currentDate = new Date();
+ 
 
   public get authenticated() : Observable<Boolean> {
     return this.userSubject.asObservable();
   }
 
-  // positionOptions: TooltipPosition[] = ['after', 'before', 'above', 'below', 'left', 'right'];
-  // position = new FormControl(this.positionOptions[0]);
+ 
+
 
   constructor(
     private users : UserService,
+    private booking : BookingService,
     public afAuth: AngularFireAuth,
+    public authService : AuthService,
     private firestore : AngularFirestore,
     private toastr : ToastrService,
     public route:Router,
-    private Rmsg : RecMsgsService
+
+   
   ) {
     this.afAuth.authState.subscribe(user => {
       if (user) {
         this.userData = user;
-        localStorage.setItem('user', this.userData.uid);
+        localStorage.setItem('users', this.userData.uid);
         this.userData.uid;
         console.log(this.userData.uid);
-        this.Log = localStorage.getItem('user');
+        this.Log = localStorage.getItem('users');
         this.userSubject.next(true);
+        
       } else {
-        localStorage.setItem('user', null);
-        this.Log = localStorage.getItem('user');
+        localStorage.setItem('users', null);
+        this.Log = localStorage.getItem('users');
         this.userSubject.next(false);
       }
     })
    }
 
   ngOnInit() {
-    this.resetForm();
-  }
-
-  resetForm(form ?: NgForm){
-    if(form!=null)
-      form.resetForm();
-      this.users.userData= {
-        uid : null ,
-        firstName : '',
-        lastName : '' ,
-        email : '',
-        contact : '',
-        userType : '',
-        eType : '' ,
-        description : '' ,
-        district : '' ,
-        emailVerified : null ,
-        photoURL: '',
-        displayName: '',
-        age : '' ,
-        city : '', 
-        gender: '' 
-    }
-  }
-
-  //data sending to firestore
-  //************************************* */
-  onSubmit(form : NgForm){
-    let data = Object.assign({}, form.value) ;
+    this.shani=true;
+    console.log("kd");
     
-    this.toastr.success('Message Sent Sucessfully', 'Jamboree.NewMessage');
-    delete data.uid ;
-    console.log(data);
-    console.log(this.userData.uid);
-    // if(data.email!=""){
-    //   this.firestore.collection('users').doc(this.userData.uid).update({email:data.email})
-    //   this.toastr.success('Saving...', 'email updated');
-    // }
-    // if(data.firstName!=""){
-    //   this.firestore.collection('users').doc(this.userData.uid).update({firstName:data.firstName});
-    //   this.toastr.success('Saving...', 'Firstname updated');
-    // }
-    // if(data.lastName!=""){
-    //   this.firestore.collection('users').doc(this.userData.uid).update({lastName:data.lastName});
-    //   this.toastr.success('Saving...', 'lastname updated');
-    // }
-    if(data.eType!=""){
-      this.firestore.collection('users').doc(this.userData.uid).update({eType:data.eType});
-      //this.toastr.success('Saving...', 'Event Type updated');
-    }
-    if(data.district!=""){
-      this.firestore.collection('users').doc(this.userData.uid).update({district:data.district});
-      //this.toastr.success('Saving...', 'district updated');
-    }
-    if(data.description!=""){
-      this.firestore.collection('users').doc(this.userData.uid).update({description:data.description});
-      //this.toastr.success('Saving...', 'district updated');
-    }
-    this.toastr.success('User updated'); 
-    this.route.navigate(['../UserProfile'])
+    console.log(this.currentDate);
+      
+      this.authService.authenticated.subscribe(isAuthed => {
+        //this.shani = false;
+      this.flag = isAuthed;
+      this.Log = this.authService.GetUserData().subscribe(user => {
+        this.Log = user;
+        this.booking.getBooking().subscribe(data=>{
+          this.userBooking=data;
+          if(this.shani){
+            this.shani = false;
+            this.userBooking.forEach(user=>{
+              var newuser=user.payload.doc.data();
+              // console.log(newuser.userId);
+              
+              if((this.userData.uid===newuser.userId)){
+                
+                this.getBookingList.push(newuser);
+              //var result = angular.equals(newuser.userId, this.userData.uid);
+              }
+          });
+          }
+        })
+      }); 
+    });
   }
-
-  // //Data sending to firestore
-  // onSubmit(form : NgForm){ 
-  //   let data = Object.assign({}, form.value) ;
-  //   delete data.id ;
-  //   if(form.value.id==null){
-  //     if (form.value.Password == form.value.RePassword){
-  //       console.log("sucess");
-  //       this.firestore.collection('users').add(data);
-  //       this.toastr.success('User Added Sucessfully', 'Jamboree.NewUser');
-  //     }
-  //     else {
-  //       console.log("Failed");
-  //       this.toastr.error('Passwords not matching', 'Jamboree.NewUser');
-  //     }
-  //   }
-  //   else{
-  //     this.firestore.doc('users/' + form.value.id).update(data);
-  //     this.toastr.success('User updated sucessfully', 'Jamboree.UserUpdata');
-
-  //   }
-
-  //   this.resetForm(form);
-  // }
-
 }

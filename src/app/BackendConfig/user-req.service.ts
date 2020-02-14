@@ -10,7 +10,7 @@ export class UserReqService {
   constructor(private firestore : AngularFirestore) { }
 
   getRequests(){
-    return this.firestore.collection('userReq',ref=> ref.where('status','==','pending')).snapshotChanges();
+    return this.firestore.collection('userReq').snapshotChanges();
   }
 
 }
