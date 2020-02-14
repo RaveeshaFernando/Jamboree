@@ -34,6 +34,7 @@ import { EditUserComponent } from './User/edit-user/edit-user.component';
 import { UserSidebarComponent } from "./User/Shared/user-sidebar/user-sidebar.component";
 import { UserDeleteComponent } from './User/user-delete/user-delete.component';
 import { EventProfRequestComponent } from './User/event-prof-request/event-prof-request.component';
+import { BookingComponent } from './eventProf/booking/booking.component';
  
 //Website Components - Event Prof
 import { ProfMainComponent } from './eventProf/prof-main/prof-main.component';
@@ -56,12 +57,12 @@ import { ContactService } from "./BackendConfig/contact.service";
 import { RecMsgsService } from "./BackendConfig/rec-msgs.service";
 
 
-import {HttpClientModule} from "@angular/common/http";
+import { HttpClientModule } from "@angular/common/http";
 import { SearchComponentComponent } from './SharedComponents/search-component/search-component.component';
 import { DisplayPageComponent } from './Dynamic/display-page/display-page.component';
 import { DisplayPageBarComponent } from './Dynamic/display-page-bar/display-page-bar.component';
 import { MessagingComponent } from './eventProf/messaging/messaging.component';
-import { BookingComponent } from './eventProf/booking/booking.component';
+
 import { NgAisModule } from 'angular-instantsearch';
 import { SearchComponent } from './SharedComponents/search/search.component';
 import { SearchResultComponent } from './SharedComponents/search-result/search-result.component';

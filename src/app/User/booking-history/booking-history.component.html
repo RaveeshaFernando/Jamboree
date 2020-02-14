@@ -30,6 +30,19 @@
                         <td> {{booking.date}} </td>
                         <td> {{booking.eventType}}  </td>
                         <td> {{booking.eventDisplayName}}  </td>
+                        <td> {{currentDate | date : 'yyyy-MM-dd'}} </td>
+
+                        <td> 
+                            <a class="btn-sm text-danger "  class="waves-light" data-toggle="modal" data-target="#basicExample"(click)="frame.show()" mdbWavesEffect (click)="onEdit(user)"> 
+                                <!-- <i class="fas fa-check-square" style="padding: 10px;padding-left: 7px;padding-right: 7px;"></i> -->
+                                <i class="material-icons" style="padding: 8px;background-color: green;" >done</i>
+                            </a> 
+                            <a class="btn-sm text-danger"> 
+                                <!-- <i class="fas fa-trash-alt btn-danger rounded " (click)="onDelete(user.id)" style="padding: 12px;"> </i> -->
+                                <i class="material-icons" style="padding: 8px;background-color:darkred;">clear</i>
+                            </a >
+                        </td>
+            
                         
                     </tr>
                 </tbody>
