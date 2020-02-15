@@ -29,13 +29,14 @@ export class BookingHistoryComponent implements OnInit {
   userBooking: any;
   userData: any;
   shani:boolean;
+  shani2 :boolean;
 
   flag: Boolean
   Log:  any
   userSubject = new BehaviorSubject<Boolean>(false);
 
   currentDate = new Date();
- 
+  
 
   public get authenticated() : Observable<Boolean> {
     return this.userSubject.asObservable();
@@ -52,6 +53,7 @@ export class BookingHistoryComponent implements OnInit {
     private firestore : AngularFirestore,
     private toastr : ToastrService,
     public route:Router,
+    
 
    
   ) {
@@ -63,6 +65,7 @@ export class BookingHistoryComponent implements OnInit {
         console.log(this.userData.uid);
         this.Log = localStorage.getItem('users');
         this.userSubject.next(true);
+        console.log(this.currentDate);
         
       } else {
         localStorage.setItem('users', null);
@@ -74,6 +77,7 @@ export class BookingHistoryComponent implements OnInit {
 
   ngOnInit() {
     this.shani=true;
+    this.shani2 = true;
     console.log("kd");
     
     console.log(this.currentDate);
@@ -90,9 +94,7 @@ export class BookingHistoryComponent implements OnInit {
             this.userBooking.forEach(user=>{
               var newuser=user.payload.doc.data();
               // console.log(newuser.userId);
-              
               if((this.userData.uid===newuser.userId)){
-                
                 this.getBookingList.push(newuser);
               //var result = angular.equals(newuser.userId, this.userData.uid);
               }
@@ -101,5 +103,41 @@ export class BookingHistoryComponent implements OnInit {
         })
       }); 
     });
+
+    this.booking.getBooking().subscribe(date => {
+      this.userBooking = date;
+
+      if(this.shani2) {
+        this.shani2 = false;
+        this.userBooking.forEach(user => {
+          var newdate = user.payload.doc.data();
+          console.log(this.currentDate);
+          var bookDate=new Date(newdate.date.toDate());
+          console.log(bookDate);
+          this.currentDate.setDate(this.currentDate.getDay());
+          bookDate.setDate(bookDate.getDay());
+          if(this.currentDate > bookDate){
+            console.log("here");
+            this.flag = true;
+            return;
+
+          }
+          this.currentDate.setDate(this.currentDate.getDay()+5);
+          if(this.currentDate<bookDate){
+            this.flag = false;
+            console.log("hereeeeeee");
+            this.currentDate.setDate(this.currentDate.getDay()-5);
+            return;
+
+          }
+          // else if(this.currentDate.getDate() < (newdate.date-5) )
+        })
+      }
+
+    })
+  }
+
+  onComplete() {
+
   }
 }

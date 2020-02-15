@@ -38,7 +38,7 @@ export class ProfEditProfileComponent implements OnInit {
 
   uploadImage(event) {
     let file = event.target.files[0];
-    let path = `profile_images/${file.name}`;
+    let path = `profilePictures/${this.Log.uid}`;
     if (file.type.split('/')[0] !== 'image') {
       return alert('Error in upload image');
     } else {
