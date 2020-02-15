@@ -33,54 +33,66 @@ import { BookingComponent    } from "./eventProf/booking/booking.component";
 import { SearchComponentComponent } from './SharedComponents/search-component/search-component.component';
 
 import { SearchResultComponent } from "./SharedComponents/search-result/search-result.component";
+import { AuthGuard } from './guards/auth.guard';
+import { InnerPageGuard } from './guards/inner-page.guard';
+
 
 
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'Signin', component: SigninComponent },
-  { path: 'Signup', component: SignupComponent },
-  { path: 'Profile', component: ProfileComponent },
+  { path: '', component: HomeComponent }, 
+  
+  { path: 'Signin', component: SigninComponent   , canActivate:[InnerPageGuard]   },
+  { path: 'Signup', component: SignupComponent   , canActivate:[InnerPageGuard] },
+  { path: 'Profile', component: ProfileComponent , canActivate:[AuthGuard]},
+
+
   // { path: 'search',               component: SearchComponentComponent},
 
   { path: 'DynamicUser/:id', component: DisplayPageComponent },
 
 
   //Admin Panel
-      { path: 'dashboard', component: DashboardComponent },
-      { path: 'profile-insights', component: ProfileInsightsComponent },
-      { path: 'user-data', component: UserDataComponent },
-      { path: 'Extra', component: ExtrasComponent },
-      { path: 'ActivityLog', component: LogComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'profile-insights', component: ProfileInsightsComponent },
+  { path: 'user-data', component: UserDataComponent },
+  { path: 'Extra', component: ExtrasComponent },
+  { path: 'ActivityLog', component: LogComponent },
   
 
 
-  { path: 'UserEditUser',         component: EditUserComponent},
-  { path: 'UserBooking',          component: BookingHistoryComponent},
-  { path: 'UserDelete' ,          component: UserDeleteComponent},
-  { path: 'EventProfRequest' ,    component: EventProfRequestComponent},
-  { path: 'UserProfile', component: UserProfileComponent },
-  { path: 'UserEditUser', component: EditUserComponent },
-  { path: 'UserBooking', component: BookingHistoryComponent },
-  { path: 'UserDelete', component: UserDeleteComponent },
+  { path: 'UserEditUser',         component: EditUserComponent          },
+  { path: 'UserBooking',          component: BookingHistoryComponent    },
+  { path: 'UserDelete' ,          component: UserDeleteComponent        },
+  { path: 'EventProfRequest' ,    component: EventProfRequestComponent  },
+  { path: 'UserProfile',          component: UserProfileComponent       },
+  { path: 'UserEditUser',         component: EditUserComponent          },
+  { path: 'UserBooking',          component: BookingHistoryComponent    },
+  { path: 'UserDelete',           component: UserDeleteComponent        },
 
   { path: 'EventMain',            component:ProfMainComponent},
   { path: 'EventEditProfile',     component:ProfEditProfileComponent},
   { path: 'EventBooking',         component:ProfBookingComponent},
   { path: 'Messaging',            component:MessagingComponent},
   { path:  'Booking',             component:BookingComponent},
-  { path: 'EventMain', component: ProfMainComponent },
-  { path: 'EventEditProfile', component: ProfEditProfileComponent },
-  { path: 'EventBooking', component: ProfBookingComponent },
-  {path: 'Search', component: SearchComponentComponent},
-  {path: 'SearchResult/:id', component: SearchResultComponent}
+  { path: 'EventMain',            component: ProfMainComponent },
+  { path: 'EventEditProfile',     component: ProfEditProfileComponent },
+  { path: 'EventBooking',         component: ProfBookingComponent },
+  { path: 'Search',                component: SearchComponentComponent},
+  { path: 'SearchResult/:id',      component: SearchResultComponent}
 
 ];
 
 @NgModule({
   declarations: [],
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    CommonModule,
+    RouterModule.forRoot(routes)
+  ],
+  exports: [
+    RouterModule
+  ]
 })
+
 export class AppRoutingModule { }

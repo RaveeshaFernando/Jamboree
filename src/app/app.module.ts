@@ -124,6 +124,8 @@ import { ExtrasComponent } from './Admin/extras/extras.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    MDBBootstrapModule.forRoot(),
     FormsModule,
     AppRoutingModule,
     NgbModule,

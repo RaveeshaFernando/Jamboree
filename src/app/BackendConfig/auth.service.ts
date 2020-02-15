@@ -107,6 +107,14 @@ export class AuthService {
     })
   }
 
+    
+  get isLoggedIn():boolean{
+    var user =  localStorage.getItem('user') ; 
+    return (user !='null') ? true :false;
+  }
+
+
+
   GetUserData(): Observable<any> {
     return this.afs.collection("users").doc(localStorage.getItem("user") as string).valueChanges().pipe(first());
   }
@@ -115,7 +123,7 @@ export class AuthService {
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['/Signin']);
+      this.router.navigate(['Signin']);
     })
   }
 }

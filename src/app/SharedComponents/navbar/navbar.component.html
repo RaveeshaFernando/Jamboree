@@ -59,7 +59,8 @@
 
                             </ng-template>
                             <ng-template #logged>
-                                <a [routerLink]="['/Signin']" class="dropdown-item waves-light" mdbWavesEffect (click)="authService.SignOut()"> <strong>Log out</strong></a>
+                                <!-- <a [routerLink]="['/Signin']" class="dropdown-item waves-light" mdbWavesEffect (click)="authService.SignOut()"> <strong>Log out</strong></a> -->
+                                <a   class="dropdown-item waves-light" mdbWavesEffect (click)="authService.SignOut()"> <strong>Log out</strong></a>
                             </ng-template>
                     </div>
                 </li>
