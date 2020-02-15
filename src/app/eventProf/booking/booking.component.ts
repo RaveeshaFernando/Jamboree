@@ -5,8 +5,11 @@ import { finalize } from 'rxjs/operators';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, AngularFirestoreModule } from '@angular/fire/firestore' ;
 import { AuthService } from '../../BackendConfig/auth.service' ;
 import { map } from 'rxjs/operators'
+import { Action } from 'rxjs/internal/scheduler/Action';
+import { element } from 'protractor';
 
 export interface booking {
+  bid: string;
   date :string;
   eventType: string;
   userDisplayName: string;
@@ -34,6 +37,7 @@ export class BookingComponent implements OnInit {
   private bookDoc: AngularFirestoreCollection<booking>
   bookings: Observable<booking[]>
   bookinglist: booking[] = [] as booking[]
+  tempBooking: booking = {} as booking;
 
   constructor(
     public authService : AuthService ,
@@ -52,9 +56,8 @@ export class BookingComponent implements OnInit {
         this.bookDoc.snapshotChanges().pipe(
           map(items=>items.map(
             bookings=>{
-              // console.log(bookings.payload.doc.data())
               if(!flag && bookings.payload.doc.data().profId==this.Log.uid){
-                const id = bookings.payload.doc.id
+                const id = bookings.payload.doc.id;
                 this.bookinglist.push(bookings.payload.doc.data());
                 console.log(id);
               }
@@ -62,10 +65,17 @@ export class BookingComponent implements OnInit {
           ))
         ).subscribe(c=>{
           flag = true;
-        })
+        });
 
       });
     });
+
+    console.log(this.bookinglist);
+  }
+
+  async changeStatus(id, status){
+    await this.firestore.collection('Booking').doc(id).update({status: status });
+    location.reload();
   }
 
 }

@@ -4,7 +4,7 @@
 <br><br><br><br><br><br>
 
 <div style="padding-right: 30px;padding-bottom: 30px;" id="sent">
-    <div class="col-lg-12" style="font-family:Roboto;background-color: #223;padding-right: 30px">
+    <div class="col-lg-18" style="font-family:Roboto;background-color: #223;padding-right: 30px">
       <div class="text-center">
         <h3 class="mb-sm-0 pt-3 text-white" style="padding-top: 15px;padding-bottom: 15px;"> Booking Information </h3>
       </div>
@@ -12,7 +12,7 @@
         <table class="table table-striped ">
           <thead class="" style="background-color: #223;color: white;">
               <tr>
-                <th> Date          </th>
+                <th> Date</th>
                 <th> Customer Name</th>
                 <th> Status</th>
                 <th> Event type</th>
@@ -23,7 +23,12 @@
               <tr *ngFor = "let booking of bookinglist">
                 <td>{{booking.date.Date}}</td>
                 <td>{{booking.userDisplayName}}</td>
-                <td>{{booking.status}}</td>
+                <td>{{booking.status}}
+                  <div *ngIf="booking.status == 'pending'" >
+                    <button (click)="changeStatus(booking.bid,'accepted')" type="button" style="border-width: 3px; padding: 3px;" class="btn btn-success">Accept</button>
+                    <button (click)="changeStatus(booking.bid,'rejected')" type="button" style="border-width: 3px; padding: 3px;" class="btn btn-danger">Reject</button>
+                  </div>
+                </td>
                 <td>{{booking.eventType}}</td>
                 <td *ngIf="booking.userComplete">Completed</td>
                 <td *ngIf="!booking.userComplete">Not Completed</td>
@@ -32,6 +37,10 @@
               </tr>
           </thead>
         </table>
+
+        <br>
+         
+
       </div>
     </div>
   </div>
