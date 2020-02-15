@@ -107,6 +107,12 @@ export class AuthService {
     })
   }
 
+      
+  get isLoggedIn():boolean{
+    var user =  localStorage.getItem('user') ; 
+    return (user !='null') ? true :false;
+  }
+  
   GetUserData(): Observable<any> {
     return this.afs.collection("users").doc(localStorage.getItem("user") as string).valueChanges().pipe(first());
   }
