@@ -34,14 +34,20 @@ import { SearchComponentComponent } from './SharedComponents/search-component/se
 
 import { SearchResultComponent } from "./SharedComponents/search-result/search-result.component";
 
+import { AuthGuard } from './guards/auth.guard';
+import { InnerPagesGuard } from './guards/inner-pages.guard';
+
+
 
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'Signin', component: SigninComponent },
-  { path: 'Signup', component: SignupComponent },
-  { path: 'Profile', component: ProfileComponent },
+
+  { path: 'Signin', component: SigninComponent   , canActivate:[InnerPagesGuard]   },
+  { path: 'Signup', component: SignupComponent   , canActivate:[InnerPagesGuard] },
+  { path: 'Profile', component: ProfileComponent , canActivate:[AuthGuard]},
+
   // { path: 'search',               component: SearchComponentComponent},
 
   { path: 'DynamicUser/:id', component: DisplayPageComponent },
