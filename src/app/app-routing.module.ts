@@ -1,18 +1,82 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
-import { SignInComponent } from './components/sign-in/sign-in.component';
-import { SignUpComponent } from './components/sign-up/sign-up.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { HomeComponent } from './home/home.component';
+import { SigninComponent } from './signin/signin.component';
+import { SignupComponent } from './signup/signup.component';
+// import { SearchComponentComponent } from "../SharedComponents/SearchComponentComponent";
+
+import { DisplayPageComponent } from "./Dynamic/display-page/display-page.component";
+import { DisplayPageBarComponent } from "./Dynamic/display-page-bar/display-page-bar.component";
+
+import { ProfileComponent } from './profile/profile.component';
+
+//Admin panel - imports
+    import { DashboardComponent } from './Admin/dashboard/dashboard.component'
+    import { ProfileInsightsComponent } from './Admin/profile-insights/profile-insights.component'
+    import { UserDataComponent } from './Admin/userdata/userdata.component';
+    import { ExtrasComponent } from './Admin/extras/extras.component';
+    import { LogComponent } from './Admin/log/log.component';
+
+import { UserProfileComponent } from "./User/user-profile/user-profile.component";
+import { EditUserComponent } from "./User/edit-user/edit-user.component";
+import { BookingHistoryComponent } from "./User/booking-history/booking-history.component";
+import { UserDeleteComponent } from './User/user-delete/user-delete.component';
+
+import { ProfBookingComponent } from "./eventProf/prof-booking/prof-booking.component";
+import { ProfEditProfileComponent } from "./eventProf/prof-edit-profile/prof-edit-profile.component";
+import { ProfMainComponent } from "./eventProf/prof-main/prof-main.component";
+import { EventProfRequestComponent } from './User/event-prof-request/event-prof-request.component';
+import { MessagingComponent } from './eventProf/messaging/messaging.component';
+import { BookingComponent    } from "./eventProf/booking/booking.component";
+import { SearchComponentComponent } from './SharedComponents/search-component/search-component.component';
+
+import { SearchResultComponent } from "./SharedComponents/search-result/search-result.component";
+
 
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/books', pathMatch: 'full'},
-  { path: 'sign-in', component: SignInComponent},
-  { path: 'sign-up', component: SignUpComponent},
-  { path: 'dashboard', component: DashboardComponent }
-]
+  { path: '', component: HomeComponent },
+  { path: 'Signin', component: SigninComponent },
+  { path: 'Signup', component: SignupComponent },
+  { path: 'Profile', component: ProfileComponent },
+  // { path: 'search',               component: SearchComponentComponent},
+
+  { path: 'DynamicUser/:id', component: DisplayPageComponent },
+
+
+  //Admin Panel
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'profile-insights', component: ProfileInsightsComponent },
+      { path: 'user-data', component: UserDataComponent },
+      { path: 'Extra', component: ExtrasComponent },
+      { path: 'ActivityLog', component: LogComponent },
+  
+
+
+  { path: 'UserEditUser',         component: EditUserComponent},
+  { path: 'UserBooking',          component: BookingHistoryComponent},
+  { path: 'UserDelete' ,          component: UserDeleteComponent},
+  { path: 'EventProfRequest' ,    component: EventProfRequestComponent},
+  { path: 'UserProfile', component: UserProfileComponent },
+  { path: 'UserEditUser', component: EditUserComponent },
+  { path: 'UserBooking', component: BookingHistoryComponent },
+  { path: 'UserDelete', component: UserDeleteComponent },
+
+  { path: 'EventMain',            component:ProfMainComponent},
+  { path: 'EventEditProfile',     component:ProfEditProfileComponent},
+  { path: 'EventBooking',         component:ProfBookingComponent},
+  { path: 'Messaging',            component:MessagingComponent},
+  { path:  'Booking',             component:BookingComponent},
+  { path: 'EventMain', component: ProfMainComponent },
+  { path: 'EventEditProfile', component: ProfEditProfileComponent },
+  { path: 'EventBooking', component: ProfBookingComponent },
+  {path: 'Search', component: SearchComponentComponent},
+  {path: 'SearchResult/:id', component: SearchResultComponent}
+
+];
 
 @NgModule({
   declarations: [],

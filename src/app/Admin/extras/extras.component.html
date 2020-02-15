@@ -1,0 +1,127 @@
+<app-sidebar></app-sidebar>
+
+<div class="depth">
+    <img src="../../../assets/img/Gallery/background1.jpg" class="bg-img" alt="placeholder">
+    <div class="overlay">
+    </div>
+
+    <div class="col-sm-60">
+        <div style="padding-top:30px ;">
+            <mdb-card class="mb-4 wow fadeIn" style="max-height:100px;border: solid #223;">
+                <mdb-card-body class="d-sm-flex justify-content-between"  style="background-color: #223;" >
+                    <div class="col-lg-1 d-flex justify-content-center">
+                        <i class="fas fa-user-tie fa-3x text-white"></i>
+                    </div>
+                    <div class="col-lg-11">
+                        <h3 class="mb-sm-0 pt-3 text-white"> Accepted Professional Requests </h3>
+                    </div>
+                </mdb-card-body>
+            </mdb-card>
+        </div>
+        <div class="col-md-12 col-lg-12 col-sm-12 ">
+            <div style="padding: 30px;background-color: #223;">   
+
+                <table class="table">
+                    <thead class="white-text">
+                        <tr>
+                        <th scope="col">User ID</th>
+                        <th scope="col">User Name</th>
+                        <th scope="col">Event Type</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Mobile</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr  class="text-white" *ngFor= "let req of approves">
+                            <td> <strong> {{req.uid}} </strong> </td>
+                            <td> <strong> {{req.displayName}}</strong>  </td>
+                            <td> <strong> {{req.eType}} </strong> </td>
+                            <td> <strong> {{req.email}} </strong> </td>
+                            <td> <strong> {{req.mobile}}</strong>  </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+   </div>
+
+
+   <div class="col-sm-60">
+    <div style="padding-top:30px ;">
+        <mdb-card class="mb-4 wow fadeIn" style="max-height:100px;border: solid #223;">
+            <mdb-card-body class="d-sm-flex justify-content-between"  style="background-color: #223;" >
+                <div class="col-lg-1 d-flex justify-content-center">
+                    <i class="fas fa-user-tie fa-3x text-white"></i>
+                </div>
+                <div class="col-lg-11">
+                    <h3 class="mb-sm-0 pt-3 text-white"> Rejected Professional Requests </h3>
+                </div>
+            </mdb-card-body>
+        </mdb-card>
+    </div>
+    <div class="col-md-12 col-lg-12 col-sm-12 ">
+        <div style="padding: 30px;background-color: #223;">   
+
+            <table class="table">
+                <thead class="white-text">
+                    <tr>
+                        <th scope="col">User ID</th>
+                        <th scope="col">User Name</th>
+                        <th scope="col">Event Type</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Mobile</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr  class="text-white" *ngFor= "let req of declines">
+                        <td> <strong> {{req.uid}} </strong> </td>
+                        <td> <strong> {{req.displayName}}</strong>  </td>
+                        <td> <strong> {{req.eType}} </strong> </td>
+                        <td> <strong> {{req.email}} </strong> </td>
+                        <td> <strong> {{req.mobile}}</strong>  </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    </div>
+
+
+    <div style="padding-top:30px ;">
+        <mdb-card class="mb-4 wow fadeIn" style="max-height:100px;border: solid #223;">
+            <mdb-card-body class="d-sm-flex justify-content-between"  style="background-color: #223;" >
+                <div class="col-lg-1 d-flex justify-content-center">
+                    <i class="fas fa-book fa-3x text-white"></i>
+                </div>
+                <div class="col-lg-11">
+                    <h3 class="mb-sm-0 pt-3 text-white"> Previous Bookings </h3>
+                </div>
+            </mdb-card-body>
+        </mdb-card>
+    </div>
+    <div class="container">
+        <div class="col-md-12 col-lg-12 col-sm-12 ">
+            <div style="padding: 30px;background-color: #223;">   
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="justify-content-center d-flex">
+                            <img src="../../../assets/img/Gallery/contact.png" style="width: 80px;height : 80px;border: solid royalblue;" alt="admin profile photo" class="rounded-circle prof-image">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 d-flex justify-content-center">
+                        <h4 class="text-white"> Details comes here </h4>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="justify-content-center d-flex">
+                            <img src="../../../assets/img/Gallery/contact.png" style="width: 80px;height : 80px;border: solid royalblue;" alt="admin profile photo" class="rounded-circle prof-image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

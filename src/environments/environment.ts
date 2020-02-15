@@ -5,16 +5,22 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey:"AIzaSyAZc6vPQblHjjfjZdlvFLPN_b_lf90ws5k",
-    authDomain:  "jamboree2.firebaseapp.com",
-    databaseURL: "https://jamboree2.firebaseio.com",
-    projectId: "jamboree2",
-    storageBucket: "jamboree2.appspot.com",
-    messagingSenderId: "626368821451",
-    appId: "1:626368821451:web:351b0d34cd9489df66434e",
-    measurementId: "G-90TXQTQCLF"
+    apiKey: "AIzaSyB-eRxME7cVnmsOkD5fJ1NCC3wVV48Uzss",
+    authDomain: "jamboree-official.firebaseapp.com",
+    databaseURL: "https://jamboree-official.firebaseio.com",
+    projectId: "jamboree-official",
+    storageBucket: "jamboree-official.appspot.com",
+    messagingSenderId: "756586043290",
+    appId: "1:756586043290:web:3a2a1d1f934efeb0c58c23",
+    measurementId: "G-CP203NKPVT"
+  },
+  algolia: {
+    appId: "7417ZEQGC5",
+    apiKey: "bdfd22d8f11adc455b2b5869da134fd9"
   }
 };
+
+
 
 /*
  * For easier debugging in development mode, you can import the following file
