@@ -11,33 +11,26 @@
       <div class="d-flex ">
         <table class="table table-striped ">
           <thead class="" style="background-color: #223;color: white;">
-            <tr>
-              <th>#</th>
-              <th>Date</th>
-              <th> Customer Name</th>
-              <th> Request Status</th>
-              <th> Event Status</th>
-              <th> Message</th>
-              <th></th>
-            </tr>
+              <tr>
+                <th> Date          </th>
+                <th> Customer Name</th>
+                <th> Status</th>
+                <th> Event type</th>
+                <th> Completed status by user</th>
+                <th> Completed status by event professional</th>
+                
+              </tr>
+              <tr *ngFor = "let booking of bookinglist">
+                <td>{{booking.date.Date}}</td>
+                <td>{{booking.userDisplayName}}</td>
+                <td>{{booking.status}}</td>
+                <td>{{booking.eventType}}</td>
+                <td *ngIf="booking.userComplete">Completed</td>
+                <td *ngIf="!booking.userComplete">Not Completed</td>
+                <td *ngIf="booking.eventComplete">Completed</td>
+                <td *ngIf="!booking.eventComplete">Not Completed</td>
+              </tr>
           </thead>
-          <!-- <tbody class="white-text" style="background-color:#223;">
-            <tr *ngFor= "let msg of getMessageList">
-              <th> 1 </th>
-              <td> {{msg.name}} </td>
-              <td> {{msg.email}}</td>
-              <td> {{msg.date}} </td>
-              <td> {{msg.time}} </td>
-              <td> {{msg.receiverType}} </td>
-              <td> {{msg.receiver}} </td>
-              <td> {{msg.message}} </td>
-              <td> <a class="btn-sm text-danger">
-                  <i class="fas fa-trash-alt btn-danger rounded " (click)="onDelete(msg.id)" style="padding: 10px;">
-                  </i>
-                </a> </td>
-            </tr>
-          </tbody> -->
-              
         </table>
       </div>
     </div>
