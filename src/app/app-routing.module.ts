@@ -33,6 +33,7 @@ import { BookingComponent    } from "./eventProf/booking/booking.component";
 import { SearchComponentComponent } from './SharedComponents/search-component/search-component.component';
 
 import { SearchResultComponent } from "./SharedComponents/search-result/search-result.component";
+import { FilterPageComponent } from './Dynamic/filter-page/filter-page.component';
 
 
 
@@ -45,6 +46,7 @@ const routes: Routes = [
   // { path: 'search',               component: SearchComponentComponent},
 
   { path: 'DynamicUser/:id', component: DisplayPageComponent },
+  { path: 'FilterPage/:type' , component: FilterPageComponent},
 
 
   //Admin Panel

@@ -68,6 +68,7 @@ import { SearchComponent } from './SharedComponents/search/search.component';
 import { SearchResultComponent } from './SharedComponents/search-result/search-result.component';
 import { LogComponent } from './Admin/log/log.component';
 import { ExtrasComponent } from './Admin/extras/extras.component';
+import { FilterPageComponent } from './Dynamic/filter-page/filter-page.component';
 
 
 
@@ -110,6 +111,7 @@ import { ExtrasComponent } from './Admin/extras/extras.component';
     BookingComponent,
     SearchComponent,
     SearchResultComponent,
+    FilterPageComponent,
 
     //EventProfRequestComponent,
 

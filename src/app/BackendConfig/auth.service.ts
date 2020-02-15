@@ -100,7 +100,8 @@ export class AuthService {
       district: null ,
       age : null ,
       city : null , 
-      gender: null
+      gender: null,
+      eventType: null
     }
     return userRef.set(userData, {
       merge: true
