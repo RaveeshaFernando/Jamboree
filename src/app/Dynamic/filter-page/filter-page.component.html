@@ -1,0 +1,54 @@
+<p>filter-page works!</p>
+
+<app-user-sidebar></app-user-sidebar>
+
+<div class="container">
+
+
+
+<section class="pb-3 text-center">
+
+    <div>
+    <h2 class="h1 py-5" style="padding-top: 50px;"> Heading </h2>
+    </div>
+    <!--Grid row-->
+<div class="row" >
+
+    <!--Grid column-->
+    <div class="col-lg-3 col-md-6 mb-4 " *ngFor= "let user of getUserList">
+  
+      <mdb-card class="testimonial-card" >
+        <!--Bacground color-->
+        <div class="card-up indigo lighten-1">
+        </div>
+  
+        <!--Avatar-->
+        <div class="view overlay">
+            <div class="justify-content-center d-flex">
+             <img src="{{user.photoURL}}" class="rounded-circle prof-image">
+            </div>
+        </div>
+        <mdb-card-body>
+          <!--Name-->
+          <mdb-card-title>
+            <h4>{{user.displayName}}</h4>
+          </mdb-card-title>
+          <hr>
+          <!--Quotation-->
+          <p>
+            <mdb-icon fas icon="quote-left"></mdb-icon></p>
+            <p> {{user.des}}</p>
+
+            <div class="card-footer text-muted text-center mt-4">
+                <a mdbBtn color="unique" class="waves-light" (click)="onVisitClick()" mdbWavesEffect>Visit Profile</a>
+              </div>
+        </mdb-card-body>
+      </mdb-card>
+  
+    </div>
+    </div>
+    
+
+</section>
+
+</div>
