@@ -32,10 +32,11 @@ export class BookingHistoryComponent implements OnInit {
   shani2 :boolean;
   status=true;
 
-  flag: Boolean
+  flag=[];
   Log:  any
   userSubject = new BehaviorSubject<Boolean>(false);
-
+  d : Date ;
+  a : Date ;
   currentDate = new Date();
   
 
@@ -75,15 +76,22 @@ export class BookingHistoryComponent implements OnInit {
   }
 
   ngOnInit() {
+    // this.d = new Date();
+    // console.log("Today :"+ this.d);
+    // a.setDate(this.d.getDate()-25);
+    // console.log("new  :"+ this.d);
+    
+    
     this.shani=true;
     this.shani2 = true;
 
     this.authService.authenticated.subscribe(isAuthed => {
-    this.flag = isAuthed;
+    //this.flag = isAuthed;
     this.Log = this.authService.GetUserData().subscribe(user => {
       this.Log = user;
       this.booking.getBooking().subscribe(data=>{
         this.userBooking=data;
+        console.log(data);
         if(this.shani){
           this.shani = false;
           this.userBooking.forEach(user=>{
@@ -105,23 +113,46 @@ export class BookingHistoryComponent implements OnInit {
                 newdate.id=user.payload.doc.id;
                 
                 console.log(newdate);
-                var bookDate=new Date(newdate.date.toDate());
-                //console.log(bookDate);
-                this.currentDate.setDate(this.currentDate.getDay());
-                bookDate.setDate(bookDate.getDay());
-      
-                if(this.currentDate > bookDate){
-                  this.flag = true;
-                  return;
+                var bookDate=newdate.Date;
+                console.log(bookDate);
+                var resBook = bookDate.split("-");
+                var resCur = this.currentDate.toISOString().split('T')[0];
+                console.log(this.currentDate.toISOString().split('T')[0]);
+                var resCurr = resCur.split("-");
+                var bookDateNew = new Date(resBook[0],resBook[1]-1,resBook[2]);
+                console.log(resCurr[1]);
+                var currentDateNew = new Date(parseInt(resCurr[0]),parseInt(resCurr[1])-1,parseInt(resCurr[2]));
+                //this.currentDate.setDate(this.currentDate.getDay());
+                //bookDate.setDate(bookDate.getDay());
+                console.log(bookDateNew);
+                console.log(currentDateNew);
+                if((this.userData.uid===newdate.userId )){
+                  if(currentDateNew > bookDateNew){
+                    console.log("kolaaaaaa");
+                    this.flag.push(true);
+                    // this.flag = true;
+                    return;
+                  }
+  
+                  //a.setDate(a.getDate()+1)
+                  //currentDateNew.setDate(currentDateNew.getDate()+5);
+                  else if(currentDateNew < bookDateNew){
+                    console.log("rathuuuuuu");
+                    this.flag.push(false);
+                    // this.flag = false;
+                    //currentDateNew.setDate(currentDateNew.getDate()-5);
+                    return;
+                  }
+                  
+                  //var result = angular.equals(newuser.userId, this.userData.uid);
                 }
-                this.currentDate.setDate(this.currentDate.getDay()+5);
-                if(this.currentDate<bookDate){
-                  this.flag = false;
-                  this.currentDate.setDate(this.currentDate.getDay()-5);
-                  return;
-                }
+                
+                console.log(this.flag);
+                //this.flag = false;
+                //currentDateNew.setDate(currentDateNew.getDate()-5);
               })
             }
+            console.log(this.flag)
           })
         })
       }); 

@@ -35,6 +35,7 @@ import { UserSidebarComponent } from "./User/Shared/user-sidebar/user-sidebar.co
 import { UserDeleteComponent } from './User/user-delete/user-delete.component';
 import { EventProfRequestComponent } from './User/event-prof-request/event-prof-request.component';
 import { BookingComponent } from './eventProf/booking/booking.component';
+import { MessageComponent } from './User/message/message.component';
  
 //Website Components - Event Prof
 import { ProfMainComponent } from './eventProf/prof-main/prof-main.component';
@@ -72,6 +73,7 @@ import { FilterPageComponent } from './Dynamic/filter-page/filter-page.component
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -95,6 +97,8 @@ import { FilterPageComponent } from './Dynamic/filter-page/filter-page.component
     UserSidebarComponent,
     UserDeleteComponent,
     EventProfRequestComponent,
+    BookingComponent,
+    MessageComponent,
 
     //Extra
     ProfileComponent,
@@ -108,10 +112,10 @@ import { FilterPageComponent } from './Dynamic/filter-page/filter-page.component
     DisplayPageComponent,
     DisplayPageBarComponent,
     MessagingComponent,
-    BookingComponent,
     SearchComponent,
     SearchResultComponent,
     FilterPageComponent,
+    
 
     //EventProfRequestComponent,
 

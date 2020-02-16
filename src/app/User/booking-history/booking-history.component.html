@@ -16,23 +16,23 @@
                     <tr>
                         <th> Event Date </th>
                         <th> Event Name </th>
-                        <th> Event Proffessional Name </th>
+                        <th> Event Type </th>
                         <!-- <th> Requested Date </th> -->
-                        <th> Booking Status </th>
-                        <th> Event Complete </th>
+                        <th> City </th>
+                        <th> Event Professional </th>
+                        <th> Event Status </th>
 
-                        
-                        
-                        
                     </tr>
                 </thead>
                 <tbody class="white-text" style="background-color:#6a7981;">
                     <!-- <td>xxxxxxxxxxxxxxxxx</td> -->
-                    <tr *ngFor= "let booking of getBookingList"  >
+                    <tr *ngFor= "let booking of getBookingList;i as index"  >
                         <!-- <div > -->
-                        <td *ngIf="!booking.userComplete"> {{booking.date.toDate() | date}}</td>
+                        <td > {{booking.Date}}</td>
+                        <td *ngIf="!booking.userComplete"> {{booking.eName}}  </td>
                         <td *ngIf="!booking.userComplete"> {{booking.eventType}}  </td>
-                        <td *ngIf="!booking.userComplete"> {{booking.eventDisplayName}}  </td>
+                        <td *ngIf="!booking.userComplete"> {{booking.city}} </td>
+                        <td *ngIf="!booking.userComplete"> {{booking.profName}} </td>
                         <td *ngIf="!booking.userComplete"> {{booking.status}} </td>
 
                         <td *ngIf="!booking.userComplete">
@@ -40,19 +40,19 @@
                                 <ng-template #cancel>cancel</ng-template>
                                 <ng-template #complete>complete</ng-template>
 
-                                <div *ngIf="this.flag;then complete else cancel"></div>
-                                    <ng-template #complete>
+                                <div ></div>
+                                    <div *ngIf="flag[i]">
                                         <a class="btn-sm text-danger "> 
                                             <!-- <i class="fas fa-check-square" style="padding: 10px;padding-left: 7px;padding-right: 7px;"></i> -->
                                             <i class="material-icons rounded rounded" style="padding: 8px;background-color:olivedrab;" (click)="onComplete(booking.id)">done</i>
                                         </a> 
-                                    </ng-template>
-                                    <ng-template #cancel>
+                                    </div>
+                                    <div *ngIf="!flag[i]">
                                         <a class="btn-sm text-danger"> 
                                             <!-- <i class="fas fa-trash-alt btn-danger rounded " (click)="onDelete(user.id)" style="padding: 12px;"> </i> -->
                                             <i class="material-icons" style="padding: 8px;background-color:darkred;" (click)="onCancel(user.id)" >clear</i>
                                         </a >
-                                    </ng-template>
+                                    </div>
                         </td>
                         <!-- </div> -->
                     </tr>
@@ -75,18 +75,23 @@
                     <tr>
                         <th> Event Date </th>
                         <th> Event Name </th>
-                        <th> Event Proffessional Name </th>
-                        <th> Requested Date </th>
+                        <th> Event Type </th>
+                        <th> City </th>
+                        <th> Event Professional </th>
+                        <!-- <th> Event Status </th> -->
+
+
                     </tr>
                 </thead>
                 <tbody class="white-text" style="background-color:#6a7981;">
                     <!-- <td>xxxxxxxxxxxxxxxxx</td> -->
                     <tr *ngFor= "let booking of getBookingList">
                         
-                            <td *ngIf="booking.userComplete"> {{booking.date.toDate() | date}} </td>
+                            <td *ngIf="booking.userComplete"> {{booking.Date}} </td>
+                            <td *ngIf="booking.userComplete"> {{booking.eName}}  </td>
                             <td *ngIf="booking.userComplete"> {{booking.eventType}}  </td>
-                            <td *ngIf="booking.userComplete"> {{booking.eventDisplayName}}  </td>
-                            <td *ngIf="booking.userComplete"> {{booking.status}} </td>
+                            <td *ngIf="booking.userComplete"> {{booking.city}} </td>
+                            <td *ngIf="booking.userComplete"> {{booking.profName}} </td>
     
                           
                         

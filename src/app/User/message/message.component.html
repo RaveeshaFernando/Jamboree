@@ -1,0 +1,47 @@
+<app-user-sidebar></app-user-sidebar>
+
+<div class="depth" style="padding-top: 70px;height: 100vh;">
+    <img src="../../../assets/img/Gallery/background1.jpg" alt="placeholder" class="bg-img">
+    <div class="overlay"></div>
+
+    <div class="d-flex justify-content-center" style="padding-bottom: 30px;padding-right: 30px;padding-top: 30px;">
+        <div class="col-lg-8 rounded" style="color: #cfd9df; background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%); padding-right: 10px;">
+            <div class="text-center">
+                <h3><strong>Messages</strong></h3>
+            </div>
+            
+
+            <table class="table table-striped">
+                <thead class="text-white" style="background-color: #cfd9df;">
+                    <tr>
+                        <th> Date </th>
+                        <th> Message </th>
+                        <th> Sender </th>
+                        <th> Sender Email </th>
+                        
+                    </tr>
+                </thead>
+                <tbody class="white-text" style="background-color:#6a7981;">
+                    <!-- <td>xxxxxxxxxxxxxxxxx</td> -->
+                    <tr *ngFor= "let message of getMessageList">
+                        
+                            <td > {{message.date}} </td>
+                            <td > {{message.message}} </td>
+                            <td > {{message.name}} </td>
+                            <td > {{message.email}} </td>
+                            
+                            <!-- <td *ngIf="booking.userComplete"> xxxxxxxxx </td> -->
+                            
+                          
+                        
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        
+    </div>
+
+    
+</div>
