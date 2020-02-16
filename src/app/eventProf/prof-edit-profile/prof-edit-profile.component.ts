@@ -5,6 +5,8 @@ import { finalize } from 'rxjs/operators';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, AngularFirestoreModule } from '@angular/fire/firestore';
 import { AuthService } from '../../BackendConfig/auth.service';
 import { NgForm, FormBuilder } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { Router }  from '@angular/router'
 
 @Component({
   selector: 'app-prof-edit-profile',
@@ -15,9 +17,16 @@ export class ProfEditProfileComponent implements OnInit {
   message: string = '';
 
   profileForm = this.formBuilder.group({
-    eType: [''],
-    email: [''],
-    contact: [''],
+    userType : [],
+    eType : [],
+    displayName : [],
+    district: [],
+    firstName : [],
+    lastName : [],
+    age : [],
+    gender :[],
+    email : [],
+    contact : [],
     description: ['']
   });
 
@@ -34,7 +43,10 @@ export class ProfEditProfileComponent implements OnInit {
 
   constructor(public authService: AuthService,
     private formBuilder: FormBuilder,
-    private store: AngularFireStorage, private firestore: AngularFirestore) { }
+    private store: AngularFireStorage, 
+    private firestore: AngularFirestore,
+    private toastr : ToastrService,
+    private route : Router) { }
 
   uploadImage(event) {
     let file = event.target.files[0];
@@ -86,13 +98,25 @@ export class ProfEditProfileComponent implements OnInit {
     const promise = this.firestore.firestore.collection('users').doc(localStorage.getItem("user") as string).get();
     promise.then( snapshot =>{
       this.user = snapshot.data();
+      this.user.userType = formData.userType;
       this.user.eType = formData.eType;
+      this.user.displayName = formData.displayName;
+      this.user.district = formData.district;
+      // this.user.username = formData.username;
+      // this.user.firstName = formData.firstName;
+      // this.user.lastName = formData.lastName;
+      this.user.age = formData.age;
+      this.user.gender = formData.gender;
       this.user.email = formData.email;
       this.user.contact = formData.contact;
       this.user.description = formData.description;
       this.user.photoURL = this.message;
       this.firestore.collection("users").doc(this.user.uid).update(this.user);
     });
+
+    this.toastr.success('Saving...', 'Updated  Successfully')
+  
+  this.route.navigate(['../EventMain'])
   }
 
   
@@ -102,7 +126,6 @@ interface photo {
   id?: string;
   data?: string;
 }
-
 
 
 

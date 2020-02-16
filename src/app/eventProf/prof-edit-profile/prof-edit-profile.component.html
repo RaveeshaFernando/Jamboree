@@ -4,12 +4,9 @@
     <h1>Edit Profile</h1>
     <hr>
 
-
-    <!-- <div class="text-center white-text" style="padding-top: 100px;" > -->
     
     <br>
     <div class="row">
-      <!-- left column -->
       <div class="col-md-3">
         <div class="text-center">
           <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
@@ -18,22 +15,87 @@
           <input type="file" (change)="uploadImage($event)" accept=".png,.jpg" />
         </div>
       </div>
+
       <div class="col-md-9 personal-info">
         <h3>Personal info</h3>
 
         <form [formGroup]="profileForm">
           <div class="form-group">
-            <label class="col-lg-3 control-label">Profession:</label>
+            <label class="col-lg-3 control-label">User Name:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" formControlName="eType" [(ngModel)]="this.Log.eType">
+              <input class="form-control" type="text" formControlName="displayName" [(ngModel)]="this.Log.displayName">
             </div>
           </div>
+
+
           <div class="form-group">
             <label class="col-lg-3 control-label">Email:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" [(ngModel)]="this.Log.email" formControlName="email">
+              <input class="form-control" type="text" formControlName="email"  [(ngModel)]="this.Log.email">
             </div>
           </div>
+
+          <div class="form-group">
+            <label class="col-lg-3 control-label">User Type:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" formControlName="userType" [(ngModel)]="this.Log.userType">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Age:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" formControlName="age" [(ngModel)]="this.Log.age">
+            </div>
+          </div>
+
+          <select class="mdb-select md-form col-lg-12 custom-select" style="background-color: transparent;" formControlName="eType"    [(ngModel)]="this.Log.eType" > 
+            <option value="" disabled selected>Event Type</option>
+            <option value="Photographer">Photographer</option>
+            <option value="Videographer">Videographer</option>
+            <option value="Makeup Artist">Makeup Artist</option>
+            <option value="Music">DJ and Bands</option>
+            <option value="Catering">Catering</option>
+        </select>
+
+          <br><br><br><br><br><br><br><br><br><br>
+          <select class="mdb-select col-lg-6 custom-select" style="background-color: transparent;" formControlName="district"  [(ngModel)]="this.Log.district" > 
+            <option value="" disabled selected> Select District </option>
+            <option value="Ampara"> Ampara </option>
+            <option value="Anuradhapura"> Anuradhapura </option>
+            <option value="Badulla">Badulla</option>
+            <option value="Batticaloa"> Batticaloa </option>
+            <option value="Colombo"> Colombo </option>
+            <option value="Galle">Galle</option>
+            <option value="Gampaha"> Gampaha</option>
+            <option value="Hambantota"> Hambantota </option>
+            <option value="Jaffna"> Jaffna </option>
+            <option value="Kalutara"> Kalutara</option>
+            <option value="Kandy">Kandy</option>
+            <option value="Kegalle">Kegalle</option>
+            <option value="Kilinochchi"> Kilinochchi </option>
+            <option value="Kurunegala"> Kurunegala</option>
+            <option value="Mannar"> Mannar</option>
+            <option value="Matale"> Matale </option>
+            <option value="Matara">Matara</option>
+            <option value="Monaragala">Monaragala</option>
+            <option value="Mulathiv"> Mulathiv </option>
+            <option value="NuwaraEliya">Nuwara Eliya</option>
+            <option value="Polonnaruwa"> Polonnaruwa </option>
+            <option value="Puttalam"> Puttalam</option>
+            <option value="Ratnapura"> Ratnapura</option>
+            <option value="Trincomalee"> Trincomalee</option>
+            <option value="Vavniya"> Vavniya </option>
+        </select>
+  
+
+        <select class="mdb-select col-lg-6 custom-select" style="background-color: transparent;" formControlName="gender" [(ngModel)]="this.Log.gender" > 
+          <option value="" disabled selected> Gender </option>
+          <option value="Male"> Male </option>
+          <option value="Female"> Female </option>
+        </select> 
+        <br><br><br><br>
+          
           <div class="form-group">
             <label class="col-md-3 control-label">Contact:</label>
             <div class="col-md-8">
@@ -58,5 +120,4 @@
       </div>
     </div>
   </div>
-  <hr>
 </div>

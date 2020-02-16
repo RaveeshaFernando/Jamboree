@@ -21,58 +21,148 @@
 
           <div class="col-lg-7">
             <div class="container">
-
-                
-
-
-
                 <div class="Gallery">
                   <div *ngFor="let item of list" class="Gallery">
                     <div class="row">
-                        <div class="col-lg-4 col-md-6 col-am-12">
-                          <div class="mb-3 pics animation all 1">
-                            <img class="img-fluid" src="{{item.data}}">
-                          </div>
+                        <div class="col-lg-4">
+                          <button type="button" mdbBtn color="white" class="waves-light" data-toggle="modal" data-target="#basicExample" (click)="frame.show()" mdbWavesEffect>
+                            
+                              <img class="img-fluid" src="{{item.data}}">
+                            
+                          </button>
                         </div>
                     </div>
                   </div>
               </div>
+              
             </div>
           </div>
 
 
 
           <div class="col-lg-5">
-            <div class="card">
-              <div class="card-header">
-                Upload your captures
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Select and upload your :</h5>
-                <input type="file" (change)="uploadImage($event)" accept=".png,.jpg" />
-                <!-- <button type="button" (click)="uploadImages($event)">Upload</button> -->
-                <br><br>
-                <br>
-                <div class="btn-group" role="group" *ngIf="uploadState | async; let state">
-                  <button type="button" class="btn btn-primary" (click)="task.pause()"
-                    [disabled]="state === 'paused'">Pause</button>
-                  <button type="button" class="btn btn-primary" (click)="task.cancel()"
-                    [disabled]="!(state === 'paused' || state ==='running')">Cancel</button>
-                  <button type="button" class="btn btn-primary" (click)="task.resume()"
-                    [disabled]="state === 'running'">Resume</button>
+            <div class="card  peach-gradient-rgba">
+              <div class="container">
+                <div class="d-flex justify-content-center" style="padding-top: 25px;">
+                  <h3 class="title">User Bio</h3>
                 </div>
-                <br><br>
-                <div *ngIf="downloadURL | async; let downloadSrc" class="alert alert-info" role="alert">
-                  File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
-                </div>
+                <p style="padding-left: 30px;padding-bottom: 30px;text-align: justify;padding-right: 30px;"> {{this.Log.description}} </p>
               </div>
             </div>
-
-            <div class="container" style="background-color:#FFF">
-              <h3 class="title" style="padding-top:50px;padding-left:50px" >Description</h3>
-              <p style="padding-left: 50px;padding-bottom: 50px"> {{this.Log.description}} </p>
+ 
+            <div class="card peach-gradient-rgba">
+              <div class="d-flex justify-content-center" style="padding-top: 25px;">
+                <h3 class="title">Profile Information</h3>
+              </div>
+              <div style="padding-left: 30px;padding-bottom: 30px;text-align: justify;padding-right: 30px;">
+                  <div class="row">
+                      <div class="col-lg-4">
+                          <label><h5>User Name</h5></label>
+                      </div>
+                      <div class="col-8">
+                          <h5>:  {{this.Log.firstName}} {{this.Log.lastName}}</h5>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-lg-4">
+                        <label><h5>Email Address</h5></label>
+                      </div>
+                      <div class="col-8">
+                          <h5>:  {{this.Log.email}}</h5>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-lg-4">
+                        <label><h5>Gender</h5></label>
+                      </div>
+                      <div class="col-8">
+                          <h5>:  {{this.Log.gender}} </h5>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-lg-4">
+                        <label><h5>Age</h5></label>
+                      </div>
+                      <div class="col-8">
+                          <h5>:  {{this.Log.age}} </h5>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-lg-4">
+                        <label><h5>Contact</h5></label>
+                      </div>
+                      <div class="col-8">
+                          <h5>:  {{this.Log.contact}}</h5>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-lg-4">
+                        <label><h5>District</h5></label>
+                      </div>
+                      <div class="col-8">
+                          <h5>:  {{this.Log.district}}</h5>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-lg-4">
+                        <label><h5>City</h5></label>
+                      </div>
+                      <div class="col-8">
+                          <h5>:  {{this.Log.city}}</h5>
+                      </div>
+                  </div>
             </div>
           </div>
+
+
+          <div class="card">
+            <div class="card-header">
+              Upload your captures
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Select and upload your :</h5>
+              <input type="file" (change)="uploadImage($event)" accept=".png,.jpg" />
+              <!-- <button type="button" (click)="uploadImages($event)">Upload</button> -->
+              <br><br>
+              <br>
+              <div class="btn-group" role="group" *ngIf="uploadState | async; let state">
+                <button type="button" class="btn btn-primary" (click)="task.pause()"
+                  [disabled]="state === 'paused'">Pause</button>
+                <button type="button" class="btn btn-primary" (click)="task.cancel()"
+                  [disabled]="!(state === 'paused' || state ==='running')">Cancel</button>
+                <button type="button" class="btn btn-primary" (click)="task.resume()"
+                  [disabled]="state === 'running'">Resume</button>
+              </div>
+              <br><br>
+              <div *ngIf="downloadURL | async; let downloadSrc" class="alert alert-info" role="alert">
+                File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
+              </div>
+            </div>
+          </div>
+
+
         </div>
-      </div>
+    </div>
 </div>
+
+
+<!-- -------------------------------------------------------place a new booking pop up form-------------------------------------------------------------------- -->
+  
+    
+    <div mdbModal #frame="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+      <div class="modal-dialog modal-dialog-centered  modal-notify modal-info" role="document">
+          <div class="modal-content">
+      
+              <div class="modal-header">
+                  <p class="heading lead">Image Preview</p>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+                      <span aria-hidden="true" class="white-text">×</span>
+                  </button>
+              </div>  
+
+              <div class="modal-body">
+                  
+              </div>
+          </div>
+      </div>
+    </div>

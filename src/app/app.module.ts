@@ -40,7 +40,6 @@ import { BookingComponent } from './eventProf/booking/booking.component';
 import { ProfMainComponent } from './eventProf/prof-main/prof-main.component';
 import { ProfSidebarComponent } from './eventProf/prof-sidebar/prof-sidebar.component';
 import { ProfEditProfileComponent } from './eventProf/prof-edit-profile/prof-edit-profile.component';
-import { ProfBookingComponent } from './eventProf/prof-booking/prof-booking.component';
 
 //Website Components - Admin
 import { SidebarComponent } from './Admin/sidebar/sidebar.component';
@@ -68,6 +67,8 @@ import { SearchComponent } from './SharedComponents/search/search.component';
 import { SearchResultComponent } from './SharedComponents/search-result/search-result.component';
 import { LogComponent } from './Admin/log/log.component';
 import { ExtrasComponent } from './Admin/extras/extras.component';
+import { ProfDeleteComponent } from './eventProf/prof-delete/prof-delete.component';
+import { MessageService } from './BackendConfig/message.service';
 
 
 
@@ -102,14 +103,14 @@ import { ExtrasComponent } from './Admin/extras/extras.component';
     ProfMainComponent,
     ProfSidebarComponent,
     ProfEditProfileComponent,
-    ProfBookingComponent,
+    MessagingComponent,
+    BookingComponent,
+    ProfDeleteComponent,
+    SearchComponent,
+    SearchResultComponent,
     SearchComponentComponent,
     DisplayPageComponent,
     DisplayPageBarComponent,
-    MessagingComponent,
-    BookingComponent,
-    SearchComponent,
-    SearchResultComponent,
 
     //EventProfRequestComponent,
 
@@ -153,6 +154,7 @@ import { ExtrasComponent } from './Admin/extras/extras.component';
     GetUserService,
     ContactService,
     RecMsgsService,
+    MessageService,
     MatSort,
   ],
   bootstrap: [AppComponent],
