@@ -91,7 +91,7 @@ export class ProfileInsightsComponent implements OnInit {
         message : '' ,
         date : this.date ,
         receiverType : '',
-        receiver : ' '
+        receiver : ''
     }
   }
 

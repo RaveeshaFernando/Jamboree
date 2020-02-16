@@ -24,13 +24,13 @@ import { EditUserComponent } from "./User/edit-user/edit-user.component";
 import { BookingHistoryComponent } from "./User/booking-history/booking-history.component";
 import { UserDeleteComponent } from './User/user-delete/user-delete.component';
 
-import { ProfBookingComponent } from "./eventProf/prof-booking/prof-booking.component";
+
+//event prof 
 import { ProfEditProfileComponent } from "./eventProf/prof-edit-profile/prof-edit-profile.component";
 import { ProfMainComponent } from "./eventProf/prof-main/prof-main.component";
 import { EventProfRequestComponent } from './User/event-prof-request/event-prof-request.component';
 import { MessagingComponent } from './eventProf/messaging/messaging.component';
 import { BookingComponent    } from "./eventProf/booking/booking.component";
-import { SearchComponentComponent } from './SharedComponents/search-component/search-component.component';
 
 import { SearchResultComponent } from "./SharedComponents/search-result/search-result.component";
 import { FilterPageComponent } from './Dynamic/filter-page/filter-page.component';
@@ -71,13 +71,10 @@ const routes: Routes = [
 
   { path: 'EventMain',            component:ProfMainComponent},
   { path: 'EventEditProfile',     component:ProfEditProfileComponent},
-  { path: 'EventBooking',         component:ProfBookingComponent},
   { path: 'Messaging',            component:MessagingComponent},
   { path:  'Booking',             component:BookingComponent},
   { path: 'EventMain', component: ProfMainComponent },
   { path: 'EventEditProfile', component: ProfEditProfileComponent },
-  { path: 'EventBooking', component: ProfBookingComponent },
-  {path: 'Search', component: SearchComponentComponent},
   {path: 'SearchResult/:id', component: SearchResultComponent}
 
 ];

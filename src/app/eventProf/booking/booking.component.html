@@ -20,10 +20,10 @@
                 <th> Completed status by event professional</th>
               </tr>
               <tr *ngFor = "let booking of bookinglist">
-                <td>{{booking.date.seconds * 1000 | date: 'yyyy-MM-dd'}}</td>
-                <td>{{booking.userDisplayName}}</td>
+                <td>{{booking.Date}}</td>
+                <td>{{booking.userName}}</td>
                 <td>{{booking.status}}
-                  <div *ngIf="booking.status == 'pending'" >
+                  <div *ngIf="booking.status == 'null'" >
                     <button (click)="changeStatus(booking.bid,'accepted')" type="button" style="border-width: 5px; padding: 4px;" class="btn btn-success">Accept</button>
                     <button (click)="changeStatus(booking.bid,'rejected')" type="button" style="border-width: 5px; padding: 4px;" class="btn btn-danger">Reject</button>
                   </div>

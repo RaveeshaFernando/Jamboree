@@ -12,7 +12,7 @@ export interface booking {
   bid: string;
   date :string;
   eventType: string;
-  userDisplayName: string;
+  userName: string;
   profId: string;
   status: string;
   userComplete: string;

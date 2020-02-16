@@ -41,7 +41,6 @@ import { MessageComponent } from './User/message/message.component';
 import { ProfMainComponent } from './eventProf/prof-main/prof-main.component';
 import { ProfSidebarComponent } from './eventProf/prof-sidebar/prof-sidebar.component';
 import { ProfEditProfileComponent } from './eventProf/prof-edit-profile/prof-edit-profile.component';
-import { ProfBookingComponent } from './eventProf/prof-booking/prof-booking.component';
 
 //Website Components - Admin
 import { SidebarComponent } from './Admin/sidebar/sidebar.component';
@@ -69,6 +68,7 @@ import { SearchComponent } from './SharedComponents/search/search.component';
 import { SearchResultComponent } from './SharedComponents/search-result/search-result.component';
 import { LogComponent } from './Admin/log/log.component';
 import { ExtrasComponent } from './Admin/extras/extras.component';
+import { MessageService } from './BackendConfig/message.service';
 import { FilterPageComponent } from './Dynamic/filter-page/filter-page.component';
 
 
@@ -107,11 +107,13 @@ import { FilterPageComponent } from './Dynamic/filter-page/filter-page.component
     ProfMainComponent,
     ProfSidebarComponent,
     ProfEditProfileComponent,
-    ProfBookingComponent,
+    MessagingComponent,
+    BookingComponent,
+    SearchComponent,
+    SearchResultComponent,
     SearchComponentComponent,
     DisplayPageComponent,
     DisplayPageBarComponent,
-    MessagingComponent,
     SearchComponent,
     SearchResultComponent,
     FilterPageComponent,
@@ -159,6 +161,7 @@ import { FilterPageComponent } from './Dynamic/filter-page/filter-page.component
     GetUserService,
     ContactService,
     RecMsgsService,
+    MessageService,
     MatSort,
   ],
   bootstrap: [AppComponent],
