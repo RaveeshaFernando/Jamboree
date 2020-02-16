@@ -1,11 +1,19 @@
 export class Booking {
     id:string;
-    date : string;
-    eventComplete : boolean;
-    eventDisplayName : string;
-    eventType : string;
-    status : string;
-    userComplete : boolean;
-    userDisplayName : string;
-    userId : string;
+    Date : string;
+    cancel: null;
+    city: string;
+    description: string;
+    district: string;
+    eName: string;
+    eventComplete: null;
+    eventType: string;
+    profId: string;
+    profMail: string;
+    profName: string;
+    status: string;
+    userComplete: string;
+    userId: string;
+    userMail: string;
+    userName: string;
 }
