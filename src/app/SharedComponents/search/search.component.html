@@ -24,7 +24,7 @@
         </div>   -->
     
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="padding-top: 15px;">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="padding-top: 15px; margin: auto;">
             <form class="form-inline mr-auto" style="padding-right: 20px;">
                 <div class="md-form my-0">
                     <input [(ngModel)]="value" (keyup)="onType($event)" class="form-control" placeholder="Search here..." type="text"style="width:150px;" >
@@ -36,13 +36,15 @@
         </div>
 
         <!-- <div class="dropdown-menu dropdown drop" role="menu"> -->
-            <ul *ngIf="isVisible" class="dropdown drop"   >
+        <div class="card" ">
+            <ul *ngIf="isVisible" class="dropdown drop" >
                 <li *ngFor="let user of filtered" class="dropdown-item" >
                     <a class="divider">
                         <span class="user" (click)="onItemClick(user.displayName)">{{user.displayName}}</span>
                     </a>
                 </li>
-            </ul>    
+            </ul> 
+        </div>   
         <!-- </div> -->
         
 
