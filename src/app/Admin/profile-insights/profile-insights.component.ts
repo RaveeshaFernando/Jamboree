@@ -63,7 +63,7 @@ export class ProfileInsightsComponent implements OnInit {
 
   onSubmit(form : NgForm){ 
     let data = form.value ;
-    console.log("sucess");
+    console.log("success");
     this.firestore.collection('Contact').add(data);
     if(form.value.receiverType == "Private"){
       this.firestore.collection('Log').add({adminId:this.Log.uid, adminName:this.Log.displayName,action :"Message Sent" , log:"New message has been sent to the user with the email address " + form.value.receiver, time : this.date });

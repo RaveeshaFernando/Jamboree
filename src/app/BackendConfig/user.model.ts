@@ -15,4 +15,5 @@ export class User {
   city : string ; 
   gender: string ;
   eventType: string;
+  date : any ;
 }

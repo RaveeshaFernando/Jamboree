@@ -6,6 +6,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument,
 import { AuthService } from '../../BackendConfig/auth.service' ;
 import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/BackendConfig/user.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-display-page',
@@ -48,5 +49,28 @@ export class DisplayPageComponent implements OnInit {
       });
     }
   }
-  
+
+  onSubmit(form : NgForm){
+    console.log("avaaaaa methanata");
+    let data = Object.assign({}, form.value) ;
+    this.firestore.collection('Booking').add(data);
+    // this.firestore.collection('Booking').add({
+    //   userId:this.Log.uid,
+    //   profId:this.user.uid,
+    //   userComplete:false,
+    //   eventComplete:false,
+    //   status:"pending",
+    //   cancel:false ,
+      // userName : data.userName ,
+      // profName : data.profName ,
+      // userMail : data.userMail ,
+      // profMail : data.profMail ,
+      // eventName : data.eName ,
+      // eventDistrict : data.district ,
+      // eventLocation : data.city ,
+      // eventDate : (new Date()).toLocaleString ,
+      // note : data.description
+    // });
+    // console.log(form);
+  }
 }
