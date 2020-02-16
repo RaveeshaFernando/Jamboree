@@ -94,7 +94,9 @@ export class EventProfRequestComponent implements OnInit {
         displayName: '',
         age : '',
         city : '', 
-        gender: '' 
+        gender: '' ,
+        eventType: '',
+        date : ''
         
     }
   }

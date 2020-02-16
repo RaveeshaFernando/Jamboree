@@ -4,66 +4,57 @@
     <img src="../../../assets/img/Gallery/background1.jpg" alt="placeholder" class="bg-img">
     <div class="overlay"></div>
 
-    <div class="d-flex justify-content-center" style="padding-bottom: 30px;padding-right: 30px;padding-top: 30px;">
-        <div class="col-lg-6 rounded" style="color: #cfd9df; background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%); padding-right: 10px;">
+    <div class="d-flex justify-content-center" style="padding-bottom: 30px;padding-right: 30px;padding-top: 30px;" *ngIf="status">
+        <div class="col-lg-8 rounded" style="color: #cfd9df; background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%); padding-right: 10px;">
             <div class="text-center">
                 <h3><strong>Pending</strong></h3>
             </div>
             
 
-            <table class="table table-striped">
+            <table class="table table-striped" >
                 <thead class="text-white" style="background-color: #cfd9df;">
                     <tr>
                         <th> Event Date </th>
                         <th> Event Name </th>
-                        <th> Event Proffessional Name </th>
-                        <th> Requested Date </th>
-                        <th> Event Complete </th>
+                        <th> Event Type </th>
+                        <!-- <th> Requested Date </th> -->
+                        <th> City </th>
+                        <th> Event Professional </th>
+                        <th> Event Status </th>
 
-                        
-                        
-                        
                     </tr>
                 </thead>
-                <tbody class="white-text" style="background-color:#cfd9df;">
+                <tbody class="white-text" style="background-color:#6a7981;">
                     <!-- <td>xxxxxxxxxxxxxxxxx</td> -->
-                    <tr *ngFor= "let booking of getBookingList">
-                        <td> {{booking.date.toDate()}} </td>
-                        <td> {{booking.eventType}}  </td>
-                        <td> {{booking.eventDisplayName}}  </td>
-                        <td> {{currentDate | date : 'yyyy-MM-dd'}} </td>
-                        
-                        <!-- <td> 
-                            <a class="btn-sm text-danger "  class="waves-light" data-toggle="modal" data-target="#basicExample"(click)="frame.show()" mdbWavesEffect (click)="onEdit(user)"> 
-                                <i class="material-icons" style="padding: 8px;background-color: green;" (click)="onComplete(user)">done</i>
-                            </a> 
-                            <a class="btn-sm text-danger"> 
-                                <i class="material-icons" style="padding: 8px;background-color:darkred;" (click)="onCancel(user.id)" >clear</i>
-                            </a >
-                        </td> -->
+                    <tr *ngFor= "let booking of getBookingList;i as index"  >
+                        <!-- <div > -->
+                        <td > {{booking.Date}}</td>
+                        <td *ngIf="!booking.userComplete"> {{booking.eName}}  </td>
+                        <td *ngIf="!booking.userComplete"> {{booking.eventType}}  </td>
+                        <td *ngIf="!booking.userComplete"> {{booking.city}} </td>
+                        <td *ngIf="!booking.userComplete"> {{booking.profName}} </td>
+                        <td *ngIf="!booking.userComplete"> {{booking.status}} </td>
 
-                        <td>
+                        <td *ngIf="!booking.userComplete">
                             <!-- <div *ngIf="this.flag;then complete else cancel"></div> -->
                                 <ng-template #cancel>cancel</ng-template>
                                 <ng-template #complete>complete</ng-template>
 
-                                <div *ngIf="this.flag;then complete else cancel"></div>
-                                    <ng-template #complete>
-                                        <a class="btn-sm text-danger "  class="waves-light" data-toggle="modal" data-target="#basicExample"(click)="frame.show()" mdbWavesEffect (click)="onEdit(user)"> 
+                                <div ></div>
+                                    <div *ngIf="flag[i]">
+                                        <a class="btn-sm text-danger "> 
                                             <!-- <i class="fas fa-check-square" style="padding: 10px;padding-left: 7px;padding-right: 7px;"></i> -->
-                                            <i class="material-icons" style="padding: 8px;background-color: green;" (click)="onComplete(user)">done</i>
+                                            <i class="material-icons rounded rounded" style="padding: 8px;background-color:olivedrab;" (click)="onComplete(booking.id)">done</i>
                                         </a> 
-                                    </ng-template>
-                                    <ng-template #cancel>
+                                    </div>
+                                    <div *ngIf="!flag[i]">
                                         <a class="btn-sm text-danger"> 
                                             <!-- <i class="fas fa-trash-alt btn-danger rounded " (click)="onDelete(user.id)" style="padding: 12px;"> </i> -->
                                             <i class="material-icons" style="padding: 8px;background-color:darkred;" (click)="onCancel(user.id)" >clear</i>
                                         </a >
-
-                                    </ng-template>
+                                    </div>
                         </td>
-            
-                        
+                        <!-- </div> -->
                     </tr>
                 </tbody>
             </table>
@@ -73,7 +64,7 @@
     </div>
 
     <div class="d-flex justify-content-center" style="padding-bottom: 30px;padding-right: 30px;padding-top: 30px;">
-        <div class="col-lg-6 rounded" style="color: #cfd9df; background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%); padding-right: 10px;">
+        <div class="col-lg-8 rounded" style="color: #cfd9df; background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%); padding-right: 10px;">
             <div class="text-center">
                 <h3><strong>Completed</strong></h3>
             </div>
@@ -84,19 +75,26 @@
                     <tr>
                         <th> Event Date </th>
                         <th> Event Name </th>
-                        <th> Event Proffessional Name </th>
-                        <th> Requested Date </th>
-                        
-                        
-                        <th></th>
-                        <th></th>
+                        <th> Event Type </th>
+                        <th> City </th>
+                        <th> Event Professional </th>
+                        <!-- <th> Event Status </th> -->
+
+
                     </tr>
                 </thead>
-                <tbody class="white-text" style="background-color:#cfd9df;">
+                <tbody class="white-text" style="background-color:#6a7981;">
                     <!-- <td>xxxxxxxxxxxxxxxxx</td> -->
                     <tr *ngFor= "let booking of getBookingList">
-                        <th>xxxxxxxxxx</th>
-                        <th>hhhhhhhh</th>
+                        
+                            <td *ngIf="booking.userComplete"> {{booking.Date}} </td>
+                            <td *ngIf="booking.userComplete"> {{booking.eName}}  </td>
+                            <td *ngIf="booking.userComplete"> {{booking.eventType}}  </td>
+                            <td *ngIf="booking.userComplete"> {{booking.city}} </td>
+                            <td *ngIf="booking.userComplete"> {{booking.profName}} </td>
+    
+                          
+                        
                         
                     </tr>
                 </tbody>

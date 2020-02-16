@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProfDeleteComponent } from './prof-delete.component';
+import { FilterPageComponent } from './filter-page.component';
 
-describe('ProfDeleteComponent', () => {
-  let component: ProfDeleteComponent;
-  let fixture: ComponentFixture<ProfDeleteComponent>;
+describe('FilterPageComponent', () => {
+  let component: FilterPageComponent;
+  let fixture: ComponentFixture<FilterPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProfDeleteComponent ]
+      declarations: [ FilterPageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProfDeleteComponent);
+    fixture = TestBed.createComponent(FilterPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

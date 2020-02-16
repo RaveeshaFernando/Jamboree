@@ -35,6 +35,7 @@ import { UserSidebarComponent } from "./User/Shared/user-sidebar/user-sidebar.co
 import { UserDeleteComponent } from './User/user-delete/user-delete.component';
 import { EventProfRequestComponent } from './User/event-prof-request/event-prof-request.component';
 import { BookingComponent } from './eventProf/booking/booking.component';
+import { MessageComponent } from './User/message/message.component';
  
 //Website Components - Event Prof
 import { ProfMainComponent } from './eventProf/prof-main/prof-main.component';
@@ -67,8 +68,9 @@ import { SearchComponent } from './SharedComponents/search/search.component';
 import { SearchResultComponent } from './SharedComponents/search-result/search-result.component';
 import { LogComponent } from './Admin/log/log.component';
 import { ExtrasComponent } from './Admin/extras/extras.component';
-import { ProfDeleteComponent } from './eventProf/prof-delete/prof-delete.component';
 import { MessageService } from './BackendConfig/message.service';
+import { FilterPageComponent } from './Dynamic/filter-page/filter-page.component';
+
 
 
 
@@ -95,6 +97,8 @@ import { MessageService } from './BackendConfig/message.service';
     UserSidebarComponent,
     UserDeleteComponent,
     EventProfRequestComponent,
+    BookingComponent,
+    MessageComponent,
 
     //Extra
     ProfileComponent,
@@ -105,12 +109,15 @@ import { MessageService } from './BackendConfig/message.service';
     ProfEditProfileComponent,
     MessagingComponent,
     BookingComponent,
-    ProfDeleteComponent,
     SearchComponent,
     SearchResultComponent,
     SearchComponentComponent,
     DisplayPageComponent,
     DisplayPageBarComponent,
+    SearchComponent,
+    SearchResultComponent,
+    FilterPageComponent,
+    
 
     //EventProfRequestComponent,
 

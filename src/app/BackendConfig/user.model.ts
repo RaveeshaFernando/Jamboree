@@ -14,4 +14,6 @@ export class User {
   age : string ;
   city : string ; 
   gender: string ;
+  eventType: string;
+  date : any ;
 }

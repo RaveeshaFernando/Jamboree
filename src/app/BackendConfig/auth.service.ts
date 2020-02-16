@@ -16,6 +16,7 @@ export class AuthService {
   userData: any;
   Log : any ;
   userSubject = new BehaviorSubject<Boolean>(false);
+  date = (new Date()).toLocaleString();
 
   public get authenticated() : Observable<Boolean> {
     return this.userSubject.asObservable();
@@ -60,6 +61,7 @@ export class AuthService {
       .then((result) => {
         this.SendVerificationMail();
         this.SetUserData(result.user,fName,lName);
+        this.router.navigate(['']);
       }).catch((error) => {
         window.alert(error.message)
       })
@@ -100,7 +102,9 @@ export class AuthService {
       district: null ,
       age : null ,
       city : null , 
-      gender: null
+      gender: null,
+      eventType: null,
+      date : this.date 
     }
     return userRef.set(userData, {
       merge: true

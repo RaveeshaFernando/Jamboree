@@ -31,10 +31,10 @@ import { ProfMainComponent } from "./eventProf/prof-main/prof-main.component";
 import { EventProfRequestComponent } from './User/event-prof-request/event-prof-request.component';
 import { MessagingComponent } from './eventProf/messaging/messaging.component';
 import { BookingComponent    } from "./eventProf/booking/booking.component";
-import { ProfDeleteComponent } from './eventProf/prof-delete/prof-delete.component';
 
 import { SearchResultComponent } from "./SharedComponents/search-result/search-result.component";
-import { SearchComponentComponent } from './SharedComponents/search-component/search-component.component';
+import { FilterPageComponent } from './Dynamic/filter-page/filter-page.component';
+import { MessageComponent } from './User/message/message.component';
 
 
 
@@ -47,6 +47,7 @@ const routes: Routes = [
   // { path: 'search',               component: SearchComponentComponent},
 
   { path: 'DynamicUser/:id', component: DisplayPageComponent },
+  { path: 'FilterPage/:type' , component: FilterPageComponent},
 
 
   //Admin Panel
@@ -57,15 +58,16 @@ const routes: Routes = [
       { path: 'ActivityLog', component: LogComponent },
   
 
-
-  { path: 'UserEditUser',         component: EditUserComponent},
-  { path: 'UserBooking',          component: BookingHistoryComponent},
-  { path: 'UserDelete' ,          component: UserDeleteComponent},
-  { path: 'EventProfRequest' ,    component: EventProfRequestComponent},
+  //user
+  { path: 'UserEditUser', component: EditUserComponent},
+  { path: 'UserBooking', component: BookingHistoryComponent},
+  { path: 'UserDelete' , component: UserDeleteComponent},
+  { path: 'EventProfRequest', component: EventProfRequestComponent},
   { path: 'UserProfile', component: UserProfileComponent },
   { path: 'UserEditUser', component: EditUserComponent },
-  { path: 'UserBooking', component: BookingHistoryComponent },
+  //{ path: 'UserBooking',          component: BookingHistoryComponent },
   { path: 'UserDelete', component: UserDeleteComponent },
+  { path: 'Message', component:MessageComponent },
 
   { path: 'EventMain',            component:ProfMainComponent},
   { path: 'EventEditProfile',     component:ProfEditProfileComponent},
@@ -73,8 +75,6 @@ const routes: Routes = [
   { path:  'Booking',             component:BookingComponent},
   { path: 'EventMain', component: ProfMainComponent },
   { path: 'EventEditProfile', component: ProfEditProfileComponent },
-  { path: 'ProfileDelete', component: ProfDeleteComponent },
-  {path: 'Search', component: SearchComponentComponent},
   {path: 'SearchResult/:id', component: SearchResultComponent}
 
 ];
