@@ -94,7 +94,8 @@ export class UserDataComponent implements OnInit {
         age : '' ,
         city : '' , 
         gender: '' ,
-        eventType: ''
+        eventType: '',
+        date: ''
     }
   }
 }

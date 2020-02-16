@@ -76,6 +76,6 @@ export class SearchComponent implements OnInit {
     const userID = this.users.filter(user => user.displayName.toLowerCase().includes(this.value.toLowerCase()));
     console.log(userID)
 
-    this.router.navigate([`SearchResult/${userID[0].uid}`]);
+    this.router.navigate([`DynamicUser/${userID[0].uid}`]);
   }
 }

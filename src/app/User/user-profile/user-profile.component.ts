@@ -100,7 +100,8 @@ export class UserProfileComponent implements OnInit {
         age : '',
         city : '', 
         gender: '' ,
-        eventType: ''
+        eventType: '' ,
+        date : ''
         
     }
   }
