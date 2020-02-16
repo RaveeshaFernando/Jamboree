@@ -34,6 +34,7 @@ import { SearchComponentComponent } from './SharedComponents/search-component/se
 
 import { SearchResultComponent } from "./SharedComponents/search-result/search-result.component";
 import { FilterPageComponent } from './Dynamic/filter-page/filter-page.component';
+import { MessageComponent } from './User/message/message.component';
 
 
 
@@ -57,15 +58,16 @@ const routes: Routes = [
       { path: 'ActivityLog', component: LogComponent },
   
 
-
-  { path: 'UserEditUser',         component: EditUserComponent},
-  { path: 'UserBooking',          component: BookingHistoryComponent},
-  { path: 'UserDelete' ,          component: UserDeleteComponent},
-  { path: 'EventProfRequest' ,    component: EventProfRequestComponent},
+  //user
+  { path: 'UserEditUser', component: EditUserComponent},
+  { path: 'UserBooking', component: BookingHistoryComponent},
+  { path: 'UserDelete' , component: UserDeleteComponent},
+  { path: 'EventProfRequest', component: EventProfRequestComponent},
   { path: 'UserProfile', component: UserProfileComponent },
   { path: 'UserEditUser', component: EditUserComponent },
-  { path: 'UserBooking', component: BookingHistoryComponent },
+  //{ path: 'UserBooking',          component: BookingHistoryComponent },
   { path: 'UserDelete', component: UserDeleteComponent },
+  { path: 'Message', component:MessageComponent },
 
   { path: 'EventMain',            component:ProfMainComponent},
   { path: 'EventEditProfile',     component:ProfEditProfileComponent},

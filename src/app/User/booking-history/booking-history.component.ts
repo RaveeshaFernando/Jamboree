@@ -84,6 +84,7 @@ export class BookingHistoryComponent implements OnInit {
       this.Log = user;
       this.booking.getBooking().subscribe(data=>{
         this.userBooking=data;
+        console.log(data);
         if(this.shani){
           this.shani = false;
           this.userBooking.forEach(user=>{
