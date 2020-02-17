@@ -66,7 +66,7 @@ const routes: Routes = [
   { path: 'UserProfile', component: UserProfileComponent },
   { path: 'UserEditUser', component: EditUserComponent },
   //{ path: 'UserBooking',          component: BookingHistoryComponent },
-  { path: 'UserDelete', component: UserDeleteComponent },
+  //{ path: 'UserDelete', component: UserDeleteComponent },
   { path: 'Message', component:MessageComponent },
 
   { path: 'EventMain',            component:ProfMainComponent},
