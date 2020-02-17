@@ -71,6 +71,7 @@ import { ExtrasComponent } from './Admin/extras/extras.component';
 import { MessageService } from './BackendConfig/message.service';
 import { FilterPageComponent } from './Dynamic/filter-page/filter-page.component';
 import { FilterPageProComponent } from './Dynamic/filter-page-pro/filter-page-pro.component';
+import { AboutComponent } from './Dynamic/about/about.component';
 
 
 
@@ -119,6 +120,7 @@ import { FilterPageProComponent } from './Dynamic/filter-page-pro/filter-page-pr
     SearchResultComponent,
     FilterPageComponent,
     FilterPageProComponent,
+    AboutComponent,
     
 
     //EventProfRequestComponent,

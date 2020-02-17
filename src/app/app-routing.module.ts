@@ -36,6 +36,7 @@ import { SearchResultComponent } from "./SharedComponents/search-result/search-r
 import { FilterPageComponent } from './Dynamic/filter-page/filter-page.component';
 import { MessageComponent } from './User/message/message.component';
 import { FilterPageProComponent } from './Dynamic/filter-page-pro/filter-page-pro.component';
+import { AboutComponent } from './Dynamic/about/about.component';
 
 
 
@@ -45,7 +46,8 @@ const routes: Routes = [
   { path: 'Signin', component: SigninComponent },
   { path: 'Signup', component: SignupComponent },
   { path: 'Profile', component: ProfileComponent },
-  // { path: 'search',               component: SearchComponentComponent},
+  { path: 'About', component: AboutComponent},
+ 
 
   { path: 'DynamicUser/:id', component: DisplayPageComponent },
   { path: 'FilterPage/:type' , component: FilterPageComponent},
