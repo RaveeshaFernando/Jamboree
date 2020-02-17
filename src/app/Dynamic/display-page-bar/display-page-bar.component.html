@@ -1,23 +1,32 @@
-<div class="sidebar-fixed position-fixed depth view" style="background-color: #EEE;" >
-    <div class="text-center " style="padding-top: 100px;" >
-        <img src="{{this.Log.photoURL}}" class="rounded-circle" width="200px" height="200px" >
-        <br>
-        <h5> {{this.Log.displayName}} </h5>
-        <p> {{this.Log.email}} </p>
-    </div>
+<div class="sidebar-fixed position-fixed depth " style="padding-top: 5%; background-color: #eee;">              
+        <div class="text-center " style="padding-top: 10px;" >
+            <img src="{{this.Log.photoURL}}" class="rounded-circle" width="200px" height="200px" >
+            <br>
+            <h5> {{this.Log.displayName}} </h5>
+            <hr>
+            <p> {{this.Log.email}} </p>
+        </div>
+    
+    
+    
+        <div class="list-group list-group-flush" style="padding-top:50px;">
+            <div *ngIf="this.Log.userType==='Professional'" >
+               
+                <a [routerLink]="['/EventMain']" class="list-group-item list-group-item-action waves-effect" style="background-color:transparent;" mdbWavesEffect> 
+                    <mdb-icon fas icon="chart-pie" class="mr-3"></mdb-icon> <strong>Profile</strong> 
+                </a>
+               
+            </div>
+            <div *ngIf="this.Log.userType==='User'" >
+                
+                <a [routerLink]="['/UserProfile']" class="list-group-item list-group-item-action waves-effect" style="background-color:transparent;" mdbWavesEffect> 
+                    <mdb-icon fas icon="chart-pie" class="mr-3"></mdb-icon> <strong>Profile</strong> 
+                </a>
+               
 
-    <div class="list-group list-group-flush" style="padding-top:50px;">
-        <div *ngIf="this.Log.userType==='Professional'" >
-            <a [routerLink]="['/EventMain']" class="list-group-item list-group-item-action waves-effect" style="background-color:transparent;"> 
-                <mdb-icon fas icon="chart-pie" class="mr-3"></mdb-icon> <strong>Profile</strong> 
-            </a>
+            </div>
         </div>
-        <div *ngIf="this.Log.userType==='User'" >
-            <a [routerLink]="['/UserProfile']" class="list-group-item list-group-item-action waves-effect" style="background-color:transparent;"> 
-                <mdb-icon fas icon="chart-pie" class="mr-3"></mdb-icon> <strong>Profile</strong> 
-            </a>
-        </div>
-    </div>
+       
 </div>
 
 
