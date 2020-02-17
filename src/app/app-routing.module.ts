@@ -35,12 +35,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { SearchResultComponent } from "./SharedComponents/search-result/search-result.component";
 import { FilterPageComponent } from './Dynamic/filter-page/filter-page.component';
 import { MessageComponent } from './User/message/message.component';
-<<<<<<< HEAD
 import { ViewComponent } from "./Dynamic/view/view.component";
-=======
 import { FilterPageProComponent } from './Dynamic/filter-page-pro/filter-page-pro.component';
 
->>>>>>> c1d7322c948f0b3ad415e003b207a9f5e291e3d5
 
 
 
@@ -53,11 +50,8 @@ const routes: Routes = [
 
   { path: 'DynamicUser/:id', component: DisplayPageComponent },
   { path: 'FilterPage/:type' , component: FilterPageComponent},
-<<<<<<< HEAD
   {path: 'View/:id'         , component: ViewComponent},
-=======
   { path: 'FilterPagePro/:type' , component: FilterPageProComponent},
->>>>>>> c1d7322c948f0b3ad415e003b207a9f5e291e3d5
 
 
   //Admin Panel
