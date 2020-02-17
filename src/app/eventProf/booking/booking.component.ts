@@ -7,6 +7,8 @@ import { AuthService } from '../../BackendConfig/auth.service' ;
 import { map } from 'rxjs/operators'
 import { Action } from 'rxjs/internal/scheduler/Action';
 import { element } from 'protractor';
+import { BookingService } from "../../BackendConfig/booking.service";
+import { Booking } from "../../BackendConfig/booking.model";
 
 export interface booking {
   bid: string;
@@ -25,23 +27,25 @@ export interface booking {
   styleUrls: ['./booking.component.scss']
 })
 
-
-
-
 export class BookingComponent implements OnInit {
 
   flag: Boolean
   Log: any
   list:booking[];
+  BookList : Booking[]
 
   private bookDoc: AngularFirestoreCollection<booking>
   bookings: Observable<booking[]>
   bookinglist: booking[] = [] as booking[]
+  bookinglist2: booking[] = [] as booking[]
+
   tempBooking: booking = {} as booking;
 
   constructor(
     public authService : AuthService ,
-    private store: AngularFireStorage, private firestore: AngularFirestore) { 
+    private store: AngularFireStorage, 
+    private firestore: AngularFirestore,
+    private PlaceBooking : BookingService) { 
     
 
   }
@@ -56,10 +60,13 @@ export class BookingComponent implements OnInit {
         this.bookDoc.snapshotChanges().pipe(
           map(items=>items.map(
             bookings=>{
-              if(!flag && bookings.payload.doc.data().profId==this.Log.uid){
+              if(!flag && bookings.payload.doc.data().profId==this.Log.uid && bookings.payload.doc.data().status=="pending"){
                 const id = bookings.payload.doc.id;
                 this.bookinglist.push(bookings.payload.doc.data());
                 console.log(id);
+              }
+              else if(bookings.payload.doc.data().profId ==this.Log.uid && bookings.payload.doc.data().eventComplete=="false"  && bookings.payload.doc.data().status=="accepted"){
+                this.bookinglist2.push(bookings.payload.doc.data());
               }
             }
           ))
@@ -70,12 +77,24 @@ export class BookingComponent implements OnInit {
       });
     });
 
-    console.log(this.bookinglist);
+    // this.PlaceBooking.getRequests().subscribe(actionArray =>{
+    //   this.BookList = actionArray.map(item =>{
+    //     if(item.payload.doc.data().profId == this.Log.uid && item.payload.doc.data().eventComplete=="false"  && item.payload.doc.data().status=="accepted"){
+    //       return {
+    //         id : item.payload.doc.id,
+    //         ...item.payload.doc.data() 
+    //       } as Booking;
+    //     }  
+    //   })
+    // })
+
   }
 
   async changeStatus(id, status){
     await this.firestore.collection('Booking').doc(id).update({status: status });
     location.reload();
   }
+
+  
 
 }
