@@ -27,4 +27,7 @@ export class BookingService {
   getRejectedRequests(){
     return this.firestore.collection('Booking',ref=>ref.where("status","==","rejected")).snapshotChanges();
   }
+  getCompletedRequests(){
+    return this.firestore.collection('Booking',ref=>ref.where("status","==","completed")).snapshotChanges();
+  }
 }
