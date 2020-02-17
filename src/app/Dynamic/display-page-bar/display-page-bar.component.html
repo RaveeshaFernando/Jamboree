@@ -1,7 +1,8 @@
 <div class="sidebar-fixed position-fixed depth " style="padding-top: 5%; background-color: #eee;">              
-        <div class="text-center " style="padding-top: 10px;" >
-            <img src="{{this.Log.photoURL}}" class="rounded-circle" width="200px" height="200px" >
+        <div class="text-center view overlay zoom" style="padding-top: 10px;" >
+            <img src="{{this.Log.photoURL}}" class="rounded-circle" width="180px" height="180px" style="padding-left: 10px;"  >
             <br>
+            <hr>
             <h5> {{this.Log.displayName}} </h5>
             <hr>
             <p> {{this.Log.email}} </p>
@@ -19,9 +20,24 @@
             </div>
             <div *ngIf="this.Log.userType==='User'" >
                 
-                <a [routerLink]="['/UserProfile']" class="list-group-item list-group-item-action waves-effect" style="background-color:transparent;" mdbWavesEffect> 
-                    <mdb-icon fas icon="chart-pie" class="mr-3"></mdb-icon> <strong>Profile</strong> 
+                <a [routerLink]="['../weddings']" class="list-group-item list-group-item-action waves-effect" style="background-color:transparent;" waves-effect> 
+                    <mdb-icon fas icon="angle-right" class="mr-3"></mdb-icon> <strong>Weddings</strong> 
                 </a>                
+                <a [routerLink]="['../Music']" class="list-group-item list-group-item-action waves-effect" style="background-color:transparent;"  mdbWavesEffect>
+                    <mdb-icon fas icon="angle-right" class="mr-3"></mdb-icon> Parties
+                </a>
+                <a [routerLink]="['../co-operate']" class="list-group-item list-group-item-action waves-effect" style="background-color:transparent;" mdbWavesEffect>
+                    <mdb-icon fas icon="angle-right" class="mr-3"></mdb-icon> Co-operate Events
+                </a>
+                <a [routerLink]="['../sports']" class="list-group-item list-group-item-action waves-effect" style="background-color:transparent;" mdbWavesEffect>
+                    <mdb-icon fas icon="angle-right" class="mr-3"></mdb-icon> Sport Events
+                </a>
+                <a [routerLink]="['../get-togethers']" class="list-group-item list-group-item-action waves-effect" style="background-color:transparent;" mdbWavesEffect>
+                    <mdb-icon fas icon="angle-right" class="mr-3"></mdb-icon> Get-togethers
+                </a>
+                <a [routerLink]="['../all']" class="list-group-item list-group-item-action waves-effect" style="background-color:transparent;" mdbWavesEffect>
+                    <mdb-icon fas icon="angle-right" class="mr-3"></mdb-icon> All events
+                </a>
 
             </div>
         </div>
