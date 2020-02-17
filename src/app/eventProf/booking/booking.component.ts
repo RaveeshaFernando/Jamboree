@@ -40,6 +40,7 @@ export class BookingComponent implements OnInit {
   currentDate = new Date(); 
   dataSet: any;
   userKey;
+  today: Date = new Date();
 
   private bookDoc: AngularFirestoreCollection<booking>
   bookings: Observable<booking[]>
@@ -62,13 +63,6 @@ export class BookingComponent implements OnInit {
 
 
   ngOnInit() {
-
-    let today: Date = new Date();
-    let date2: Date =  new Date(2020,2,10);
-console.log(today.valueOf()/(1000*3600*24));
-
-    let dif = Math.abs(today.getTime() - date2.getTime());
-    console.log(dif/(24*3600*1000) );
 
     this.authService.GetUserData().subscribe(user => {
       this.userKey = user.uid

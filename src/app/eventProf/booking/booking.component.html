@@ -19,7 +19,7 @@
           <table class="table table-striped ">
             <thead class="" style="background-color: #eee">
                 <tr>
-                  <th> Date {{today}}</th>
+                  <th> Date</th>
                   <th> Event Name</th>
                   <th> Event Type</th>
                   <th> Customer Name</th>
@@ -66,7 +66,7 @@
                 <th> Customer Name</th>
                 <th> Location</th>
                 <th> Customer Mail</th>
-                <th> </th>
+                <th> status</th>
                 
               </tr>
               <tr *ngFor = "let data of dataSet">
@@ -79,7 +79,7 @@
                 </td>
                 <td> {{data.userMail}}</td>
                 <td>
-                  <div *ngIf="data.cancel == true " >
+                  <div *ngIf=" (data.cancel === 'true' ) &&  (data.Date | date:'dd/MM/yyyy') > (today | date:'dd/MM/yyyy' ) " >
                     <button (click)="changeStatus(data.bid,'cancelled')" type="button" style="border-width: 5px; padding: 4px;" class="btn btn-danger">Cancel</button>
                   </div>
                 </td>
