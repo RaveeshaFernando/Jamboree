@@ -70,6 +70,7 @@ import { LogComponent } from './Admin/log/log.component';
 import { ExtrasComponent } from './Admin/extras/extras.component';
 import { MessageService } from './BackendConfig/message.service';
 import { FilterPageComponent } from './Dynamic/filter-page/filter-page.component';
+import { FilterPageProComponent } from './Dynamic/filter-page-pro/filter-page-pro.component';
 
 
 
@@ -117,6 +118,7 @@ import { FilterPageComponent } from './Dynamic/filter-page/filter-page.component
     SearchComponent,
     SearchResultComponent,
     FilterPageComponent,
+    FilterPageProComponent,
     
 
     //EventProfRequestComponent,
