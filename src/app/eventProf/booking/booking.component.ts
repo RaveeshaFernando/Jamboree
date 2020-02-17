@@ -80,7 +80,7 @@ export class BookingComponent implements OnInit {
                 var newdate = bookings.payload.doc.data();
                 newdate.id=bookings.payload.doc.id;
                 
-                var bookDate=newdate.Date;
+                var bookDate=newdate.date;
                 var resBook = bookDate.split("-");
                 var resCur = this.currentDate.toISOString().split('T')[0];
                 var resCurr = resCur.split("-");

@@ -35,6 +35,7 @@ import { BookingComponent    } from "./eventProf/booking/booking.component";
 import { SearchResultComponent } from "./SharedComponents/search-result/search-result.component";
 import { FilterPageComponent } from './Dynamic/filter-page/filter-page.component';
 import { MessageComponent } from './User/message/message.component';
+import { FilterPageProComponent } from './Dynamic/filter-page-pro/filter-page-pro.component';
 
 
 
@@ -48,6 +49,7 @@ const routes: Routes = [
 
   { path: 'DynamicUser/:id', component: DisplayPageComponent },
   { path: 'FilterPage/:type' , component: FilterPageComponent},
+  { path: 'FilterPagePro/:type' , component: FilterPageProComponent},
 
 
   //Admin Panel
