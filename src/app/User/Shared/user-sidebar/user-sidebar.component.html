@@ -1,67 +1,29 @@
-<!-- <label class="hovarable" for="fileInput" style="padding-top: 90px;">
-        <img [src]="url ? url: 'https://www.w3schools.com/howto/img_avatar.png'">
-        <div class="background"></div>
-      </label>
-      <br/>
-          
-      <div class="list-group list-group-flush" style="padding-top:100px">
-          <a routerLink="../dashboard" class="list-group-item list-group-item-action waves-effect" mdbWavesEffect>
-            <mdb-icon fas icon="table" class="mr-3" style="color: #223;"></mdb-icon>Current Bookings
-          </a>
-          <a routerLink="../profile-insights" class="list-group-item list-group-item-action waves-effect" mdbWavesEffect>
-            <mdb-icon fas icon="table" class="mr-3" style="color: #223;"></mdb-icon>Booking History
-          </a>
-          <a class="list-group-item list-group-item-action waves-effect"  [routerLink]="['/edit-user']" mdbWavesEffect>
-            <mdb-icon fas icon="user" class="mr-3" style="color: #223;"></mdb-icon>Edit Profile
-          </a>
-          <a routerLink="../booking-info" class="list-group-item list-group-item-action waves-effect" mdbWavesEffect>
-            <mdb-icon fas icon="user" class="mr-3" style="color: #223;"></mdb-icon>Update Profile
-          </a>
-      </div>
-
-      <div class="button-container">
-        <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
-          <i class="fab fa-facebook-f" style="color: #223;"></i>
-        </button>
-        <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
-          <i class="fab fa-twitter" style="color: #223;"></i>
-        </button>
-        <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
-          <i class="fab fa-google-plus-g" style="color: #223;"></i>
-        </button>
-      </div> -->
-
-      <div class="sidebar-fixed position-fixed depth view" style="background-color: #eee;" >
-        <div class="text-center" style="padding-top: 100px;" >
-            <img src="{{this.Log.photoURL}}" alt="" class="rounded-circle" >
-            <!-- <img [src]="url ? url: 'https://www.w3schools.com/howto/img_avatar.png'" class="rounded-circle" > -->
-            <br>
-            <h4 class="collection">
-                
-                {{this.Log.firstName}} {{this.Log.lastName}}
-            </h4>
-            <p class="collection" >{{this.Log.email}}</p>        
-        </div>
-    
-        <div class="list-group list-group-flush" style="padding-top:50px;">
-            <a routerLink="../UserProfile" class="list-group-item list-group-item-action waves-effect"  style="background-color:transparent;" mdbWavesEffect>
-              <mdb-icon fas icon="user" class="mr-3" ></mdb-icon> Profile
-            </a>
-            <a routerLink="../UserEditUser" class="list-group-item list-group-item-action waves-effect" style="background-color:transparent;" mdbWavesEffect>
-              <mdb-icon fas icon="user" class="mr-3"></mdb-icon> Edit Profile
-            </a>
-            <a routerLink="../UserBooking" class="list-group-item list-group-item-action waves-effect" style="background-color:transparent;" mdbWavesEffect>
-              <mdb-icon fas icon="table" class="mr-3"></mdb-icon> Booking History
-            </a>
-            <!-- <a routerLink="../EventProfRequest" class="list-group-item list-group-item-action waves-effect" style="background-color:transparent;" mdbWavesEffect>
-              <mdb-icon fas icon="table" class="mr-3"></mdb-icon> EventProf Request 
-            </a> -->
-            <a routerLink="../UserDelete" class="list-group-item list-group-item-action waves-effect" style="background-color:transparent;" mdbWavesEffect>
-              <mdb-icon fas icon="table" class="mr-3">delete</mdb-icon> Delete Account
-            </a>
-            <a routerLink="../Message" class="list-group-item list-group-item-action waves-effect" style="background-color:transparent;" mdbWavesEffect>
-              <mdb-icon fas icon="table" class="mr-3">delete</mdb-icon> Messages
-            </a>
-            
-        </div>
+  <div class="sidebar-fixed position-fixed depth view" style="background-color: #eee;" >
+    <div class="text-center" style="padding-top: 100px;" >
+      <img src="{{this.Log.photoURL}}" alt="" class="rounded-circle" >
+        <br>
+          <h4 class="collection">
+            {{this.Log.firstName}} {{this.Log.lastName}}
+          </h4>
+          <p class="collection" >{{this.Log.email}}</p>        
     </div>
+    
+    <div class="list-group list-group-flush" style="padding-top:50px;">
+      <a routerLink="../UserProfile" class="list-group-item list-group-item-action waves-effect"  style="background-color:transparent;" mdbWavesEffect>
+        <mdb-icon fas icon="user" class="mr-3" ></mdb-icon> Profile
+      </a>
+      <a routerLink="../UserEditUser" class="list-group-item list-group-item-action waves-effect" style="background-color:transparent;" mdbWavesEffect>
+        <mdb-icon fas icon="pen" class="mr-3"></mdb-icon> Edit Profile
+      </a>
+      <a routerLink="../UserBooking" class="list-group-item list-group-item-action waves-effect" style="background-color:transparent;" mdbWavesEffect>
+        <mdb-icon fas icon="table" class="mr-3"></mdb-icon> Booking History
+      </a>
+      <a routerLink="../UserDelete" class="list-group-item list-group-item-action waves-effect" style="background-color:transparent;" mdbWavesEffect>
+        <mdb-icon fas icon="table" class="mr-3">delete</mdb-icon> Delete Account
+      </a>
+      <a routerLink="../Message" class="list-group-item list-group-item-action waves-effect" style="background-color:transparent;" mdbWavesEffect>
+        <mdb-icon fas icon="envelope" class="mr-3">delete</mdb-icon> Messages
+      </a>
+      
+    </div>
+  </div>

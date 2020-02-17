@@ -19,6 +19,7 @@ export interface booking {
   status: string;
   userComplete: string;
   eventComplete: string;
+  cancel: string;
 }
 
 @Component({
@@ -92,10 +93,14 @@ export class BookingComponent implements OnInit {
                 console.log("Ada Date : " + this.currentDate);
                 console.log(this.currentDate > bookDateNew)
 
-                if(this.currentDate > bookDateNew){this.firestore.collection('Booking').doc(newdate.id).update({cancel:"false"});}
-                else{this.firestore.collection('Booking').doc(newdate.id).update({cancel:"true"});}
+                if(this.currentDate > bookDateNew){
+                  this.firestore.collection('Booking').doc(newdate.id).update({cancel:"false"});
+                }
+                else{
+                  this.firestore.collection('Booking').doc(newdate.id).update({cancel:"true"});
+                }
               }
-              else if(!flag && bookings.payload.doc.data().profId==this.Log.uid && (bookings.payload.doc.data().status=="completed" || bookings.payload.doc.data().status=="rejected" || bookings.payload.doc.data().status=="cancelled")){
+              else if(!flag && bookings.payload.doc.data().profId==this.Log.uid && (bookings.payload.doc.data().status=="completed" || bookings.payload.doc.data().status=="rejected" || bookings.payload.doc.data().status=="cancelled" || bookings.payload.doc.data().cancel=="false" )){
                 const id = bookings.payload.doc.id;
                 this.bookinglist3.push(bookings.payload.doc.data()); 
               }
