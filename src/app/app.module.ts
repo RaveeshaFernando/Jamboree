@@ -71,6 +71,7 @@ import { ExtrasComponent } from './Admin/extras/extras.component';
 import { MessageService } from './BackendConfig/message.service';
 import { FilterPageComponent } from './Dynamic/filter-page/filter-page.component';
 import { ViewComponent } from './Dynamic/view/view.component';
+import { FilterPageProComponent } from './Dynamic/filter-page-pro/filter-page-pro.component';
 
 
 
@@ -119,17 +120,7 @@ import { ViewComponent } from './Dynamic/view/view.component';
     SearchResultComponent,
     FilterPageComponent,
     ViewComponent,
-    
-
-    //EventProfRequestComponent,
-
-    // SignInComponent,
-    // SignUpComponent,
-    // DashComponent,
-    // ForgotPasswordComponent,
-    // VerifyEmailComponent,
-    // Signup2Component,
-    // UserDeleteComponent,
+    FilterPageProComponent,
     
   ],
   imports: [

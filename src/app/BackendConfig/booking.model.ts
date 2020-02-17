@@ -1,5 +1,5 @@
 export class Booking {
-    id:string;
+    id: string;
     Date : string;
     cancel: string;
     city: string;
