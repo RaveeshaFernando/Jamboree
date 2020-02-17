@@ -94,6 +94,8 @@ export class BookingHistoryComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    
     let flag: boolean = false;
     this.authService.authenticated.subscribe(isAuthed => {
     this.flag = isAuthed;
