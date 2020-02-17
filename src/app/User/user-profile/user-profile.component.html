@@ -35,12 +35,12 @@
                     <div class="row">
                         <div class="col-lg-8">
                             <div class="row">
-                                <div class="col-md-4">
+                                <!-- <div class="col-md-4">
                                     <label>User Id</label>
                                 </div>
                                 <div class="col-md-8">
                                     <p>{{this.Log.uid}}</p>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="row">
                                 <div class="col-md-4">
@@ -222,10 +222,6 @@
 <!-- ------place a new booking pop up form -->
                         <div style="padding-left: 60px;padding-right: 60px ; margin-top: 100px; ">
                             <h4><strong>  </strong> </h4>
-                        
-
-                            <!-- <button type="button" mdbBtn color="primary" class="waves-light" data-toggle="modal" data-target="#basicExample"
-                            (click)="frame.show()" mdbWavesEffect>Book </button> -->
 
                             <div mdbModal #frame="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
                             <div class="modal-dialog modal-full-height modal-right modal-notify modal-info" role="document">
@@ -241,7 +237,8 @@
                                     <div class="modal-body">
                                         <div class="text-center">
                                             <mdb-icon far icon="file-alt" size="4x" class="mb-3 animated rotateIn"></mdb-icon>
-                                            <p> <strong> Apply here</strong></p>
+                                            <h4>Apply Here</h4>
+                                            <p> <strong> We will evaluate and get back to you.</strong></p>
                                         </div>
                                         <hr>
 
@@ -253,8 +250,11 @@
                                                     <input matInput placeholder=" displayName"  name="displayName" #displayName="ngModel" value="{{this.Log. displayName}}" [(ngModel)]="users.userData. displayName" required > 
                                                 </mat-form-field>
 
-                                                
-                                                <mat-form-field class="col-lg-7 col-md-7 col-sm-7">
+                                                <mat-form-field class="col-lg-6 col-md-6 col-sm-6">
+                                                    <input matInput placeholder="Mobile"  name="email" #contact="ngModel" value="{{this.Log.email}}" [(ngModel)]="users.userData.email" required> 
+                                                </mat-form-field>
+
+                                                <mat-form-field class="col-lg-6 col-md-6 col-sm-6">
                                                     <input matInput placeholder="Mobile"  name="contact" #contact="ngModel" value="{{this.Log.contact}}" [(ngModel)]="users.userData.contact" required> 
                                                 </mat-form-field>
                                 
@@ -314,7 +314,7 @@
                                 
                                 
                                                 <mat-form-field class="col-lg-12 col-md-12  col-sm-12">
-                                                    <textarea rows="1" cols="60" matInput placeholder="Description" name="description" #description="ngModel"  [(ngModel)]="users.userData.description" required> </textarea>
+                                                    <textarea rows="1" cols="60" matInput placeholder="Tell us about yourself and your experience include any portfolios or profiles you have" name="description" #description="ngModel"  [(ngModel)]="users.userData.description" required> </textarea>
                                                 </mat-form-field>             
                                                 <button type="submit" class="btn btn-lg btn-block btn-info orange"> Send Request </button>
                                         

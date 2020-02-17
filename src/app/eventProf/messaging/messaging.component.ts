@@ -9,9 +9,6 @@ import { AuthService } from 'src/app/BackendConfig/auth.service';
 import { MessageService } from 'src/app/BackendConfig/message.service';
 import { Message } from 'src/app/BackendConfig/message.model';
 
-
-
-
 @Component({
   selector: 'app-messaging',
   templateUrl: './messaging.component.html',
@@ -20,8 +17,9 @@ import { Message } from 'src/app/BackendConfig/message.model';
 export class MessagingComponent implements OnInit {
 
   flag: Boolean
-  Log: any
+  Log;
   list:Message[];
+  Msg : Contact[];
 
   constructor(
     private Rmsg : RecMsgsService,
@@ -35,15 +33,41 @@ export class MessagingComponent implements OnInit {
   getUserMessages : RecMsgs[];
 
   ngOnInit() {
-      this.Log = this.authService.GetUserData().subscribe(user => {
-        this.Log = user ;})
-   this.service.getMessage().subscribe(actionArray => {
-    this.list = actionArray.map(item => {
-      return{
-        // : item.payload.doc.id, 
-        ...item.payload.doc.data()
-      } as Message;
-    })
-    })
-  }
-  }
+      // this.authService.GetUserData().subscribe(user=>{
+      //   this.Log = user ;
+      // })
+
+      // this.firestore.collection('Contact',ref=> ref.where("Receiver","==","this.Log.email")).snapshotChanges().subscribe(actionArray=>{
+      //   this.Msg = actionArray.map(item=>{
+      //     return {
+      //      id : item.payload.doc.id,
+      //      ...item.payload.doc.data()
+      //     } as Contact
+      //     })
+      //   })
+      
+      
+      this.authService.GetUserData().subscribe(user => {
+        this.Log = user.email;
+
+      })
+      console.log(this.Log);        
+
+      // this.service.getMessage(this.Log)
+      // .pipe()
+      // .subscribe(
+      //   item => {
+      //   }
+      // );
+        
+    //   this.service.getMessage(this.Log).subscribe(actionArray => {
+      
+    //   this.list = actionArray.map(item => {
+    //   return{
+    //     // : item.payload.doc.id, 
+    //     ...item.payload.doc.data()
+    //   } as Message;
+    // })
+    // })
+  } 
+}

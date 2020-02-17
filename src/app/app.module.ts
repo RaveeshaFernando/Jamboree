@@ -70,6 +70,7 @@ import { LogComponent } from './Admin/log/log.component';
 import { ExtrasComponent } from './Admin/extras/extras.component';
 import { MessageService } from './BackendConfig/message.service';
 import { FilterPageComponent } from './Dynamic/filter-page/filter-page.component';
+import { ViewComponent } from './Dynamic/view/view.component';
 import { FilterPageProComponent } from './Dynamic/filter-page-pro/filter-page-pro.component';
 import { AboutComponent } from './Dynamic/about/about.component';
 
@@ -119,19 +120,9 @@ import { AboutComponent } from './Dynamic/about/about.component';
     SearchComponent,
     SearchResultComponent,
     FilterPageComponent,
+    ViewComponent,
     FilterPageProComponent,
     AboutComponent,
-    
-
-    //EventProfRequestComponent,
-
-    // SignInComponent,
-    // SignUpComponent,
-    // DashComponent,
-    // ForgotPasswordComponent,
-    // VerifyEmailComponent,
-    // Signup2Component,
-    // UserDeleteComponent,
     
   ],
   imports: [
