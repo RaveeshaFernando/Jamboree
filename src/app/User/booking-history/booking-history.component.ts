@@ -44,9 +44,6 @@ export class BookingHistoryComponent implements OnInit {
     return this.userSubject.asObservable();
   }
 
- 
-
-
   constructor(
     private users : UserService,
     private booking : BookingService,
@@ -92,6 +89,8 @@ export class BookingHistoryComponent implements OnInit {
       this.booking.getBooking().subscribe(data=>{
         this.userBooking=data;
         console.log(data);
+
+        //retrieve user bookings by userId and uid
         if(this.shani){
           this.shani = false;
           this.userBooking.forEach(user=>{
@@ -103,6 +102,7 @@ export class BookingHistoryComponent implements OnInit {
             }
           });
         }
+        //comparing currentdate and eventdate
           this.booking.getBooking().subscribe(date => {
             this.userBooking = date;
             if(this.shani2) {
@@ -161,6 +161,8 @@ export class BookingHistoryComponent implements OnInit {
     
   }
 
+  //booking complete button
+  //set userComplete as true.
   onComplete(id) {
     this.status=false;
     console.log(id)

@@ -9,6 +9,7 @@ export class User {
   displayName : string ;
   contact : string ;
   eType : string ;
+  eProf : string;
   description : string ;
   district : string ;
   age : string ;

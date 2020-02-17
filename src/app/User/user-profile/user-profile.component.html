@@ -121,25 +121,25 @@
                             (click)="frame.show()" mdbWavesEffect> Request Us  </button>
 
                             <div mdbModal #frame="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
-                            <div class="modal-dialog modal-full-height modal-right modal-notify modal-info" role="document">
-                                <div class="modal-content">
+                                <div class="modal-dialog modal-full-height modal-right modal-notify modal-info" role="document">
+                                    <div class="modal-content">
                             
-                                    <div class="modal-header">
+                                        <div class="modal-header">
                                         <p class="heading lead">Event Professional Request</p>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
                                             <span aria-hidden="true" class="white-text">×</span>
                                         </button>
-                                    </div>  
+                                        </div>  
 
-                                    <div class="modal-body">
-                                        <div class="text-center">
+                                        <div class="modal-body">
+                                            <div class="text-center">
                                             <mdb-icon far icon="file-alt" size="4x" class="mb-3 animated rotateIn"></mdb-icon>
                                             <p> <strong> Apply here</strong></p>
-                                        </div>
-                                        <hr>
+                                            </div>
+                                            <hr>
 
-                                        <div>
-                                            <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+                                            <div>
+                                                <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
                                                 <input type="hidden" name="id" #id="ngModel" [(ngModel)]="users.userData.id">
 
                                                 <mat-form-field class="col-lg-12 col-md-12 col-sm-12">
@@ -215,25 +215,25 @@
                                                     <h6 style="color: red;padding-top:10px">The highlighted fields are required* </h6> 
                                                 </div>
 
-                                            </form>
+                                                </form>
 
-                                        </div>
+                                            </div>
 
                                         
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             </div>
 
                         </div>
 
-<!-- -------------------------------------------------------place a new booking pop up form-------------------------------------------------------------------- -->
+<!-- ------place a new booking pop up form -->
                         <div style="padding-left: 60px;padding-right: 60px ; margin-top: 100px; ">
-                            <h4><strong> Book Now </strong> </h4>
+                            <h4><strong>  </strong> </h4>
                         
 
-                            <button type="button" mdbBtn color="primary" class="waves-light" data-toggle="modal" data-target="#basicExample"
-                            (click)="frame.show()" mdbWavesEffect>Book </button>
+                            <!-- <button type="button" mdbBtn color="primary" class="waves-light" data-toggle="modal" data-target="#basicExample"
+                            (click)="frame.show()" mdbWavesEffect>Book </button> -->
 
                             <div mdbModal #frame="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
                             <div class="modal-dialog modal-full-height modal-right modal-notify modal-info" role="document">
@@ -262,14 +262,14 @@
                                                 </mat-form-field>
 
                                                 
-                                                <mat-form-field class="col-lg-6 col-md-6 col-sm-6">
+                                                <mat-form-field class="col-lg-7 col-md-7 col-sm-7">
                                                     <input matInput placeholder="Mobile"  name="contact" #contact="ngModel" value="{{this.Log.contact}}" [(ngModel)]="users.userData.contact" required> 
                                                 </mat-form-field>
                                 
-                                                <div class="row">
-                                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                                        <select class="mdb-select md-form col-lg-12 custom-select" style="background-color: transparent;" name="eType" #eType="ngModel"  [(ngModel)]="users.userData.eType" required> 
-                                                            <option value="" disabled selected>Event Type</option>
+                                                
+                                                    <div class="col-lg-7 col-md-7 col-sm-7">
+                                                        <select class="mdb-select md-form col-lg-12 custom-select" style="background-color: transparent;" name="eProf" #eType="ngModel"  [(ngModel)]="users.userData.eProf" required> 
+                                                            <option value="" disabled selected>Event Professional</option>
                                                             <option value="Photographer">Photographer</option>
                                                             <option value="Videographer">Videographer</option>
                                                             <option value="Makeup Artist">Makeup Artist</option>
@@ -277,7 +277,16 @@
                                                             <option value="Catering">Catering</option>
                                                         </select>
                                                     </div>
-                                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                                    <div class="col-lg-7 col-md-7 col-sm-7">
+                                                        <select class="mdb-select md-form col-lg-12 custom-select" style="background-color: transparent;" name="eType" #eType="ngModel"  [(ngModel)]="users.userData.eType" required> 
+                                                            <option value="" disabled selected>Event Type</option>
+                                                            <option value="Wedding">Wedding</option>
+                                                            <option value="Parties">Parties</option>
+                                                            <option value="Cooperate">Cooperate</option>
+                                                            <option value="Catering">Catering</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-lg-7 col-md-7 col-sm-7">
                                                         <select class="mdb-select md-form col-lg-12 custom-select" style="background-color: transparent;" name="district" #district="ngModel" [(ngModel)]="users.userData.district" required> 
                                                             <option value="" disabled selected> Select District </option>
                                                             <option value="Ampara"> Ampara </option>
@@ -307,7 +316,7 @@
                                                             <option value="Vavniya"> Vavniya </option>
                                                         </select>
                                                     </div>
-                                                </div>
+                                                
                                 
                                 
                                                 <mat-form-field class="col-lg-12 col-md-12  col-sm-12">
@@ -330,7 +339,18 @@
                             </div>
 
                         </div>
+<!-- ------book now ends -->
                     </div>
+
+
+
+
+
+
+
+
+
+                    
                 </div>
             </div>
         </div>

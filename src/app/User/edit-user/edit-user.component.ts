@@ -154,7 +154,8 @@ export class EditUserComponent implements OnInit {
         age : '' , 
         gender: '',
         eventType: '',
-        date : '' 
+        date : '',
+        eProf : ''
 
     }
   }

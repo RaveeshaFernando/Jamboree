@@ -101,7 +101,8 @@ export class UserProfileComponent implements OnInit {
         city : '', 
         gender: '' ,
         eventType: '' ,
-        date : ''
+        date : '',
+        eProf: ''
         
     }
   }
@@ -128,21 +129,31 @@ export class UserProfileComponent implements OnInit {
     //   this.toastr.success('Saving...', 'lastname updated');
     // }
     if(data.eType!=""){
-      this.firestore.collection('users').doc(this.userData.uid).update({eType:data.eType});
+      //this.firestore.collection('users').doc(this.userData.uid).update({eType:data.eType});
       console.log(data.eType);
-      this.firestore.collection('userReq').doc(this.userData.uid).set({eType:data.eType,displayName:data.displayName,status:"pending",uid:this.userData.uid,contact:data.contact});
+      //this.firestore.collection('userReq').doc(this.userData.uid).set({eType:data.eType});
+      this.firestore.collection('userReq').doc(this.userData.uid).set({eType:data.eType,displayName:data.displayName,uid:this.userData.uid,status:"pending",contact:data.contact, eProf:data.eProf});
+      //this.firestore.collection('userReq').doc(this.userData.uid).set({displayName:data.displayName});
+      //this.firestore.collection('userReq').doc(this.userData.uid).set({eType:data.eType,displayName:data.displayName,status:"pending",uid:this.userData.uid,contact:data.contact});
+    }
+    if(data.email =""){
+      this.firestore.collection('users').doc(this.userData.uid).update({email:data.email+''});
+      
     }
     if(data.district!=""){
       this.firestore.collection('users').doc(this.userData.uid).update({district:data.district});
+      
     }
     if(data.description!=""){
       this.firestore.collection('users').doc(this.userData.uid).update({description:data.description});
+      
     }
-    if(data.displayName!=""){
-      this.firestore.collection('users').doc(this.userData.uid).update({displayName:data.displayName});
+    if(data.displayName=""){
+      this.firestore.collection('users').doc(this.userData.uid).update({displayName:data.displayName+''});
+    
     }
     if(data.contact!=""){
-      this.firestore.collection('users').doc(this.userData.uid).update({contact:data.contact});
+      this.firestore.collection('users').doc(this.userData.uid).update({contact:data.contact+''});
     }
     
 

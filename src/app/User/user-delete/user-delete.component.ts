@@ -83,7 +83,7 @@ export class UserDeleteComponent implements OnInit {
       .then((result) => {
         this.ngZone.run(() => {
           this.firestore.collection("users").doc(this.userData.uid).update({acStatus: false}).then(a => {
-            //this.route.navigate(['../Signin'])
+            this.route.navigate(['../Signin'])
             
           })
           //this.router.navigate(['']);
