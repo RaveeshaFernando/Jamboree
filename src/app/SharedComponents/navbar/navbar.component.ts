@@ -22,6 +22,7 @@ export class NavbarComponent implements OnInit {
       this.flag = isAuthed;
       this.Log = this.authService.GetUserData().subscribe(user => {
         this.Log = user
+        console.log(this.Log.userType)
       });
     });
   }

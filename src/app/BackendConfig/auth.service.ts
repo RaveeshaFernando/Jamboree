@@ -16,6 +16,7 @@ export class AuthService {
   userData: any;
   Log : any ;
   userSubject = new BehaviorSubject<Boolean>(false);
+  item: any;
 
   public get authenticated() : Observable<Boolean> {
     return this.userSubject.asObservable();
@@ -28,17 +29,38 @@ export class AuthService {
     public ngZone: NgZone             // NgZone service to remove outside scope warning
   ) {
 
-    this.afAuth.authState.subscribe(user => {
+
+
+    this.afAuth.authState.subscribe(user => { 
       if (user) {
+        console.log(this.userData);
         this.userData = user;
-        localStorage.setItem('user', this.userData.uid);
+        localStorage.setItem('user', user["uid"]);
+        console.log("lllll - ", localStorage.getItem('type'));
+
+        this.afs.collection('users').doc(localStorage.getItem('user')).snapshotChanges().subscribe(async userNew =>{
+          // var AA = userNew.id
+          localStorage.setItem('type', await userNew.payload.data()['userType']);
+          // console.log(AA);
+          console.log("hi3")
+          localStorage.setItem('type',this.Log.uid);
+          console.log('methenata enwa');
+         // console.log(JSON.stringify(userNew));
+          
+        });
+        
+  
+        //console.log(JSON.stringify(this.userData,null ,2));
         this.Log = localStorage.getItem('user');
         this.userSubject.next(true);
       } else {
+        console.log("else")
         localStorage.setItem('user', null);
+        localStorage.setItem('type',null);
         this.Log = localStorage.getItem('user');
         this.userSubject.next(false);
       }
+
     })
   }
 
@@ -95,7 +117,7 @@ export class AuthService {
       displayName: fName + ' ' + lName,
       userType: 'User',
       contact: null,
-      eType: null,
+      eType: null, 
       description: null,
       district: null ,
       age : null ,
@@ -110,10 +132,9 @@ export class AuthService {
     
   get isLoggedIn():boolean{
     var user =  localStorage.getItem('user') ; 
-    return (user !='null') ? true :false;
-  }
-
-
+    return (user !=="Professional") ? true :false;
+  } 
+  
 
   GetUserData(): Observable<any> {
     return this.afs.collection("users").doc(localStorage.getItem("user") as string).valueChanges().pipe(first());
@@ -123,7 +144,33 @@ export class AuthService {
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('user');
+      localStorage.removeItem('type');
       this.router.navigate(['Signin']);
     })
   }
+
+
+  isProfessional(){
+    return this.GetUserData().pipe(map(user => {
+      console.log(user.userType)
+      return (user.userType == 'Professional' ) ? true : false;
+    })); 
+  } 
+  
+  isAdmin(){
+    return this.GetUserData().pipe(map(user => {
+      console.log(user.userType)
+      return (user.userType == 'Admin' ) ? true : false;
+    })); 
+} 
+
+  isUser(){
+    return this.GetUserData().pipe(map(user => {
+      console.log(user.userType)
+      return (user.userType == 'User' ) ? true : false;
+    })); 
+  } 
+
+
+
 }

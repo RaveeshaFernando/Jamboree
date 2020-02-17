@@ -18,13 +18,13 @@
                     <a href="#contacts" class="nav-link"> <strong>Contact</strong> </a>
                 </li>
                 <li class="nav-item waves-light" mdbWavesEffect >
-                    <div *ngIf="this.Log.userType==='Admin'" >
+                    <div *ngIf="this.Log?.userType==='Admin'" >
                         <a [routerLink]="['/dashboard']" class="nav-link"> <strong>Dashboard</strong> </a>
                     </div>
-                    <div *ngIf="this.Log.userType==='Professional'" >
+                    <div *ngIf="this.Log?.userType==='Professional'" >
                         <a [routerLink]="['/EventMain']" class="nav-link"> <strong>Profile</strong> </a>
                     </div>
-                    <div *ngIf="this.Log.userType==='User'" >
+                    <div *ngIf="this.Log?.userType==='User'" >
                         <a [routerLink]="['/UserProfile/']" class="nav-link"> <strong>Profile</strong> </a>
                     </div>   
                 </li>
