@@ -11,11 +11,13 @@ export class UserService {
 
   constructor(private firestore : AngularFirestore) { }
 
-  //list documents from Firestore collection
   getUsers(){
     return this.firestore.collection('users').snapshotChanges();
   }
-  //delete users
+  getProfessionals(){
+    return this.firestore.collection('users',ref=>ref.where("userType","==","Professional")).snapshotChanges();
+  }
+  
   
 
 }

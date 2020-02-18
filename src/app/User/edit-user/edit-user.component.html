@@ -128,13 +128,19 @@
                       </div>
 
                     </div>
-
-                    <div class="d-flex justify-content-center">
+                    
+                    <div class="d-flex justify-content-center" style="padding: 10px; ">
                       <div class="col-lg-6">
                         <input type="submit" value="Update" class="btn-block btn btn-info">
                       </div>
                     </div>
-    
+                    <div class="d-flex justify-content-center" style="padding: 10px;">
+                      <div class="col-lg-6 t">
+                        
+                          <input  [routerLink]="['/UserDelete']" routerLinkActive="router-link-active" type="submit" value="Delete Account" class="btn-block btn red" >
+                        
+                      </div>
+                    </div>
                   </div>
                 </div>                
               </form>
@@ -144,122 +150,11 @@
       </div>
     </div>
   </div>
-
-
   
 
 
 
-  <div class="d-flex justify-content-center" style="padding-bottom: 30px;padding-right: 30px;padding-top: 30px;">
 
-    <div class="col-lg-7 rounded" style=" color:#223; background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);">
-
-      <div class="text-center">
-        <h4 class="mb-sm-0 pt-3" style="padding-top: 15px;color: #223;"> <strong>Edit User Profile </strong>  </h4>
-        <hr style="background-color: #eee;">
-      </div>
-
-      <div style="padding: 10px;">
-        
-        <form  #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
-
-          <input type="hidden" name="uid" #id="ngModel" [(ngModel)]="users.userData.id" *ngFor="let user of getUserList" class="collection">
-
-          <input type="file" (change)="uploadImage($event)" accept=".png,.jpg">
-          <br><br>
-        
-          <!-- <mat-form-field >
-            <input matInput placeholder="photo" name="photo" #photo="ngModel" value="{{this.Log.photoURL}}" [(ngModel)]="users.userData.photoURL" required >
-          </mat-form-field> -->
-  
-          <mat-form-field class="col-lg-6">
-          <input matInput disabled placeholder="First Name" name="firstName" #firstName="ngModel" value="{{this.Log.firstName}}" [(ngModel)]="users.userData.firstName" required >
-          </mat-form-field>
-
-          <mat-form-field class="col-lg-6 ">
-            <input matInput disabled placeholder="Last Name"  name="lastName" #lastName="ngModel" value="{{this.Log.lastName}}" [(ngModel)]="users.userData.lastName" required > 
-          </mat-form-field>
-
-          <mat-form-field class="col-lg-6 ">
-            <input matInput disabled placeholder="Email"  name="email" #email="ngModel" value="{{this.Log.email}}" [(ngModel)]="users.userData.email" required > 
-          </mat-form-field>
-
-          <mat-form-field class="col-lg-6 ">
-            <input matInput placeholder="Mobile"  name="contact" #contact="ngModel" value="{{this.Log.contact}}" [(ngModel)]="users.userData.contact">
-          </mat-form-field>
-
-          <!-- <mat-form-field class="col-lg-6 ">
-            <input matInput placeholder="District"  name="district" #contact="ngModel" value="{{this.Log.district}}" [(ngModel)]="users.userData.district"> 
-          </mat-form-field> -->
-
-          
-            <select class="mdb-select col-lg-6 custom-select" style="background-color: transparent;" name="district" #district="ngModel" [(ngModel)]="users.userData.district" > 
-                <option value="" disabled selected> Select District </option>
-                <option value="Ampara"> Ampara </option>
-                <option value="Anuradhapura"> Anuradhapura </option>
-                <option value="Badulla">Badulla</option>
-                <option value="Batticaloa"> Batticaloa </option>
-                <option value="Colombo"> Colombo </option>
-                <option value="Galle">Galle</option>
-                <option value="Gampaha"> Gampaha</option>
-                <option value="Hambantota"> Hambantota </option>
-                <option value="Jaffna"> Jaffna </option>
-                <option value="Kalutara"> Kalutara</option>
-                <option value="Kandy">Kandy</option>
-                <option value="Kegalle">Kegalle</option>
-                <option value="Kilinochchi"> Kilinochchi </option>
-                <option value="Kurunegala"> Kurunegala</option>
-                <option value="Mannar"> Mannar</option>
-                <option value="Matale"> Matale </option>
-                <option value="Matara">Matara</option>
-                <option value="Monaragala">Monaragala</option>
-                <option value="Mulathiv"> Mulathiv </option>
-                <option value="NuwaraEliya">Nuwara Eliya</option>
-                <option value="Polonnaruwa"> Polonnaruwa </option>
-                <option value="Puttalam"> Puttalam</option>
-                <option value="Ratnapura"> Ratnapura</option>
-                <option value="Trincomalee"> Trincomalee</option>
-                <option value="Vavniya"> Vavniya </option>
-            </select>
-      
-            <select class="mdb-select col-lg-6 custom-select" style="background-color: transparent;" name="gender" #gender="ngModel" [(ngModel)]="users.userData.gender" > 
-              <option value="" disabled selected> Gender </option>
-              <option value="Male"> Male </option>
-              <option value="Female"> Female </option>
-            </select> 
-
-            <mat-form-field class="col-lg-6 ">
-              <input matInput placeholder="Age"  name="age" #contact="ngModel" value="{{this.Log.age}}" [(ngModel)]="users.userData.age"> 
-            </mat-form-field>
-
-            <mat-form-field class="col-lg-6 ">
-              <input matInput placeholder="city"  name="city" #contact="ngModel" value="{{this.Log.city}}" [(ngModel)]="users.userData.city"> 
-            </mat-form-field>
-
-            <!-- mat-form-field class="col-lg-6 ">
-              <input type="password" matInput placeholder="Password" name="password" #password="ngModel" [(ngModel)]="users.userData.password" required > 
-            </mat-form-field>
-            <mat-form-field class="col-lg-6 ">
-              <input type="password" matInput placeholder="Re Enter Password" >
-            </mat-form-field-->
-
-            <div class="row">
-              <div class="col-lg-2">
-                  <ul *ngFor= "let user of getUserList">
-                    <a (click)="onEdit(user)"> 
-                      <button mat-button color="primary">Primary</button>
-                    </a>
-                  </ul>
-              </div>
-            </div>
-              
-            <input type="submit" value="Update" class="btn orange">
-            <!-- <button type="submit" class="btn btn-primary" (click)="updateData(profileForm.value)">Save changes</button> -->
-        </form>
-
-      </div>
-    </div>
-  </div>
 </div>   
 
           

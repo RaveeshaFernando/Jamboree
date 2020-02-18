@@ -15,54 +15,58 @@ export class FilterPageComponent implements OnInit {
 
   flag: Boolean
   Log: any
-  getUserList : User[] ;
+  getUserList: User[];
   filtered: User[];
   users: User[];
-  id: string;
+  type: string;
 
 
   constructor(
-    
+
     private route: ActivatedRoute,
-    private firestore : AngularFirestore,
-    private authService : AuthService,
+    private firestore: AngularFirestore,
+    private authService: AuthService,
     private eRef: ElementRef,
     private router: Router
-    ) {}
+  ) { }
 
   ngOnInit() {
 
-    
-     //Retrieve User Data From Firestore
+
+    //Retrieve User Data From Firestore
+
+
+    this.route.params.subscribe(params => {
+      this.type = params['type'];
+
+      // console.log(this.type);
+      this.fetchProfessionals(this.type);
+      // this.getUserList = this.filtered;
+    });
+
+  }
+
+  fetchProfessionals(type: string) {
     this.firestore.collection('users').snapshotChanges().subscribe(dataArray => {
-      this.users = dataArray.map(item =>{
-        return {id : item.payload.doc.id,
-        ...item.payload.doc.data() 
-        } as User  
+      this.users = dataArray.map(item => {
+        return {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        } as User
       })
-
-      this.route.params.subscribe(params => {
-        this.id = params['id'];
-      })
-
-      this.filtered = this.users;
 
       this.filtered = this.users.filter(item => {
-        return item.userType == "Professional" ;
-      
-    })
-   
-      this.getUserList= this.filtered;
-    })
+        return item.eType == this.type;
+      })
 
-  
-   
+      console.log(this.users)
+      console.log(this.filtered)
+    })
+  }
 
+  onVisitClick(user: User){
     
-}
-
-      onVisitClick(){
-        this.router.navigate([`DynamicUser/${this.id}`]);
-        console.log(this.id);
-      }
+    this.router.navigate([`DynamicUser/${user}`]);
+    // console.log(user);
+  }
 }

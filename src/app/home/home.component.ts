@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from '@angular/forms';import { RecMsgsService } from "src/app/BackendConfig/rec-msgs.service";
 import { AngularFirestore } from "@angular/fire/firestore";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -13,8 +14,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private Rmsg : RecMsgsService,
     private toastr : ToastrService,
-    private firestore : AngularFirestore
-  
+    private firestore : AngularFirestore,
+    private router: Router
   ){}
 
   ngOnInit() {
