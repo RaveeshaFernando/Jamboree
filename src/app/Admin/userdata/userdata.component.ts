@@ -93,7 +93,10 @@ export class UserDataComponent implements OnInit {
         displayName: '' ,
         age : '' ,
         city : '' , 
-        gender: '' 
+        gender: '' ,
+        eventType: '',
+        date: '',
+        eProf: ''
     }
   }
 }

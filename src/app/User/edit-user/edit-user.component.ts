@@ -152,7 +152,10 @@ export class EditUserComponent implements OnInit {
         displayName : '',
         city : '',
         age : '' , 
-        gender: ''  
+        gender: '',
+        eventType: '',
+        date : '',
+        eProf : ''
 
     }
   }

@@ -35,7 +35,7 @@ export class SearchResultComponent implements OnInit {
   }
   onClick(){
 
-    console.log('pakayaa');
+    
     this.router.navigate([`DynamicUser/${this.id}`]);
     
   }

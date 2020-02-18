@@ -85,7 +85,7 @@
     <!----------------------------------------------------| WHAT WE OFFER |-------------------------------------------------->
 
     <div class=" text-center" style="padding: 50px;">
-      <h1 class="title"> What we offer </h1> <br>
+      <h1 class="title"> Start From Your Event Type </h1> <br>
       <div class="row text-center">
         <div class="col-md-3 ml-auto col-xl-3 mr-auto">
           <div class="card">
@@ -94,7 +94,7 @@
                 <br>
                 <img src="../../assets/img/Gallery/Square/wedding.JPG" alt="Circle Image" class="rounded-circle" style="padding: 20px;max-width: 200px;">
                 <h3> Weddings </h3> 
-                <button class="btn-lg offer_btn">Search now</button>
+                <button class="btn-lg offer_btn" [routerLink]="['/FilterPage/weddings']"  >Search now</button>
                 <br><br>       
               </div>
             </div>
@@ -107,7 +107,7 @@
                 <br>
                 <img src="../../assets/img/Gallery/Square/Cooperate_Events.jpg" alt="Circle Image" class="rounded-circle" style="padding: 20px;max-width: 200px;">
                 <h3> Co-operate Events </h3> 
-                <button class="btn-lg offer_btn">Search now</button>
+                <button class="btn-lg offer_btn" [routerLink]="['/FilterPage/coevents']">Search now</button>
                 <br><br>       
               </div>
             </div>
@@ -118,9 +118,9 @@
             <div class="nav-tabs-navigation">
               <div class="text-center">
                 <br>
-                <img src="../../assets/img/Gallery/Square/parties.jpg" alt="Circle Image" class="rounded-circle" style="padding: 20px;max-width: 200px;">
+                <img src="../../assets/img/Gallery/Square/parties1.jpg" alt="Circle Image" class="rounded-circle" style="padding: 20px; width: 200px; height: 200px;">
                 <h3> Parties </h3> 
-                <button class="btn-lg offer_btn">Search now</button>
+                <button class="btn-lg offer_btn" [routerLink]="['/FilterPage/parties']">Search now</button>
                 <br><br>       
               </div>
             </div>
@@ -136,7 +136,7 @@
                 <br>
                 <img src="../../assets/img/Gallery/Square/sports.jpg" alt="Circle Image" class="rounded-circle" style="padding: 20px;max-width: 200px;">
                 <h3> Sport Events </h3> 
-                <button class="btn-lg offer_btn">Search now</button>
+                <button class="btn-lg offer_btn" [routerLink]="['/FilterPage/sports']">Search now</button>
                 <br><br>       
               </div>
             </div>
@@ -149,7 +149,7 @@
                 <br>
                 <img src="../../assets/img/Gallery/Square/get.jpg" alt="Circle Image" class="rounded-circle" style="padding: 20px;max-width: 200px;">
                 <h3> Get-Togethers</h3> 
-                <button class="btn-lg offer_btn">Search now</button>
+                <button class="btn-lg offer_btn" [routerLink]="['/FilterPage/Get-Togethers']">Search now</button>
                 <br><br>       
               </div>
             </div>
@@ -160,9 +160,9 @@
             <div class="nav-tabs-navigation">
               <div class="text-center">
                 <br>
-                <img src="../../assets/img/Gallery/Square/wedding.JPG" alt="Circle Image" class="rounded-circle" style="padding: 20px;max-width: 200px;">
+                <img src="../../assets/img/Gallery/Square/parties.jpg" alt="Circle Image" class="rounded-circle" style="padding: 20px;max-width: 200px;">
                 <h3> something else </h3> 
-                <button class="btn-lg offer_btn">Search now</button>
+                <button class="btn-lg offer_btn" [routerLink]="['/FilterPage/others']" >Search now</button>
                 <br><br>       
               </div>
             </div>
@@ -203,6 +203,96 @@
         </div>
       </div>
     </div>
+
+    <!----------------------------------------------------| WHAT WE OFFER PROFESSIONALS|-------------------------------------------------->
+
+    <div class=" text-center" style="padding: 50px;">
+      <h1 class="title"> Professionals Joined With Us </h1> <br>
+      <div class="row text-center">
+        <div class="col-md-3 ml-auto col-xl-3 mr-auto">
+          <div class="card">
+            <div class="nav-tabs-navigation">
+              <div class=" text-center">
+                <br>
+                <img src="../../assets/img/Gallery/Square/photography.jpg" alt="Circle Image" class="rounded-circle" style="padding: 20px; width: 200px; height: 200px;">
+                <h3> Photographers </h3> 
+                <button class="btn-lg offer_btn" [routerLink]="['/FilterPagePro/photographers']"  >Search now</button>
+                <br><br>       
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 ml-auto col-xl-3 mr-auto">
+          <div class="card">
+            <div class="nav-tabs-navigation">
+              <div class="text-center">
+                <br>
+                <img src="../../assets/img/Gallery/Square/videography.jpg" alt="Circle Image" class="rounded-circle" style="padding: 20px; width: 200px; height: 200px;">
+                <h3> Videographers </h3> 
+                <button class="btn-lg offer_btn" [routerLink]="['/FilterPagePro/videographers']">Search now</button>
+                <br><br>       
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 ml-auto col-xl-3 mr-auto">
+          <div class="card">
+            <div class="nav-tabs-navigation">
+              <div class="text-center">
+                <br>
+                <img src="../../assets/img/Gallery/Square/beautician.jpg" alt="Circle Image" class="rounded-circle" style="padding: 20px; width: 200px; height: 200px;">
+                <h3> Beauticians </h3> 
+                <button class="btn-lg offer_btn" [routerLink]="['/FilterPagePro/beauticians']">Search now</button>
+                <br><br>       
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br><br>
+      <div class="row text-center">
+        <div class="col-md-3 ml-auto col-xl-3 mr-auto">
+          <div class="card">
+            <div class="nav-tabs-navigation">
+              <div class="text-center">
+                <br>
+                <img src="../../assets/img/Gallery/Square/dj.jpg" alt="Circle Image" class="rounded-circle" style="padding: 20px; width: 200px; height: 200px;">
+                <h3> Dj & Music Bands </h3> 
+                <button class="btn-lg offer_btn" [routerLink]="['/FilterPagePro/music']">Search now</button>
+                <br><br>       
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 ml-auto col-xl-3 mr-auto">
+          <div class="card">
+            <div class="nav-tabs-navigation">
+              <div class="text-center">
+                <br>
+                <img src="../../assets/img/Gallery/Square/caters.jpg" alt="Circle Image" class="rounded-circle"style="padding: 20px; width: 200px; height: 200px;">
+                <h3> Caters</h3> 
+                <button class="btn-lg offer_btn" [routerLink]="['/FilterPagePro/caters']">Search now</button>
+                <br><br>       
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 ml-auto col-xl-3 mr-auto">
+          <div class="card">
+            <div class="nav-tabs-navigation">
+              <div class="text-center">
+                <br>
+                <img src="../../assets/img/Gallery/Square/others.jpg" alt="Circle Image" class="rounded-circle" style="padding: 20px; width: 200px; height: 200px;">
+                <h3> Others </h3> 
+                <button class="btn-lg offer_btn" [routerLink]="['/FilterPagePro/others']" >Search now</button>
+                <br><br>       
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   
     <!-----------------------------------------------------| CONTACT US |---------------------------------------------------->
 
@@ -215,12 +305,12 @@
                     <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
                       <div class="row">
                           <div class="col-sm-6 form-group">
-                              <input class="form-control" id="name" name="name" #name="ngModel" [(ngModel)]="Rmsg.RecMessage.name" placeholder="Name" type="text" style="background:transparent;border:double;border-color: darkgrey;color:white">
+                              <input class="form-control" id="name" name="name" #name="ngModel" [(ngModel)]="Rmsg.RecMessage.name" placeholder="Name" type="text" style="background:transparent;border:double;border-color: darkgrey">
                           </div>
                           <div class="col-sm-6 form-group">
-                              <input class="form-control" id="email" name="email" #email="ngModel" [(ngModel)]="Rmsg.RecMessage.email" placeholder="Email" type="email" style="background:transparent;border:double;border-color: darkgrey;color:white">
+                              <input class="form-control" type="email" id="email" name="email" #email="ngModel" [(ngModel)]="Rmsg.RecMessage.email" placeholder="Email" type="email" style="background:transparent;border:double;border-color: darkgrey;">
                           </div>
-                          <textarea class="form-control" id="comments" name="message" #message="ngModel" [(ngModel)]="Rmsg.RecMessage.message" placeholder="Comment" rows="5" style="background:transparent;border:double;border-color: darkgrey;color:white" ></textarea>
+                          <textarea class="form-control" id="comments" name="message" #message="ngModel" [(ngModel)]="Rmsg.RecMessage.message" placeholder="Comment" rows="5" style="background:transparent;border:double;border-color: darkgrey;" ></textarea>
                           <div class="col-sm-6 container justify-content-center">
                               <br>
                               <button type="submit" class="btn btn-primary btn-lg btn-block" width="60%" style="background:royalblue;border:none;color:white">Send</button>
@@ -239,6 +329,7 @@
         </div>
     </div>
 
+   
     <!-- <div class="section section-signup" style="background-image: url('assets/img/bg12.jpg'); background-size: cover; background-position: top center; min-height: 700px;">
     <div>
       <div class="container login-page">
@@ -310,13 +401,13 @@
     
  <!---------------------------------------Footer------------------------------------------>
 
-    <footer class="footer" data-background-color="black">
+    <footer class="footer mdb-color darken-4" data-background-color="mdb-color darken-4" style="padding: 2px;">
 
       
-        <div class="row justify-content-md-center sharing-area text-center">
+        <div class="row justify-content-md-center sharing-area text-center" style="padding: 2px;">
           
           <div class="text-center col-md-12 col-lg-8">
-            <h2 class="font-italic">Follow Us!</h2>
+            <h2 class="font-italic" style="margin: 5px;">Follow Us!</h2>
           </div>
             <div class="text-center col-md-12 col-lg-8">
               <a target="_blank" href="https://www.twitter.com" class="btn btn-neutral btn-icon btn-twitter btn-round btn-lg" rel="tooltip" title="Follow us">

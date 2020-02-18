@@ -53,22 +53,9 @@ export class UserProfileComponent implements OnInit {
 
      }
 
-  // openDialog() {
-  //   this.dialog.open(UserProfileComponent, {
-  //     data: {
-  //       animal: 'panda'
-  //     }
-  //   })
-  // }
 
   ngOnInit(){
-    // this.userService.getUsers().subscribe(dataArray => {
-    // this.Users = dataArray.map(item =>{
-    //   return {id : item.payload.doc.id,
-    //   ...item.payload.doc.data()
-    // } as User
-    // })
-    // }) 
+    
     this.resetForm();
     console.log(this.Log);
 
@@ -99,13 +86,15 @@ export class UserProfileComponent implements OnInit {
         displayName: '',
         age : '',
         city : '', 
-        gender: '' 
+        gender: '' ,
+        eventType: '' ,
+        date : '',
+        eProf: ''
         
     }
   }
 
   //data sending to firestore
-  //************************************* */
   onSubmit(form : NgForm){
     let data = Object.assign({}, form.value) ;
     
@@ -113,34 +102,31 @@ export class UserProfileComponent implements OnInit {
     delete data.uid ;
     console.log(data);
     console.log(this.userData.uid);
-    // if(data.email!=""){
-    //   this.firestore.collection('users').doc(this.userData.uid).update({email:data.email})
-    //   this.toastr.success('Saving...', 'email updated');
-    // }
-    // if(data.firstName!=""){
-    //   this.firestore.collection('users').doc(this.userData.uid).update({firstName:data.firstName});
-    //   this.toastr.success('Saving...', 'Firstname updated');
-    // }
-    // if(data.lastName!=""){
-    //   this.firestore.collection('users').doc(this.userData.uid).update({lastName:data.lastName});
-    //   this.toastr.success('Saving...', 'lastname updated');
-    // }
+    
     if(data.eType!=""){
-      this.firestore.collection('users').doc(this.userData.uid).update({eType:data.eType});
       console.log(data.eType);
-      this.firestore.collection('userReq').doc(this.userData.uid).set({eType:data.eType,displayName:data.displayName,status:"pending",uid:this.userData.uid,contact:data.contact});
+      this.firestore.collection('userReq').doc(this.userData.uid).set({eType:data.eType,displayName:data.displayName,uid:this.userData.uid,status:"pending",contact:data.contact, eProf:data.eProf,email:data.email});
+      
     }
+    if(data.email =""){
+      this.firestore.collection('users').doc(this.userData.uid).update({email:data.email+''});
+      
+    }
+
     if(data.district!=""){
       this.firestore.collection('users').doc(this.userData.uid).update({district:data.district});
+      
     }
     if(data.description!=""){
       this.firestore.collection('users').doc(this.userData.uid).update({description:data.description});
+      
     }
-    if(data.displayName!=""){
-      this.firestore.collection('users').doc(this.userData.uid).update({displayName:data.displayName});
+    if(data.displayName=""){
+      this.firestore.collection('users').doc(this.userData.uid).update({displayName:data.displayName+''});
+    
     }
     if(data.contact!=""){
-      this.firestore.collection('users').doc(this.userData.uid).update({contact:data.contact});
+      this.firestore.collection('users').doc(this.userData.uid).update({contact:data.contact+''});
     }
     
 

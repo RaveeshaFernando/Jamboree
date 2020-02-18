@@ -5,8 +5,9 @@
     <div class="overlay">
     </div>      
 
-    <div 
-    class="col-sm-60"  style="font-family:Roboto;padding-right:30px;">
+<!------------------------------ Send New Message --------------------------------------->
+
+    <div class="col-sm-60"  style="font-family:Roboto;padding-right:30px;">
         <mdb-card class="mb-4 wow fadeIn" style="max-height:100px;border: solid #112;">
             <mdb-card-body class="d-sm-flex justify-content-between"  style="background-color: #223;" >
                 <h3 class="mb-sm-0 pt-3 text-white"> User Interactions </h3> 
@@ -93,10 +94,9 @@
     </div>
 </div>
 
-
 <!------------------------------ Modals for messages ---------------------------------->
 
-
+    <!-- Send New Message -->
     <div mdbModal #frame="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
         <div class="modal-dialog modal-dialog-centered  modal-notify modal-info" role="document">
             <div class="modal-content">
@@ -143,6 +143,7 @@
         </div>                
     </div>
 
+    <!-- Sent Messages -->
     <div mdbModal #frame1="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
         <div class="modal-dialog modal-dialog-centered  modal-notify modal-info" role="document">
             <div class="modal-content">
@@ -161,6 +162,7 @@
         </div>
     </div>
 
+    <!-- Feedbacks Received -->
     <div mdbModal #frame2="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
         <div class="modal-dialog modal-dialog-centered  modal-notify modal-info" role="document">
             <div class="modal-content">
