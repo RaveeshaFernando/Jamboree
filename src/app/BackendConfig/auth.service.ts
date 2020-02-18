@@ -135,13 +135,12 @@ export class AuthService {
     })
   }
 
-  
-  //new function to check users logged in status 
+    
   get isLoggedIn():boolean{
     var user =  localStorage.getItem('user') ; 
-    return (user !=="Professional") ? true :false;
-  } 
-  
+    return (user !='null') ? true :false;
+  }
+    
 
   GetUserData(): Observable<any> {
     return this.afs.collection("users").doc(localStorage.getItem("user") as string).valueChanges().pipe(first());

@@ -33,8 +33,11 @@ import { ProfileComponent } from './profile/profile.component';
     import { BookingComponent    } from "./eventProf/booking/booking.component";
 
 import { SearchResultComponent } from "./SharedComponents/search-result/search-result.component";
-// import { AuthGuard } from './guards/auth.guard';
-// import { InnerPageGuard } from './guards/inner-page.guard';
+
+import { AuthGuard } from './guards/auth.guard';
+import { InnerPagesGuard } from './guards/inner-pages.guard';
+
+
 import { ProfessionalGuard } from './guards/professional.guard';
 import { AdminGuard } from './guards/admin.guard';
 import { UserGuard } from './guards/user.guard';
@@ -46,16 +49,12 @@ import { FilterPageProComponent } from './Dynamic/filter-page-pro/filter-page-pr
 
 
 const routes: Routes = [
+  { path: '', component: HomeComponent },
+
+  { path: 'Signin', component: SigninComponent   , canActivate:[InnerPagesGuard]   },
+  { path: 'Signup', component: SignupComponent   , canActivate:[InnerPagesGuard] },
+  { path: 'Profile', component: ProfileComponent , canActivate:[AuthGuard]},
   { path: '', component: HomeComponent }, 
-  
-  { path: 'Signin', component: SigninComponent     },
-  { path: 'Signup', component: SignupComponent    },
-  { path: 'Profile', component: ProfileComponent },
-
- // { path: 'Profile', component: ProfileComponent , canActivate:[AuthGuard]},
-
-
-  // { path: 'search',               component: SearchComponentComponent},
 
   { path: 'DynamicUser/:id', component: DisplayPageComponent },
   { path: 'FilterPage/:type' , component: FilterPageComponent},
