@@ -134,7 +134,6 @@ export class AuthService {
       merge: true
     })
   }
-
     
   get isLoggedIn():boolean{
     var user =  localStorage.getItem('user') ; 
