@@ -18,14 +18,14 @@
                     <h5><a href="#contacts" class="nav-link" style="padding-top: 15px;"> Contact </a> </h5>
                 </li>
                 <li class="nav-item waves-light" mdbWavesEffect >
-                    <div *ngIf="this.Log.userType==='Admin'" >
-                        <h5><a [routerLink]="['/dashboard']" class="nav-link" style="padding-top: 15px;">Dashboard </a></h5>
+                    <div *ngIf="this.Log?.userType==='Admin'" >
+                        <a [routerLink]="['/dashboard']" class="nav-link"> <strong>Dashboard</strong> </a>
                     </div>
-                    <div *ngIf="this.Log.userType==='Professional'" >
-                        <h5><a [routerLink]="['/EventMain']" class="nav-link" style="padding-top: 15px;"> Profile</a> </h5>
+                    <div *ngIf="this.Log?.userType==='Professional'" >
+                        <a [routerLink]="['/EventMain']" class="nav-link"> <strong>Profile</strong> </a>
                     </div>
-                    <div *ngIf="this.Log.userType==='User'" >
-                        <h5><a [routerLink]="['/UserProfile/']" class="nav-link" style="padding-top: 15px;"> Profile</a></h5>
+                    <div *ngIf="this.Log?.userType==='User'" >
+                        <a [routerLink]="['/UserProfile/']" class="nav-link"> <strong>Profile</strong> </a>
                     </div>   
                 </li>
 
@@ -62,7 +62,8 @@
 
                             </ng-template>
                             <ng-template #logged>
-                                <a [routerLink]="['/Signin']" class="dropdown-item waves-light" mdbWavesEffect (click)="authService.SignOut()"> <strong>Log out</strong></a>
+                                <!-- <a [routerLink]="['/Signin']" class="dropdown-item waves-light" mdbWavesEffect (click)="authService.SignOut()"> <strong>Log out</strong></a> -->
+                                <a   class="dropdown-item waves-light" mdbWavesEffect (click)="authService.SignOut()"> <strong>Log out</strong></a>
                             </ng-template>
                     </div>
                 </li>
