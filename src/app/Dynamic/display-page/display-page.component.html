@@ -17,32 +17,104 @@
             </div>
         </div>
 
-        <div class="row" style="padding:30px ">
-            <div class="col-lg-9">
-                <div class="container">
-                    <div class="container" style="background-color:#FFF">
-                        <h3 class="title" style="padding-top:50px;padding-left:50px" >Description</h3>
-                        <p style="padding-left: 50px;padding-bottom: 50px"> {{user?.description}} </p>
+        <div style="padding:30px ">    
+            <div class="row" style="padding:10px ">
+                <div class="col-lg-7">
+                    <div class="container">
+                        <div class="card peach-gradient-rgba">
+                            <div class="d-flex justify-content-center" style="padding-top: 25px;">
+                                <h3 class="title">Profile Information</h3>
+                            </div>
+                            <div style="padding-left: 30px;padding-bottom: 30px;text-align: justify;padding-right: 30px;">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <label><h5>User Name</h5></label>
+                                    </div>
+                                    <div class="col-8">
+                                        <h5>:  {{user?.displayName}}</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <label><h5>Email Address</h5></label>
+                                    </div>
+                                    <div class="col-8">
+                                        <h5>:  {{user?.email}}</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <label><h5>Gender</h5></label>
+                                    </div>
+                                    <div class="col-8">
+                                        <h5>:  {{user?.gender}} </h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <label><h5>Age</h5></label>
+                                    </div>
+                                    <div class="col-8">
+                                        <h5>:  {{user?.age}} </h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <label><h5>Contact</h5></label>
+                                    </div>
+                                    <div class="col-8">
+                                        <h5>:  {{user?.contact}}</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <label><h5>District</h5></label>
+                                    </div>
+                                    <div class="col-8">
+                                        <h5>:  {{user?.district}}</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <label><h5>City</h5></label>
+                                    </div>
+                                    <div class="col-8">
+                                        <h5>:  {{user?.city}}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                            <!-- <div *ngFor="let item of list" class="card " style="width: 270px; height: 200px; margin:12px; ">
+                                    <div class="row">
+                                        <div >
+                                        <button type="button" style="padding: 0px;" style="background-color: transparent;" class="waves-light" data-toggle="modal" data-target="#basicExample" (click)="previewImage(item,frame)" mdbWavesEffect>
+                                            <img  src="{{this.list.data}}">
+                                        </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                </div>
+                <div class="col-lg-5">
 
-                    <div class="Gallery">
-                        <div *ngFor="let item of list" class="Gallery">
-                            <div class="row">
-                                <div class="col-lg-4 col-md-6 col-am-12">
-                                <div class="mb-3 pics animation all 1">
-                                    <img class="img-fluid" src="{{item.data}}">
+                    <div class="d-flex justify-content-center">
+                        <button class="btn btn-info btn-block" (click)="frame.show()"> Book Now </button>               
+                    </div>
+                
+                    <div style="padding-top: 30PX;">
+                        <div class="card  peach-gradient-rgba">
+                            <div class="container">
+                                <div class="d-flex justify-content-center" style="padding-top: 25px;">
+                                    <h3 class="title">User Bio</h3>
                                 </div>
-                                </div>
+                                <p style="padding-left: 30px;padding-bottom: 30px;text-align: justify;padding-right: 30px;"> {{user?.description}} </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3">
-                <div class="d-flex justify-content-center">
-                    <button class="btn btn-info btn-block" (click)="frame.show()"> Book Now </button>               
-                </div>
-            </div>    
         </div>
     </div>
 </div>

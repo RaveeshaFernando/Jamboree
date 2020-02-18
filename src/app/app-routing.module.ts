@@ -51,9 +51,9 @@ import { FilterPageProComponent } from './Dynamic/filter-page-pro/filter-page-pr
 const routes: Routes = [
   { path: '', component: HomeComponent },
 
-  { path: 'Signin', component: SigninComponent   , canActivate:[InnerPagesGuard]   },
-  { path: 'Signup', component: SignupComponent   , canActivate:[InnerPagesGuard] },
-  { path: 'Profile', component: ProfileComponent , canActivate:[AuthGuard]},
+  { path: 'Signin', component: SigninComponent    },
+  { path: 'Signup', component: SignupComponent    },
+  { path: 'Profile', component: ProfileComponent },
   { path: '', component: HomeComponent }, 
 
   { path: 'DynamicUser/:id', component: DisplayPageComponent },
@@ -81,14 +81,14 @@ const routes: Routes = [
 
   { path: 'EventMain',            component:ProfMainComponent ,canActivate:[ProfessionalGuard]     },
   { path: 'EventEditProfile',     component:ProfEditProfileComponent, canActivate:[ProfessionalGuard]         },
-  { path: 'EventBooking',         component:ProfBookingComponent ,canActivate:[ProfessionalGuard]             },
+  // { path: 'EventBooking',         component:ProfBookingComponent ,canActivate:[ProfessionalGuard]             },
   { path: 'Messaging',            component:MessagingComponent  ,canActivate:[ProfessionalGuard]                  },
   { path:  'Booking',             component:BookingComponent   ,canActivate:[ProfessionalGuard]               },
   { path: 'EventMain',            component: ProfMainComponent ,canActivate:[ProfessionalGuard]                  },
   { path: 'EventEditProfile',     component: ProfEditProfileComponent ,canActivate:[ProfessionalGuard]                 },
-  { path: 'EventBooking',         component: ProfBookingComponent  ,canActivate:[ProfessionalGuard]                 },
-  { path: 'Search',                component: SearchComponentComponent ,canActivate:[ProfessionalGuard]             },
-  { path: 'SearchResult/:id',      component: SearchResultComponent   ,canActivate:[ProfessionalGuard]               }
+  // { path: 'EventBooking',         component: ProfBookingComponent  ,canActivate:[ProfessionalGuard]                 },
+  // { path: 'Search',                component: SearchComponentComponent ,canActivate:[ProfessionalGuard]             },
+  { path: 'SearchResult/:id',      component: SearchResultComponent   ,canActivate:[ProfessionalGuard]               },
   { path: 'Message', component:MessageComponent },
 
 ];
