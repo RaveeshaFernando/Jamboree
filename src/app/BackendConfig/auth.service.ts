@@ -135,7 +135,8 @@ export class AuthService {
     })
   }
 
-    
+  
+  //new function to check users logged in status 
   get isLoggedIn():boolean{
     var user =  localStorage.getItem('user') ; 
     return (user !=="Professional") ? true :false;
