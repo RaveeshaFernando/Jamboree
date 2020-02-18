@@ -17,28 +17,22 @@
             </div>
         </div>
 
-        <div class="row" style="padding:30px ">
+        <div class="row" style="padding:10px ">
 
           <div class="col-lg-7">
             <div class="container">
-                <div class="Gallery">
-                  <div *ngFor="let item of list" class="Gallery">
+               
+                  <div *ngFor="let item of list" class="card " style="width: 270px; height: 200px; margin:12px; ">
                     <div class="row">
-                        <div class="col-lg-4">
-                          <button type="button" mdbBtn color="white" class="waves-light" data-toggle="modal" data-target="#basicExample" (click)="frame.show()" mdbWavesEffect>
-                            
-                              <img class="img-fluid" src="{{item.data}}">
-                            
+                        <div >
+                          <button type="button" style="padding: 0px;" style="background-color: transparent;" class="waves-light" data-toggle="modal" data-target="#basicExample" (click)="previewImage(item,frame)" mdbWavesEffect>
+                              <img  src="{{item.data}}">
                           </button>
                         </div>
                     </div>
                   </div>
-              </div>
-              
             </div>
           </div>
-
-
 
           <div class="col-lg-5">
             <div class="card  peach-gradient-rgba">
@@ -146,7 +140,7 @@
 </div>
 
 
-<!-- -------------------------------------------------------place a new booking pop up form-------------------------------------------------------------------- -->
+<!-- ------------------------------------------------------- image preview-------------------------------------------------------------------- -->
   
     
     <div mdbModal #frame="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
@@ -161,7 +155,7 @@
               </div>  
 
               <div class="modal-body">
-                  
+                  {{image}}
               </div>
           </div>
       </div>
