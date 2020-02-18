@@ -35,12 +35,12 @@ import { UserSidebarComponent } from "./User/Shared/user-sidebar/user-sidebar.co
 import { UserDeleteComponent } from './User/user-delete/user-delete.component';
 import { EventProfRequestComponent } from './User/event-prof-request/event-prof-request.component';
 import { BookingComponent } from './eventProf/booking/booking.component';
+import { MessageComponent } from './User/message/message.component';
  
 //Website Components - Event Prof
 import { ProfMainComponent } from './eventProf/prof-main/prof-main.component';
 import { ProfSidebarComponent } from './eventProf/prof-sidebar/prof-sidebar.component';
 import { ProfEditProfileComponent } from './eventProf/prof-edit-profile/prof-edit-profile.component';
-import { ProfBookingComponent } from './eventProf/prof-booking/prof-booking.component';
 
 //Website Components - Admin
 import { SidebarComponent } from './Admin/sidebar/sidebar.component';
@@ -68,6 +68,11 @@ import { SearchComponent } from './SharedComponents/search/search.component';
 import { SearchResultComponent } from './SharedComponents/search-result/search-result.component';
 import { LogComponent } from './Admin/log/log.component';
 import { ExtrasComponent } from './Admin/extras/extras.component';
+import { MessageService } from './BackendConfig/message.service';
+import { FilterPageComponent } from './Dynamic/filter-page/filter-page.component';
+import { ViewComponent } from './Dynamic/view/view.component';
+import { FilterPageProComponent } from './Dynamic/filter-page-pro/filter-page-pro.component';
+
 
 
 
@@ -94,6 +99,8 @@ import { ExtrasComponent } from './Admin/extras/extras.component';
     UserSidebarComponent,
     UserDeleteComponent,
     EventProfRequestComponent,
+    BookingComponent,
+    MessageComponent,
 
     //Extra
     ProfileComponent,
@@ -102,24 +109,18 @@ import { ExtrasComponent } from './Admin/extras/extras.component';
     ProfMainComponent,
     ProfSidebarComponent,
     ProfEditProfileComponent,
-    ProfBookingComponent,
-    SearchComponentComponent,
-    DisplayPageComponent,
-    DisplayPageBarComponent,
     MessagingComponent,
     BookingComponent,
     SearchComponent,
     SearchResultComponent,
-
-    //EventProfRequestComponent,
-
-    // SignInComponent,
-    // SignUpComponent,
-    // DashComponent,
-    // ForgotPasswordComponent,
-    // VerifyEmailComponent,
-    // Signup2Component,
-    // UserDeleteComponent,
+    SearchComponentComponent,
+    DisplayPageComponent,
+    DisplayPageBarComponent,
+    SearchComponent,
+    SearchResultComponent,
+    FilterPageComponent,
+    ViewComponent,
+    FilterPageProComponent,
     
   ],
   imports: [
@@ -153,6 +154,7 @@ import { ExtrasComponent } from './Admin/extras/extras.component';
     GetUserService,
     ContactService,
     RecMsgsService,
+    MessageService,
     MatSort,
   ],
   bootstrap: [AppComponent],

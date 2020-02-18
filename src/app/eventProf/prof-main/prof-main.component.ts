@@ -81,6 +81,11 @@ export class ProfMainComponent implements OnInit {
     });
   }
 
+  previewImage(image : any,frame : any){
+    this.image = image.data;
+    frame.show();
+  }
+
 }
 interface photo {
   id?:string;

@@ -14,4 +14,20 @@ export class BookingService {
   getBooking() {
     return this.firestore.collection('Booking').snapshotChanges();
   }
+
+
+
+  //For Event Professional's Reference 
+  getRequests(){
+    return this.firestore.collection('Booking').snapshotChanges();
+  }
+  getOngoingRequests(){
+    return this.firestore.collection('Booking',ref=>ref.where("status","==","accepted")).snapshotChanges();
+  }
+  getRejectedRequests(){
+    return this.firestore.collection('Booking',ref=>ref.where("status","==","rejected")).snapshotChanges();
+  }
+  getCompletedRequests(){
+    return this.firestore.collection('Booking',ref=>ref.where("status","==","completed")).snapshotChanges();
+  }
 }

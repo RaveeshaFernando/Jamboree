@@ -18,6 +18,7 @@ export class LogComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+    //Retreiving Logs 
     this.aLog.getLog().subscribe(dataArray=> {
       this.actLog = dataArray.map(item =>{
         return{

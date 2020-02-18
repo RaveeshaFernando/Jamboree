@@ -20,7 +20,6 @@ export class UserSidebarComponent implements OnInit {
   
   //message: string = 'dcdcdcdc';
 
-
   // uploadPercent: Observable<number>;
   // downloadURL: Observable<string>;
   // image: string = null;

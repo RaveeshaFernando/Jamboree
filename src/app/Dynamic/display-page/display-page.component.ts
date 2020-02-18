@@ -6,6 +6,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument,
 import { AuthService } from '../../BackendConfig/auth.service' ;
 import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/BackendConfig/user.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-display-page',
@@ -18,7 +19,7 @@ export class DisplayPageComponent implements OnInit {
   Log: any
   id: any;
   user: User;
-
+userId;
   constructor(
     private route: ActivatedRoute,
     public authService : AuthService ,
@@ -37,9 +38,15 @@ export class DisplayPageComponent implements OnInit {
       this.flag = isAuthed;
       this.Log = this.authService.GetUserData().subscribe(user => {
         this.Log = user ;
+        this.userId = user.uid;
+        // console.log(this.userId);
       });
     });
+
+    console.log(this.userId);
+
   } 
+
   fetchUser() {
     if (!!this.id) {
       this.firestore.collection('users').doc(this.id.toString()).snapshotChanges().subscribe(data => {
@@ -48,5 +55,17 @@ export class DisplayPageComponent implements OnInit {
       });
     }
   }
-  
+
+  onSubmit(form : NgForm){
+    let data = Object.assign({}, form.value) ;
+    data.status = "pending" ;
+    data.eventComplete = "false" ;
+    data.userComplete = "false" ;
+    data.cancel = "false" ;
+    this.firestore.collection('Booking').add(data).then(doc => {
+      doc.update({
+        bid : doc.id
+      })
+    });
+  }
 }
