@@ -28,19 +28,21 @@
                   <th> Status</th>
                   
                 </tr>
-                <tr *ngFor = "let booking of bookinglist">
-                  <td>{{booking.Date}}</td>
-                  <td>{{booking.eName}}</td>
-                  <td>{{booking.eventType}}</td>
-                  <td>{{booking.userName}}</td>
-                  <td>{{booking.district}} , {{booking.city}}</td>
-                  <td> {{booking.userMail}}</td>
+                <tr *ngFor = "let data of dataSet">
+                  <div *ngIf="data.status === 'pending'">
+                  <td>{{data.Date}}</td>
+                  <td>{{data.eName}}</td>
+                  <td>{{data.eventType}}</td>
+                  <td>{{data.userName}}</td>
+                  <td>{{data.district}} , {{data.city}}</td>
+                  <td> {{data.userMail}}</td>
                   <td>
-                    <div *ngIf="booking.status === 'pending'" >
-                      <button (click)="changeStatus(booking.bid,'accepted')" type="button" style="border-width: 5px; padding: 4px;" class="btn btn-success">Accept</button>
-                      <button (click)="changeStatus(booking.bid,'rejected')" type="button" style="border-width: 5px; padding: 4px;" class="btn btn-danger">Reject</button>
+                    <div *ngIf="data.status === 'pending'" >
+                      <button (click)="changeStatus(data.bid,'accepted')" type="button" style="border-width: 5px; padding: 4px;" class="btn btn-success">Accept</button>
+                      <button (click)="changeStatus(data.bid,'rejected')" type="button" style="border-width: 5px; padding: 4px;" class="btn btn-danger">Reject</button>
                     </div>
                   </td>
+                </div>
                 </tr>
             </thead>
           </table>
@@ -64,21 +66,24 @@
                 <th> Customer Name</th>
                 <th> Location</th>
                 <th> Customer Mail</th>
-                <th> </th>
+                <th> status</th>
                 
               </tr>
-              <tr *ngFor = "let booking of bookinglist2">
-                <td>{{booking.Date}}</td>
-                <td>{{booking.eName}}</td>
-                <td>{{booking.eventType}}</td>
-                <td>{{booking.userName}}</td>
-                <td>{{booking.district}} , {{booking.city}}</td>
-                <td> {{booking.userMail}}</td>
+              <tr *ngFor = "let data of dataSet">
+                <div *ngIf="data.status === 'accepted' || data.eventComplete == false ">
+                <td>{{data.Date}}</td>
+                <td>{{data.eName}}</td>
+                <td>{{data.eventType}}</td>
+                <td>{{data.userName}}</td>
+                <td>{{data.district}} , {{data.city}},     
+                </td>
+                <td> {{data.userMail}}</td>
                 <td>
-                  <div *ngIf="booking.cancel === 'true'" >
-                    <button (click)="changeStatus(booking.bid,'cancelled')" type="button" style="border-width: 5px; padding: 4px;" class="btn btn-danger">Cancel</button>
+                  <div *ngIf=" (data.cancel === 'true' ) &&  (data.Date | date:'dd/MM/yyyy') > (today | date:'dd/MM/yyyy' ) " >
+                    <button (click)="changeStatus(data.bid,'cancelled')" type="button" style="border-width: 5px; padding: 4px;" class="btn btn-danger">Cancel</button>
                   </div>
                 </td>
+              </div>
               </tr>
           </thead>
         </table>
@@ -87,7 +92,6 @@
         </div>
     </div>
 
-    
     <div  class="card" style="padding:30px;background-color: #eee;" id="onGoing">
       <div class="col-lg-12" style="font-family:Roboto;background-color: #eee;padding-right: 30px">
     <div class="text-center">
@@ -106,14 +110,16 @@
               <th> Complete Status</th>
               
             </tr>
-            <tr *ngFor = "let booking of bookinglist3">
-              <td>{{booking.Date}}</td>
-              <td>{{booking.eName}}</td>
-              <td>{{booking.eventType}}</td>
-              <td>{{booking.userName}}</td>
-              <td>{{booking.district}} , {{booking.city}}</td>
-              <td> {{booking.userMail}}</td>
-              <td> {{booking.status}} </td>
+            <tr *ngFor = "let data of dataSet">
+              <div *ngIf="data.status === 'completed' || data.status === 'rejected' || data.status === 'cancelled' || data.cancel == false ">
+              <td>{{data.Date}}</td>
+              <td>{{data.eName}}</td>
+              <td>{{data.eventType}}</td>
+              <td>{{data.userName}}</td>
+              <td>{{data.district}} , {{data.city}}</td>
+              <td> {{data.userMail}}</td>
+              <td> {{data.status}} </td>
+            </div>
             </tr>
         </thead>
       </table>
