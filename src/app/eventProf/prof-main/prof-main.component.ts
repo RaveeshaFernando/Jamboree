@@ -11,29 +11,29 @@ import { AuthService } from '../../BackendConfig/auth.service' ;
   styleUrls: ['./prof-main.component.scss']
 })
 export class ProfMainComponent implements OnInit {
-  flag: Boolean
-  Log: any
+  flag: Boolean;
+  Log: any;
 
-  message: string = 'dcdcdcdc';
+  message = 'dcdcdcdc';
 
   uploadPercent: Observable<number>;
   downloadURL: Observable<string>;
   image: string = null;
-  list:photo[];
+  list: photo[];
 
   constructor(
-    public authService : AuthService ,
+    public authService: AuthService ,
     private store: AngularFireStorage, private firestore: AngularFirestore) {
     }
 
   uploadImage(event) {
-    let file = event.target.files[0];
-    let path = `posts/${file.name}`;
+    const file = event.target.files[0];
+    const path = `posts/${file.name}`;
     if (file.type.split('/')[0] !== 'image') {
       return alert('Error in upload image');
     } else {
-      let ref = this.store.ref(path);
-      let task = this.store.upload(path, file);
+      const ref = this.store.ref(path);
+      const task = this.store.upload(path, file);
       this.uploadPercent = task.percentageChanges();
       console.log('Image upload success');
       task.snapshotChanges().pipe(
@@ -53,11 +53,11 @@ export class ProfMainComponent implements OnInit {
   UploadURL() {
     return new Promise<any>((resolve, reject) => {
       this.firestore
-        .collection("CustomerPosts")
+        .collection('CustomerPosts')
         .add({ data: this.message,
-                id:this.Log.uid})
-        .then(res => { }, err => { reject(err) });
-      console.log("Upload function")
+                id: this.Log.uid})
+        .then(res => { }, err => { reject(err); });
+      console.log('Upload function');
     });
   }
 
@@ -70,24 +70,24 @@ export class ProfMainComponent implements OnInit {
       this.Log = this.authService.GetUserData().subscribe(user => {
         this.Log = user ;
 
-        this.firestore.collection("CustomerPosts",ref=>
-          ref.where('id','==',this.Log.uid )).valueChanges().subscribe(
-            imageList=>{
+        this.firestore.collection('CustomerPosts', ref =>
+          ref.where('id', '==', this.Log.uid )).valueChanges().subscribe(
+            imageList => {
               this.list = imageList as photo[];
               console.log(this.list);
             }
-          )
+          );
       });
     });
   }
 
-  previewImage(image : any,frame : any){
+  previewImage(image: any, frame: any) {
     this.image = image.data;
     frame.show();
   }
 
 }
 interface photo {
-  id?:string;
-  data?:string;
+  id?: string;
+  data?: string;
 }
