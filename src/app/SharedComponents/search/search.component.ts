@@ -18,6 +18,7 @@ export class SearchComponent implements OnInit {
   displayName: String = "";
 
   @HostListener('document:click', ['$event'])
+  
   clickout(event) {
     if(!this.eRef.nativeElement.contains(event.target)) {
       this.isVisible = false;
@@ -39,16 +40,14 @@ export class SearchComponent implements OnInit {
         } as User
       });
 
-      this.filtered = this.users;
+    this.filtered = this.users;
     });
     
   }
 
   onType(event: any) {
     this.isVisible = true;
-
     this.searchKey = event.target.value;
-
     this.filtered = this.users.filter(item => {
       return item.userType == "Professional" && item.displayName.toLowerCase().includes(this.searchKey.toLowerCase());
     })
@@ -56,26 +55,21 @@ export class SearchComponent implements OnInit {
   }
 
   onFocusOut() {
-    // console.log("Focus out");
-    
+    // console.log("Focus out");  
     this.isVisible = false;
   }
 
   onItemClick(displayName: string) {
-    // console.log("Clicked", displayName);
-    
+    // console.log("Clicked", displayName);  
     this.value = displayName;
     this.isVisible = false;
   }
 
   onSearchClick(){
-    // Update url and pass parameter USER ID as value
-
     // console.log(this.value);
-
     const userID = this.users.filter(user => user.displayName.toLowerCase().includes(this.value.toLowerCase()));
     console.log(userID)
 
-    this.router.navigate([`DynamicUser/${userID[0].uid}`]);
+    this.router.navigate([`SearchResult/${userID[0].uid}`]);
   }
 }

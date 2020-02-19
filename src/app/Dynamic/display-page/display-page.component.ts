@@ -19,7 +19,10 @@ export class DisplayPageComponent implements OnInit {
   Log: any
   id: any;
   user: User;
-userId;
+  userId: any;
+  image: string = null;
+  list:photo[];
+
   constructor(
     private route: ActivatedRoute,
     public authService : AuthService ,
@@ -27,6 +30,8 @@ userId;
   }
 
   ngOnInit() {
+
+
 
     this.route.params.subscribe(params => {
       this.id = params['id'];
@@ -40,12 +45,20 @@ userId;
         this.Log = user ;
         this.userId = user.uid;
         // console.log(this.userId);
-      });
-    });
 
+        this.firestore.collection("CustomerPosts",ref=>
+        ref.where('id','==',this.user.uid )).valueChanges().subscribe(
+          imageList=>{
+            this.list = imageList as photo[];
+            console.log(this.list);
+          }
+        )
+      });
+    });   
     console.log(this.userId);
 
   } 
+
 
   fetchUser() {
     if (!!this.id) {
@@ -68,4 +81,14 @@ userId;
       })
     });
   }
+  previewImage(image : any,frame : any){
+    this.image = image.data;
+    frame.show();
+  }
+}
+
+
+interface photo {
+  id?:string;
+  data?:string;
 }

@@ -48,7 +48,7 @@
       
                   <div class="row">
                     <mat-form-field class="col-lg-6 ">
-                      <input matInput placeholder="Age" type="text" formControlName="age" [(ngModel)]="this.Log.age">
+                      <input matInput placeholder="Age" type="number" formControlName="age" [(ngModel)]="this.Log.age">
                     </mat-form-field>
                     <select aria-placeholder="Gender" class="mdb-select col-lg-6 custom-select" style="background-color: transparent;" formControlName="gender" [(ngModel)]="this.Log.gender" > 
                       <option value="" disabled selected> Gender </option>
@@ -61,10 +61,10 @@
       
                   <div class="row">
                     <mat-form-field class="col-lg-6 ">
-                      <input matInput placeholder="Email" type="text" formControlName="email"  [(ngModel)]="this.Log.email">
+                      <input matInput placeholder="Email" type="email" formControlName="email"  [(ngModel)]="this.Log.email" required >
                     </mat-form-field>
                     <mat-form-field class="col-lg-6 ">
-                      <input matInput placeholder="Mobile" type="text" formControlName="contact" [(ngModel)]="this.Log.contact">
+                      <input matInput placeholder="Mobile" type="tel" minlength="10" maxlength="10" formControlName="contact" [(ngModel)]="this.Log.contact" required >
                     </mat-form-field>
                   </div>            
                 
