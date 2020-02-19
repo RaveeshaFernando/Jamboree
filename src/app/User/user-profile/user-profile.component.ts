@@ -105,7 +105,7 @@ export class UserProfileComponent implements OnInit {
     
     if(data.eType!=""){
       console.log(data.eType);
-      this.firestore.collection('userReq').doc(this.userData.uid).set({eType:data.eType,displayName:data.displayName,uid:this.userData.uid,status:"pending",contact:data.contact, eProf:data.eProf,email:data.email});
+      this.firestore.collection('userReq').doc(this.userData.uid).set({eType:data.eType,displayName:data.displayName,uid:this.userData.uid,status:"pending",contact:data.contact, eProf:data.eProf,email:data.email,description:data.description});
       
     }
     if(data.email =""){

@@ -19,6 +19,8 @@ export class DisplayPageComponent implements OnInit {
   Log: any
   id: any;
   user: User;
+  list:photo[];
+
 userId;
   constructor(
     private route: ActivatedRoute,
@@ -34,6 +36,14 @@ userId;
       this.fetchUser();
     });
 
+    this.firestore.collection('CustomerPosts').snapshotChanges().subscribe(actionArray =>{
+      this.list = actionArray.map(item => {
+        return{id : item.payload.doc.id,
+          ...item.payload.doc.data() 
+          } as photo
+      })
+    })
+
     this.authService.authenticated.subscribe(isAuthed => {
       this.flag = isAuthed;
       this.Log = this.authService.GetUserData().subscribe(user => {
@@ -43,7 +53,7 @@ userId;
       });
     });
 
-    console.log(this.userId);
+    // console.log(this.userId);
 
   } 
 
@@ -51,7 +61,7 @@ userId;
     if (!!this.id) {
       this.firestore.collection('users').doc(this.id.toString()).snapshotChanges().subscribe(data => {
         this.user = data.payload.data() as User;
-        console.log(this.user);
+        console.log("mama :" + this.user);
       });
     }
   }
@@ -68,4 +78,9 @@ userId;
       })
     });
   }
+}
+
+interface photo {
+  id?:string;
+  data?:string;
 }

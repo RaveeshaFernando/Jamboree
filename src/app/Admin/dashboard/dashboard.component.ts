@@ -45,45 +45,45 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
 
     //Retrieving user info 
-    // this.users.getUsers().subscribe(dataArray => {
-    //   this.totalCount = dataArray.length;
-    //   this.getUserList = dataArray.map(item =>{         
-    //     return {id : item.payload.doc.id,
-    //     ...item.payload.doc.data() 
-    //     } as User  
-    //   })  
-    // })
+    this.users.getUsers().subscribe(dataArray => {
+      this.totalCount = dataArray.length;
+      this.getUserList = dataArray.map(item =>{         
+        return {id : item.payload.doc.id,
+            ...(item.payload.doc.data() as Object)
+        } as User  
+      })  
+    })
 
     //Retrieving professional info
-    // this.users.getProfessionals().subscribe(dataArray => {
-    //   this.profCount = dataArray.length;
-    //   this.getUserList = dataArray.map(item =>{         
-    //     return {id : item.payload.doc.id,
-    //     ...item.payload.doc.data() 
-    //     } as User  
-    //   })  
-    // })
+    this.users.getProfessionals().subscribe(dataArray => {
+      this.profCount = dataArray.length;
+      this.getUserList = dataArray.map(item =>{         
+        return {id : item.payload.doc.id,
+        ...item.payload.doc.data() 
+        } as User  
+      })  
+    })
 
     //retrieveing unaccepted professional requests
-    // this.req.getRequests().subscribe(actionArray =>{
-    //   this.requests = actionArray.map(item =>{
-    //     return {
-    //       id : item.payload.doc.id,
-    //       ...item.payload.doc.data() 
-    //     } as Requests  
-    //   })
-    // })
+    this.req.getRequests().subscribe(actionArray =>{
+      this.requests = actionArray.map(item =>{
+        return {
+          id : item.payload.doc.id,
+          ...item.payload.doc.data() 
+        } as Requests  
+      })
+    })
 
     //Retrieving ongoing bookings
-    // this.booking.getOngoingRequests().subscribe(actionArray =>{
-    //   this.bookingCount = actionArray.length ;
-    //     this.bookings = actionArray.map(item =>{
-    //         return {
-    //           id : item.payload.doc.id,
-    //           ...item.payload.doc.data()
-    //         } as Booking 
-    //     })
-    // })
+    this.booking.getOngoingRequests().subscribe(actionArray =>{
+      this.bookingCount = actionArray.length ;
+        this.bookings = actionArray.map(item =>{
+            return {
+              id : item.payload.doc.id,
+              ...item.payload.doc.data()
+            } as Booking 
+        })
+    })
   }
 
   //Approve event professional

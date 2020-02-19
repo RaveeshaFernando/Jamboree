@@ -33,6 +33,14 @@ import { ProfileComponent } from './profile/profile.component';
     import { BookingComponent    } from "./eventProf/booking/booking.component";
 
 import { SearchResultComponent } from "./SharedComponents/search-result/search-result.component";
+
+import { AuthGuard } from './guards/auth.guard';
+import { InnerPagesGuard } from './guards/inner-pages.guard';
+
+
+import { ProfessionalGuard } from './guards/professional.guard';
+import { AdminGuard } from './guards/admin.guard';
+import { UserGuard } from './guards/user.guard';
 import { FilterPageComponent } from './Dynamic/filter-page/filter-page.component';
 import { MessageComponent } from './User/message/message.component';
 import { ViewComponent } from "./Dynamic/view/view.component";
@@ -40,13 +48,13 @@ import { FilterPageProComponent } from './Dynamic/filter-page-pro/filter-page-pr
 
 
 
-
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'Signin', component: SigninComponent },
-  { path: 'Signup', component: SignupComponent },
+
+  { path: 'Signin', component: SigninComponent    },
+  { path: 'Signup', component: SignupComponent    },
   { path: 'Profile', component: ProfileComponent },
-  // { path: 'search',               component: SearchComponentComponent},
+  { path: '', component: HomeComponent }, 
 
   { path: 'DynamicUser/:id', component: DisplayPageComponent },
   { path: 'FilterPage/:type' , component: FilterPageComponent},
@@ -55,31 +63,33 @@ const routes: Routes = [
 
 
   //Admin Panel
-      { path: 'dashboard', component: DashboardComponent },
-      { path: 'profile-insights', component: ProfileInsightsComponent },
-      { path: 'user-data', component: UserDataComponent },
-      { path: 'Extra', component: ExtrasComponent },
-      { path: 'ActivityLog', component: LogComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate:[AdminGuard] ,  },
+  { path: 'profile-insights', component: ProfileInsightsComponent, canActivate:[AdminGuard] },
+  { path: 'user-data', component: UserDataComponent,canActivate:[AdminGuard] },
+  { path: 'Extra', component: ExtrasComponent,canActivate:[AdminGuard] },
+  { path: 'ActivityLog', component: LogComponent,canActivate:[AdminGuard] },
   
 
-  //user
-  { path: 'UserEditUser', component: EditUserComponent},
-  { path: 'UserBooking', component: BookingHistoryComponent},
-  { path: 'UserDelete' , component: UserDeleteComponent},
-  { path: 'EventProfRequest', component: EventProfRequestComponent},
-  { path: 'UserProfile', component: UserProfileComponent },
-  { path: 'UserEditUser', component: EditUserComponent },
-  //{ path: 'UserBooking',          component: BookingHistoryComponent },
-  //{ path: 'UserDelete', component: UserDeleteComponent },
-  { path: 'Message', component:MessageComponent },
+  { path: 'UserEditUser',         component: EditUserComponent , canActivate:[UserGuard]         },
+  { path: 'UserBooking',          component: BookingHistoryComponent,canActivate:[UserGuard]    },
+  { path: 'UserDelete' ,          component: UserDeleteComponent ,canActivate:[UserGuard]       },
+  { path: 'EventProfRequest' ,    component: EventProfRequestComponent,canActivate:[UserGuard]  },
+  { path: 'UserProfile',          component: UserProfileComponent, canActivate:[UserGuard]       },
+  { path: 'UserEditUser',         component: EditUserComponent   ,canActivate:[UserGuard]       },
+  { path: 'UserBooking',          component: BookingHistoryComponent  , canActivate:[UserGuard]  },
+  { path: 'UserDelete',           component: UserDeleteComponent      , canActivate:[UserGuard]  },
 
-  { path: 'EventMain',            component:ProfMainComponent},
-  { path: 'EventEditProfile',     component:ProfEditProfileComponent},
-  { path: 'Messaging',            component:MessagingComponent},
-  { path:  'Booking',             component:BookingComponent},
-  { path: 'EventMain', component: ProfMainComponent },
-  { path: 'EventEditProfile', component: ProfEditProfileComponent },
-  {path: 'SearchResult/:id', component: SearchResultComponent}
+  { path: 'EventMain',            component:ProfMainComponent ,canActivate:[ProfessionalGuard]     },
+  { path: 'EventEditProfile',     component:ProfEditProfileComponent, canActivate:[ProfessionalGuard]         },
+  // { path: 'EventBooking',         component:ProfBookingComponent ,canActivate:[ProfessionalGuard]             },
+  { path: 'Messaging',            component:MessagingComponent  ,canActivate:[ProfessionalGuard]                  },
+  { path:  'Booking',             component:BookingComponent   ,canActivate:[ProfessionalGuard]               },
+  { path: 'EventMain',            component: ProfMainComponent ,canActivate:[ProfessionalGuard]                  },
+  { path: 'EventEditProfile',     component: ProfEditProfileComponent ,canActivate:[ProfessionalGuard]                 },
+  // { path: 'EventBooking',         component: ProfBookingComponent  ,canActivate:[ProfessionalGuard]                 },
+  // { path: 'Search',                component: SearchComponentComponent ,canActivate:[ProfessionalGuard]             },
+  { path: 'SearchResult/:id',      component: SearchResultComponent   ,canActivate:[ProfessionalGuard]               },
+  { path: 'Message', component:MessageComponent },
 
 ];
 
