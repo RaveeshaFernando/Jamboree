@@ -10,7 +10,7 @@ import { NgAisModule } from 'angular-instantsearch';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatTableModule, MatInputModule ,  MatButtonModule , MatSortModule , MatSort} from '@angular/material' ;
+import { MatTableModule, MatInputModule ,  MatButtonModule , MatSortModule , MatSort, MatDatepickerModule, MatNativeDateModule} from '@angular/material' ;
 
 // Firestore
 import { AngularFireModule } from '@angular/fire';
@@ -136,6 +136,8 @@ import { AboutComponent } from './Dynamic/about/about.component';
     MatButtonModule,
     MatInputModule,
     MatSortModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
 
     AngularFireModule.initializeApp(environment.firebase, 'my-app-name'), // imports firebase/app needed for everything
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features

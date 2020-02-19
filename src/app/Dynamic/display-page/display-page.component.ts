@@ -7,6 +7,7 @@ import { AuthService } from '../../BackendConfig/auth.service' ;
 import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/BackendConfig/user.model';
 import { NgForm } from '@angular/forms';
+import { MatDatepicker } from "@angular/material";
 
 @Component({
   selector: 'app-display-page',
@@ -22,16 +23,19 @@ export class DisplayPageComponent implements OnInit {
   userId: any;
   image: string = null;
   list:photo[];
+  minDate: any;
 
   constructor(
     private route: ActivatedRoute,
     public authService : AuthService ,
     private store: AngularFireStorage, private firestore: AngularFirestore) {
+
+      
   }
 
   ngOnInit() {
 
-
+    this.minDate = new Date();
 
     this.route.params.subscribe(params => {
       this.id = params['id'];
