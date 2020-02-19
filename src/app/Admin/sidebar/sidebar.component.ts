@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from "../../../app/BackendConfig/auth.service";
+import { AuthService } from '../../../app/BackendConfig/auth.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,20 +8,19 @@ import { AuthService } from "../../../app/BackendConfig/auth.service";
 })
 export class SidebarComponent implements OnInit {
 
-  flag: Boolean
-  Log: any
+  flag: Boolean ;
+  Log: any ;
 
   constructor(
-      public authService : AuthService,
+      public authService: AuthService,
   ) { }
 
   ngOnInit() {
     this.authService.authenticated.subscribe(isAuthed => {
       this.flag = isAuthed;
       this.Log = this.authService.GetUserData().subscribe(user => {
-        this.Log = user
+        this.Log = user ;
       });
     });
   }
-
 }

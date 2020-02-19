@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from '@angular/forms';
-import { AngularFirestore } from "@angular/fire/firestore";
+import { AngularFirestore } from '@angular/fire/firestore';
 import { RecMsgsService } from 'src/app/BackendConfig/rec-msgs.service';
 import { Contact } from 'src/app/BackendConfig/contact.model';
 import { RecMsgs } from 'src/app/BackendConfig/rec-msgs.model';
@@ -16,10 +16,10 @@ import { Message } from 'src/app/BackendConfig/message.model';
 })
 export class MessagingComponent implements OnInit {
 
-  flag: Boolean
+  flag: Boolean ;
   Log;
   list:Message[];
-  Msg : Contact[];
+  Msg: Contact[];
 
   constructor(
     private Rmsg : RecMsgsService,
