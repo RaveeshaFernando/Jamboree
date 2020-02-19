@@ -1,24 +1,26 @@
 import { Injectable, NgZone } from '@angular/core';
-import { User } from "./user.model";
+import { User } from './user.model';
 import { auth } from 'firebase/app';
-import { AngularFireAuth } from "@angular/fire/auth";
+import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { map, first } from "rxjs/operators";
+import { map, first } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class AuthService {
-  type : string = 'eventProf' ;
+  type = 'eventProf' ;
   userData: any;
-  Log : any ;
+  Log: any ;
   userSubject = new BehaviorSubject<Boolean>(false);
+  item: any;
   date = (new Date()).toLocaleString();
 
-  public get authenticated() : Observable<Boolean> {
+
+  public get authenticated(): Observable<Boolean> {
     return this.userSubject.asObservable();
   }
 
@@ -26,21 +28,35 @@ export class AuthService {
     public afs: AngularFirestore,
     public afAuth: AngularFireAuth,
     public router: Router,
-    public ngZone: NgZone             // NgZone service to remove outside scope warning
+    public ngZone: NgZone
   ) {
+
+
 
     this.afAuth.authState.subscribe(user => {
       if (user) {
+        console.log(this.userData);
         this.userData = user;
-        localStorage.setItem('user', this.userData.uid);
+        localStorage.setItem('user', user.uid);
+        console.log('lllll - ', localStorage.getItem('type'));
+
+        this.afs.collection('users').doc(localStorage.getItem('user')).snapshotChanges().subscribe(async userNew => {
+          localStorage.setItem('type', await userNew.payload.data().userType);
+          localStorage.setItem('type', this.Log.uid);
+        });
+
+
         this.Log = localStorage.getItem('user');
         this.userSubject.next(true);
       } else {
+        console.log('else');
         localStorage.setItem('user', null);
+        localStorage.setItem('type', null);
         this.Log = localStorage.getItem('user');
         this.userSubject.next(false);
       }
-    })
+
+    });
   }
 
   // Sign in with email/password
@@ -51,20 +67,20 @@ export class AuthService {
           this.router.navigate(['']);
         });
       }).catch((error) => {
-        window.alert(error.message)
-      })
+        window.alert(error.message);
+      });
   }
 
   // Sign up with email/password
-  SignUp(email, password,fName,lName) {
+  SignUp(email, password, fName, lName) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((result) => {
         this.SendVerificationMail();
-        this.SetUserData(result.user,fName,lName);
+        this.SetUserData(result.user, fName, lName);
         this.router.navigate(['']);
       }).catch((error) => {
-        window.alert(error.message)
-      })
+        window.alert(error.message);
+      });
   }
 
   // Send email verfificaiton when new user sign up
@@ -72,7 +88,7 @@ export class AuthService {
     return this.afAuth.auth.currentUser.sendEmailVerification()
     .then(() => {
       this.router.navigate(['Sign2']);
-    })
+    });
   }
 
   // Reset Forgot password
@@ -81,11 +97,11 @@ export class AuthService {
     .then(() => {
       window.alert('Password reset email sent, check your inbox.');
     }).catch((error) => {
-      window.alert(error)
-    })
+      window.alert(error);
+    });
   }
 
-  SetUserData(user,fName, lName) {
+  SetUserData(user, fName, lName) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
     const userData: User = {
       uid: user.uid,
@@ -101,26 +117,55 @@ export class AuthService {
       description: null,
       district: null ,
       age : null ,
-      city : null , 
+      city : null ,
       gender: null,
       eventType: null,
       date : this.date,
-      eProf : null 
-    }
+      eProf : null
+    };
     return userRef.set(userData, {
       merge: true
-    })
+    });
   }
 
+  get isLoggedIn(): boolean {
+    const user =  localStorage.getItem('user') ;
+    return (user !== 'null') ? true : false;
+  }
+
+
   GetUserData(): Observable<any> {
-    return this.afs.collection("users").doc(localStorage.getItem("user") as string).valueChanges().pipe(first());
+    return this.afs.collection('users').doc(localStorage.getItem('user') as string).valueChanges().pipe(first());
   }
 
   // Sign out
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['/Signin']);
-    })
+      localStorage.removeItem('type');
+      this.router.navigate(['Signin']);
+    });
+  }
+
+
+  isProfessional() {
+    return this.GetUserData().pipe(map(user => {
+      console.log(user.userType);
+      return (user.userType === 'Professional' ) ? true : false;
+    }));
+  }
+
+  isAdmin() {
+    return this.GetUserData().pipe(map(user => {
+      console.log(user.userType);
+      return (user.userType === 'Admin' ) ? true : false;
+    }));
+}
+
+  isUser() {
+    return this.GetUserData().pipe(map(user => {
+      console.log(user.userType);
+      return (user.userType === 'User' ) ? true : false;
+    }));
   }
 }

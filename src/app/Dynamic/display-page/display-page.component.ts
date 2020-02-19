@@ -39,6 +39,14 @@ export class DisplayPageComponent implements OnInit {
       this.fetchUser();
     });
 
+    this.firestore.collection('CustomerPosts').snapshotChanges().subscribe(actionArray =>{
+      this.list = actionArray.map(item => {
+        return{id : item.payload.doc.id,
+          ...item.payload.doc.data() 
+          } as photo
+      })
+    })
+
     this.authService.authenticated.subscribe(isAuthed => {
       this.flag = isAuthed;
       this.Log = this.authService.GetUserData().subscribe(user => {
@@ -64,7 +72,7 @@ export class DisplayPageComponent implements OnInit {
     if (!!this.id) {
       this.firestore.collection('users').doc(this.id.toString()).snapshotChanges().subscribe(data => {
         this.user = data.payload.data() as User;
-        console.log(this.user);
+        console.log("mama :" + this.user);
       });
     }
   }
