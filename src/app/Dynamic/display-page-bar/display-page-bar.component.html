@@ -1,4 +1,5 @@
-<div class="sidebar-fixed position-fixed depth " style="padding-top: 5%; background-color: #eee;">              
+<div class="sidebar-fixed position-fixed depth " style="padding-top: 5%; background-color: #eee; overflow-y: auto;"> 
+                 
         <div class="text-center view overlay zoom" style="padding-top: 10px;" >
             <img src="{{this.Log.photoURL}}" class="rounded-circle" width="180px" height="180px" style="padding-left: 10px;"  >
             <br>
@@ -9,16 +10,34 @@
         </div>
     
     
-    
+        
         <div class="list-group list-group-flush" style="padding-top:50px;">
-            <div *ngIf="this.Log.userType==='Professional'" >
+            <div  *ngIf="this.Log.userType==='Professional'" >
                
-                <a [routerLink]="['/EventMain']" class="list-group-item list-group-item-action waves-effect" style="background-color:transparent;" mdbWavesEffect> 
-                    <mdb-icon fas icon="chart-pie" class="mr-3"></mdb-icon> <strong>Profile</strong> 
+                <a [routerLink]="['../Photographer']" class="list-group-item list-group-item-action waves-effect example hoverable" style="background-color:transparent;" mdbWavesEffect> 
+                    <mdb-icon fas icon="angle-right" class="mr-3"></mdb-icon> <strong>Photographers</strong> 
+                </a>                
+                <a [routerLink]="['../Videographer']" class="list-group-item list-group-item-action waves-effect example hoverable" style="background-color:transparent;"  mdbWavesEffect>
+                    <mdb-icon fas icon="angle-right" class="mr-3"></mdb-icon> Videographers
                 </a>
+                <a [routerLink]="['../Beautician']" class="list-group-item list-group-item-action waves-effect example hoverable" style="background-color:transparent;" mdbWavesEffect>
+                    <mdb-icon fas icon="angle-right" class="mr-3"></mdb-icon> Beauticians
+                </a>
+                <a [routerLink]="['../music']" class="list-group-item list-group-item-action waves-effect example hoverable" style="background-color:transparent;" mdbWavesEffect>
+                    <mdb-icon fas icon="angle-right" class="mr-3"></mdb-icon> Music
+                </a>
+                <a [routerLink]="['../cater']" class="list-group-item list-group-item-action waves-effect example hoverable" style="background-color:transparent;" mdbWavesEffect>
+                    <mdb-icon fas icon="angle-right" class="mr-3"></mdb-icon> Caters
+                </a>
+                <a [routerLink]="['../all']" class="list-group-item list-group-item-action waves-effect example hoverable" style="background-color:transparent;" mdbWavesEffect>
+                    <mdb-icon fas icon="angle-right" class="mr-3"></mdb-icon> All Professionals
+                </a>
+
                
-            </div>
+            </div >
+
             <div *ngIf="this.Log.userType==='User'" >
+                
                 
                 <a [routerLink]="['../weddings']" class="list-group-item list-group-item-action waves-effect example hoverable" style="background-color:transparent;" mdbWavesEffect> 
                     <mdb-icon fas icon="angle-right" class="mr-3"></mdb-icon> <strong>Weddings</strong> 
@@ -39,8 +58,31 @@
                     <mdb-icon fas icon="angle-right" class="mr-3"></mdb-icon> All events
                 </a>
 
+
+
+                <a [routerLink]="['/FilterPagePro/Photographer']" class="list-group-item list-group-item-action waves-effect example hoverable" style="background-color:transparent;" mdbWavesEffect> 
+                    <mdb-icon fas icon="angle-right" class="mr-3"></mdb-icon> <strong>Photographers</strong> 
+                </a>                
+                <a [routerLink]="['../Videographer']" class="list-group-item list-group-item-action waves-effect example hoverable" style="background-color:transparent;"  mdbWavesEffect>
+                    <mdb-icon fas icon="angle-right" class="mr-3"></mdb-icon> Videographers
+                </a>
+                <a [routerLink]="['../Beautician']" class="list-group-item list-group-item-action waves-effect example hoverable" style="background-color:transparent;" mdbWavesEffect>
+                    <mdb-icon fas icon="angle-right" class="mr-3"></mdb-icon> Beauticians
+                </a>
+                <a [routerLink]="['../music']" class="list-group-item list-group-item-action waves-effect example hoverable" style="background-color:transparent;" mdbWavesEffect>
+                    <mdb-icon fas icon="angle-right" class="mr-3"></mdb-icon> Music
+                </a>
+                <a [routerLink]="['../cater']" class="list-group-item list-group-item-action waves-effect example hoverable" style="background-color:transparent;" mdbWavesEffect>
+                    <mdb-icon fas icon="angle-right" class="mr-3"></mdb-icon> Caters
+                </a>
+                <a [routerLink]="['../all']" class="list-group-item list-group-item-action waves-effect example hoverable" style="background-color:transparent;" mdbWavesEffect>
+                    <mdb-icon fas icon="angle-right" class="mr-3"></mdb-icon> All Professionals
+                </a>
+
+
             </div>
         </div>
+    
        
 </div>
 

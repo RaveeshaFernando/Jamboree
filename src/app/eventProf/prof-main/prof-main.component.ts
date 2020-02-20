@@ -18,7 +18,7 @@ export class ProfMainComponent implements OnInit {
 
   uploadPercent: Observable<number>;
   downloadURL: Observable<string>;
-  image: string = null;
+  image: any;
   list: photo[];
 
   constructor(

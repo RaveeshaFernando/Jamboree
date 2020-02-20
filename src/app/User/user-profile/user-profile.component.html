@@ -255,7 +255,7 @@
                                                 </mat-form-field>
 
                                                 <mat-form-field class="col-lg-6 col-md-6 col-sm-6">
-                                                    <input matInput placeholder="Mobile"  name="contact" #contact="ngModel" value="{{this.Log.contact}}" [(ngModel)]="users.userData.contact" required> 
+                                                    <input matInput placeholder="Mobile" type="tel" minlength="10" maxlength="10" name="contact" #contact="ngModel" value="{{this.Log.contact}}" [(ngModel)]="users.userData.contact" required> 
                                                 </mat-form-field>
                                 
                                                 
@@ -271,7 +271,7 @@
                                                     </div>
                                                     
                                                     <div class="col-lg-7 col-md-7 col-sm-7">
-                                                        <form>
+                                                        <!-- <form>
                                                          <div class="form-check">   
                                                              <div>
                                                             <input type="checkbox" class="form-check-input" name="weddings" id="weddings" value="weddings" >
@@ -291,9 +291,9 @@
 
                                                             
                                                          </div>
-                                                        </form> 
+                                                        </form>  -->
                                                        
-                                                        <!-- <select class="mdb-select md-form col-lg-12 custom-select" style="background-color: transparent;" name="eType" #eType="ngModel"  [(ngModel)]="users.userData.eType" required> 
+                                                        <select class="mdb-select md-form col-lg-12 custom-select" style="background-color: transparent;" name="eType" #eType="ngModel"  [(ngModel)]="users.userData.eType" required> 
                                                             <option value="" disabled selected>Event Type</option>
                                                             <option value="Wedding">Wedding</option>
                                                             <option value="Parties">Parties</option>
@@ -301,7 +301,7 @@
                                                             <option value="Sports">Sports</option>
                                                             
                                                             <option value="all">Catering</option>
-                                                        </select> -->
+                                                        </select>
                                                     </div>
                                                     <div class="col-lg-7 col-md-7 col-sm-7">
                                                         <select class="mdb-select md-form col-lg-12 custom-select" style="background-color: transparent;" name="district" #district="ngModel" [(ngModel)]="users.userData.district" required> 

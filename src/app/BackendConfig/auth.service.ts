@@ -41,7 +41,7 @@ export class AuthService {
         console.log('lllll - ', localStorage.getItem('type'));
 
         this.afs.collection('users').doc(localStorage.getItem('user')).snapshotChanges().subscribe(async userNew => {
-          localStorage.setItem('type', await userNew.payload.data().userType);
+          localStorage.setItem('type', await userNew.payload.data()['userType']);
           localStorage.setItem('type', this.Log.uid);
         });
 

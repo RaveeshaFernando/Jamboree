@@ -1,55 +1,28 @@
 <app-prof-sidebar></app-prof-sidebar>
 
 <div class="depth" style="padding-top:75px">
-    <div class="wrapper">
-        <div class="page-header page-header-small" filter-color="orange">
-            <div class="page-header-image rellax-header" data-rellax-speed="-8" style="background-image: url('assets/img/Gallery/blog1.jpg') ;">
-            </div>
-            <div class="container">
-                <div class="content-center">
-                    <div class="photo-container" style="padding-top:120px;">
-                        <img src="{{this.Log.photoURL}}" alt="" class="rounded-circle" width="200px" height="200px">
-                    </div>
-                    <br>
-                    <h3 class="title">{{this.Log.displayName}}</h3>
-                    <h5 class="text-muted">{{this.Log.eType}}</h5>
-                </div>
-            </div>
-        </div>
-
-        <div class="row" style="padding:10px ">
-
-          <div class="col-lg-7">
-            <div class="container">
-               
-                  <div *ngFor="let item of list" class="card " style="width: 270px; height: 200px; margin:12px; ">
-                    <div class="row">
-                        <div >
-                          <button type="button" style="padding: 0px;" style="background-color: transparent;" class="waves-light" data-toggle="modal" data-target="#basicExample" (click)="previewImage(item,frame)" mdbWavesEffect>
-                              <img  src="{{item.data}}">
-                          </button>
-                        </div>
-                    </div>
+  <div class="wrapper">
+      <div class="page-header page-header-small" filter-color="orange">
+          <div class="page-header-image rellax-header" data-rellax-speed="-8" style="background-image: url('assets/img/Gallery/blog1.jpg') ;">
+          </div>
+          <div class="container">
+              <div class="content-center">
+                  <div class="photo-container" style="padding-top:120px;">
+                      <img src="{{this.Log.photoURL}}" alt="" class="rounded-circle" width="200px" height="200px">
                   </div>
-            </div>
+                  <br>
+                  <h1 class="title">{{this.Log.displayName}}</h1>
+                  <h3 class="text-muted">{{this.Log.eType}}</h3>
+              </div>
           </div>
       </div>
 
-          <div class="col-lg-5"  style="padding-top:20px">
-            <div class="card  peach-gradient-rgba">
-              <div class="container">
-                <div class="d-flex justify-content-center" style="padding-top: 25px;">
-                  <h3 class="title">User Bio</h3>
-                </div>
-                <p style="padding-left: 30px;padding-bottom: 30px;text-align: justify;padding-right: 30px;"> {{this.Log.description}} </p>
-              </div>
-            </div>
- 
-            <div class="card peach-gradient-rgba">
-              <div class="d-flex justify-content-center" style="padding-top: 25px;">
-                <h3 class="title">Profile Information</h3>
-              </div>
-              <div style="padding-left: 30px;padding-bottom: 30px;text-align: justify;padding-right: 30px;">
+      <div class="row" style="padding:10px ">
+
+        <div class="col-lg-7">
+          <div class="container">
+             
+                <div *ngFor="let item of list" class="card " style="width: 270px; height: 200px; margin:12px; ">
                   <div class="row">
                       <div >
                         <button type="button" style="padding: 0px;" style="background-color: transparent;" class="waves-light" data-toggle="modal" data-target="#basicExample" (click)="previewImage(item,frame)" mdbWavesEffect>
@@ -61,7 +34,7 @@
           </div>
         </div>
 
-        <div class="col-lg-5">
+        <div class="col-lg-5"  style="padding-top:20px">
           <div class="card  peach-gradient-rgba">
             <div class="container">
               <div class="d-flex justify-content-center" style="padding-top: 25px;">
@@ -168,6 +141,7 @@
 
 
 <!-- ------------------------------------------------------- image preview-------------------------------------------------------------------- -->
+
   
   <div mdbModal #frame="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
     <div class="modal-dialog modal-dialog-centered  modal-notify modal-info" role="document">
@@ -180,10 +154,9 @@
                 </button>
             </div>  
 
-              <div class="modal-body">
-                <img src="{{image}}" alt="customer posts" >
-              </div>
-          </div>
-      </div>
+            <div class="modal-body">
+              <img src="{{image}}" alt="customer posts" >
+            </div>
+        </div>
     </div>
-  
+  </div>

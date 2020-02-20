@@ -56,7 +56,7 @@ export class FilterPageProComponent implements OnInit {
       })
 
       this.filtered = this.users.filter(item => {
-        return item.eProf == this.type;
+        return item.eType == this.type;
       })
 
       console.log(this.users)

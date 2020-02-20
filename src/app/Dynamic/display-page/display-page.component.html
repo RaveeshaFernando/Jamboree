@@ -1,4 +1,4 @@
-<displayBar></displayBar>
+ <displayBar></displayBar>
 
 <div class="depth" style="padding-top:75px">
     <div class="wrapper">
@@ -131,7 +131,7 @@
 
 
 <div mdbModal #frame="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myM odalLabel" aria-hidden="true" >
-    <div class="modal-dialog modal-dialog-centered  modal-notify modal-info" role="document">
+    <div class="modal-dialog modal-dialog-centered  modal-notify modal-info" role="document"  >
         <div class="modal-content">
             <div class="modal-header" >
                 <p class="heading lead white-text"> Edit User Details</p>
@@ -215,11 +215,11 @@
                     <mat-form-field class="col-lg-6">
                         <input matInput placeholder="Event Location"  name="city" #city="ngModel" [(ngModel)]="city.value" required > 
                     </mat-form-field>
-
-                    <mat-form-field class="datepicker">
-                        <input matInput [min]="minDate"  [matDatepicker]="picker" placeholder="Event Date" name="Date" #Date="ngModel" [(ngModel)]="Date.value" required > 
-                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                        <mat-datepicker #picker></mat-datepicker>
+                    
+                    <mat-form-field class="datepicker" >
+                        <input matInput [min]="minDate"  [matDatepicker]="picker" placeholder="Event Date" name="Date" #Date="ngModel" [(ngModel)]="Date.value" required   > 
+                        <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
+                        <mat-datepicker #picker ></mat-datepicker>
                     </mat-form-field>
 
                     <mat-form-field class="col-lg-12 col-md-12  col-sm-12">
